@@ -1,0 +1,2484 @@
+<title>Granite Flyway</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ---- Granite Flyway -------------------------------------------------------
+   Layout: a fixed command bar and zone strip over a full-bleed vector chart,
+   with a left instrument rail and a right detail slip. Below 900px the rail
+   and slip become overlays and the chart keeps the full width.            */
+:root{
+  --bg:#e4e9e7; --surface:#f6f9f8; --surface2:#ffffff; --sunk:#dae2df;
+  --line:#c6d2ce; --line2:#a9b8b3;
+  --fg:#16201e; --dim:#5b6b66;
+  --accent:#8a6b14; --accent-ink:#fffdf5;
+  --open:#1f6f4e; --closed:#a33a2b; --warn:#92650f; --info:#2d6183;
+  --m-land:#d3dbd7; --m-nh:#e8ede9; --m-edge:#7d8d88; --m-water:#a9c8dd; --m-waterline:#6d9ab8;
+  --m-marsh:#a2b68c; --m-marshline:#7d9468; --m-stream:#78a5c3;
+  --m-public:#93b180; --m-publicline:#6d8e5b;
+  --m-label:#273733; --m-halo:#ffffff;
+  --m-access:#6b4ea8; --m-closed:#b5392a; --m-spot:#1f6f4e;
+  --shadow:0 1px 3px rgba(20,35,32,.10), 0 10px 30px rgba(20,35,32,.12);
+  --f-disp:"Bitter",Georgia,"Times New Roman",serif;
+  --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --f-data:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --rail:308px; --railwide:430px; --slip:352px;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --bg:#0c1315; --surface:#141d20; --surface2:#1c272b; --sunk:#080e10;
+  --line:#28363b; --line2:#3b4d53;
+  --fg:#e7eeeb; --dim:#91a5a0;
+  --accent:#d9b457; --accent-ink:#171203;
+  --open:#4fb285; --closed:#e0705f; --warn:#dfa54c; --info:#6aa8cf;
+  --m-land:#0e1517; --m-nh:#1b2628; --m-edge:#49605f; --m-water:#1b3a4e; --m-waterline:#3d7295;
+  --m-marsh:#2b3f2d; --m-marshline:#53734a; --m-stream:#35688a;
+  --m-public:#28422d; --m-publicline:#4c7152;
+  --m-label:#cfdcd7; --m-halo:#0a1113;
+  --m-access:#a98ae0; --m-closed:#e0705f; --m-spot:#4fb285;
+  --shadow:0 1px 3px rgba(0,0,0,.5), 0 12px 34px rgba(0,0,0,.55);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0c1315; --surface:#141d20; --surface2:#1c272b; --sunk:#080e10;
+  --line:#28363b; --line2:#3b4d53;
+  --fg:#e7eeeb; --dim:#91a5a0;
+  --accent:#d9b457; --accent-ink:#171203;
+  --open:#4fb285; --closed:#e0705f; --warn:#dfa54c; --info:#6aa8cf;
+  --m-land:#0e1517; --m-nh:#1b2628; --m-edge:#49605f; --m-water:#1b3a4e; --m-waterline:#3d7295;
+  --m-marsh:#2b3f2d; --m-marshline:#53734a; --m-stream:#35688a;
+  --m-public:#28422d; --m-publicline:#4c7152;
+  --m-label:#cfdcd7; --m-halo:#0a1113;
+  --m-access:#a98ae0; --m-closed:#e0705f; --m-spot:#4fb285;
+  --shadow:0 1px 3px rgba(0,0,0,.5), 0 12px 34px rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:14px;line-height:1.45;
+  overflow:hidden;-webkit-text-size-adjust:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.app{display:flex;flex-direction:column;height:100%;min-height:0}
+
+/* ---------- command bar ---------- */
+.bar{display:flex;align-items:center;gap:14px;flex:0 0 auto;background:var(--surface);
+  border-bottom:1px solid var(--line);
+  padding-block:8px;padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px));
+  position:relative;z-index:60}
+.brand{display:flex;align-items:center;gap:9px;min-width:0}
+.brand svg{width:26px;height:26px;flex:0 0 auto;color:var(--accent)}
+.word{font-family:var(--f-disp);font-weight:700;font-size:17px;letter-spacing:.2px;white-space:nowrap}
+.season{font-family:var(--f-data);font-size:10.5px;letter-spacing:.07em;color:var(--accent);
+  border:1px solid var(--accent);border-radius:3px;padding:1px 5px;white-space:nowrap}
+.spacer{flex:1 1 auto;min-width:0}
+.datebox{display:flex;align-items:center;gap:0;background:var(--surface2);border:1px solid var(--line);
+  border-radius:6px;overflow:hidden;flex:0 0 auto}
+.datebox button{padding:6px 9px;color:var(--dim);font-size:15px;line-height:1}
+.datebox button:hover{background:var(--sunk);color:var(--fg)}
+.dface{position:relative;padding:4px 10px;border-left:1px solid var(--line);border-right:1px solid var(--line);
+  min-width:150px;text-align:center}
+.dface input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;border:0;padding:0}
+.dlabel{font-family:var(--f-data);font-size:12.5px;white-space:nowrap;pointer-events:none}
+.dsub{font-size:10px;color:var(--dim);letter-spacing:.05em;text-transform:uppercase;pointer-events:none}
+.today{padding:6px 11px !important;font-size:11.5px !important;letter-spacing:.05em;text-transform:uppercase;
+  font-weight:600;color:var(--accent) !important}
+.tabs{display:flex;gap:2px;flex:0 0 auto}
+.tabs button{padding:7px 11px;border-radius:5px;font-size:12.5px;font-weight:600;color:var(--dim);white-space:nowrap}
+.tabs button:hover{background:var(--sunk);color:var(--fg)}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.iconbtn{padding:7px;border-radius:5px;color:var(--dim);display:grid;place-items:center}
+.iconbtn:hover{background:var(--sunk);color:var(--fg)}
+.iconbtn svg{width:17px;height:17px;display:block}
+
+/* ---------- zone strip ---------- */
+.strip{display:flex;gap:1px;flex:0 0 auto;background:var(--line);border-bottom:1px solid var(--line);
+  overflow-x:auto;scrollbar-width:none;z-index:50}
+.strip::-webkit-scrollbar{display:none}
+.zchip{flex:1 1 0;min-width:142px;background:var(--surface);padding:7px 11px;text-align:left;
+  border-top:3px solid transparent;transition:background .12s}
+.zchip:hover{background:var(--surface2)}
+.zchip[aria-pressed="true"]{background:var(--surface2)}
+.zchip .zn{font-family:var(--f-disp);font-weight:600;font-size:12.5px;display:flex;align-items:center;gap:6px}
+.zsw{width:9px;height:9px;border-radius:2px;flex:0 0 auto}
+.zchip .zs{font-family:var(--f-data);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;margin-top:1px}
+.zchip .zd{font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.is-open{color:var(--open)} .is-closed{color:var(--closed)} .is-soon{color:var(--warn)}
+
+/* ---------- body ---------- */
+.body{flex:1 1 auto;display:flex;min-height:0;position:relative}
+.rail{flex:0 0 var(--rail);width:var(--rail);transition:flex-basis .15s,width .15s;background:var(--surface);border-right:1px solid var(--line);
+  overflow-y:auto;overscroll-behavior:contain;padding-bottom:28px}
+.rail.wide{flex-basis:var(--railwide);width:var(--railwide)}
+.mapwrap{flex:1 1 auto;position:relative;min-width:0;background:var(--m-land)}
+#map{position:absolute;inset:0;background:var(--m-land)}
+.slip{flex:0 0 var(--slip);width:var(--slip);background:var(--surface);border-left:1px solid var(--line);
+  overflow-y:auto;overscroll-behavior:contain;padding-bottom:28px}
+
+/* ---------- panel furniture ---------- */
+.psec{border-bottom:1px solid var(--line)}
+.phead{display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;text-align:left;
+  font-family:var(--f-disp);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.phead:hover{color:var(--fg)}
+.phead .chev{margin-left:auto;transition:transform .15s}
+.phead[aria-expanded="false"] .chev{transform:rotate(-90deg)}
+.pbody{padding:0 14px 14px}
+.row{display:flex;align-items:center;gap:8px}
+.between{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.lab{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);font-weight:600}
+.val{font-family:var(--f-data);font-size:13px;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim)}
+.small{font-size:12px}
+.tiny{font-size:11px}
+hr.sep{border:0;border-top:1px solid var(--line);margin:11px 0}
+
+.toggle{display:flex;align-items:center;gap:9px;padding:5px 0;cursor:pointer;user-select:none}
+.toggle input{appearance:none;width:30px;height:17px;border-radius:9px;background:var(--line2);position:relative;
+  flex:0 0 auto;transition:background .14s;cursor:pointer;margin:0}
+.toggle input::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;
+  background:var(--surface2);transition:transform .14s}
+.toggle input:checked{background:var(--accent)}
+.toggle input:checked::after{transform:translateX(13px)}
+.toggle .sw{width:11px;height:11px;border-radius:2px;flex:0 0 auto}
+.toggle span.t{font-size:13px}
+.toggle .ct{margin-left:auto;font-family:var(--f-data);font-size:10.5px;color:var(--dim)}
+
+.seg{display:flex;background:var(--sunk);border-radius:6px;padding:2px;gap:2px}
+.seg button{flex:1 1 0;padding:5px 6px;border-radius:4px;font-size:11.5px;font-weight:600;color:var(--dim)}
+.seg button[aria-pressed="true"]{background:var(--surface2);color:var(--fg);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+
+.fld{width:100%;padding:7px 9px;background:var(--surface2);border:1px solid var(--line);border-radius:5px;
+  font-size:13px;min-width:0}
+textarea.fld{resize:vertical;min-height:62px;font-family:var(--f-body)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 12px;border-radius:5px;
+  background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:12.5px}
+.btn.ghost{background:transparent;border:1px solid var(--line2);color:var(--fg)}
+.btn.ghost:hover{background:var(--sunk)}
+.btn[disabled]{opacity:.5;cursor:default}
+
+/* ---------- season timeline ---------- */
+.tl{display:grid;grid-template-columns:62px 1fr;gap:4px 7px;align-items:center;margin-top:6px}
+.tlname{font-size:11px;font-weight:600;color:var(--dim);text-align:right;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.tltrack{position:relative;height:15px;background:var(--sunk);border-radius:3px;overflow:hidden}
+.tlseg{position:absolute;top:0;bottom:0;background:var(--open);opacity:.85}
+.tlnow{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--accent);z-index:3}
+.tlaxis{position:relative;height:14px;font-family:var(--f-data);font-size:9px;color:var(--dim)}
+.tlaxis span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.tlaxis span::before{content:"";position:absolute;left:50%;top:-4px;height:3px;width:1px;background:var(--line2)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+
+/* ---------- lists ---------- */
+.list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:6px;overflow:hidden}
+.item{display:block;width:100%;text-align:left;background:var(--surface2);padding:8px 10px}
+.item:hover{background:var(--sunk)}
+.item .t1{font-size:13px;font-weight:600;line-height:1.25}
+.item .t2{font-size:11.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{display:inline-block;font-family:var(--f-data);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;
+  padding:1px 5px;border-radius:3px;border:1px solid currentColor;white-space:nowrap}
+.tagrow{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+
+/* ---------- slip (detail) ---------- */
+.sliphead{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);
+  padding:11px 14px;display:flex;align-items:flex-start;gap:10px;z-index:2}
+.sliphead h2{margin:0;font-family:var(--f-disp);font-size:16.5px;font-weight:700;line-height:1.2;text-wrap:balance}
+.sliphead .sub{font-size:11.5px;color:var(--dim);margin-top:2px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12.5px;margin:0}
+.kv dt{color:var(--dim);white-space:nowrap}
+.kv dd{margin:0;font-family:var(--f-data);font-size:12px;text-align:right;font-variant-numeric:tabular-nums}
+.note{background:var(--sunk);border-left:3px solid var(--line2);padding:8px 10px;border-radius:0 4px 4px 0;font-size:12.5px}
+.note.alert{border-left-color:var(--closed);color:var(--fg)}
+.note.good{border-left-color:var(--open)}
+
+/* ---------- reference tables ---------- */
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface2)}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+table.wide{width:max-content;min-width:100%}
+table.wide th,table.wide td{white-space:nowrap}
+th,td{text-align:left;padding:6px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);font-weight:600;
+  background:var(--surface);position:sticky;top:0}
+td.num{font-family:var(--f-data);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+a{color:var(--info)}
+a:hover{text-decoration:underline}
+
+/* ---------- map furniture ---------- */
+.mapctl{position:absolute;right:calc(10px + env(safe-area-inset-right,0px));top:10px;display:flex;
+  flex-direction:column;gap:6px;z-index:500}
+.mapctl button{width:32px;height:32px;background:var(--surface);border:1px solid var(--line);border-radius:6px;
+  color:var(--fg);display:grid;place-items:center;box-shadow:var(--shadow)}
+.mapctl button:hover{background:var(--surface2)}
+.mapctl button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.mapctl svg{width:16px;height:16px;display:block}
+.readout{position:absolute;left:calc(10px + env(safe-area-inset-left,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));
+  z-index:500;display:flex;flex-direction:column;gap:5px;align-items:flex-start;pointer-events:none;max-width:min(62%,420px)}
+.scalebar{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:2px 6px;
+  font-family:var(--f-data);font-size:10px;box-shadow:var(--shadow)}
+.scalebar i{display:block;height:3px;background:var(--fg);margin-top:2px}
+.attrib{font-size:9.5px;color:var(--dim);background:var(--surface);border:1px solid var(--line);
+  border-radius:4px;padding:2px 6px;box-shadow:var(--shadow)}
+.crosshair{position:absolute;inset:0;pointer-events:none;z-index:400;display:none}
+.crosshair.on{display:block}
+.crosshair::before,.crosshair::after{content:"";position:absolute;background:var(--accent);opacity:.85}
+.crosshair::before{left:50%;top:calc(50% - 11px);width:1px;height:22px;transform:translateX(-50%)}
+.crosshair::after{top:50%;left:calc(50% - 11px);height:1px;width:22px;transform:translateY(-50%)}
+.loading{position:absolute;inset:0;display:grid;place-items:center;background:var(--m-land);z-index:900;
+  font-family:var(--f-data);font-size:12px;color:var(--dim);text-align:center;padding:20px}
+.loading b{display:block;font-family:var(--f-disp);font-size:15px;color:var(--fg);margin-bottom:6px}
+.leaflet-container{background:var(--m-land);font-family:var(--f-body)}
+.leaflet-control-attribution{display:none}
+
+/* ---------- mobile ---------- */
+.scrim{position:fixed;inset:0;background:rgba(8,14,16,.5);z-index:70;display:none}
+.scrim.on{display:block}
+.mobtabs{display:none}
+@media (max-width:900px){
+  .rail{position:absolute;left:0;top:0;bottom:0;z-index:80;box-shadow:var(--shadow);
+    transform:translateX(-100%);transition:transform .2s;width:min(88vw,var(--rail))}
+  .rail.on{transform:none}
+  .rail.wide{flex-basis:auto;width:min(94vw,var(--railwide))}
+  .slip{position:absolute;right:0;top:0;bottom:0;z-index:80;box-shadow:var(--shadow);width:min(92vw,var(--slip))}
+  .tabs{display:none}
+  .mobtabs{display:flex;gap:2px;flex:0 0 auto}
+  .word{font-size:15px}
+  .season{display:none}
+  .zchip{min-width:124px}
+}
+@media (max-width:560px){
+  .bar{gap:8px;flex-wrap:wrap;padding-block:7px}
+  .datebox{order:3;width:100%}
+  .dface{flex:1 1 auto}
+  .brand .word{font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+
+/* --- Leaflet 1.9.4 --- */
+
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+.leaflet-container {
+	overflow: hidden;
+	}
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+	  -webkit-user-drag: none;
+	}
+.leaflet-tile::selection {
+	background: transparent;
+}
+.leaflet-safari .leaflet-tile {
+	image-rendering: -webkit-optimize-contrast;
+	}
+.leaflet-safari .leaflet-tile-container {
+	width: 1600px;
+	height: 1600px;
+	-webkit-transform-origin: 0 0;
+	}
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	display: block;
+	}
+.leaflet-container .leaflet-overlay-pane svg {
+	max-width: none !important;
+	max-height: none !important;
+	}
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-shadow-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container .leaflet-tile {
+	max-width: none !important;
+	max-height: none !important;
+	width: auto;
+	padding: 0;
+	}
+.leaflet-container img.leaflet-tile {
+	mix-blend-mode: plus-lighter;
+}
+.leaflet-container.leaflet-touch-zoom {
+	-ms-touch-action: pan-x pan-y;
+	touch-action: pan-x pan-y;
+	}
+.leaflet-container.leaflet-touch-drag {
+	-ms-touch-action: pinch-zoom;
+	touch-action: none;
+	touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.leaflet-container {
+	-webkit-tap-highlight-color: transparent;
+}
+.leaflet-container a {
+	-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+}
+.leaflet-tile {
+	filter: inherit;
+	visibility: hidden;
+	}
+.leaflet-tile-loaded {
+	visibility: inherit;
+	}
+.leaflet-zoom-box {
+	width: 0;
+	height: 0;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	z-index: 800;
+	}
+.leaflet-overlay-pane svg {
+	-moz-user-select: none;
+	}
+.leaflet-pane         { z-index: 400; }
+.leaflet-tile-pane    { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane  { z-index: 500; }
+.leaflet-marker-pane  { z-index: 600; }
+.leaflet-tooltip-pane   { z-index: 650; }
+.leaflet-popup-pane   { z-index: 700; }
+.leaflet-map-pane canvas { z-index: 100; }
+.leaflet-map-pane svg    { z-index: 200; }
+.leaflet-vml-shape {
+	width: 1px;
+	height: 1px;
+	}
+.lvml {
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+	}
+.leaflet-control {
+	position: relative;
+	z-index: 800;
+	pointer-events: visiblePainted; 
+	pointer-events: auto;
+	}
+.leaflet-top,
+.leaflet-bottom {
+	position: absolute;
+	z-index: 1000;
+	pointer-events: none;
+	}
+.leaflet-top {
+	top: 0;
+	}
+.leaflet-right {
+	right: 0;
+	}
+.leaflet-bottom {
+	bottom: 0;
+	}
+.leaflet-left {
+	left: 0;
+	}
+.leaflet-control {
+	float: left;
+	clear: both;
+	}
+.leaflet-right .leaflet-control {
+	float: right;
+	}
+.leaflet-top .leaflet-control {
+	margin-top: 10px;
+	}
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 10px;
+	}
+.leaflet-left .leaflet-control {
+	margin-left: 10px;
+	}
+.leaflet-right .leaflet-control {
+	margin-right: 10px;
+	}
+.leaflet-fade-anim .leaflet-popup {
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	   -moz-transition: opacity 0.2s linear;
+	        transition: opacity 0.2s linear;
+	}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+	opacity: 1;
+	}
+.leaflet-zoom-animated {
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+	}
+svg.leaflet-zoom-animated {
+	will-change: transform;
+}
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+	}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile {
+	-webkit-transition: none;
+	   -moz-transition: none;
+	        transition: none;
+	}
+.leaflet-zoom-anim .leaflet-zoom-hide {
+	visibility: hidden;
+	}
+.leaflet-interactive {
+	cursor: pointer;
+	}
+.leaflet-grab {
+	cursor: -webkit-grab;
+	cursor:    -moz-grab;
+	cursor:         grab;
+	}
+.leaflet-crosshair,
+.leaflet-crosshair .leaflet-interactive {
+	cursor: crosshair;
+	}
+.leaflet-popup-pane,
+.leaflet-control {
+	cursor: auto;
+	}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor:    -moz-grabbing;
+	cursor:         grabbing;
+	}
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-image-layer,
+.leaflet-pane > svg path,
+.leaflet-tile-container {
+	pointer-events: none;
+	}
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+	pointer-events: visiblePainted; 
+	pointer-events: auto;
+	}
+.leaflet-container {
+	background: #ddd;
+	outline-offset: 1px;
+	}
+.leaflet-container a {
+	color: #0078A8;
+	}
+.leaflet-zoom-box {
+	border: 2px dotted #38f;
+	background: rgba(255,255,255,0.5);
+	}
+.leaflet-container {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	}
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 4px;
+	}
+.leaflet-bar a {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+	}
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+	background-color: #f4f4f4;
+	}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom: none;
+	}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f4f4f4;
+	color: #bbb;
+	}
+.leaflet-touch .leaflet-bar a {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	}
+.leaflet-touch .leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	}
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font: bold 18px 'Lucida Console', Monaco, monospace;
+	text-indent: 1px;
+	}
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
+	font-size: 22px;
+	}
+.leaflet-control-layers {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #fff;
+	border-radius: 5px;
+	}
+.leaflet-control-layers-toggle {
+	background-image: none;
+	width: 36px;
+	height: 36px;
+	}
+.leaflet-retina .leaflet-control-layers-toggle {
+	background-image: none;
+	background-size: 26px 26px;
+	}
+.leaflet-touch .leaflet-control-layers-toggle {
+	width: 44px;
+	height: 44px;
+	}
+.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+	display: none;
+	}
+.leaflet-control-layers-expanded .leaflet-control-layers-list {
+	display: block;
+	position: relative;
+	}
+.leaflet-control-layers-expanded {
+	padding: 6px 10px 6px 6px;
+	color: #333;
+	background: #fff;
+	}
+.leaflet-control-layers-scrollbar {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-right: 5px;
+	}
+.leaflet-control-layers-selector {
+	margin-top: 2px;
+	position: relative;
+	top: 1px;
+	}
+.leaflet-control-layers label {
+	display: block;
+	font-size: 13px;
+	font-size: 1.08333em;
+	}
+.leaflet-control-layers-separator {
+	height: 0;
+	border-top: 1px solid #ddd;
+	margin: 5px -10px 5px -6px;
+	}
+.leaflet-default-icon-path { 
+	background-image: none;
+	}
+.leaflet-container .leaflet-control-attribution {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	}
+.leaflet-control-attribution,
+.leaflet-control-scale-line {
+	padding: 0 5px;
+	color: #333;
+	line-height: 1.4;
+	}
+.leaflet-control-attribution a {
+	text-decoration: none;
+	}
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:focus {
+	text-decoration: underline;
+	}
+.leaflet-attribution-flag {
+	display: inline !important;
+	vertical-align: baseline !important;
+	width: 1em;
+	height: 0.6669em;
+	}
+.leaflet-left .leaflet-control-scale {
+	margin-left: 5px;
+	}
+.leaflet-bottom .leaflet-control-scale {
+	margin-bottom: 5px;
+	}
+.leaflet-control-scale-line {
+	border: 2px solid #777;
+	border-top: none;
+	line-height: 1.1;
+	padding: 2px 5px 1px;
+	white-space: nowrap;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px #fff;
+	}
+.leaflet-control-scale-line:not(:first-child) {
+	border-top: 2px solid #777;
+	border-bottom: none;
+	margin-top: -2px;
+	}
+.leaflet-control-scale-line:not(:first-child):not(:last-child) {
+	border-bottom: 2px solid #777;
+	}
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	box-shadow: none;
+	}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: 2px solid rgba(0,0,0,0.2);
+	background-clip: padding-box;
+	}
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+	}
+.leaflet-popup-content-wrapper {
+	padding: 1px;
+	text-align: left;
+	border-radius: 12px;
+	}
+.leaflet-popup-content {
+	margin: 13px 24px 13px 20px;
+	line-height: 1.3;
+	font-size: 13px;
+	font-size: 1.08333em;
+	min-height: 1px;
+	}
+.leaflet-popup-content p {
+	margin: 17px 0;
+	margin: 1.3em 0;
+	}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-top: -1px;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+	}
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+	margin: -10px auto 0;
+	pointer-events: auto;
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: white;
+	color: #333;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	}
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font: 16px/24px Tahoma, Verdana, sans-serif;
+	color: #757575;
+	text-decoration: none;
+	background: transparent;
+	}
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+	color: #585858;
+	}
+.leaflet-popup-scrolled {
+	overflow: auto;
+	}
+.leaflet-oldie .leaflet-popup-content-wrapper {
+	-ms-zoom: 1;
+	}
+.leaflet-oldie .leaflet-popup-tip {
+	width: 24px;
+	margin: 0 auto;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+	}
+.leaflet-oldie .leaflet-control-zoom,
+.leaflet-oldie .leaflet-control-layers,
+.leaflet-oldie .leaflet-popup-content-wrapper,
+.leaflet-oldie .leaflet-popup-tip {
+	border: 1px solid #999;
+	}
+.leaflet-div-icon {
+	background: #fff;
+	border: 1px solid #666;
+	}
+.leaflet-tooltip {
+	position: absolute;
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	color: #222;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	}
+.leaflet-tooltip.leaflet-interactive {
+	cursor: pointer;
+	pointer-events: auto;
+	}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	position: absolute;
+	pointer-events: none;
+	border: 6px solid transparent;
+	background: transparent;
+	content: "";
+	}
+.leaflet-tooltip-bottom {
+	margin-top: 6px;
+}
+.leaflet-tooltip-top {
+	margin-top: -6px;
+}
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-top:before {
+	left: 50%;
+	margin-left: -6px;
+	}
+.leaflet-tooltip-top:before {
+	bottom: 0;
+	margin-bottom: -12px;
+	border-top-color: #fff;
+	}
+.leaflet-tooltip-bottom:before {
+	top: 0;
+	margin-top: -12px;
+	margin-left: -6px;
+	border-bottom-color: #fff;
+	}
+.leaflet-tooltip-left {
+	margin-left: -6px;
+}
+.leaflet-tooltip-right {
+	margin-left: 6px;
+}
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	top: 50%;
+	margin-top: -6px;
+	}
+.leaflet-tooltip-left:before {
+	right: 0;
+	margin-right: -12px;
+	border-left-color: #fff;
+	}
+.leaflet-tooltip-right:before {
+	left: 0;
+	margin-left: -12px;
+	border-right-color: #fff;
+	}
+@media print {
+	.leaflet-control {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+		}
+	}
+
+</style>
+
+<div class="app">
+  <header class="bar">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 21c4.6 1.1 8.2.3 11.4-2.3"/>
+        <path d="M9.5 12.2c2.4-3.1 6-4.6 9.3-3.6 2.2.7 3.4 2.3 4.6 4.3l5.3 1.4-3.6 2.2c.5 3.4-1 6.3-4 8.1-3.6 2.1-8 1.7-11-.9"/>
+        <path d="M24.6 12.1h.02"/>
+      </svg>
+      <span class="word">Granite Flyway</span>
+      <span class="season">NH&nbsp;2026&ndash;27</span>
+    </div>
+    <div class="spacer"></div>
+    <div class="datebox">
+      <button id="dPrev" title="Previous day" aria-label="Previous day">&lsaquo;</button>
+      <div class="dface">
+        <input type="date" id="dPick" min="2026-08-15" max="2027-03-31" aria-label="Choose date">
+        <div class="dlabel" id="dLabel">&nbsp;</div>
+        <div class="dsub" id="dSub">&nbsp;</div>
+      </div>
+      <button id="dNext" title="Next day" aria-label="Next day">&rsaquo;</button>
+      <button id="dToday" class="today">Today</button>
+    </div>
+    <div class="spacer"></div>
+    <nav class="tabs" id="tabs"></nav>
+    <nav class="mobtabs"><button class="iconbtn" id="mRail" aria-label="Open panels">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button></nav>
+    <button class="iconbtn" id="themeBtn" aria-label="Switch theme" title="Switch theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </header>
+
+  <div class="strip" id="strip"></div>
+
+  <div class="body">
+    <aside class="rail" id="rail"></aside>
+    <div class="mapwrap">
+      <div id="map"></div>
+      <div class="crosshair" id="cross"></div>
+      <div class="mapctl">
+        <button id="zIn" aria-label="Zoom in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <button id="zOut" aria-label="Zoom out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+        <button id="zFit" aria-label="Fit New Hampshire" title="Whole state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+        <button id="zLoc" aria-label="Find me" title="Find me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
+        <button id="zPin" aria-label="Drop a spot" title="Drop a spot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></button>
+      </div>
+      <div class="readout">
+        <div class="scalebar" id="scale">&nbsp;<i style="width:60px"></i></div>
+        <div class="attrib" id="attrib">NH GRANIT &middot; NH Fish and Game &middot; NOAA &middot; OpenStreetMap</div>
+      </div>
+      <div class="loading" id="load"><div><b>Granite Flyway</b>Loading New Hampshire&hellip;</div></div>
+    </div>
+    <aside class="slip" id="slip" hidden></aside>
+  </div>
+  <div class="scrim" id="scrim"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+'use strict';
+
+/* =========================================================================
+   Granite Flyway — NH waterfowl zones, seasons, waters and access.
+   All geometry ships with the page; nothing is fetched from the network.
+   ========================================================================= */
+
+var $ = function (s) { return document.querySelector(s); };
+var DPR = Math.min(window.devicePixelRatio || 1, 2);
+var ZONE_IDS = ['northern', 'inland', 'ct', 'coastal'];
+var ZONE_COLOR = { northern: '#5b7fb8', inland: '#8a9a4e', ct: '#b06fa8', coastal: '#c9893c' };
+var SEASON_START = '2026-08-15', SEASON_END = '2027-03-31';
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function num(n, d) { return (n == null || isNaN(n)) ? '—' : Number(n).toFixed(d == null ? 0 : d); }
+function store(k, v) {
+  try { if (v === undefined) return localStorage.getItem('gf.' + k); localStorage.setItem('gf.' + k, v); }
+  catch (e) { return null; }
+}
+
+/* ---------------- varint geometry decoder (mirrors the packer) ----------- */
+function b64bytes(s) {
+  var bin = atob(s), n = bin.length, out = new Uint8Array(n);
+  for (var i = 0; i < n; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+function unpack(b64, metaLen) {
+  var b = b64bytes(b64), i = 0;
+  function u() { var r = 0, s = 0, c; do { c = b[i++]; r |= (c & 0x7f) << s; s += 7; } while (c & 0x80); return r >>> 0; }
+  function z() { var n = u(); return (n >>> 1) ^ -(n & 1); }
+  var n = u(), out = new Array(n);
+  for (var f = 0; f < n; f++) {
+    var meta = new Array(metaLen);
+    for (var m = 0; m < metaLen; m++) meta[m] = z();
+    var np = u(), parts = new Array(np);
+    var minx = Infinity, miny = Infinity, maxx = -Infinity, maxy = -Infinity;
+    for (var p = 0; p < np; p++) {
+      var cnt = u(), arr = new Float64Array(cnt * 2), px = 0, py = 0;
+      for (var k = 0; k < cnt; k++) {
+        px += z(); py += z();
+        var lon = px / 1e5, lat = py / 1e5;
+        var wx = projX(lon), wy = projY(lat);
+        arr[k * 2] = wx; arr[k * 2 + 1] = wy;
+        if (wx < minx) minx = wx; if (wx > maxx) maxx = wx;
+        if (wy < miny) miny = wy; if (wy > maxy) maxy = wy;
+      }
+      parts[p] = arr;
+    }
+    out[f] = { meta: meta, parts: parts, bb: [minx, miny, maxx, maxy] };
+  }
+  return out;
+}
+
+/* ---------------- Web Mercator world coords (Leaflet z0 pixel space) ----- */
+function projX(lon) { return (lon + 180) / 360 * 256; }
+function projY(lat) {
+  var s = Math.sin(lat * Math.PI / 180);
+  if (s > 0.9999) s = 0.9999; if (s < -0.9999) s = -0.9999;
+  return 128 - 64 * Math.log((1 + s) / (1 - s)) / Math.PI;
+}
+function unprojX(x) { return x / 256 * 360 - 180; }
+function unprojY(y) {
+  var t = Math.exp((128 - y) * Math.PI / 64);
+  return Math.asin((t - 1) / (t + 1)) * 180 / Math.PI;
+}
+function geoToWorld(fc) {   // GeoJSON FeatureCollection -> same shape as unpack()
+  return fc.features.map(function (f) {
+    var g = f.geometry;
+    var raw = g.type === 'Polygon' ? g.coordinates
+            : g.type === 'MultiPolygon' ? [].concat.apply([], g.coordinates)
+            : g.type === 'LineString' ? [g.coordinates] : g.coordinates;
+    var minx = Infinity, miny = Infinity, maxx = -Infinity, maxy = -Infinity;
+    var parts = raw.map(function (ring) {
+      var a = new Float64Array(ring.length * 2);
+      for (var i = 0; i < ring.length; i++) {
+        var wx = projX(ring[i][0]), wy = projY(ring[i][1]);
+        a[i * 2] = wx; a[i * 2 + 1] = wy;
+        if (wx < minx) minx = wx; if (wx > maxx) maxx = wx;
+        if (wy < miny) miny = wy; if (wy > maxy) maxy = wy;
+      }
+      return a;
+    });
+    return { meta: [], props: f.properties, parts: parts, bb: [minx, miny, maxx, maxy] };
+  });
+}
+function haversine(a, b, c, d) {   // lat1,lon1,lat2,lon2 -> miles
+  var R = 3958.8, r = Math.PI / 180;
+  var x = (d - b) * r * Math.cos((a + c) / 2 * r), y = (c - a) * r;
+  return Math.sqrt(x * x + y * y) * R;
+}
+function ringArea(a) { var s = 0; for (var i = 0, j = a.length - 2; i < a.length; j = i, i += 2) s += (a[j] - a[i]) * (a[j + 1] + a[i + 1]); return Math.abs(s) / 2; }
+function ringCentroid(a) {
+  var sx = 0, sy = 0, n = a.length / 2;
+  for (var i = 0; i < a.length; i += 2) { sx += a[i]; sy += a[i + 1]; }
+  return [sx / n, sy / n];
+}
+function pipWorld(parts, x, y) {   // even-odd across every ring of the feature
+  var inside = false;
+  for (var p = 0; p < parts.length; p++) {
+    var a = parts[p];
+    for (var i = 0, j = a.length - 2; i < a.length; j = i, i += 2) {
+      var yi = a[i + 1], yj = a[j + 1];
+      if ((yi > y) !== (yj > y) && x < (a[j] - a[i]) * (y - yi) / (yj - yi) + a[i]) inside = !inside;
+    }
+  }
+  return inside;
+}
+
+/* ---------------- sun & moon (NOAA low-precision, good to ~1 min) -------- */
+function solar(y, m, d, lat, lon) {
+  var rad = Math.PI / 180;
+  var days = (Date.UTC(y, m - 1, d, 12) - Date.UTC(2000, 0, 1, 12)) / 86400000;
+  var Jstar = days - lon / 360;
+  var M = (357.5291 + 0.98560028 * Jstar) % 360;
+  var C = 1.9148 * Math.sin(M * rad) + 0.02 * Math.sin(2 * M * rad) + 0.0003 * Math.sin(3 * M * rad);
+  var L = (M + C + 180 + 102.9372) % 360;
+  var Jt = 2451545.0 + Jstar + 0.0053 * Math.sin(M * rad) - 0.0069 * Math.sin(2 * L * rad);
+  var decl = Math.asin(Math.sin(L * rad) * Math.sin(23.4397 * rad));
+  function ha(alt) {
+    var c = (Math.sin(alt * rad) - Math.sin(lat * rad) * Math.sin(decl)) / (Math.cos(lat * rad) * Math.cos(decl));
+    return (c > 1 || c < -1) ? null : Math.acos(c) / rad;
+  }
+  function jd(j) { return new Date((j - 2440587.5) * 86400000); }
+  var w = ha(-0.833), wc = ha(-6);
+  return {
+    rise: w == null ? null : jd(Jt - w / 360), set: w == null ? null : jd(Jt + w / 360),
+    dawn: wc == null ? null : jd(Jt - wc / 360), dusk: wc == null ? null : jd(Jt + wc / 360),
+    noon: jd(Jt)
+  };
+}
+var TZ = 'America/New_York';
+function hhmm(dt) {
+  if (!dt) return '—';
+  return dt.toLocaleTimeString('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' });
+}
+function tzAbbr(dt) {
+  try {
+    var p = new Intl.DateTimeFormat('en-US', { timeZone: TZ, timeZoneName: 'short' }).formatToParts(dt);
+    for (var i = 0; i < p.length; i++) if (p[i].type === 'timeZoneName') return p[i].value;
+  } catch (e) {}
+  return '';
+}
+function moon(t) {
+  var syn = 29.530588853, known = Date.UTC(2000, 0, 6, 18, 14);
+  var f = ((t - known) / 86400000 / syn) % 1; if (f < 0) f += 1;
+  var names = ['New', 'Waxing crescent', 'First quarter', 'Waxing gibbous', 'Full', 'Waning gibbous', 'Last quarter', 'Waning crescent'];
+  var idx = Math.floor(f * 8 + 0.5) % 8;
+  return { frac: f, name: names[idx], illum: Math.round((1 - Math.cos(2 * Math.PI * f)) / 2 * 100) };
+}
+
+/* ---------------- season engine ----------------------------------------- */
+var REGS = null;
+function dnum(s) { var p = s.split('-'); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+function iso(t) { var d = new Date(t); return d.toISOString().slice(0, 10); }
+function addDays(isoStr, n) { return iso(dnum(isoStr) + n * 86400000); }
+function entry(sp) { for (var i = 0; i < REGS.seasons.length; i++) if (REGS.seasons[i].sp === sp) return REGS.seasons[i]; return null; }
+function ranges(sp, zone) {
+  var e = entry(sp); if (!e) return [];
+  if (e.statewide) return e.statewide;
+  if (e.sameAs) return ranges(e.sameAs, zone);
+  return (e.z && e.z[zone]) || [];
+}
+function openOn(sp, zone, isoStr) {
+  var t = dnum(isoStr), r = ranges(sp, zone);
+  for (var i = 0; i < r.length; i++) if (t >= dnum(r[i][0]) && t <= dnum(r[i][1])) return true;
+  return false;
+}
+function nextChange(sp, zone, isoStr) {
+  var t = dnum(isoStr), r = ranges(sp, zone), best = null, kind = null;
+  for (var i = 0; i < r.length; i++) {
+    var a = dnum(r[i][0]), b = dnum(r[i][1]);
+    if (t < a && (best === null || a < best)) { best = a; kind = 'opens'; }
+    if (t >= a && t <= b) { best = b + 86400000; kind = 'closes after'; break; }
+  }
+  if (best === null) return null;
+  return { days: Math.round((best - t) / 86400000), kind: kind, date: iso(kind === 'opens' ? best : best - 86400000) };
+}
+function bag(sp) { for (var i = 0; i < REGS.bags.length; i++) if (REGS.bags[i].sp === sp) return REGS.bags[i]; return null; }
+var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+var DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+function fmtDate(isoStr) { var d = new Date(dnum(isoStr)); return DOW[d.getUTCDay()] + ' ' + MON[d.getUTCMonth()] + ' ' + d.getUTCDate(); }
+function fmtRange(r) { return MON[+r[0].split('-')[1] - 1] + ' ' + (+r[0].split('-')[2]) + ' – ' + MON[+r[1].split('-')[1] - 1] + ' ' + (+r[1].split('-')[2]); }
+
+/* ---------------- state --------------------------------------------------- */
+var D = {};                 // loaded datasets
+var map = null, canvas = null, ctx = null, layer = null;
+var S = {
+  date: null, zone: null, panel: 'season', sel: null, ref: null, pinMode: false,
+  base: 'vector', tileState: 'idle',
+  layers: { zones: true, zoneLines: true, towns: false, roads: true, water: true, marsh: true,
+            streams: true, land: true, access: true, closed: true, tides: true, spots: true, minor: true,
+            refuges: true, gbshore: true, seaduck: false },
+  access: { lvl: 'all', q: '', fee: 'all' },
+  refTab: 'seasons'
+};
+var spots = [], hunts = [], db = null, dbReady = false;
+
+/* =========================================================================
+   MAP
+   ========================================================================= */
+var NH_BOUNDS = [[42.63, -72.63], [45.33, -70.55]];
+
+function initMap() {
+  map = L.map('map', {
+    zoomControl: false, attributionControl: false,
+    zoomAnimation: false, fadeAnimation: false, markerZoomAnimation: false,
+    minZoom: 7, maxZoom: 19, zoomSnap: 0.5, wheelPxPerZoomLevel: 110,
+    maxBounds: [[41.9, -74.0], [46.2, -69.2]], maxBoundsViscosity: 0.6
+  });
+  map.fitBounds(NH_BOUNDS);
+
+  canvas = document.createElement('canvas');
+  canvas.className = 'leaflet-layer';
+  canvas.style.position = 'absolute';
+  canvas.style.pointerEvents = 'none';
+  map.getPanes().overlayPane.appendChild(canvas);
+  ctx = canvas.getContext('2d');
+
+  map.on('move zoom resize viewreset', schedule);
+  map.on('click', onMapClick);
+  map.on('zoomend moveend', function () { renderScale(); });
+
+  // Leaflet caches the container size at construction; if layout was not
+  // settled it keeps a zero and never redraws. Measure the element instead
+  // and tell Leaflet to re-measure whenever the box changes.
+  syncSize();
+  map.fitBounds(NH_BOUNDS, { padding: [8, 8] });   // re-fit now that Leaflet knows the real box
+  if (window.ResizeObserver) {
+    new ResizeObserver(function () { syncSize(); }).observe(document.getElementById('map'));
+  }
+  window.addEventListener('resize', syncSize);
+  renderScale();
+}
+/* ---- optional imagery underlay -----------------------------------------
+   Artifacts normally block third-party images. We try anyway, watch for a
+   tile that actually loads, and fall back to the vector chart if none does. */
+var tileLayer = null, tileTimer = null;
+var BASES = {
+  satellite: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', maxNative: 19 },
+  topo: { url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', maxNative: 16 }
+};
+function setBase(b) {
+  S.base = b; store('base', b);
+  if (tileLayer) { map.removeLayer(tileLayer); tileLayer = null; }
+  if (tileTimer) { clearTimeout(tileTimer); tileTimer = null; }
+  if (b === 'vector' || !BASES[b]) {
+    S.base = 'vector'; S.tileState = 'idle';
+    if (S.panel === 'layers') renderRail();
+    schedule(); return;
+  }
+  S.tileState = 'loading';
+  if (S.panel === 'layers') renderRail();
+  tileLayer = L.tileLayer(BASES[b].url, { maxZoom: 19, maxNativeZoom: BASES[b].maxNative, opacity: 1 });
+  tileLayer.on('tileload', function () {
+    if (S.tileState !== 'ok') { S.tileState = 'ok'; if (S.panel === 'layers') renderRail(); schedule(); }
+  });
+  tileLayer.addTo(map);
+  tileTimer = setTimeout(function () {
+    if (S.tileState !== 'ok') {
+      S.tileState = 'blocked';
+      if (tileLayer) { map.removeLayer(tileLayer); tileLayer = null; }
+      if (S.panel === 'layers') renderRail();
+      schedule();
+    }
+  }, 14000);
+  schedule();
+}
+function mapSizePx() {
+  var el = document.getElementById('map');
+  return { x: el ? el.clientWidth : 0, y: el ? el.clientHeight : 0 };
+}
+function syncSize() {
+  if (!map) return;
+  var s = mapSizePx();
+  if (!s.x || !s.y) return;
+  var ls = map.getSize();
+  if (ls.x !== s.x || ls.y !== s.y) map.invalidateSize(false);
+  resizeCanvas();
+  renderScale();
+  schedule();
+}
+function resizeCanvas() {
+  if (!map) return;
+  var s = mapSizePx();
+  var w = Math.round(s.x * DPR), h = Math.round(s.y * DPR);
+  if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+  canvas.style.width = s.x + 'px'; canvas.style.height = s.y + 'px';
+}
+var rafId = 0;
+function schedule() { if (rafId) return; rafId = requestAnimationFrame(function () { rafId = 0; draw(); }); }
+
+function view() {
+  var z = map.getZoom(), sc = Math.pow(2, z);
+  var o = map.getPixelOrigin(), tl = map.containerPointToLayerPoint([0, 0]);
+  L.DomUtil.setPosition(canvas, tl);
+  var size = mapSizePx();
+  var ox = o.x + tl.x, oy = o.y + tl.y;
+  return {
+    z: z, sc: sc, ox: ox, oy: oy, w: size.x, h: size.y,
+    wx0: ox / sc, wy0: oy / sc, wx1: (size.x + ox) / sc, wy1: (size.y + oy) / sc
+  };
+}
+function hits(bb, V) { return !(bb[2] < V.wx0 || bb[0] > V.wx1 || bb[3] < V.wy0 || bb[1] > V.wy1); }
+
+function tracePart(a, V, minPx) {
+  var sc = V.sc, ox = V.ox, oy = V.oy, n = a.length, first = true;
+  var lx = 0, ly = 0, drawn = 0;
+  for (var i = 0; i < n; i += 2) {
+    var x = a[i] * sc - ox, y = a[i + 1] * sc - oy;
+    if (first) { ctx.moveTo(x, y); lx = x; ly = y; first = false; drawn++; continue; }
+    if (minPx && i < n - 2) { var dx = x - lx, dy = y - ly; if (dx * dx + dy * dy < minPx) continue; }
+    ctx.lineTo(x, y); lx = x; ly = y; drawn++;
+  }
+  return drawn;
+}
+function drawPolys(feats, V, fill, stroke, lw, minBoxPx, filter) {
+  if (!feats) return;
+  ctx.lineWidth = lw || 0.7;
+  for (var f = 0; f < feats.length; f++) {
+    var ft = feats[f];
+    if (filter && !filter(ft)) continue;
+    var bb = ft.bb;
+    if (!hits(bb, V)) continue;
+    var wpx = (bb[2] - bb[0]) * V.sc, hpx = (bb[3] - bb[1]) * V.sc;
+    if (minBoxPx && wpx < minBoxPx && hpx < minBoxPx) continue;
+    ctx.beginPath();
+    for (var p = 0; p < ft.parts.length; p++) { tracePart(ft.parts[p], V, 0.35); ctx.closePath(); }
+    if (fill) { ctx.fillStyle = typeof fill === 'function' ? fill(ft) : fill; ctx.fill('evenodd'); }
+    if (stroke) { ctx.strokeStyle = typeof stroke === 'function' ? stroke(ft) : stroke; ctx.stroke(); }
+  }
+}
+function drawLines(feats, V, color, widthFn, filter) {
+  if (!feats) return;
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  var buckets = {};
+  for (var f = 0; f < feats.length; f++) {
+    var ft = feats[f];
+    if (filter && !filter(ft)) continue;
+    if (!hits(ft.bb, V)) continue;
+    var w = widthFn(ft, V); if (w <= 0) continue;
+    var key = w.toFixed(2);
+    (buckets[key] || (buckets[key] = [])).push(ft);
+  }
+  for (var k in buckets) {
+    ctx.beginPath(); ctx.lineWidth = parseFloat(k);
+    ctx.strokeStyle = typeof color === 'function' ? color(buckets[k][0], V) : color;
+    for (var j = 0; j < buckets[k].length; j++) {
+      var parts = buckets[k][j].parts;
+      for (var p = 0; p < parts.length; p++) tracePart(parts[p], V, 0.5);
+    }
+    ctx.stroke();
+  }
+}
+var _cssCache = null;
+function css(name) {
+  if (!_cssCache) _cssCache = {};
+  if (_cssCache[name] === undefined) {
+    _cssCache[name] = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+  return _cssCache[name];
+}
+
+function zoneStatusColor(zid) {
+  var o = openOn('duck', zid, S.date);
+  return o ? css('--open') : css('--closed');
+}
+function hexA(hex, a) {
+  hex = (hex || '').replace('#', '');
+  if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+  var n = parseInt(hex, 16);
+  if (isNaN(n)) return 'rgba(0,0,0,' + a + ')';
+  return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+}
+
+function draw() {
+  if (!ctx || !D.zones) return;
+  _cssCache = null;                 // theme may have changed since the last frame
+  var V = view();
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.clearRect(0, 0, V.w, V.h);
+
+  var img = S.base !== 'vector' && S.tileState === 'ok';   // imagery underneath
+
+  /* the state itself, so in-state reads differently from the surround */
+  if (!img) drawPolys(D.zones, V, css('--m-nh'), css('--m-nh'), 1);
+
+  if (S.layers.seaduck && D.seaduck) {
+    var sd = D.seaduck.proj;
+    if (hits(sd.bb, V)) {
+      ctx.beginPath(); tracePart(sd.parts[0], V, 0.4); ctx.closePath();
+      ctx.fillStyle = hexA(css('--info'), img ? 0.16 : 0.22); ctx.fill();
+      ctx.lineWidth = 1.8; ctx.setLineDash([6, 4]);
+      ctx.strokeStyle = css('--info'); ctx.stroke(); ctx.setLineDash([]);
+    }
+  }
+  if (S.layers.zones) {
+    drawPolys(D.zones, V, function (f) {
+      var zid = f.props.id;
+      var on = openOn('duck', zid, S.date);
+      if (S.zone && S.zone !== zid) return hexA(on ? css('--open') : css('--closed'), 0.05);
+      return hexA(on ? css('--open') : css('--closed'), S.zone === zid ? 0.20 : 0.11);
+    }, null, 0);
+  }
+  if (S.layers.towns && V.z >= 9) drawPolys(D.towns, V, null, hexA(css('--m-label'), 0.18), 0.6, 3);
+  if (S.layers.land) drawPolys(D.land, V, hexA(css('--m-public'), img ? 0.16 : 0.34), hexA(css('--m-publicline'), img ? 0.75 : 0.55), 0.6, 2.5);
+  if (S.layers.refuges && D.refuges) {
+    drawPolys(D.refuges, V, function (f) { return hexA(f.meta[2] ? css('--open') : css('--dim'), img ? 0.14 : 0.24); },
+      function (f) { return f.meta[2] ? css('--open') : css('--dim'); }, 1.5, 2);
+  }
+
+  /* water */
+  if (S.layers.streams) {
+    drawLines(D.streams, V, css('--m-stream'), function (f, V) {
+      var ord = f.meta[1] || 4;
+      if (V.z < 9 && ord < 6) return 0;
+      if (V.z < 10.5 && ord < 5) return 0;
+      return Math.max(0.5, (ord - 3) * 0.38 * Math.max(0.55, (V.z - 7) / 5));
+    });
+  }
+  /* Over imagery the water and marsh become outlines, so you can read the
+     real marsh edge underneath instead of a flat blue shape on top of it. */
+  var wFill = img ? hexA(css('--m-water'), 0.10) : css('--m-water');
+  var mFill = img ? hexA(css('--m-marsh'), 0.12) : css('--m-marsh');
+  var wLine = img ? 1.4 : 0.6, mLine = img ? 1.2 : 0.5;
+  if (S.layers.marsh) drawPolys(D.watersMajor, V, mFill, hexA(css('--m-marshline'), img ? 1 : 0.9), mLine, 1.6, function (f) { return f.meta[1] === 2; });
+  if (S.layers.water) drawPolys(D.watersMajor, V, wFill, hexA(css('--m-waterline'), img ? 1 : 0.95), wLine, 1.2, function (f) { return f.meta[1] !== 2; });
+  if (S.layers.minor && V.z >= 10.5 && D.watersMinor) {
+    if (S.layers.marsh) drawPolys(D.watersMinor, V, mFill, hexA(css('--m-marshline'), img ? 0.95 : 0.8), mLine, 1.4, function (f) { return f.meta[1] === 2; });
+    if (S.layers.water) drawPolys(D.watersMinor, V, wFill, hexA(css('--m-waterline'), img ? 0.95 : 0.85), wLine, 1.2, function (f) { return f.meta[1] !== 2; });
+  }
+
+  /* roads */
+  if (S.layers.roads && D.roads) {
+    drawLines(D.roads, V, hexA(css('--m-label'), V.z < 9 ? 0.28 : 0.42), function (f, V) {
+      var c = f.meta[1];
+      if (V.z < 8.5 && c < 2) return 0;
+      if (V.z < 10 && c < 1) return 0;
+      return c === 3 ? 1.9 : c === 2 ? 1.3 : 0.9;
+    });
+  }
+
+  /* zone boundary lines */
+  if (S.layers.zoneLines && D.zonelines) {
+    ctx.setLineDash([7, 4]); ctx.lineWidth = 2.4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    for (var zl = 0; zl < D.zonelines.length; zl++) {
+      var lf = D.zonelines[zl];
+      if (!hits(lf.bb, V)) continue;
+      var lid = lf.props.id.replace('-line', '');
+      ctx.strokeStyle = ZONE_COLOR[lid === 'north' ? 'northern' : lid] || css('--accent');
+      ctx.beginPath();
+      for (var lp = 0; lp < lf.parts.length; lp++) tracePart(lf.parts[lp], V, 0.5);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+  }
+
+  /* closed areas */
+  if (S.layers.closed && D.closed) {
+    var cl = D.closed.areas;
+    for (var i = 0; i < cl.length; i++) {
+      var a = cl[i];
+      var x = projX(a.lon) * V.sc - V.ox, y = projY(a.lat) * V.sc - V.oy;
+      if (x < -80 || y < -80 || x > V.w + 80 || y > V.h + 80) continue;
+      var mPerPx = 40075016.686 * Math.cos(a.lat * Math.PI / 180) / (256 * V.sc);
+      var r = Math.max(7, a.r / mPerPx);
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832);
+      ctx.fillStyle = hexA(css('--m-closed'), 0.18); ctx.fill();
+      ctx.lineWidth = 1.6; ctx.setLineDash([5, 3]);
+      ctx.strokeStyle = css('--m-closed'); ctx.stroke(); ctx.setLineDash([]);
+      ctx.beginPath(); ctx.arc(x, y, 4.2, 0, 6.2832);
+      ctx.fillStyle = css('--m-closed'); ctx.fill();
+      ctx.strokeStyle = css('--m-halo'); ctx.lineWidth = 1.4; ctx.stroke();
+    }
+  }
+
+  /* Great Bay NWR shoreline: blue open, red closed */
+  if (S.layers.gbshore && D.gbshore && V.z >= 10) {
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    for (var gi = 0; gi < D.gbshore.proj.length; gi++) {
+      var gf = D.gbshore.proj[gi];
+      if (!hits(gf.bb, V)) continue;
+      ctx.beginPath(); tracePart(gf.parts[0], V, 0.3);
+      ctx.lineWidth = 6; ctx.strokeStyle = hexA(css('--m-halo'), 0.75); ctx.stroke();
+      ctx.beginPath(); tracePart(gf.parts[0], V, 0.3);
+      ctx.lineWidth = 3.2;
+      ctx.strokeStyle = gf.status === 'open' ? '#2f7fd4' : '#d2342a';
+      ctx.stroke();
+    }
+  }
+
+  /* access sites */
+  if (S.layers.access && D.access && V.z >= 8.5) {
+    var list = filteredAccess();
+    for (var j = 0; j < list.length; j++) {
+      var s = list[j];
+      var ax = projX(s.lon) * V.sc - V.ox, ay = projY(s.lat) * V.sc - V.oy;
+      if (ax < -12 || ay < -12 || ax > V.w + 12 || ay > V.h + 12) continue;
+      var tr = s.lvl === 'Trailer';
+      ctx.beginPath();
+      if (tr) { ctx.rect(ax - 3.6, ay - 3.6, 7.2, 7.2); }
+      else { ctx.arc(ax, ay, 3.2, 0, 6.2832); }
+      ctx.fillStyle = css('--m-access'); ctx.fill();
+      ctx.lineWidth = 1.3; ctx.strokeStyle = css('--m-halo'); ctx.stroke();
+    }
+  }
+
+  /* tide stations */
+  if (S.layers.tides && D.tides && V.z >= 9) {
+    for (var id in D.tides.stations) {
+      var st = D.tides.stations[id];
+      var tx = projX(st.lon) * V.sc - V.ox, ty = projY(st.lat) * V.sc - V.oy;
+      if (tx < -12 || ty < -12 || tx > V.w + 12 || ty > V.h + 12) continue;
+      ctx.beginPath(); ctx.moveTo(tx, ty - 5); ctx.lineTo(tx + 4.6, ty + 3.5); ctx.lineTo(tx - 4.6, ty + 3.5); ctx.closePath();
+      ctx.fillStyle = css('--info'); ctx.fill();
+      ctx.lineWidth = 1.2; ctx.strokeStyle = css('--m-halo'); ctx.stroke();
+    }
+  }
+
+  /* saved spots */
+  if (S.layers.spots) {
+    for (var k = 0; k < spots.length; k++) {
+      var sp = spots[k];
+      var sx = projX(sp.lon) * V.sc - V.ox, sy = projY(sp.lat) * V.sc - V.oy;
+      if (sx < -16 || sy < -16 || sx > V.w + 16 || sy > V.h + 16) continue;
+      ctx.beginPath(); ctx.arc(sx, sy, 6, 0, 6.2832);
+      ctx.fillStyle = css('--m-spot'); ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = css('--m-halo'); ctx.stroke();
+    }
+  }
+
+  /* selection highlight */
+  if (S.sel && S.sel.kind === 'water' && S.sel.feat) {
+    ctx.beginPath();
+    for (var q = 0; q < S.sel.feat.parts.length; q++) { tracePart(S.sel.feat.parts[q], V, 0.3); ctx.closePath(); }
+    ctx.lineWidth = 2.4; ctx.strokeStyle = css('--accent'); ctx.stroke();
+  }
+  if (S.sel && S.sel.lat != null && S.sel.kind !== 'water') {
+    var px = projX(S.sel.lon) * V.sc - V.ox, py = projY(S.sel.lat) * V.sc - V.oy;
+    ctx.beginPath(); ctx.arc(px, py, 10, 0, 6.2832);
+    ctx.lineWidth = 2.4; ctx.strokeStyle = css('--accent'); ctx.stroke();
+  }
+
+  drawLabels(V);
+}
+
+function drawLabels(V) {
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.lineJoin = 'round';
+  function label(text, x, y, size, weight, color) {
+    ctx.font = weight + ' ' + size + 'px ' + '"Barlow",system-ui,sans-serif';
+    ctx.lineWidth = 3.2; ctx.strokeStyle = css('--m-halo');
+    ctx.strokeText(text, x, y); ctx.fillStyle = color; ctx.fillText(text, x, y);
+  }
+  /* zone names at low zoom */
+  if (S.layers.zones && V.z <= 9.5) {
+    for (var i = 0; i < D.zones.length; i++) {
+      var f = D.zones[i], big = f.parts[0], ba = 0;
+      for (var p = 0; p < f.parts.length; p++) { var a = ringArea(f.parts[p]); if (a > ba) { ba = a; big = f.parts[p]; } }
+      var c = ringCentroid(big);
+      var x = c[0] * V.sc - V.ox, y = c[1] * V.sc - V.oy;
+      if (x < 0 || y < 0 || x > V.w || y > V.h) continue;
+      var nm = REGS.zones[f.props.id].short.toUpperCase();
+      label(nm, x, y, 12, '700', ZONE_COLOR[f.props.id]);
+      label(openOn('duck', f.props.id, S.date) ? 'DUCKS OPEN' : 'DUCKS CLOSED', x, y + 13, 9.5, '600',
+            openOn('duck', f.props.id, S.date) ? css('--open') : css('--closed'));
+    }
+  }
+  /* town names */
+  if (S.layers.towns && V.z >= 10 && D.towns) {
+    for (var t = 0; t < D.towns.length; t++) {
+      var tf = D.towns[t]; if (!hits(tf.bb, V)) continue;
+      var tc = ringCentroid(tf.parts[0]);
+      var tx = tc[0] * V.sc - V.ox, ty = tc[1] * V.sc - V.oy;
+      if (tx < 0 || ty < 0 || tx > V.w || ty > V.h) continue;
+      var tn = D.townNames[tf.meta[0] - 1];
+      if (tn) label(tn.toUpperCase(), tx, ty, 9.5, '600', hexA(css('--m-label'), 0.65));
+    }
+  }
+  /* named waters */
+  if (!S.layers.water && !S.layers.marsh) return;
+  var minAc = V.z >= 13 ? 3 : V.z >= 12 ? 15 : V.z >= 11 ? 60 : V.z >= 10 ? 180 : V.z >= 9 ? 700 : 2500;
+  var placed = [];
+  function free(x, y, w) {
+    for (var i = 0; i < placed.length; i++) {
+      var q = placed[i];
+      if (Math.abs(x - q[0]) < (w + q[2]) / 2 + 6 && Math.abs(y - q[1]) < 13) return false;
+    }
+    return true;
+  }
+  var sets = [D.watersMajor]; if (V.z >= 11.5 && D.watersMinor) sets.push(D.watersMinor);
+  for (var si = 0; si < sets.length; si++) {
+    var arr = sets[si];
+    for (var w = 0; w < arr.length; w++) {
+      var wf = arr[w];
+      if (!wf.meta[0]) continue;
+      var ac = wf.meta[2] / 10; if (ac < minAc) continue;
+      if (wf.meta[1] === 2 && !S.layers.marsh) continue;
+      if (wf.meta[1] !== 2 && !S.layers.water) continue;
+      if (!hits(wf.bb, V)) continue;
+      var bx = (wf.bb[0] + wf.bb[2]) / 2 * V.sc - V.ox, by = (wf.bb[1] + wf.bb[3]) / 2 * V.sc - V.oy;
+      if (bx < 30 || by < 10 || bx > V.w - 30 || by > V.h - 10) continue;
+      var nm2 = D.waterNames[wf.meta[0] - 1]; if (!nm2) continue;
+      var size = ac > 1500 ? 12 : ac > 300 ? 11 : 10;
+      ctx.font = '600 ' + size + 'px "Barlow",system-ui,sans-serif';
+      var wd = ctx.measureText(nm2).width;
+      if ((wf.bb[2] - wf.bb[0]) * V.sc < wd * 0.55) continue;
+      if (!free(bx, by, wd)) continue;
+      placed.push([bx, by, wd]);
+      label(nm2, bx, by, size, '600', wf.meta[1] === 2 ? css('--m-marshline') : css('--m-waterline'));
+      if (placed.length > 90) break;
+    }
+  }
+}
+
+function renderScale() {
+  if (!map) return;
+  var c = map.getCenter();
+  var mPerPx = 40075016.686 * Math.cos(c.lat * Math.PI / 180) / (256 * Math.pow(2, map.getZoom()));
+  var targets = [100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000];
+  var best = targets[0];
+  for (var i = 0; i < targets.length; i++) { if (targets[i] / mPerPx <= 110) best = targets[i]; }
+  var px = Math.round(best / mPerPx);
+  var lbl = best >= 1000 ? (best / 1609.34).toFixed(best / 1609.34 < 1.5 ? 1 : 0) + ' mi' : Math.round(best * 3.28084) + ' ft';
+  $('#scale').innerHTML = esc(lbl) + '<i style="width:' + px + 'px"></i>';
+}
+
+/* ---------------- hit testing ------------------------------------------- */
+function onMapClick(e) {
+  if (S.pinMode) { addSpotAt(e.latlng.lat, e.latlng.lng); return; }
+  var V = view();
+  var cp = map.latLngToContainerPoint(e.latlng);
+  var wx = projX(e.latlng.lng), wy = projY(e.latlng.lat);
+  var near = function (lat, lon, px) {
+    var dx = projX(lon) * V.sc - V.ox - cp.x, dy = projY(lat) * V.sc - V.oy - cp.y;
+    return dx * dx + dy * dy <= px * px;
+  };
+  var i;
+  if (S.layers.spots) for (i = 0; i < spots.length; i++) if (near(spots[i].lat, spots[i].lon, 11)) return select({ kind: 'spot', spot: spots[i], lat: spots[i].lat, lon: spots[i].lon });
+  if (S.layers.access && V.z >= 8.5) {
+    var al = filteredAccess(), bestA = null, bd = 1e9;
+    for (i = 0; i < al.length; i++) {
+      var dx = projX(al[i].lon) * V.sc - V.ox - cp.x, dy = projY(al[i].lat) * V.sc - V.oy - cp.y;
+      var d2 = dx * dx + dy * dy;
+      if (d2 < 100 && d2 < bd) { bd = d2; bestA = al[i]; }
+    }
+    if (bestA) return select({ kind: 'access', site: bestA, lat: bestA.lat, lon: bestA.lon });
+  }
+  if (S.layers.tides && V.z >= 9) for (var id in D.tides.stations) {
+    var st = D.tides.stations[id];
+    if (near(st.lat, st.lon, 10)) return select({ kind: 'tide', station: st, id: id, lat: st.lat, lon: st.lon });
+  }
+  if (S.layers.closed) for (i = 0; i < D.closed.areas.length; i++) {
+    var ca = D.closed.areas[i];
+    var mpp = 40075016.686 * Math.cos(ca.lat * Math.PI / 180) / (256 * V.sc);
+    if (near(ca.lat, ca.lon, Math.max(9, ca.r / mpp))) return select({ kind: 'closed', area: ca, lat: ca.lat, lon: ca.lon });
+  }
+  if (S.layers.gbshore && D.gbshore && V.z >= 10) {
+    var bestG = null, bg = 100;
+    for (i = 0; i < D.gbshore.proj.length; i++) {
+      var gf = D.gbshore.proj[i]; if (!hits(gf.bb, V)) continue;
+      var a = gf.parts[0];
+      for (var k = 0; k < a.length - 2; k += 2) {
+        var ax = a[k] * V.sc - V.ox, ay = a[k + 1] * V.sc - V.oy;
+        var bx2 = a[k + 2] * V.sc - V.ox, by2 = a[k + 3] * V.sc - V.oy;
+        var vx = bx2 - ax, vy = by2 - ay, L = vx * vx + vy * vy;
+        var tt = L ? ((cp.x - ax) * vx + (cp.y - ay) * vy) / L : 0;
+        tt = tt < 0 ? 0 : tt > 1 ? 1 : tt;
+        var ddx = cp.x - (ax + tt * vx), ddy = cp.y - (ay + tt * vy);
+        var dd = ddx * ddx + ddy * ddy;
+        if (dd < bg) { bg = dd; bestG = gf; }
+      }
+    }
+    if (bestG) return select({ kind: 'gbshore', feat: bestG, lat: e.latlng.lat, lon: e.latlng.lng });
+  }
+  var sets = [];
+  if (S.layers.water || S.layers.marsh) { sets.push(D.watersMajor); if (S.layers.minor && V.z >= 10.5) sets.push(D.watersMinor); }
+  var bestW = null, bestArea = Infinity;
+  for (var s = 0; s < sets.length; s++) {
+    var arr = sets[s];
+    for (i = 0; i < arr.length; i++) {
+      var f = arr[i];
+      if (f.meta[1] === 2 && !S.layers.marsh) continue;
+      if (f.meta[1] !== 2 && !S.layers.water) continue;
+      if (wx < f.bb[0] || wx > f.bb[2] || wy < f.bb[1] || wy > f.bb[3]) continue;
+      if (!pipWorld(f.parts, wx, wy)) continue;
+      var a = f.meta[2];
+      if (a < bestArea) { bestArea = a; bestW = f; }
+    }
+  }
+  if (bestW) return select({ kind: 'water', feat: bestW, lat: e.latlng.lat, lon: e.latlng.lng });
+  if (S.layers.refuges && D.refuges) {
+    for (i = 0; i < D.refuges.length; i++) {
+      var rf2 = D.refuges[i];
+      if (wx < rf2.bb[0] || wx > rf2.bb[2] || wy < rf2.bb[1] || wy > rf2.bb[3]) continue;
+      if (pipWorld(rf2.parts, wx, wy)) return select({ kind: 'refuge', feat: rf2, lat: e.latlng.lat, lon: e.latlng.lng });
+    }
+  }
+  if (S.layers.land) {
+    var bestL = null, bl = Infinity;
+    for (i = 0; i < D.land.length; i++) {
+      var lf = D.land[i];
+      if (wx < lf.bb[0] || wx > lf.bb[2] || wy < lf.bb[1] || wy > lf.bb[3]) continue;
+      if (!pipWorld(lf.parts, wx, wy)) continue;
+      if (lf.meta[1] < bl) { bl = lf.meta[1]; bestL = lf; }
+    }
+    if (bestL) return select({ kind: 'land', feat: bestL, lat: e.latlng.lat, lon: e.latlng.lng });
+  }
+  select({ kind: 'point', lat: e.latlng.lat, lon: e.latlng.lng });
+}
+function zoneAt(lat, lon) {
+  var wx = projX(lon), wy = projY(lat);
+  for (var i = 0; i < D.zones.length; i++) {
+    var f = D.zones[i];
+    if (wx < f.bb[0] || wx > f.bb[2] || wy < f.bb[1] || wy > f.bb[3]) continue;
+    if (pipWorld(f.parts, wx, wy)) return f.props.id;
+  }
+  return null;
+}
+function townAt(lat, lon) {
+  if (!D.towns) return null;
+  var wx = projX(lon), wy = projY(lat);
+  for (var i = 0; i < D.towns.length; i++) {
+    var f = D.towns[i];
+    if (wx < f.bb[0] || wx > f.bb[2] || wy < f.bb[1] || wy > f.bb[3]) continue;
+    if (pipWorld(f.parts, wx, wy)) return D.townNames[f.meta[0] - 1];
+  }
+  return null;
+}
+function select(sel) { S.sel = sel; S.ref = { lat: sel.lat, lon: sel.lon }; renderSlip(); schedule(); }
+
+/* =========================================================================
+   PANELS
+   ========================================================================= */
+function h(tag, attrs, inner) {
+  var a = '';
+  for (var k in attrs) if (attrs[k] != null && attrs[k] !== false) a += ' ' + k + '="' + esc(attrs[k]) + '"';
+  return '<' + tag + a + '>' + (inner == null ? '' : inner) + '</' + tag + '>';
+}
+var PANELS = [
+  { id: 'season', label: 'Season' },
+  { id: 'layers', label: 'Layers' },
+  { id: 'access', label: 'Access' },
+  { id: 'ref', label: 'Regs' },
+  { id: 'log', label: 'Log' }
+];
+function renderTabs() {
+  $('#tabs').innerHTML = PANELS.map(function (p) {
+    return h('button', { 'data-panel': p.id, 'aria-pressed': S.panel === p.id }, esc(p.label));
+  }).join('');
+}
+function renderStrip() {
+  var html = ZONE_IDS.map(function (z) {
+    var on = openOn('duck', z, S.date);
+    var nc = nextChange('duck', z, S.date);
+    var sub = on
+      ? (nc ? 'Last day ' + fmtDate(nc.date) : '')
+      : (nc && nc.kind === 'opens' ? 'Opens ' + fmtDate(nc.date) + ' (' + nc.days + 'd)' : 'Closed for the season');
+    return h('button', { class: 'zchip', 'data-zone': z, 'aria-pressed': S.zone === z },
+      h('div', { class: 'zn' }, '<i class="zsw" style="background:' + ZONE_COLOR[z] + '"></i>' + esc(REGS.zones[z].name)) +
+      h('div', { class: 'zs ' + (on ? 'is-open' : 'is-closed') }, on ? 'Ducks open' : 'Ducks closed') +
+      h('div', { class: 'zd' }, esc(sub)));
+  }).join('');
+  $('#strip').innerHTML = html;
+}
+
+function sunBlock() {
+  var p = S.ref || mapCenter();
+  var d = S.date.split('-').map(Number);
+  var s = solar(d[0], d[1], d[2], p.lat, p.lon);
+  var legalStart = s.rise ? new Date(s.rise.getTime() - 30 * 60000) : null;
+  var mp = moon(dnum(S.date) + 12 * 3600000);
+  var tz = tzAbbr(s.rise || new Date());
+  return h('dl', { class: 'kv' },
+    h('dt', null, 'Legal start') + h('dd', { style: 'color:var(--open);font-weight:600' }, esc(hhmm(legalStart))) +
+    h('dt', null, 'Sunrise') + h('dd', null, esc(hhmm(s.rise))) +
+    h('dt', null, 'Sunset / legal end') + h('dd', { style: 'color:var(--closed);font-weight:600' }, esc(hhmm(s.set))) +
+    h('dt', null, 'Civil dawn') + h('dd', null, esc(hhmm(s.dawn))) +
+    h('dt', null, 'Moon') + h('dd', null, esc(mp.name + ' · ' + mp.illum + '%'))) +
+    h('div', { class: 'tiny muted', style: 'margin-top:5px' },
+      'Half an hour before sunrise to sunset, computed for ' + num(p.lat, 3) + ', ' + num(p.lon, 3) + ' (' + esc(tz) + ').');
+}
+function mapCenter() { var c = map.getCenter(); return { lat: c.lat, lon: c.lng }; }
+
+function nearestStation(lat, lon) {
+  var best = null, bd = 1e9;
+  for (var id in D.tides.stations) {
+    var st = D.tides.stations[id], d = haversine(lat, lon, st.lat, st.lon);
+    if (d < bd) { bd = d; best = { id: id, st: st, d: d }; }
+  }
+  return best;
+}
+var TIDE_BASE = Date.UTC(2026, 8, 1, 0, 0);
+function tideRows(stId, isoStr) {
+  var st = D.tides.stations[stId]; if (!st) return [];
+  var dayStart = (dnum(isoStr) - TIDE_BASE) / 60000, dayEnd = dayStart + 1440;
+  var out = [];
+  for (var i = 0; i < st.rows.length; i++) {
+    var r = st.rows[i];
+    if (r[0] >= dayStart && r[0] < dayEnd) {
+      var mins = r[0] - dayStart;
+      out.push({ hm: pad(Math.floor(mins / 60)) + ':' + pad(mins % 60), hi: r[1] === 1, ft: r[2] / 10 });
+    }
+  }
+  return out;
+}
+function pad(n) { return (n < 10 ? '0' : '') + n; }
+function tideBlock(lat, lon) {
+  if (!D.tides) return '';
+  var n = nearestStation(lat, lon);
+  if (!n || n.d > 30) return '';
+  var rows = tideRows(n.id, S.date);
+  if (!rows.length) return h('div', { class: 'tiny muted' }, 'No tide predictions stored for this date.');
+  return h('div', { class: 'between', style: 'margin-bottom:4px' },
+      h('span', { class: 'lab' }, 'Tides') + h('span', { class: 'tiny muted' }, esc(n.st.name + ' · ' + num(n.d, 1) + ' mi'))) +
+    h('div', { class: 'tblwrap' }, h('table', null,
+      h('tr', null, h('th', null, 'Time') + h('th', null, '') + h('th', { style: 'text-align:right' }, 'Ft MLLW')) +
+      rows.map(function (r) {
+        return h('tr', null,
+          h('td', { class: 'num' }, esc(r.hm)) +
+          h('td', { style: 'color:' + (r.hi ? 'var(--info)' : 'var(--dim)') }, r.hi ? 'High' : 'Low') +
+          h('td', { class: 'num' }, num(r.ft, 1)));
+      }).join('')));
+}
+
+function timeline() {
+  var t0 = dnum(SEASON_START), t1 = dnum(SEASON_END), span = t1 - t0;
+  function pct(d) { return ((dnum(d) - t0) / span * 100); }
+  var rows = ZONE_IDS.map(function (z) {
+    var segs = ranges('duck', z).map(function (r) {
+      var a = pct(r[0]), b = pct(r[1]) + (1 / (span / 86400000) * 100);
+      return '<i class="tlseg" style="left:' + a.toFixed(2) + '%;width:' + Math.max(0.6, b - a).toFixed(2) + '%;background:' + ZONE_COLOR[z] + '"></i>';
+    }).join('');
+    var now = '<i class="tlnow" style="left:' + pct(S.date).toFixed(2) + '%"></i>';
+    return h('div', { class: 'tlname' }, esc(REGS.zones[z].short)) + h('div', { class: 'tltrack' }, segs + now);
+  }).join('');
+  var ticks = ['2026-09-01', '2026-10-01', '2026-11-01', '2026-12-01', '2027-01-01', '2027-02-01', '2027-03-01']
+    .map(function (d) { return '<span style="left:' + pct(d).toFixed(2) + '%">' + MON[+d.split('-')[1] - 1] + '</span>'; }).join('');
+  return h('div', { class: 'tl' }, rows + h('div', null, '') + h('div', { class: 'tlaxis' }, ticks));
+}
+
+function statewideToday() {
+  var out = [];
+  [['canadasept', 'Canada geese (Sept.)'], ['woodcock', 'Woodcock'], ['snipe', 'Snipe'], ['crow', 'Crow'],
+   ['youth', 'Youth weekend'], ['vet', 'Veteran & military weekend']].forEach(function (p) {
+    if (openOn(p[0], null, S.date)) out.push(p[1]);
+  });
+  return out;
+}
+
+function panelSeason() {
+  var dayIdx = Math.round((dnum(S.date) - dnum(SEASON_START)) / 86400000);
+  var maxIdx = Math.round((dnum(SEASON_END) - dnum(SEASON_START)) / 86400000);
+  var sw = statewideToday();
+  var zoneRows = ZONE_IDS.map(function (z) {
+    var sps = ['duck', 'canada', 'brant', 'merganser', 'coot', 'seaduck', 'snow', 'falconry'];
+    var openSps = sps.filter(function (s) { return openOn(s, z, S.date); });
+    var on = openOn('duck', z, S.date);
+    return h('button', { class: 'item', 'data-zone': z },
+      h('div', { class: 'between' },
+        h('span', { class: 't1' }, '<i class="zsw" style="display:inline-block;background:' + ZONE_COLOR[z] + ';margin-right:6px"></i>' + esc(REGS.zones[z].name)) +
+        h('span', { class: 'pill ' + (on ? 'is-open' : 'is-closed') }, on ? 'Open' : 'Closed')) +
+      h('div', { class: 't2' }, openSps.length ? esc(openSps.map(function (s) { return entry(s).label.replace(/ —.*/, ''); }).join(' · ')) : 'Nothing open in this zone today'));
+  }).join('');
+  return '' +
+    sec('When', true,
+      h('div', { class: 'between' }, h('span', { class: 'lab' }, 'Date') + h('span', { class: 'val' }, esc(fmtDate(S.date) + ', ' + S.date.slice(0, 4)))) +
+      h('input', { type: 'range', id: 'dRange', min: 0, max: maxIdx, value: dayIdx, 'aria-label': 'Scrub through the season' }) +
+      h('div', { class: 'lab', style: 'margin-top:9px' }, 'Duck season by zone') + timeline() +
+      h('hr', { class: 'sep' }) + sunBlock()) +
+    sec('Open on this date', true,
+      h('div', { class: 'list' }, zoneRows) +
+      (sw.length
+        ? h('div', { class: 'note good', style: 'margin-top:9px' }, '<b>Statewide today:</b> ' + esc(sw.join(', ')))
+        : h('div', { class: 'note', style: 'margin-top:9px' }, 'No statewide seasons are open on this date.'))) +
+    sec('Tides', false, tideBlock((S.ref || mapCenter()).lat, (S.ref || mapCenter()).lon) ||
+      h('div', { class: 'tiny muted' }, 'Pick a spot on the coast or in Great Bay to see tides. Stations are stored for Sept 1 2026 – Mar 15 2027.'));
+}
+
+function sec(title, open, body) {
+  var id = 'sec-' + title.toLowerCase().replace(/[^a-z]+/g, '-');
+  return h('section', { class: 'psec' },
+    h('button', { class: 'phead', 'data-sec': id, 'aria-expanded': open ? 'true' : 'false' },
+      esc(title) + '<svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>') +
+    h('div', { class: 'pbody', id: id, hidden: !open }, body));
+}
+
+var LAYER_DEFS = [
+  ['zones', 'Zone tint', '--accent'],
+  ['zoneLines', 'Zone boundary lines', '--accent'],
+  ['water', 'Lakes, ponds & rivers', '--m-water'],
+  ['marsh', 'Marsh & swamp', '--m-marsh'],
+  ['minor', 'Small waters (zoom 11+)', '--m-water'],
+  ['streams', 'Streams & rivers', '--m-stream'],
+  ['land', 'Conservation & public land', '--m-public'],
+  ['access', 'Boat & cartop access', '--m-access'],
+  ['closed', 'Closed to waterfowl', '--m-closed'],
+  ['refuges', 'Federal refuge hunt units', '--open'],
+  ['gbshore', 'Great Bay NWR shoreline', '--m-closed'],
+  ['seaduck', 'Sea duck area (indicative)', '--info'],
+  ['tides', 'Tide stations', '--info'],
+  ['towns', 'Town lines & names', '--m-label'],
+  ['roads', 'Highways', '--m-label'],
+  ['spots', 'My spots', '--m-spot']
+];
+function panelLayers() {
+  var counts = {
+    water: D.watersMajor.filter(function (f) { return f.meta[1] !== 2; }).length,
+    marsh: D.watersMajor.filter(function (f) { return f.meta[1] === 2; }).length,
+    minor: D.watersMinor.length, streams: D.streams.length, land: D.land.length,
+    access: D.access.length, closed: D.closed.areas.length, towns: D.towns.length,
+    roads: D.roads.length, spots: spots.length, tides: Object.keys(D.tides.stations).length,
+    refuges: D.refuges ? D.refuges.length : 0, gbshore: D.gbshore ? D.gbshore.features.length : 0
+  };
+  var tileMsg = S.base === 'vector' ? 'Drawn from data that ships with this page — it works with no signal.'
+    : S.tileState === 'loading' ? 'Fetching tiles…'
+    : S.tileState === 'ok' ? (S.base === 'satellite'
+        ? 'Esri World Imagery, down to about 1 ft a pixel. Water and marsh become outlines so you can read the real edge underneath.'
+        : 'USGS topographic maps, sharp to zoom 16 and stretched beyond that.')
+    : 'No tiles arrived, so the vector chart is still showing. Check your connection and try again.';
+  return sec('Base map', true,
+    h('div', { class: 'seg' },
+      [['vector', 'Vector'], ['satellite', 'Satellite'], ['topo', 'Topo']].map(function (o) {
+        return h('button', { 'data-base': o[0], 'aria-pressed': S.base === o[0] }, esc(o[1]));
+      }).join('')) +
+    h('div', { class: 'tiny muted', style: 'margin-top:7px' }, esc(tileMsg)) +
+    (S.tileState === 'blocked' ? h('div', { class: 'note alert', style: 'margin-top:8px' },
+      'No imagery reached the page. Everything else on the map is local data and still works offline.') : '')) +
+  sec('Map layers', true,
+    LAYER_DEFS.map(function (l) {
+      return h('label', { class: 'toggle' },
+        h('input', { type: 'checkbox', 'data-layer': l[0], checked: S.layers[l[0]] }) +
+        '<i class="sw" style="background:var(' + l[2] + ')"></i>' +
+        h('span', { class: 't' }, esc(l[1])) +
+        (counts[l[0]] != null ? h('span', { class: 'ct' }, counts[l[0]].toLocaleString()) : ''));
+    }).join('')) +
+  sec('Legend', true,
+    h('div', { class: 'small' },
+      ZONE_IDS.map(function (z) {
+        return h('div', { class: 'row', style: 'margin:3px 0' },
+          '<i class="zsw" style="background:' + ZONE_COLOR[z] + '"></i>' + h('span', null, esc(REGS.zones[z].name)));
+      }).join('') +
+      h('hr', { class: 'sep' }) +
+      h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--m-access);border-radius:0"></i><span>Trailer ramp (square)</span>') +
+      h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--m-access);border-radius:50%"></i><span>Cartop / hand carry (circle)</span>') +
+      h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--m-closed);border-radius:50%"></i><span>Closed-area locator</span>') +
+      h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--info)"></i><span>NOAA tide station</span>') +
+      h('hr', { class: 'sep' }) +
+      h('div', { class: 'tiny muted' }, 'Zone tint shows duck-season status on the selected date: green open, red closed.'))) +
+  sec('Appearance', false,
+    h('div', { class: 'seg' },
+      ['auto', 'light', 'dark'].map(function (t) {
+        return h('button', { 'data-theme-set': t, 'aria-pressed': (store('theme') || 'auto') === t }, esc(t[0].toUpperCase() + t.slice(1)));
+      }).join('')));
+}
+
+function filteredAccess() {
+  var q = S.access.q.toLowerCase();
+  return D.access.filter(function (s) {
+    if (S.access.lvl === 'trailer' && s.lvl !== 'Trailer') return false;
+    if (S.access.lvl === 'cartop' && s.lvl !== 'Cartop') return false;
+    if (S.access.lvl === 'ramp' && (!s.ramp || s.ramp === 'None')) return false;
+    if (S.access.fee === 'free' && s.fee === 'Yes') return false;
+    if (S.zone && zoneOfSite(s) !== S.zone) return false;
+    if (q && (s.n + ' ' + s.w + ' ' + s.t).toLowerCase().indexOf(q) < 0) return false;
+    return true;
+  });
+}
+var _zoneCache = {};
+function zoneOfSite(s) {
+  var k = s.lat + ',' + s.lon;
+  if (_zoneCache[k] === undefined) _zoneCache[k] = zoneAt(s.lat, s.lon);
+  return _zoneCache[k];
+}
+function panelAccess() {
+  var list = filteredAccess();
+  var c = mapCenter();
+  var sorted = list.slice().sort(function (a, b) {
+    return haversine(c.lat, c.lng || c.lon, a.lat, a.lon) - haversine(c.lat, c.lng || c.lon, b.lat, b.lon);
+  }).slice(0, 60);
+  return sec('Find access', true,
+    h('input', { class: 'fld', id: 'accQ', placeholder: 'Water, facility or town…', value: S.access.q, 'aria-label': 'Search access sites' }) +
+    h('div', { class: 'lab', style: 'margin:9px 0 4px' }, 'Launch type') +
+    h('div', { class: 'seg' },
+      [['all', 'Any'], ['trailer', 'Trailer'], ['cartop', 'Cartop'], ['ramp', 'Has ramp']].map(function (o) {
+        return h('button', { 'data-acc-lvl': o[0], 'aria-pressed': S.access.lvl === o[0] }, esc(o[1]));
+      }).join('')) +
+    h('div', { class: 'lab', style: 'margin:9px 0 4px' }, 'Fee') +
+    h('div', { class: 'seg' },
+      [['all', 'Any'], ['free', 'No fee']].map(function (o) {
+        return h('button', { 'data-acc-fee': o[0], 'aria-pressed': S.access.fee === o[0] }, esc(o[1]));
+      }).join('')) +
+    h('div', { class: 'between', style: 'margin-top:10px' },
+      h('span', { class: 'lab' }, list.length.toLocaleString() + ' sites' + (S.zone ? ' in ' + REGS.zones[S.zone].short : '')) +
+      h('span', { class: 'tiny muted' }, 'nearest first'))) +
+  sec('Nearest sites', true,
+    h('div', { class: 'list' }, sorted.map(function (s) {
+      var d = haversine(c.lat, c.lng || c.lon, s.lat, s.lon);
+      var z = zoneOfSite(s);
+      return h('button', { class: 'item', 'data-site': D.access.indexOf(s) },
+        h('div', { class: 'between' }, h('span', { class: 't1' }, esc(s.n)) + h('span', { class: 'val tiny muted' }, num(d, 1) + ' mi')) +
+        h('div', { class: 't2' }, esc([s.w, s.t].filter(Boolean).join(' · '))) +
+        h('div', { class: 'tagrow' },
+          (s.lvl ? h('span', { class: 'pill', style: 'color:var(--m-access)' }, esc(s.lvl)) : '') +
+          (s.ramp && s.ramp !== 'None' ? h('span', { class: 'pill muted' }, esc(s.ramp)) : '') +
+          (s.fee === 'Yes' ? h('span', { class: 'pill', style: 'color:var(--warn)' }, 'Fee') : '') +
+          (z ? h('span', { class: 'pill', style: 'color:' + ZONE_COLOR[z] }, esc(REGS.zones[z].short)) : '')));
+    }).join('') || h('div', { class: 'item muted small' }, 'No sites match those filters.')));
+}
+
+var REF_TABS = [['seasons', 'Seasons'], ['bags', 'Bag limits'], ['ducks', 'Duck sub-limits'],
+                ['rules', 'Rules'], ['lic', 'Licences'], ['closed', 'Closed areas'], ['src', 'Sources']];
+function panelRef() {
+  var body = '';
+  if (S.refTab === 'seasons') {
+    body = h('div', { class: 'tblwrap' }, h('table', { class: 'wide' },
+      h('tr', null, h('th', null, 'Species') + ZONE_IDS.map(function (z) { return h('th', null, esc(REGS.zones[z].short)); }).join('')) +
+      REGS.seasons.filter(function (e) { return e.sp !== 'youth' && e.sp !== 'vet'; }).map(function (e) {
+        return h('tr', null, h('td', { style: 'font-weight:600' }, esc(e.label)) +
+          ZONE_IDS.map(function (z) {
+            var r = ranges(e.sp, z);
+            var on = openOn(e.sp, z, S.date);
+            return h('td', { class: 'small', style: on ? 'color:var(--open);font-weight:600' : '' },
+              r.length ? r.map(fmtRange).join('<br>') : '—');
+          }).join(''));
+      }).join(''))) +
+      h('div', { class: 'note', style: 'margin-top:10px' },
+        '<b>Youth Waterfowl Weekend</b> ' + esc(ranges('youth', null).map(fmtRange).join('')) + ', statewide.<br>' +
+        '<b>Veteran &amp; Active Military Weekend</b> ' + esc(ranges('vet', null).map(fmtRange).join('')) + ', statewide.') +
+      h('div', { class: 'tiny muted', style: 'margin-top:8px' }, 'Bold green = open on ' + esc(fmtDate(S.date)) + '. Connecticut River Zone follows Inland Zone dates.');
+  } else if (S.refTab === 'bags') {
+    body = h('div', { class: 'tblwrap' }, h('table', null,
+      h('tr', null, h('th', null, 'Species') + h('th', { style: 'text-align:right' }, 'Daily') + h('th', { style: 'text-align:right' }, 'Possession')) +
+      REGS.bags.map(function (b) {
+        var e = entry(b.sp);
+        return h('tr', null, h('td', null, h('div', { style: 'font-weight:600' }, esc(e ? e.label : b.sp)) +
+          (b.detail ? h('div', { class: 'tiny muted', style: 'margin-top:2px' }, esc(b.detail)) : '')) +
+          h('td', { class: 'num', style: 'font-weight:600' }, esc(b.daily)) + h('td', { class: 'num' }, esc(b.poss)));
+      }).join('')));
+  } else if (S.refTab === 'ducks') {
+    body = h('div', { class: 'note', style: 'margin-bottom:10px' },
+        'Six ducks a day in total. These are the caps <em>inside</em> that six.') +
+      h('div', { class: 'tblwrap' }, h('table', null,
+        h('tr', null, h('th', null, 'Species') + h('th', { style: 'text-align:right' }, 'Max/day') + h('th', null, 'Note')) +
+        REGS.duckSublimits.map(function (d) {
+          return h('tr', null, h('td', { style: 'font-weight:600' }, esc(d.n)) +
+            h('td', { class: 'num', style: d.lim === '0' ? 'color:var(--closed);font-weight:700' : 'font-weight:600' }, esc(d.lim)) +
+            h('td', { class: 'tiny muted' }, esc(d.note)));
+        }).join('')));
+  } else if (S.refTab === 'rules') {
+    var groups = {};
+    REGS.rules.forEach(function (r) { (groups[r.g] || (groups[r.g] = [])).push(r); });
+    body = Object.keys(groups).map(function (g) {
+      return h('div', { class: 'lab', style: 'margin:12px 0 5px' }, esc(g)) +
+        h('div', { class: 'list' }, groups[g].map(function (r) {
+          return h('div', { class: 'item' }, h('div', { class: 't1' }, esc(r.t)) +
+            h('div', { class: 'small muted', style: 'margin-top:2px;white-space:normal' }, esc(r.d)));
+        }).join(''));
+    }).join('');
+  } else if (S.refTab === 'lic') {
+    body = h('div', { class: 'list' }, REGS.licences.map(function (l) {
+      return h('div', { class: 'item' },
+        h('div', { class: 'between' }, h('span', { class: 't1' }, esc(l.t)) + h('span', { class: 'pill muted' }, esc(l.who))) +
+        h('div', { class: 'small muted', style: 'margin-top:3px;white-space:normal' }, esc(l.d)));
+    }).join(''));
+  } else if (S.refTab === 'closed') {
+    body = h('div', { class: 'note alert' }, esc(D.closed.warning)) +
+      h('div', { class: 'row', style: 'margin:10px 0' },
+        h('a', { class: 'btn ghost', href: D.closed.sourceUrl, target: '_blank', rel: 'noopener' }, 'Official PDF') +
+        h('a', { class: 'btn ghost', href: D.closed.ruleUrl, target: '_blank', rel: 'noopener' }, 'Rule text')) +
+      h('div', { class: 'list' }, D.closed.areas.map(function (a) {
+        return h('button', { class: 'item', 'data-closed': a.id },
+          h('div', { class: 'between' }, h('span', { class: 't1' }, esc(a.n)) +
+            h('span', { class: 'pill', style: 'color:var(--closed)' }, a.kind === 'all' ? 'All hunting' : 'Waterfowl')) +
+          h('div', { class: 't2' }, esc(a.town)));
+      }).join('')) +
+      h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Federal refuges in New Hampshire') +
+      h('div', { class: 'list' }, D.refuges.map(function (rf, i) {
+        var at = D.refugeAttrs[i] || {};
+        return h('button', { class: 'item', 'data-goto-refuge': i },
+          h('div', { class: 'between' },
+            h('span', { class: 't1' }, esc(D.refugeNames[rf.meta[0] - 1] || 'Unit')) +
+            h('span', { class: 'pill', style: 'color:' + (rf.meta[2] ? 'var(--open)' : 'var(--closed)') },
+              rf.meta[2] ? (at.permit ? 'Permit' : 'Open') : 'No hunting')) +
+          h('div', { class: 't2' }, esc((at.ac || 0).toLocaleString() + ' acres · ' + (at.huntable || ''))));
+      }).join('')) +
+      h('div', { class: 'tiny muted', style: 'margin-top:7px' }, esc(D.refugeSource)) +
+      h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Sea duck hunting area') +
+      h('div', { class: 'note' }, '<b>' + esc(D.seaduck.rule) + '</b>') +
+      h('div', { class: 'note', style: 'margin-top:7px' }, esc(D.seaduck.exception)) +
+      h('div', { class: 'note alert', style: 'margin-top:7px' }, esc(D.seaduck.note)) +
+      h('div', { class: 'row', style: 'margin-top:9px' },
+        h('a', { class: 'btn ghost', href: D.seaduck.url, target: '_blank', rel: 'noopener' }, 'Official sea duck map'));
+  } else {
+    body = h('div', { class: 'small muted', style: 'margin-bottom:9px' },
+        'Every date, limit and boundary on this page came from these. Rules change — check the state source before you hunt.') +
+      h('div', { class: 'list' }, REGS.sources.map(function (s) {
+        return h('a', { class: 'item', href: s.url, target: '_blank', rel: 'noopener' },
+          h('div', { class: 't1' }, esc(s.label)) + h('div', { class: 't2' }, esc(s.url.replace(/^https?:\/\//, '').slice(0, 54))));
+      }).join('')) +
+      h('div', { class: 'tiny muted', style: 'margin-top:10px' },
+        'Geometry: NH GRANIT (water bodies, streams, conservation land, town and state boundaries, public access sites); ' +
+        'OpenStreetMap (highways, used to trace the zone boundary routes); NOAA CO-OPS (tide predictions). ' +
+        'Zone polygons were built by routing along the actual roads named in the Fish and Game boundary descriptions.');
+  }
+  return sec('Reference', true,
+    h('div', { class: 'seg', style: 'flex-wrap:wrap;gap:3px' }, REF_TABS.map(function (t) {
+      return h('button', { 'data-ref': t[0], 'aria-pressed': S.refTab === t[0], style: 'flex:0 1 auto;padding:5px 8px' }, esc(t[1]));
+    }).join('')) + h('div', { style: 'margin-top:11px' }, body));
+}
+
+var SPECIES = ['Mallard', 'Black duck', 'Wood duck', 'Green-winged teal', 'Ring-necked', 'Goldeneye',
+               'Bufflehead', 'Hooded merganser', 'Common merganser', 'Scaup', 'Pintail', 'Wigeon',
+               'Gadwall', 'Scoter', 'Long-tailed', 'Eider', 'Canada goose', 'Brant', 'Snow goose', 'Coot'];
+function panelLog() {
+  var dbNote = dbReady ? '' : h('div', { class: 'note', style: 'margin-bottom:10px' },
+    'Saved spots and log entries need a signed-in Claude session. Without one the map still works — nothing is stored.');
+  var spotList = spots.length
+    ? h('div', { class: 'list' }, spots.map(function (s, i) {
+        return h('div', { class: 'item' },
+          h('div', { class: 'between' },
+            h('button', { class: 't1', 'data-goto-spot': i, style: 'text-align:left' }, esc(s.name)) +
+            h('button', { class: 'pill', 'data-del-spot': i, style: 'color:var(--closed)' }, 'Remove')) +
+          h('div', { class: 't2' }, esc(num(s.lat, 4) + ', ' + num(s.lon, 4) + (s.note ? ' · ' + s.note : ''))));
+      }).join(''))
+    : h('div', { class: 'tiny muted' }, 'No spots yet. Use the pin button on the map, then tap where you want it.');
+  var huntList = hunts.length
+    ? h('div', { class: 'list' }, hunts.slice().sort(function (a, b) { return a.d < b.d ? 1 : -1; }).map(function (e, i) {
+        var birds = Object.keys(e.birds || {}).filter(function (k) { return e.birds[k]; })
+          .map(function (k) { return e.birds[k] + ' ' + k; }).join(', ');
+        return h('div', { class: 'item' },
+          h('div', { class: 'between' }, h('span', { class: 't1' }, esc(fmtDate(e.d) + ' · ' + (e.loc || 'Unnamed'))) +
+            h('button', { class: 'pill', 'data-del-hunt': e.id, style: 'color:var(--closed)' }, 'Remove')) +
+          h('div', { class: 't2' }, esc(birds || 'no birds logged')) +
+          (e.notes ? h('div', { class: 'small muted', style: 'margin-top:3px;white-space:normal' }, esc(e.notes)) : ''));
+      }).join(''))
+    : h('div', { class: 'tiny muted' }, 'Nothing logged yet.');
+  return dbNote +
+    sec('My spots', true, spotList) +
+    sec('Log a hunt', false,
+      h('div', { class: 'lab' }, 'Date') + h('input', { class: 'fld', type: 'date', id: 'hDate', value: S.date }) +
+      h('div', { class: 'lab', style: 'margin-top:8px' }, 'Where') +
+      h('input', { class: 'fld', id: 'hLoc', placeholder: 'Water or spot name', value: S.sel ? (selTitle(S.sel) || '') : '' }) +
+      h('div', { class: 'lab', style: 'margin-top:8px' }, 'Birds') +
+      h('div', { id: 'hBirds', style: 'display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:3px' },
+        SPECIES.map(function (sp) {
+          return h('label', { class: 'row', style: 'gap:5px' },
+            h('input', { class: 'fld', type: 'number', min: 0, max: 99, 'data-bird': sp, style: 'width:46px;padding:3px 5px;text-align:center' }) +
+            h('span', { class: 'tiny' }, esc(sp)));
+        }).join('')) +
+      h('div', { class: 'lab', style: 'margin-top:8px' }, 'Notes') +
+      h('textarea', { class: 'fld', id: 'hNotes', placeholder: 'Wind, water, what worked…' }) +
+      h('button', { class: 'btn', id: 'hSave', style: 'margin-top:9px;width:100%', disabled: !dbReady }, 'Save entry')) +
+    sec('Log', true, huntList);
+}
+
+function renderRail() {
+  var html = S.panel === 'season' ? panelSeason()
+           : S.panel === 'layers' ? panelLayers()
+           : S.panel === 'access' ? panelAccess()
+           : S.panel === 'ref' ? panelRef() : panelLog();
+  $('#rail').innerHTML = html;
+  $('#rail').classList.toggle('wide', S.panel === 'ref');
+  renderTabs();
+  if (map) setTimeout(syncSize, 170);
+}
+
+/* ---------------- detail slip ------------------------------------------- */
+function selTitle(sel) {
+  if (!sel) return '';
+  if (sel.kind === 'water') return D.waterNames[sel.feat.meta[0] - 1] || 'Unnamed water';
+  if (sel.kind === 'access') return sel.site.n;
+  if (sel.kind === 'closed') return sel.area.n;
+  if (sel.kind === 'spot') return sel.spot.name;
+  if (sel.kind === 'tide') return sel.station.name;
+  if (sel.kind === 'land') return D.landNames[sel.feat.meta[0] - 1] || 'Conservation land';
+  if (sel.kind === 'refuge') return D.refugeNames[sel.feat.meta[0] - 1] || 'Refuge hunt unit';
+  if (sel.kind === 'gbshore') return sel.feat.status === 'open' ? 'Refuge shoreline — open' : 'Refuge shoreline — closed';
+  return 'Location';
+}
+function zoneBadge(z) {
+  if (!z) return h('span', { class: 'pill muted' }, 'Outside NH');
+  return h('span', { class: 'pill', style: 'color:' + ZONE_COLOR[z] }, esc(REGS.zones[z].name));
+}
+function zoneSeasonBlock(z) {
+  if (!z) return '';
+  var sps = ['duck', 'canada', 'brant', 'seaduck', 'merganser', 'coot', 'snow'];
+  var rows = sps.map(function (sp) {
+    var on = openOn(sp, z, S.date), b = bag(sp), nc = nextChange(sp, z, S.date);
+    return h('tr', null,
+      h('td', { style: 'font-weight:600' }, esc(entry(sp).label.replace(/ —.*/, ''))) +
+      h('td', { style: 'color:' + (on ? 'var(--open)' : 'var(--closed)') + ';font-weight:600' }, on ? 'Open' : 'Closed') +
+      h('td', { class: 'num' }, b ? esc(b.daily) : '—') +
+      h('td', { class: 'tiny muted' }, nc ? esc((nc.kind === 'opens' ? 'opens ' : 'thru ') + fmtDate(nc.date)) : '—'));
+  }).join('');
+  return h('div', { class: 'lab', style: 'margin:12px 0 5px' }, 'On ' + esc(fmtDate(S.date)) + ' in the ' + esc(REGS.zones[z].short) + ' zone') +
+    h('div', { class: 'tblwrap' }, h('table', null,
+      h('tr', null, h('th', null, 'Species') + h('th', null, 'Status') + h('th', { style: 'text-align:right' }, 'Daily') + h('th', null, 'Window')) + rows));
+}
+function nearbyClosed(lat, lon) {
+  var near = D.closed.areas.map(function (a) { return { a: a, d: haversine(lat, lon, a.lat, a.lon) }; })
+    .filter(function (x) { return x.d < 3; }).sort(function (x, y) { return x.d - y.d; });
+  if (!near.length) return '';
+  return h('div', { class: 'note alert', style: 'margin-top:11px' },
+    '<b>Closed areas within 3 miles</b><br>' + near.map(function (x) {
+      return esc(x.a.n) + ' — ' + esc(x.a.kind === 'all' ? 'all hunting' : 'waterfowl') + ' (' + num(x.d, 1) + ' mi)';
+    }).join('<br>') + h('div', { class: 'tiny', style: 'margin-top:5px' }, 'Locators are approximate. Read the rule before you set up.'));
+}
+function nearbyAccess(lat, lon, skip) {
+  var near = D.access.map(function (s) { return { s: s, d: haversine(lat, lon, s.lat, s.lon) }; })
+    .filter(function (x) { return x.s !== skip && x.d < 12; }).sort(function (a, b) { return a.d - b.d; }).slice(0, 5);
+  if (!near.length) return '';
+  return h('div', { class: 'lab', style: 'margin:12px 0 5px' }, 'Nearest public access') +
+    h('div', { class: 'list' }, near.map(function (x) {
+      return h('button', { class: 'item', 'data-site': D.access.indexOf(x.s) },
+        h('div', { class: 'between' }, h('span', { class: 't1' }, esc(x.s.n)) + h('span', { class: 'val tiny muted' }, num(x.d, 1) + ' mi')) +
+        h('div', { class: 't2' }, esc([x.s.lvl, x.s.ramp && x.s.ramp !== 'None' ? x.s.ramp + ' ramp' : '', x.s.t].filter(Boolean).join(' · '))));
+    }).join(''));
+}
+function renderSlip() {
+  var slip = $('#slip');
+  if (!S.sel) { slip.hidden = true; return; }
+  var sel = S.sel, lat = sel.lat, lon = sel.lon;
+  var z = zoneAt(lat, lon), town = townAt(lat, lon);
+  var sub = [], body = '';
+
+  if (sel.kind === 'water') {
+    var f = sel.feat, t = f.meta[1], ac = f.meta[2] / 10;
+    sub.push(t === 2 ? 'Marsh / swamp' : t === 1 ? 'Reservoir' : t === 3 ? 'Estuary' : 'Lake or pond');
+    if (town) sub.push(town);
+    body += h('dl', { class: 'kv' },
+      h('dt', null, 'Surface') + h('dd', null, ac >= 1 ? num(ac, ac < 50 ? 1 : 0) + ' acres' : 'under 1 acre') +
+      h('dt', null, 'Zone') + h('dd', null, zoneBadge(z)) +
+      (town ? h('dt', null, 'Town') + h('dd', null, esc(town)) : ''));
+  } else if (sel.kind === 'access') {
+    var s = sel.site;
+    sub.push(s.w || ''); if (s.t) sub.push(s.t + (s.c ? ', ' + s.c + ' Co.' : ''));
+    body += h('dl', { class: 'kv' },
+      h('dt', null, 'Launch') + h('dd', null, esc(s.at || s.lvl || '—')) +
+      h('dt', null, 'Ramp') + h('dd', null, esc(s.ramp || '—')) +
+      h('dt', null, 'Parking') + h('dd', null, esc(s.park || '—')) +
+      h('dt', null, 'Fee') + h('dd', { style: s.fee === 'Yes' ? 'color:var(--warn)' : '' }, esc(s.fee || '—')) +
+      h('dt', null, 'Owner') + h('dd', null, esc(s.own || '—')) +
+      (s.ac ? h('dt', null, 'Water size') + h('dd', null, s.ac.toLocaleString() + ' acres') : '') +
+      h('dt', null, 'Zone') + h('dd', null, zoneBadge(z)) +
+      h('dt', null, 'Coords') + h('dd', null, num(s.lat, 5) + ', ' + num(s.lon, 5)));
+    if (s.note) body += h('div', { class: 'note', style: 'margin-top:10px' }, esc(s.note));
+    if (s.inv) body += h('div', { class: 'note alert', style: 'margin-top:8px' }, 'Invasive species present — clean, drain and dry your boat, decoys and waders.');
+  } else if (sel.kind === 'closed') {
+    var a = sel.area;
+    sub.push(a.town);
+    body += h('div', { class: 'note alert' },
+      '<b>' + (a.kind === 'all' ? 'Closed to ALL hunting' : 'Closed to waterfowl hunting') + '</b><br>' + esc(a.d));
+    body += h('div', { class: 'note', style: 'margin-top:9px' }, esc(D.closed.warning));
+    body += h('div', { class: 'row', style: 'margin-top:9px' },
+      h('a', { class: 'btn ghost', href: D.closed.sourceUrl, target: '_blank', rel: 'noopener' }, 'Official map PDF'));
+  } else if (sel.kind === 'tide') {
+    sub.push('NOAA station ' + sel.id);
+    body += tideBlock(lat, lon);
+  } else if (sel.kind === 'land') {
+    var lf = sel.feat;
+    var agency = D.landAgency[lf.meta[2]] || 'Not recorded';
+    var level = D.landLevel[lf.meta[3]] || 'Unknown';
+    sub.push(agency); if (town) sub.push(town);
+    body += h('dl', { class: 'kv' },
+      h('dt', null, 'Size') + h('dd', null, lf.meta[1].toLocaleString() + ' acres') +
+      h('dt', null, 'Held by') + h('dd', null, esc(agency)) +
+      h('dt', null, 'Protection') + h('dd', null, esc(level)) +
+      h('dt', null, 'Zone') + h('dd', null, zoneBadge(z)));
+    body += h('div', { class: 'note', style: 'margin-top:10px' },
+      'Conservation status does not by itself mean hunting is allowed, and this layer records no access rule. Check posting at the parcel and the landowner rules before you hunt.');
+  } else if (sel.kind === 'refuge') {
+    var ri = D.refuges.indexOf(sel.feat);
+    var at = D.refugeAttrs[ri] || {};
+    sub.push('Federal refuge'); if (town) sub.push(town);
+    body += h('dl', { class: 'kv' },
+      h('dt', null, 'Unit') + h('dd', null, esc(at.unit || '—')) +
+      h('dt', null, 'Size') + h('dd', null, (at.ac || sel.feat.meta[1]).toLocaleString() + ' acres') +
+      h('dt', null, 'Hunting') + h('dd', { style: 'color:' + (sel.feat.meta[2] ? 'var(--open)' : 'var(--closed)') }, esc(at.huntable || '—')) +
+      h('dt', null, 'Permit') + h('dd', null, at.permit ? 'Required' : 'Not required') +
+      h('dt', null, 'Zone') + h('dd', null, zoneBadge(z)));
+    if (sel.feat.meta[2]) body += h('div', { class: 'note', style: 'margin-top:10px' },
+      'Refuge rules sit on top of state rules and are often tighter — designated areas only, no overland access in places, and a permit where one is required. Read the refuge page before you go.');
+    else body += h('div', { class: 'note alert', style: 'margin-top:10px' }, 'This refuge is not open to hunting.');
+    if (at.url) body += h('div', { class: 'row', style: 'margin-top:9px' },
+      h('a', { class: 'btn ghost', href: at.url, target: '_blank', rel: 'noopener' }, 'Refuge hunting page'));
+    body += h('div', { class: 'tiny muted', style: 'margin-top:8px' }, esc(D.refugeSource));
+  } else if (sel.kind === 'gbshore') {
+    var gopen = sel.feat.status === 'open';
+    sub.push('Great Bay National Wildlife Refuge');
+    body += h('div', { class: gopen ? 'note good' : 'note alert' },
+      '<b>' + (gopen ? 'Open to waterfowl hunting' : 'Closed to waterfowl hunting') + '</b><br>' +
+      'This stretch runs about ' + num(sel.feat.km, 2) + ' km. Access is by boat launched from off-refuge sites only; overland access through the refuge is prohibited, and you may not enter closed areas to retrieve downed birds.');
+    body += h('div', { class: 'note', style: 'margin-top:9px' }, esc(D.gbshore.note));
+    body += h('div', { class: 'row', style: 'margin-top:9px' },
+      h('a', { class: 'btn ghost', href: D.gbshore.url, target: '_blank', rel: 'noopener' }, 'Official hunt map'));
+  } else if (sel.kind === 'spot') {
+    if (town) sub.push(town);
+    body += h('dl', { class: 'kv' },
+      h('dt', null, 'Zone') + h('dd', null, zoneBadge(z)) +
+      h('dt', null, 'Coords') + h('dd', null, num(lat, 5) + ', ' + num(lon, 5)));
+    if (sel.spot.note) body += h('div', { class: 'note', style: 'margin-top:9px' }, esc(sel.spot.note));
+  } else {
+    if (town) sub.push(town);
+    body += h('dl', { class: 'kv' },
+      h('dt', null, 'Zone') + h('dd', null, zoneBadge(z)) +
+      h('dt', null, 'Coords') + h('dd', null, num(lat, 5) + ', ' + num(lon, 5)));
+  }
+
+  body += zoneSeasonBlock(z);
+  body += h('div', { class: 'lab', style: 'margin:12px 0 5px' }, 'Shooting hours here') + sunBlock();
+  var tb = tideBlock(lat, lon);
+  if (tb && sel.kind !== 'tide') body += h('div', { style: 'margin-top:12px' }, tb);
+  body += nearbyClosed(lat, lon);
+  body += nearbyAccess(lat, lon, sel.kind === 'access' ? sel.site : null);
+  body += h('div', { class: 'row', style: 'margin-top:12px;gap:6px;flex-wrap:wrap' },
+    h('button', { class: 'btn ghost', 'data-add-spot-here': '1' }, 'Save as spot') +
+    h('button', { class: 'btn ghost', 'data-zoom-here': '1' }, 'Zoom here'));
+
+  slip.hidden = false;
+  slip.innerHTML =
+    h('div', { class: 'sliphead' },
+      h('div', { style: 'flex:1 1 auto;min-width:0' },
+        h('h2', null, esc(selTitle(sel))) + h('div', { class: 'sub' }, esc(sub.filter(Boolean).join(' · ')))) +
+      h('button', { class: 'iconbtn', id: 'slipClose', 'aria-label': 'Close' },
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>')) +
+    h('div', { class: 'pbody', style: 'padding-top:12px' }, body);
+}
+
+/* =========================================================================
+   STORAGE (db capability)
+   ========================================================================= */
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+async function initDb() {
+  try {
+    db = await (window.claude && window.claude.use ? window.claude.use('db') : null);
+    if (!db) return;
+    dbReady = true;
+    var copy = function (d) { var v = Object.assign({}, d.data()); v.id = d.id; return v; };
+    db.collection('spots').onSnapshot(function (snap) {
+      spots = snap.docs.map(copy)
+        .filter(function (v) { return typeof v.lat === 'number' && typeof v.lon === 'number'; });
+      if (S.panel === 'log' || S.panel === 'layers') renderRail();
+      schedule();
+    }, function () {});
+    db.collection('hunts').onSnapshot(function (snap) {
+      hunts = snap.docs.map(copy)
+        .filter(function (v) { return typeof v.d === 'string'; });
+      if (S.panel === 'log') renderRail();
+    }, function () {});
+    if (S.panel === 'log') renderRail();
+  } catch (e) { db = null; dbReady = false; }
+}
+function addSpotAt(lat, lon) {
+  S.pinMode = false; $('#zPin').setAttribute('aria-pressed', 'false'); $('#cross').classList.remove('on');
+  var name = (townAt(lat, lon) || 'Spot') + ' ' + (spots.length + 1);
+  var rec = { name: name, lat: +lat.toFixed(5), lon: +lon.toFixed(5), note: '', created: new Date().toISOString() };
+  if (dbReady) {
+    var id = uid();
+    db.doc('spots/' + id).set(rec).catch(function () {});
+  } else {
+    rec.id = uid(); spots.push(rec); schedule();
+  }
+  select({ kind: 'spot', spot: rec, lat: rec.lat, lon: rec.lon });
+  if (S.panel === 'log') renderRail();
+}
+
+/* =========================================================================
+   EVENTS
+   ========================================================================= */
+function setDate(isoStr) {
+  if (isoStr < SEASON_START) isoStr = SEASON_START;
+  if (isoStr > SEASON_END) isoStr = SEASON_END;
+  S.date = isoStr;
+  $('#dPick').value = isoStr;
+  $('#dLabel').textContent = fmtDate(isoStr) + ' ' + isoStr.slice(0, 4);
+  var any = ZONE_IDS.some(function (z) { return openOn('duck', z, isoStr); });
+  $('#dSub').textContent = any ? 'duck season running' : 'no duck season';
+  $('#dSub').style.color = any ? 'var(--open)' : 'var(--dim)';
+  store('date', isoStr);
+  renderStrip(); renderRail(); renderSlip(); schedule();
+}
+function applyTheme() {
+  var t = store('theme') || 'auto';
+  if (t === 'auto') document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme', t);
+  schedule();
+}
+function wire() {
+  document.addEventListener('click', function (ev) {
+    var t = ev.target.closest ? ev.target.closest('[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],#slipClose,#hSave') : null;
+    if (!t) return;
+    var g = function (k) { return t.getAttribute(k); };
+    if (g('data-panel')) { S.panel = g('data-panel'); renderRail(); closeRail(); }
+    else if (g('data-zone') != null) { var z = g('data-zone'); S.zone = (S.zone === z ? null : z); renderStrip(); renderRail(); schedule(); if (S.zone) fitZone(S.zone); }
+    else if (g('data-sec')) { var bx = document.getElementById(g('data-sec')); var exp = t.getAttribute('aria-expanded') === 'true'; t.setAttribute('aria-expanded', String(!exp)); bx.hidden = exp; }
+    else if (g('data-theme-set')) { store('theme', g('data-theme-set')); applyTheme(); renderRail(); }
+    else if (g('data-ref')) { S.refTab = g('data-ref'); renderRail(); }
+    else if (g('data-acc-lvl')) { S.access.lvl = g('data-acc-lvl'); renderRail(); schedule(); }
+    else if (g('data-acc-fee')) { S.access.fee = g('data-acc-fee'); renderRail(); schedule(); }
+    else if (g('data-site')) { var s = D.access[+g('data-site')]; if (s) { map.setView([s.lat, s.lon], Math.max(map.getZoom(), 13)); select({ kind: 'access', site: s, lat: s.lat, lon: s.lon }); } }
+    else if (g('data-closed')) { var a = D.closed.areas.filter(function (x) { return x.id === +g('data-closed'); })[0]; if (a) { map.setView([a.lat, a.lon], 13); select({ kind: 'closed', area: a, lat: a.lat, lon: a.lon }); } }
+    else if (g('data-refuge')) { var r = D.closed.refuge; map.setView([r.lat, r.lon], 13); select({ kind: 'point', lat: r.lat, lon: r.lon }); }
+    else if (g('data-base')) { setBase(g('data-base')); }
+    else if (g('data-goto-refuge')) {
+      var rf = D.refuges[+g('data-goto-refuge')];
+      if (rf) { map.fitBounds([[unprojY(rf.bb[3]), unprojX(rf.bb[0])], [unprojY(rf.bb[1]), unprojX(rf.bb[2])]], { padding: [24, 24] });
+        select({ kind: 'refuge', feat: rf, lat: unprojY((rf.bb[1] + rf.bb[3]) / 2), lon: unprojX((rf.bb[0] + rf.bb[2]) / 2) }); }
+    }
+    else if (g('data-goto-spot')) { var sp = spots[+g('data-goto-spot')]; if (sp) { map.setView([sp.lat, sp.lon], 14); select({ kind: 'spot', spot: sp, lat: sp.lat, lon: sp.lon }); } }
+    else if (g('data-del-spot')) { delSpot(+g('data-del-spot')); }
+    else if (g('data-del-hunt')) { delHunt(g('data-del-hunt')); }
+    else if (g('data-add-spot-here')) { addSpotAt(S.sel.lat, S.sel.lon); }
+    else if (g('data-zoom-here')) { map.setView([S.sel.lat, S.sel.lon], Math.max(map.getZoom(), 14)); }
+    else if (t.id === 'slipClose') { S.sel = null; renderSlip(); schedule(); }
+    else if (t.id === 'hSave') { saveHunt(); }
+  });
+  document.addEventListener('change', function (ev) {
+    var t = ev.target;
+    if (t.getAttribute && t.getAttribute('data-layer')) {
+      S.layers[t.getAttribute('data-layer')] = t.checked; schedule();
+      store('layers', JSON.stringify(S.layers));
+    }
+    if (t.id === 'dPick') setDate(t.value);
+  });
+  document.addEventListener('input', function (ev) {
+    var t = ev.target;
+    if (t.id === 'dRange') setDate(addDays(SEASON_START, +t.value));
+    if (t.id === 'accQ') { S.access.q = t.value; clearTimeout(window._aq); window._aq = setTimeout(function () { var v = document.getElementById('accQ'); var pos = v && v.selectionStart; renderRail(); var n = document.getElementById('accQ'); if (n) { n.focus(); try { n.setSelectionRange(pos, pos); } catch (e) {} } schedule(); }, 220); }
+  });
+  $('#dPrev').onclick = function () { setDate(addDays(S.date, -1)); };
+  $('#dNext').onclick = function () { setDate(addDays(S.date, 1)); };
+  $('#dToday').onclick = function () { setDate(todayISO()); };
+  $('#zIn').onclick = function () { map.zoomIn(1); };
+  $('#zOut').onclick = function () { map.zoomOut(1); };
+  $('#zFit').onclick = function () { S.zone = null; renderStrip(); map.fitBounds(NH_BOUNDS, { padding: [8, 8] }); schedule(); };
+  $('#zLoc').onclick = locate;
+  $('#zPin').onclick = function () {
+    S.pinMode = !S.pinMode;
+    this.setAttribute('aria-pressed', String(S.pinMode));
+    $('#cross').classList.toggle('on', S.pinMode);
+  };
+  $('#themeBtn').onclick = function () {
+    var cur = store('theme') || 'auto';
+    store('theme', cur === 'auto' ? 'dark' : cur === 'dark' ? 'light' : 'auto');
+    applyTheme(); if (S.panel === 'layers') renderRail();
+  };
+  $('#mRail').onclick = function () { $('#rail').classList.add('on'); $('#scrim').classList.add('on'); };
+  $('#scrim').onclick = closeRail;
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') setDate(addDays(S.date, -1));
+    else if (e.key === 'ArrowRight') setDate(addDays(S.date, 1));
+    else if (e.key === 'Escape') { S.sel = null; renderSlip(); closeRail(); schedule(); }
+  });
+}
+function closeRail() { $('#rail').classList.remove('on'); $('#scrim').classList.remove('on'); }
+function fitZone(z) {
+  for (var i = 0; i < D.zones.length; i++) if (D.zones[i].props.id === z) {
+    var bb = D.zones[i].bb;
+    map.fitBounds([[unprojY(bb[3]), unprojX(bb[0])], [unprojY(bb[1]), unprojX(bb[2])]], { padding: [20, 20] });
+  }
+}
+function locate() {
+  if (!navigator.geolocation) return;
+  navigator.geolocation.getCurrentPosition(function (p) {
+    map.setView([p.coords.latitude, p.coords.longitude], 13);
+    select({ kind: 'point', lat: p.coords.latitude, lon: p.coords.longitude });
+  }, function () {}, { timeout: 8000 });
+}
+function delSpot(i) {
+  var s = spots[i]; if (!s) return;
+  if (dbReady && s.id) db.doc('spots/' + s.id).delete().catch(function () {});
+  else { spots.splice(i, 1); }
+  renderRail(); schedule();
+}
+function delHunt(id) {
+  if (dbReady) db.doc('hunts/' + id).delete().catch(function () {});
+  else hunts = hunts.filter(function (x) { return x.id !== id; });
+  renderRail();
+}
+function saveHunt() {
+  var birds = {};
+  Array.prototype.forEach.call(document.querySelectorAll('[data-bird]'), function (inp) {
+    var v = parseInt(inp.value, 10); if (v > 0) birds[inp.getAttribute('data-bird')] = v;
+  });
+  var d = ($('#hDate') || {}).value || S.date;
+  var rec = {
+    d: d, loc: ($('#hLoc') || {}).value || '', notes: ($('#hNotes') || {}).value || '',
+    birds: birds, zone: S.sel ? zoneAt(S.sel.lat, S.sel.lon) : null,
+    lat: S.sel ? S.sel.lat : null, lon: S.sel ? S.sel.lon : null,
+    created: new Date().toISOString()
+  };
+  if (dbReady) db.doc('hunts/' + uid()).set(rec).catch(function () {});
+  renderRail();
+}
+function todayISO() {
+  var now = new Date();
+  var p = new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+  return p;
+}
+
+/* =========================================================================
+   BOOT
+   ========================================================================= */
+function get(path) {
+  return fetch(path).then(function (r) { if (!r.ok) throw new Error(path + ' ' + r.status); return r.json(); });
+}
+function boot() {
+  applyTheme();
+  var saved = store('layers');
+  if (saved) { try { var o = JSON.parse(saved); for (var k in o) if (k in S.layers) S.layers[k] = !!o[k]; } catch (e) {} }
+
+  Promise.all([
+    get('data/regs.json'), get('data/zones.json'), get('data/zonelines.json'),
+    get('data/waters-major.json'), get('data/streams.json'), get('data/publicland.json'),
+    get('data/access.json'), get('data/closed.json'), get('data/tides.json'),
+    get('data/towns.json'), get('data/roads.json'),
+    get('data/refuges.json'), get('data/gbshore.json'), get('data/seaduck.json')
+  ]).then(function (r) {
+    REGS = r[0];
+    D.zones = geoToWorld(r[1]);
+    D.zonelines = geoToWorld(r[2]);
+    D.watersMajor = unpack(r[3].data, 3); D.waterNames = r[3].names;
+    D.streams = unpack(r[4].data, 2); D.streamNames = r[4].names;
+    D.land = unpack(r[5].data, 4); D.landNames = r[5].names;
+    D.landAgency = r[5].agency; D.landLevel = r[5].level;
+    D.access = r[6];
+    D.closed = r[7];
+    D.tides = r[8];
+    D.towns = unpack(r[9].data, 1); D.townNames = r[9].names;
+    D.roads = unpack(r[10].data, 2); D.roadNames = r[10].names;
+    D.refuges = unpack(r[11].data, 4); D.refugeNames = r[11].names;
+    D.refugeAttrs = r[11].attrs; D.refugeSource = r[11].source;
+    D.gbshore = r[12];
+    D.gbshore.proj = D.gbshore.features.map(function (f) {
+      var a = new Float64Array(f.line.length * 2);
+      var bb = [Infinity, Infinity, -Infinity, -Infinity];
+      for (var i = 0; i < f.line.length; i++) {
+        var wx = projX(f.line[i][0]), wy = projY(f.line[i][1]);
+        a[i * 2] = wx; a[i * 2 + 1] = wy;
+        if (wx < bb[0]) bb[0] = wx; if (wx > bb[2]) bb[2] = wx;
+        if (wy < bb[1]) bb[1] = wy; if (wy > bb[3]) bb[3] = wy;
+      }
+      return { status: f.status, km: f.km, parts: [a], bb: bb };
+    });
+    D.seaduck = r[13];
+    D.seaduck.proj = (function () {
+      var ring = D.seaduck.ring, a = new Float64Array(ring.length * 2);
+      var bb = [Infinity, Infinity, -Infinity, -Infinity];
+      for (var i = 0; i < ring.length; i++) {
+        var wx = projX(ring[i][0]), wy = projY(ring[i][1]);
+        a[i * 2] = wx; a[i * 2 + 1] = wy;
+        if (wx < bb[0]) bb[0] = wx; if (wx > bb[2]) bb[2] = wx;
+        if (wy < bb[1]) bb[1] = wy; if (wy > bb[3]) bb[3] = wy;
+      }
+      return { parts: [a], bb: bb };
+    })();
+    D.watersMinor = [];
+
+    initMap();
+    var start = store('date');
+    var t = todayISO();
+    setDate(start && start >= SEASON_START && start <= SEASON_END ? start : (t >= SEASON_START && t <= SEASON_END ? t : '2026-10-24'));
+    wire();
+    var sb = store('base'); if (sb && sb !== 'vector') setBase(sb);
+    $('#load').hidden = true;
+    schedule();
+
+    get('data/waters-minor.json').then(function (mn) {
+      D.watersMinor = unpack(mn.data, 3);
+      schedule();
+      if (S.panel === 'layers') renderRail();
+    }).catch(function () {});
+    initDb();
+  }).catch(function (e) {
+    $('#load').innerHTML = '<div><b>Could not load the map data</b>' + esc(e && e.message ? e.message : 'Unknown error') + '</div>';
+  });
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+
+</script>
