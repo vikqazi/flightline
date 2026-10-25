@@ -1,15 +1,15 @@
-Add map key; serve a standards-mode page on Pages
+Live position: watchPosition, accuracy halo, zone readout
 
-The hosted copy was the Artifact build, which has no doctype or head because
-the Artifact platform supplies them. On GitHub Pages that rendered in quirks
-mode and broke the full-height layout. The build now emits a standalone page
-with the same skeleton the platform injects.
+The locate button was a one-shot getCurrentPosition that failed silently.
+It now holds a watch, draws your position with a halo sized to the reported
+accuracy, and follows you until you pan the map by hand.
 
-Also adds an on-map key, open by default, that explains the symbols -
-especially the dashed red circles, which are the 20 state closed areas from
-Fis 306.01 drawn at approximately the size of each closure.
+A "Where you are" panel shows the zone you are standing in, whether duck
+season is open there today, the fix age and accuracy, and warns when a
+closed area is within two miles. Sunrise, sunset and tides recompute for
+your position rather than the map centre.
 
-Imagery now goes to zoom 19, and over satellite the water and marsh draw as
-outlines so the real marsh edge stays readable.
+Failures are now visible and specific: denied, no fix, or timed out, with
+different advice depending on whether the page is embedded in a frame.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
