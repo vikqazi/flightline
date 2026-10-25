@@ -919,9 +919,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <button id="zIn" aria-label="Zoom in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
         <button id="zOut" aria-label="Zoom out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
         <button id="zFit" aria-label="Fit New Hampshire" title="Whole state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
-        <button id="zLoc" aria-label="Find me" title="Find me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
+        <button id="zLoc" aria-label="Find me" title="Find me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="7.2"/><path d="M12 1.6v3.2M12 19.2v3.2M1.6 12h3.2M19.2 12h3.2"/></svg></button>
         <button id="zKey" aria-label="Map key" title="Map key" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h4M4 12h4M4 18h4M12 6h8M12 12h8M12 18h8"/></svg></button>
-        <button id="zPin" aria-label="Drop a spot" title="Drop a spot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></button>
+        <button id="zPin" aria-label="Drop a spot" title="Drop a spot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><path d="M12 7.3v5.4M9.3 10h5.4"/></svg></button>
       </div>
       <div class="readout">
         <div class="scalebar" id="scale">&nbsp;<i style="width:60px"></i></div>
@@ -1129,7 +1129,7 @@ var D = {};                 // loaded datasets
 var map = null, canvas = null, ctx = null, layer = null;
 var S = {
   date: null, zone: null, panel: 'season', sel: null, ref: null, pinMode: false,
-  base: 'vector', tileState: 'idle',
+  base: 'vector', tileState: 'idle', labels: true,
   geo: { on: false, follow: false, lat: null, lon: null, acc: null, heading: null, ts: 0, err: null, watch: null },
   layers: { zones: true, zoneLines: true, towns: false, roads: true, water: true, marsh: true,
             streams: true, land: true, access: true, closed: true, tides: true, spots: true, minor: true,
@@ -1178,8 +1178,15 @@ function initMap() {
    Artifacts normally block third-party images. We try anyway, watch for a
    tile that actually loads, and fall back to the vector chart if none does. */
 var tileLayer = null, tileTimer = null;
+var BLANK_TILE = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+var ESRI_REF = 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/';
 var BASES = {
-  satellite: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', maxNative: 18 },
+  satellite: {
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    maxNative: 18,
+    /* imagery carries no names, so lay Esri's reference tiles over it */
+    ref: ['World_Transportation', 'World_Boundaries_and_Places']
+  },
   topo: { url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', maxNative: 16 }
 };
 function setBase(b) {
@@ -1193,11 +1200,20 @@ function setBase(b) {
   }
   S.tileState = 'loading';
   if (S.panel === 'layers') renderRail();
-  tileLayer = L.tileLayer(BASES[b].url, { maxZoom: 19, maxNativeZoom: BASES[b].maxNative, opacity: 1,
-    errorTileUrl: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' });
-  tileLayer.on('tileload', function () {
+  var def = BASES[b];
+  var baseTile = L.tileLayer(def.url, {
+    maxZoom: 19, maxNativeZoom: def.maxNative, opacity: 1, errorTileUrl: BLANK_TILE
+  });
+  baseTile.on('tileload', function () {
     if (S.tileState !== 'ok') { S.tileState = 'ok'; if (S.panel === 'layers') renderRail(); schedule(); }
   });
+  tileLayer = L.layerGroup([baseTile]);
+  if (def.ref && S.labels) {
+    def.ref.forEach(function (name) {
+      tileLayer.addLayer(L.tileLayer(ESRI_REF + name + '/MapServer/tile/{z}/{y}/{x}',
+        { maxZoom: 19, maxNativeZoom: 19, errorTileUrl: BLANK_TILE }));
+    });
+  }
   tileLayer.addTo(map);
   tileTimer = setTimeout(function () {
     if (S.tileState !== 'ok') {
@@ -1927,6 +1943,9 @@ function panelLayers() {
       [['vector', 'Vector'], ['satellite', 'Satellite'], ['topo', 'Topo']].map(function (o) {
         return h('button', { 'data-base': o[0], 'aria-pressed': S.base === o[0] }, esc(o[1]));
       }).join('')) +
+    (S.base === 'satellite' ? h('label', { class: 'toggle', style: 'margin-top:7px' },
+        h('input', { type: 'checkbox', id: 'labelSw', checked: S.labels }) +
+        h('span', { class: 't' }, 'Street and place names')) : '') +
     h('div', { class: 'tiny muted', style: 'margin-top:7px' }, esc(tileMsg)) +
     (S.tileState === 'blocked' ? h('div', { class: 'note alert', style: 'margin-top:8px' },
       'No imagery reached the page. Everything else on the map is local data and still works offline.') : '')) +
@@ -2204,6 +2223,10 @@ function renderKey() {
       krow(sq(css('--m-spot'), '50%'), 'My spots') +
       krow('<i style="width:13px;height:13px;border-radius:50%;background:#2f7fd4;box-shadow:0 0 0 2.5px #fff;display:block"></i>', 'You', 'Blue halo shows GPS accuracy')) +
 
+    h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Buttons, right of the map') +
+      krow('<i style="font:600 12px var(--f-data);color:var(--fg)">&#9678;</i>', 'Find me', 'The ringed dot — shows your position and follows you') +
+      krow('<i style="font:600 12px var(--f-data);color:var(--fg)">&#9776;</i>', 'This key') +
+      krow('<i style="font:600 13px var(--f-data);color:var(--fg)">&#9906;</i>', 'Drop a spot', 'The pin with a plus — then tap the map to save a place')) +
     h('div', { class: 'knote', style: 'margin-top:10px' },
       'Zone shading shows duck season on the chosen date: green open, red closed.');
 }
@@ -2499,6 +2522,7 @@ function wire() {
       store('layers', JSON.stringify(S.layers));
     }
     if (t.id === 'dPick') setDate(t.value);
+    if (t.id === 'labelSw') { S.labels = t.checked; store('labels', t.checked ? '1' : '0'); setBase(S.base); }
   });
   document.addEventListener('input', function (ev) {
     var t = ev.target;
@@ -2638,6 +2662,7 @@ function get(path) {
 }
 function boot() {
   applyTheme();
+  S.labels = store('labels') !== '0';
   var saved = store('layers');
   if (saved) { try { var o = JSON.parse(saved); for (var k in o) if (k in S.layers) S.layers[k] = !!o[k]; } catch (e) {} }
 

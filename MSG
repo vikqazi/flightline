@@ -1,21 +1,13 @@
-Fix the map painting over the panels on phones
+Street and place names over satellite; clearer locate button
 
-Leaflet gives its panes z-index 400 and up, and #map was positioned with
-z-index auto, so it created no stacking context. Those panes competed
-directly with the rail and slip at z-index 80 and won. The side panel was
-opening on every tap of the hamburger - it was just being painted over by
-the map. The map wrapper now isolates its own stacking context.
+Esri World Imagery carries no labels, so there was nothing to navigate by
+once you zoomed in. Satellite now layers Esri World_Transportation and
+World_Boundaries_and_Places over the imagery - street names, route shields
+and town names, sharp to zoom 19. A switch under Base map turns them off.
 
-The overlay canvas is also pinned to the map container and drawn in
-container coordinates, instead of being repositioned against the moving
-pane each frame. That removes the offset band seen on mobile.
-
-With the header tabs hidden below 900px there was no way to reach Layers,
-Access, Regs or Log on a phone; the panel now carries its own tabs and a
-close button, and choosing one no longer slams the drawer shut. The map key
-starts closed on narrow screens, where it covered most of the map.
-
-Satellite native zoom capped at 18 so zoom 19 upscales rather than asking
-Esri for rural tiles that do not exist.
+The locate and drop-a-spot buttons were easy to confuse: drop-a-spot used
+the classic map pin, which reads as "my location" to everyone. Find me is
+now the ringed GPS dot and drop-a-spot is a pin with a plus. The map key
+gained a section naming each button, since tooltips never appear on touch.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
