@@ -1,3 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="New Hampshire waterfowl hunting zones, 2026-27 season dates and bag limits, water bodies, boat ramps, refuge hunt units and closed areas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
 <title>Granite Flyway</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -229,6 +241,19 @@ a:hover{text-decoration:underline}
 .leaflet-container{background:var(--m-land);font-family:var(--f-body)}
 .leaflet-control-attribution{display:none}
 
+.keycard{position:absolute;left:calc(10px + env(safe-area-inset-left,0px));top:10px;z-index:520;
+  width:230px;max-height:calc(100% - 96px);overflow-y:auto;overscroll-behavior:contain;
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:9px 11px}
+.keycard h3{margin:0;font-family:var(--f-disp);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--dim);display:flex;align-items:center;gap:6px}
+.keycard h3 button{margin-left:auto;color:var(--dim);font-size:16px;line-height:1;padding:0 3px}
+.keycard h3 button:hover{color:var(--fg)}
+.kgrp{margin-top:9px}
+.kgrp>.lab{font-size:9.5px;margin-bottom:3px}
+.krow{display:flex;align-items:flex-start;gap:7px;margin:3px 0;font-size:11.5px;line-height:1.32}
+.ksw{width:17px;min-height:15px;flex:0 0 auto;display:grid;place-items:center;margin-top:1px}
+.knote{font-size:10.5px;color:var(--dim);margin-top:2px;line-height:1.35}
+@media (max-width:900px){.keycard{max-height:calc(100% - 120px);width:206px}}
 /* ---------- mobile ---------- */
 .scrim{position:fixed;inset:0;background:rgba(8,14,16,.5);z-index:70;display:none}
 .scrim.on{display:block}
@@ -875,11 +900,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="mapwrap">
       <div id="map"></div>
       <div class="crosshair" id="cross"></div>
+      <div class="keycard" id="keycard"></div>
       <div class="mapctl">
         <button id="zIn" aria-label="Zoom in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
         <button id="zOut" aria-label="Zoom out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
         <button id="zFit" aria-label="Fit New Hampshire" title="Whole state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
         <button id="zLoc" aria-label="Find me" title="Find me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
+        <button id="zKey" aria-label="Map key" title="Map key" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h4M4 12h4M4 18h4M12 6h8M12 12h8M12 18h8"/></svg></button>
         <button id="zPin" aria-label="Drop a spot" title="Drop a spot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></button>
       </div>
       <div class="readout">
@@ -2055,6 +2082,54 @@ function panelLog() {
     sec('Log', true, huntList);
 }
 
+/* ---------------- map key ------------------------------------------------ */
+function krow(swatch, label, note) {
+  return h('div', { class: 'krow' },
+    h('span', { class: 'ksw' }, swatch) +
+    h('span', null, esc(label) + (note ? h('div', { class: 'knote' }, esc(note)) : '')));
+}
+function renderKey() {
+  var card = $('#keycard');
+  var on = store('key') !== '0';
+  card.hidden = !on;
+  var btn = $('#zKey'); if (btn) btn.setAttribute('aria-pressed', String(on));
+  if (!on) return;
+  var sq = function (c, r) { return '<i style="width:11px;height:11px;border-radius:' + (r || '2px') + ';background:' + c + ';display:block"></i>'; };
+  var ring = function (c) { return '<i style="width:15px;height:15px;border-radius:50%;border:1.6px dashed ' + c + ';background:' + hexA(c, 0.18) + ';display:block"></i>'; };
+  var bar = function (c, d) { return '<i style="width:17px;height:0;border-top:3px ' + (d ? 'dashed' : 'solid') + ' ' + c + ';display:block"></i>'; };
+  var tri = function (c) { return '<i style="width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:11px solid ' + c + ';display:block"></i>'; };
+
+  card.innerHTML =
+    h('h3', null, 'Map key' + h('button', { id: 'keyClose', 'aria-label': 'Hide the key' }, '&times;')) +
+
+    h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Do not hunt here') +
+      krow(ring(css('--m-closed')), 'Closed area', 'A state closed area from Fis 306.01 — 20 of them. The circle is an approximate locator the size of the closure, not its legal edge. Tap it for the exact wording.') +
+      krow(bar('#d2342a'), 'Refuge shoreline, closed', 'Great Bay NWR')) +
+
+    h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Where you can go') +
+      krow(sq(css('--m-access'), '0'), 'Boat ramp', 'Trailer launch — square') +
+      krow(sq(css('--m-access'), '50%'), 'Cartop access', 'Hand carry, no trailer — circle') +
+      krow(bar('#2f7fd4'), 'Refuge shoreline, open', 'Great Bay NWR, boat access only') +
+      krow(sq(hexA(css('--m-public'), 0.55)), 'Conservation land', 'Not automatically open to hunting') +
+      krow(sq(hexA(css('--open'), 0.5)), 'Federal refuge unit', 'Special regulations, often a permit')) +
+
+    h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Water') +
+      krow(sq(css('--m-water')), 'Lake, pond, river') +
+      krow(sq(css('--m-marsh')), 'Marsh and swamp') +
+      krow(bar(css('--m-stream')), 'Stream') +
+      krow(tri(css('--info')), 'Tide station', 'NOAA predictions')) +
+
+    h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Zones') +
+      ZONE_IDS.map(function (z) {
+        return krow(sq(ZONE_COLOR[z]), REGS.zones[z].name);
+      }).join('') +
+      krow(bar(css('--accent'), true), 'Zone boundary', 'Follows the roads in the Fish and Game description') +
+      krow(sq(css('--m-spot'), '50%'), 'My spots')) +
+
+    h('div', { class: 'knote', style: 'margin-top:10px' },
+      'Zone shading shows duck season on the chosen date: green open, red closed.');
+}
+
 function renderRail() {
   var html = S.panel === 'season' ? panelSeason()
            : S.panel === 'layers' ? panelLayers()
@@ -2285,6 +2360,7 @@ function applyTheme() {
   var t = store('theme') || 'auto';
   if (t === 'auto') document.documentElement.removeAttribute('data-theme');
   else document.documentElement.setAttribute('data-theme', t);
+  _cssCache = null;
   schedule();
 }
 function wire() {
@@ -2344,8 +2420,15 @@ function wire() {
   $('#themeBtn').onclick = function () {
     var cur = store('theme') || 'auto';
     store('theme', cur === 'auto' ? 'dark' : cur === 'dark' ? 'light' : 'auto');
-    applyTheme(); if (S.panel === 'layers') renderRail();
+    applyTheme(); renderKey(); if (S.panel === 'layers') renderRail();
   };
+  $('#zKey').onclick = function () {
+    store('key', store('key') === '0' ? '1' : '0');
+    renderKey();
+  };
+  document.addEventListener('click', function (ev) {
+    if (ev.target.closest && ev.target.closest('#keyClose')) { store('key', '0'); renderKey(); }
+  });
   $('#mRail').onclick = function () { $('#rail').classList.add('on'); $('#scrim').classList.add('on'); };
   $('#scrim').onclick = closeRail;
   document.addEventListener('keydown', function (e) {
@@ -2465,6 +2548,7 @@ function boot() {
     setDate(start && start >= SEASON_START && start <= SEASON_END ? start : (t >= SEASON_START && t <= SEASON_END ? t : '2026-10-24'));
     wire();
     var sb = store('base'); if (sb && sb !== 'vector') setBase(sb);
+    renderKey();
     $('#load').hidden = true;
     schedule();
 
@@ -2482,3 +2566,6 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 })();
 
 </script>
+
+</body>
+</html>

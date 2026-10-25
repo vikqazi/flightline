@@ -1,0 +1,15 @@
+Add map key; serve a standards-mode page on Pages
+
+The hosted copy was the Artifact build, which has no doctype or head because
+the Artifact platform supplies them. On GitHub Pages that rendered in quirks
+mode and broke the full-height layout. The build now emits a standalone page
+with the same skeleton the platform injects.
+
+Also adds an on-map key, open by default, that explains the symbols -
+especially the dashed red circles, which are the 20 state closed areas from
+Fis 306.01 drawn at approximately the size of each closure.
+
+Imagery now goes to zoom 19, and over satellite the water and marsh draw as
+outlines so the real marsh edge stays readable.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
