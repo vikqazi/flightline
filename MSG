@@ -1,15 +1,21 @@
-Live position: watchPosition, accuracy halo, zone readout
+Fix the map painting over the panels on phones
 
-The locate button was a one-shot getCurrentPosition that failed silently.
-It now holds a watch, draws your position with a halo sized to the reported
-accuracy, and follows you until you pan the map by hand.
+Leaflet gives its panes z-index 400 and up, and #map was positioned with
+z-index auto, so it created no stacking context. Those panes competed
+directly with the rail and slip at z-index 80 and won. The side panel was
+opening on every tap of the hamburger - it was just being painted over by
+the map. The map wrapper now isolates its own stacking context.
 
-A "Where you are" panel shows the zone you are standing in, whether duck
-season is open there today, the fix age and accuracy, and warns when a
-closed area is within two miles. Sunrise, sunset and tides recompute for
-your position rather than the map centre.
+The overlay canvas is also pinned to the map container and drawn in
+container coordinates, instead of being repositioned against the moving
+pane each frame. That removes the offset band seen on mobile.
 
-Failures are now visible and specific: denied, no fix, or timed out, with
-different advice depending on whether the page is embedded in a frame.
+With the header tabs hidden below 900px there was no way to reach Layers,
+Access, Regs or Log on a phone; the panel now carries its own tabs and a
+close button, and choosing one no longer slams the drawer shut. The map key
+starts closed on narrow screens, where it covered most of the map.
+
+Satellite native zoom capped at 18 so zoom 19 upscales rather than asking
+Esri for rural tiles that do not exist.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>

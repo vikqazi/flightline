@@ -121,12 +121,21 @@ button{cursor:pointer;background:none;border:0}
 .rail{flex:0 0 var(--rail);width:var(--rail);transition:flex-basis .15s,width .15s;background:var(--surface);border-right:1px solid var(--line);
   overflow-y:auto;overscroll-behavior:contain;padding-bottom:28px}
 .rail.wide{flex-basis:var(--railwide);width:var(--railwide)}
-.mapwrap{flex:1 1 auto;position:relative;min-width:0;background:var(--m-land)}
+.mapwrap{flex:1 1 auto;position:relative;min-width:0;background:var(--m-land);z-index:0;isolation:isolate}
 #map{position:absolute;inset:0;background:var(--m-land)}
 .slip{flex:0 0 var(--slip);width:var(--slip);background:var(--surface);border-left:1px solid var(--line);
   overflow-y:auto;overscroll-behavior:contain;padding-bottom:28px}
 
 /* ---------- panel furniture ---------- */
+.railtabs{display:none}
+@media (max-width:900px){
+  .railtabs{display:flex;gap:2px;flex-wrap:wrap;align-items:center;position:sticky;top:0;z-index:3;
+    background:var(--surface);border-bottom:1px solid var(--line);
+    padding:8px max(10px,env(safe-area-inset-left,0px)) 8px 10px}
+  .railtabs button{padding:6px 10px;border-radius:5px;font-size:12.5px;font-weight:600;color:var(--dim)}
+  .railtabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+  .railtabs .x{margin-left:auto;font-size:18px;line-height:1;padding:2px 6px;color:var(--dim)}
+}
 .psec{border-bottom:1px solid var(--line)}
 .phead{display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;text-align:left;
   font-family:var(--f-disp);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
@@ -1145,10 +1154,8 @@ function initMap() {
   map.fitBounds(NH_BOUNDS);
 
   canvas = document.createElement('canvas');
-  canvas.className = 'leaflet-layer';
-  canvas.style.position = 'absolute';
-  canvas.style.pointerEvents = 'none';
-  map.getPanes().overlayPane.appendChild(canvas);
+  canvas.style.cssText = 'position:absolute;left:0;top:0;z-index:450;pointer-events:none';
+  map.getContainer().appendChild(canvas);
   ctx = canvas.getContext('2d');
 
   map.on('move zoom resize viewreset', schedule);
@@ -1172,7 +1179,7 @@ function initMap() {
    tile that actually loads, and fall back to the vector chart if none does. */
 var tileLayer = null, tileTimer = null;
 var BASES = {
-  satellite: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', maxNative: 19 },
+  satellite: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', maxNative: 18 },
   topo: { url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', maxNative: 16 }
 };
 function setBase(b) {
@@ -1186,7 +1193,8 @@ function setBase(b) {
   }
   S.tileState = 'loading';
   if (S.panel === 'layers') renderRail();
-  tileLayer = L.tileLayer(BASES[b].url, { maxZoom: 19, maxNativeZoom: BASES[b].maxNative, opacity: 1 });
+  tileLayer = L.tileLayer(BASES[b].url, { maxZoom: 19, maxNativeZoom: BASES[b].maxNative, opacity: 1,
+    errorTileUrl: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' });
   tileLayer.on('tileload', function () {
     if (S.tileState !== 'ok') { S.tileState = 'ok'; if (S.panel === 'layers') renderRail(); schedule(); }
   });
@@ -1227,10 +1235,10 @@ function schedule() { if (rafId) return; rafId = requestAnimationFrame(function 
 
 function view() {
   var z = map.getZoom(), sc = Math.pow(2, z);
-  var o = map.getPixelOrigin(), tl = map.containerPointToLayerPoint([0, 0]);
-  L.DomUtil.setPosition(canvas, tl);
+  var o = map.getPixelOrigin();
+  var pp = L.DomUtil.getPosition(map.getPanes().mapPane) || { x: 0, y: 0 };
   var size = mapSizePx();
-  var ox = o.x + tl.x, oy = o.y + tl.y;
+  var ox = o.x - pp.x, oy = o.y - pp.y;
   return {
     z: z, sc: sc, ox: ox, oy: oy, w: size.x, h: size.y,
     wx0: ox / sc, wy0: oy / sc, wx1: (size.x + ox) / sc, wy1: (size.y + oy) / sc
@@ -2158,7 +2166,8 @@ function krow(swatch, label, note) {
 }
 function renderKey() {
   var card = $('#keycard');
-  var on = store('key') !== '0';
+  var saved = store('key');
+  var on = saved === null || saved === undefined ? window.innerWidth > 900 : saved !== '0';
   card.hidden = !on;
   var btn = $('#zKey'); if (btn) btn.setAttribute('aria-pressed', String(on));
   if (!on) return;
@@ -2204,7 +2213,11 @@ function renderRail() {
            : S.panel === 'layers' ? panelLayers()
            : S.panel === 'access' ? panelAccess()
            : S.panel === 'ref' ? panelRef() : panelLog();
-  $('#rail').innerHTML = html;
+  var rtabs = h('div', { class: 'railtabs' },
+    PANELS.map(function (p) {
+      return h('button', { 'data-panel': p.id, 'aria-pressed': S.panel === p.id }, esc(p.label));
+    }).join('') + h('button', { class: 'x', id: 'railClose', 'aria-label': 'Close panel' }, '&times;'));
+  $('#rail').innerHTML = rtabs + html;
   $('#rail').classList.toggle('wide', S.panel === 'ref');
   renderTabs();
   if (map) setTimeout(syncSize, 170);
@@ -2445,10 +2458,10 @@ function applyTheme() {
 }
 function wire() {
   document.addEventListener('click', function (ev) {
-    var t = ev.target.closest ? ev.target.closest('#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],#slipClose,#hSave') : null;
+    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],#slipClose,#hSave') : null;
     if (!t) return;
     var g = function (k) { return t.getAttribute(k); };
-    if (g('data-panel')) { S.panel = g('data-panel'); renderRail(); closeRail(); }
+    if (g('data-panel')) { S.panel = g('data-panel'); renderRail(); $('#rail').scrollTop = 0; }
     else if (g('data-zone') != null) { var z = g('data-zone'); S.zone = (S.zone === z ? null : z); renderStrip(); renderRail(); schedule(); if (S.zone) fitZone(S.zone); }
     else if (g('data-sec')) { var bx = document.getElementById(g('data-sec')); var exp = t.getAttribute('aria-expanded') === 'true'; t.setAttribute('aria-expanded', String(!exp)); bx.hidden = exp; }
     else if (g('data-theme-set')) { store('theme', g('data-theme-set')); applyTheme(); renderRail(); }
@@ -2471,6 +2484,7 @@ function wire() {
     else if (g('data-zoom-here')) { map.setView([S.sel.lat, S.sel.lon], Math.max(map.getZoom(), 14)); }
     else if (t.id === 'slipClose') { S.sel = null; renderSlip(); schedule(); }
     else if (t.id === 'hSave') { saveHunt(); }
+    else if (t.id === 'railClose') { closeRail(); }
     else if (t.id === 'geoStart') { toggleGeo(); }
     else if (t.id === 'geoStop') { stopGeo('Location off'); setTimeout(function () { geoMsg(''); }, 1600); }
     else if (t.id === 'geoCentre') {
