@@ -1,13 +1,14 @@
-Street and place names over satellite; clearer locate button
+Make location actually arrive, and say why when it does not
 
-Esri World Imagery carries no labels, so there was nothing to navigate by
-once you zoomed in. Satellite now layers Esri World_Transportation and
-World_Boundaries_and_Places over the imagery - street names, route shields
-and town names, sharp to zoom 19. A switch under Base map turns them off.
+The watch asked for high accuracy only. On a phone indoors that can hang
+indefinitely while a coarse network fix would return in a second. It now
+fires getCurrentPosition at low accuracy alongside the precise watch and
+draws whichever lands first, with a guard so a late coarse fix cannot
+overwrite a good GPS one.
 
-The locate and drop-a-spot buttons were easy to confuse: drop-a-spot used
-the classic map pin, which reads as "my location" to everyone. Find me is
-now the ringed GPS dot and drop-a-spot is a pin with a plus. The map key
-gained a section naming each button, since tooltips never appear on touch.
+It also checks the Permissions API up front, so a site that is already
+blocked says so immediately instead of spinning for thirty seconds, and
+checks isSecureContext. The waiting state shows secure-page, permission
+and in-a-frame values so a failure can be reported precisely.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>

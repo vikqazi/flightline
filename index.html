@@ -1855,9 +1855,16 @@ function panelSeason() {
   if (!S.geo.on) {
     geoBody = h('div', { class: 'small muted' }, 'Show your position on the map and check which zone you are standing in.') +
       h('button', { class: 'btn', id: 'geoStart', style: 'margin-top:8px;width:100%' }, 'Show my position') +
-      (S.geo.err ? h('div', { class: 'note alert', style: 'margin-top:8px' }, esc(S.geo.err)) : '');
+      (S.geo.err ? h('div', { class: 'note alert', style: 'margin-top:8px' }, esc(S.geo.err)) : '') +
+      h('div', { class: 'tiny muted', style: 'margin-top:7px' }, 'Needs a secure page and location allowed for this browser. In-app browsers often refuse it.');
   } else if (S.geo.lat == null) {
-    geoBody = h('div', { class: 'small muted' }, 'Waiting for a fix…');
+    geoBody = h('div', { class: 'small muted' }, 'Waiting for a fix…') +
+      h('dl', { class: 'kv', style: 'margin-top:8px' },
+        h('dt', null, 'Secure page') + h('dd', null, window.isSecureContext ? 'yes' : 'no') +
+        h('dt', null, 'Permission') + h('dd', null, esc(S.geo.perm || 'not reported')) +
+        h('dt', null, 'In a frame') + h('dd', null, geoEmbedded() ? 'yes' : 'no')) +
+      (S.geo.err ? h('div', { class: 'note alert', style: 'margin-top:8px' }, esc(S.geo.err)) : '') +
+      h('button', { class: 'btn ghost', id: 'geoStop', style: 'margin-top:8px;width:100%' }, 'Stop');
   } else {
     var gz = zoneAt(S.geo.lat, S.geo.lon), gt = townAt(S.geo.lat, S.geo.lon);
     var gOpen = gz && openOn('duck', gz, S.date);
@@ -2588,34 +2595,73 @@ function stopGeo(msg, bad) {
   if (S.panel === 'season') renderRail();
   schedule();
 }
+function geoEmbedded() { try { return window.self !== window.top; } catch (x) { return true; } }
+function geoAdvice(code) {
+  if (code !== 1) return '';
+  return geoEmbedded()
+    ? ' This page is running inside another app’s browser, which often refuses location. Open it in Chrome and try again.'
+    : ' Allow location for this site in your browser settings, then try again.';
+}
+/* One fix handler for both the quick coarse lookup and the precise watch.
+   A late coarse fix must not overwrite a good GPS one. */
+function onFix(p) {
+  var c = p.coords, first = S.geo.lat === null;
+  if (!first) {
+    var stale = Date.now() - S.geo.ts > 30000;
+    if (!stale && c.accuracy > S.geo.acc * 1.5) return;
+  }
+  S.geo.lat = c.latitude; S.geo.lon = c.longitude;
+  S.geo.acc = c.accuracy; S.geo.ts = p.timestamp || Date.now();
+  S.geo.heading = (c.heading != null && !isNaN(c.heading) && c.speed > 0.5) ? c.heading : null;
+  S.geo.err = null;
+  geoMsg('');
+  if (S.geo.follow) map.setView([c.latitude, c.longitude], first ? Math.max(map.getZoom(), 14) : map.getZoom(), { animate: false });
+  if (first) select({ kind: 'me' });
+  if (S.panel === 'season') renderRail();
+  schedule();
+}
 function toggleGeo() {
   if (S.geo.on) { stopGeo('Location off'); setTimeout(function () { geoMsg(''); }, 1800); return; }
-  if (!navigator.geolocation) { geoMsg('This browser has no location support', true); return; }
+  if (!navigator.geolocation) { S.geo.err = 'This browser has no location support'; geoMsg(S.geo.err, true); return; }
+  if (!window.isSecureContext) {
+    S.geo.err = 'This page is not on a secure connection, so the browser blocks location';
+    geoMsg(S.geo.err, true); return;
+  }
   S.geo.on = true; S.geo.follow = true; S.geo.err = null;
   geoBtn(); geoMsg('Looking for a fix…');
-  S.geo.watch = navigator.geolocation.watchPosition(function (p) {
-    var c = p.coords, first = S.geo.lat === null;
-    S.geo.lat = c.latitude; S.geo.lon = c.longitude;
-    S.geo.acc = c.accuracy; S.geo.ts = p.timestamp;
-    S.geo.heading = (c.heading != null && !isNaN(c.heading) && c.speed > 0.5) ? c.heading : null;
-    S.geo.err = null;
-    geoMsg('');
-    if (S.geo.follow) map.setView([c.latitude, c.longitude], first ? Math.max(map.getZoom(), 14) : map.getZoom(), { animate: false });
-    if (first) select({ kind: 'me' });
-    if (S.panel === 'season') renderRail();
-    schedule();
-  }, function (e) {
-    var m = e.code === 1 ? 'Location permission denied'
-          : e.code === 2 ? 'No position fix — try again outdoors'
-          : 'Location timed out';
-    S.geo.err = m;
-    var embedded = false; try { embedded = window.self !== window.top; } catch (x) { embedded = true; }
-    var extra = e.code !== 1 ? ''
-      : embedded ? '. This page is embedded, and the frame blocks location — open it in its own tab.'
-      : '. Allow location for this site in your browser settings, then try again.';
-    if (S.geo.lat === null) stopGeo(m + extra, true);
-    else { geoMsg(m, true); }
-  }, { enableHighAccuracy: true, timeout: 20000, maximumAge: 5000 });
+
+  if (navigator.permissions && navigator.permissions.query) {
+    try {
+      navigator.permissions.query({ name: 'geolocation' }).then(function (st) {
+        S.geo.perm = st.state;
+        if (st.state === 'denied' && S.geo.lat === null) {
+          stopGeo('Location is blocked for this site.' + geoAdvice(1), true);
+        }
+        if (S.panel === 'season') renderRail();
+      }).catch(function () {});
+    } catch (x) {}
+  }
+
+  /* A coarse network fix usually lands in a second or two. High accuracy can
+     hang for a long time indoors, so ask for both and draw whichever arrives. */
+  navigator.geolocation.getCurrentPosition(onFix, function () {},
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 });
+
+  S.geo.watch = navigator.geolocation.watchPosition(onFix, function (e) {
+    var m = e.code === 1 ? 'Location permission denied.'
+          : e.code === 2 ? 'No position fix — the device could not locate itself.'
+          : 'Location timed out.';
+    S.geo.err = m + geoAdvice(e.code);
+    if (S.geo.lat === null) stopGeo(S.geo.err, true);
+    else geoMsg(m, true);
+  }, { enableHighAccuracy: true, timeout: 30000, maximumAge: 10000 });
+
+  /* If nothing at all has arrived, say so rather than spinning silently. */
+  setTimeout(function () {
+    if (S.geo.on && S.geo.lat === null && !S.geo.err) {
+      geoMsg('Still waiting for a fix. Step outside, or check that location is on for this browser.', true);
+    }
+  }, 12000);
 }
 function geoAgeText() {
   if (!S.geo.ts) return '';
