@@ -28,7 +28,7 @@ body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display
   --m-marsh:#a2b68c; --m-marshline:#7d9468; --m-stream:#78a5c3;
   --m-public:#93b180; --m-publicline:#6d8e5b;
   --m-label:#273733; --m-halo:#ffffff;
-  --m-access:#6b4ea8; --m-closed:#b5392a; --m-rules:#c47d0e; --m-spot:#1f6f4e;
+  --m-access:#6b4ea8; --m-closed:#b5392a; --m-rules:#c47d0e; --m-spot:#1f6f4e; --m-sight:#0f8f8a;
   --shadow:0 1px 3px rgba(20,35,32,.10), 0 10px 30px rgba(20,35,32,.12);
   --f-disp:"Bitter",Georgia,"Times New Roman",serif;
   --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
@@ -45,7 +45,7 @@ body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display
   --m-marsh:#2b3f2d; --m-marshline:#53734a; --m-stream:#35688a;
   --m-public:#28422d; --m-publicline:#4c7152;
   --m-label:#cfdcd7; --m-halo:#0a1113;
-  --m-access:#a98ae0; --m-closed:#e0705f; --m-rules:#eaa53a; --m-spot:#4fb285;
+  --m-access:#a98ae0; --m-closed:#e0705f; --m-rules:#eaa53a; --m-spot:#4fb285; --m-sight:#45d1c3;
   --shadow:0 1px 3px rgba(0,0,0,.5), 0 12px 34px rgba(0,0,0,.55);
   color-scheme:dark;
 }}
@@ -59,7 +59,7 @@ body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display
   --m-marsh:#2b3f2d; --m-marshline:#53734a; --m-stream:#35688a;
   --m-public:#28422d; --m-publicline:#4c7152;
   --m-label:#cfdcd7; --m-halo:#0a1113;
-  --m-access:#a98ae0; --m-closed:#e0705f; --m-rules:#eaa53a; --m-spot:#4fb285;
+  --m-access:#a98ae0; --m-closed:#e0705f; --m-rules:#eaa53a; --m-spot:#4fb285; --m-sight:#45d1c3;
   --shadow:0 1px 3px rgba(0,0,0,.5), 0 12px 34px rgba(0,0,0,.55);
   color-scheme:dark;
 }
@@ -954,8 +954,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* =========================================================================
    Granite Flyway — waterfowl zones, seasons, waters and access for every
-   state shown. State data ship with the site and load per state; weather
-   and map tiles are the only things fetched from elsewhere.
+   state shown. State data ship with the site and load per state; weather,
+   map tiles and (in an embedded copy) the daily eBird sightings are the
+   only things fetched from elsewhere.
    ========================================================================= */
 
 var LEAF = window.L;   // captured once; a later global named L cannot break us
@@ -1231,8 +1232,9 @@ var S = {
   geo: { on: false, follow: false, lat: null, lon: null, acc: null, heading: null, ts: 0, err: null, watch: null },
   layers: { zones: true, zoneLines: true, towns: false, roads: true, water: true, marsh: true,
             streams: true, land: true, access: true, closed: true, tides: true, spots: true, minor: true,
-            refuges: true, gbshore: true, seaduck: false, wind: false, habitat: false },
+            refuges: true, gbshore: true, seaduck: false, wind: false, habitat: false, sight: true },
   access: { lvl: 'all', q: '', fee: 'all' },
+  sight: { grp: 'all', days: 7 },
   refTab: 'seasons'
 };
 var spots = [], hunts = [], db = null, dbReady = false;
@@ -1589,6 +1591,20 @@ function draw() {
     }
   }
 
+  /* eBird sightings: one dot per hotspot. Size is birds counted, solid is recent, faded is older */
+  if (S.layers.sight && D.sight && D.sight.length) {
+    var SV = sightVisible(), tday = dnum(todayCached()), span = Math.max(1, S.sight.days - 1), scol = css('--m-sight');
+    ctx.lineWidth = 1.2; ctx.strokeStyle = css('--m-halo');
+    for (var si = 0; si < SV.length; si++) {
+      var sv = SV[si], svx = projX(sv.L.lon) * V.sc - V.ox, svy = projY(sv.L.lat) * V.sc - V.oy;
+      if (svx < -14 || svy < -14 || svx > V.w + 14 || svy > V.h + 14) continue;
+      var sage = Math.max(0, (tday - dnum(sv.newest)) / 86400000);
+      ctx.beginPath(); ctx.arc(svx, svy, sightR(sv.birds, V.z), 0, 6.2832);
+      ctx.fillStyle = hexA(scol, 1 - 0.62 * Math.min(1, sage / span)); ctx.fill();
+      ctx.stroke();
+    }
+  }
+
   /* access sites */
   if (S.layers.access && D.access && V.z >= 8.5) {
     var list = filteredAccess();
@@ -1810,6 +1826,15 @@ function onMapClick(e) {
     var st = D.tides.stations[id];
     if (near(st.lat, st.lon, 10)) return select({ kind: 'tide', station: st, id: id, lat: st.lat, lon: st.lon });
   }
+  if (S.layers.sight && D.sight && D.sight.length) {
+    var SVh = sightVisible(), bestS = null, bs = 1e9;
+    for (i = 0; i < SVh.length; i++) {
+      var sdx = projX(SVh[i].L.lon) * V.sc - V.ox - cp.x, sdy = projY(SVh[i].L.lat) * V.sc - V.oy - cp.y;
+      var sd2 = sdx * sdx + sdy * sdy, sr = Math.max(10, sightR(SVh[i].birds, V.z) + 3);
+      if (sd2 <= sr * sr && sd2 < bs) { bs = sd2; bestS = SVh[i].L; }
+    }
+    if (bestS) return select({ kind: 'sight', loc: bestS, lat: bestS.lat, lon: bestS.lon });
+  }
   var hitList = !D.closed ? [] : D.closed.areas.filter(function (x) { return !isRules(x); }).concat(D.closed.areas.filter(function (x) { return isRules(x) && !x.poly; }));
   if (S.layers.closed && D.closed) for (i = 0; i < hitList.length; i++) {
     var ca = hitList[i];
@@ -1898,6 +1923,7 @@ function select(sel) {
   S.sel = sel;
   if (sel.lat != null) { S.ref = { lat: sel.lat, lon: sel.lon }; loadPointWx(sel.lat, sel.lon); }
   renderSlip(); schedule();
+  var sl = $('#slip'); if (sl) sl.scrollTop = 0;    // a new pick starts at the top, not where the last one was scrolled
 }
 
 /* =========================================================================
@@ -2251,6 +2277,7 @@ var LAYER_DEFS = [
   ['gbshore', 'Great Bay NWR shoreline', '--m-closed', function () { return !!D.gbshore; }],
   ['seaduck', 'Sea duck area (indicative)', '--info', function () { return !!D.seaduck; }],
   ['habitat', 'Habitat density (not birds)', '--m-marsh', function () { return !!(D.habitat && D.habitat.length); }],
+  ['sight', 'Waterfowl sightings (eBird)', '--m-sight', function () { return !!(D.sight && D.sight.length); }],
   ['wind', 'Wind arrows (forecast)', '--warn'],
   ['tides', 'Tide stations', '--info'],
   ['towns', 'Town lines & names', '--m-label'],
@@ -2265,7 +2292,7 @@ function panelLayers() {
     access: D.access.length, closed: D.closed ? D.closed.areas.length : 0, towns: D.towns.length,
     roads: D.roads.length, spots: spots.length, tides: Object.keys(D.tides.stations).length,
     refuges: D.refuges ? D.refuges.length : 0, gbshore: D.gbshore ? D.gbshore.features.length : 0,
-    seaduck: D.seaduck ? 1 : 0
+    seaduck: D.seaduck ? 1 : 0, sight: D.sight && D.sight.length ? sightVisible().length : 0
   };
   var tileMsg = S.base === 'vector' ? 'Drawn from data that ships with this page — it works with no signal.'
     : S.tileState === 'loading' ? 'Fetching tiles…'
@@ -2292,6 +2319,7 @@ function panelLayers() {
         h('span', { class: 't' }, esc(l[1])) +
         (counts[l[0]] != null ? h('span', { class: 'ct' }, counts[l[0]].toLocaleString()) : ''));
     }).join('')) +
+  sightPanel() +
   sec('Legend', true,
     h('div', { class: 'small' },
       ZONE_IDS.map(function (z) {
@@ -2303,6 +2331,7 @@ function panelLayers() {
       h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--m-access);border-radius:50%"></i><span>Cartop / hand carry (circle)</span>') +
       h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--m-closed);border-radius:50%"></i><span>Closed-area locator</span>') +
       h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--m-rules);border-radius:50%"></i><span>Special-rules locator</span>') +
+      (D.sight && D.sight.length ? h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--m-sight);border-radius:50%"></i><span>eBird hotspot with birds — bigger is more</span>') : '') +
       h('div', { class: 'row', style: 'margin:3px 0' }, '<i class="zsw" style="background:var(--info)"></i><span>NOAA tide station</span>') +
       h('hr', { class: 'sep' }) +
       h('div', { class: 'tiny muted' }, 'Zone tint shows duck-season status on the selected date: green open, red closed.'))) +
@@ -2487,6 +2516,7 @@ function panelRef() {
          ['Federal refuge hunt units', function (c) { return !!(CACHE[c] && CACHE[c].refuges); }],
          ['NOAA tide predictions', function (c) { return !!(CACHE[c] && CACHE[c].tides); }],
          ['Habitat density', function (c) { return !!(CACHE[c] && CACHE[c].habitat); }],
+         ['Waterfowl sightings (eBird)', function (c) { return !!(CACHE[c] && CACHE[c].sight); }],
          ['Satellite, topo, wind, location', function () { return true; }],
          ['Statewide closed-area list', function (c) { return !!(CACHE[c] && CACHE[c].closed); }],
          ['Sea duck area drawn', function (c) { return !!(CACHE[c] && CACHE[c].seaduck); }]
@@ -2553,6 +2583,163 @@ function panelLog() {
       h('textarea', { class: 'fld', id: 'hNotes', placeholder: 'Wind, water, what worked…' }) +
       h('button', { class: 'btn', id: 'hSave', style: 'margin-top:9px;width:100%', disabled: !dbReady }, 'Save entry')) +
     sec('Log', true, huntList);
+}
+
+/* =========================================================================
+   SIGHTINGS — ducks, geese and coots reported to eBird (Cornell Lab of
+   Ornithology) at public hotspots over the last two weeks. A GitHub Action
+   on the public repo refreshes data/<state>/sightings.json each morning,
+   with an API key the page never sees. Birders' reports, not a census.
+   ========================================================================= */
+var LIVE_BASE = 'https://vikqazi.github.io/granite-flyway/';
+var SIGHT_GROUPS = [['all', 'All waterfowl'], ['dabbler', 'Dabbling ducks'], ['diver', 'Diving ducks'], ['seaduck', 'Sea ducks'],
+                    ['merganser', 'Mergansers'], ['goose', 'Geese & brant'], ['coot', 'Coots']];
+var SIGHT_DAYS = [3, 7, 14];
+var _sightKey = '', _sightVis = [], _today = '', _todayAt = 0;
+function todayCached() { var t = Date.now(); if (t - _todayAt > 60000) { _today = todayISO(); _todayAt = t; } return _today; }
+function sightUrls(code) {
+  var rel = 'data/' + code + '/sightings.json', host = location.hostname;
+  /* the hosted site reads its own copy; an embedded copy (the artifact, a phone shell) reads the live file first */
+  if (host === 'vikqazi.github.io' || host === 'localhost' || host === '127.0.0.1' || location.protocol === 'file:') return [rel];
+  return [LIVE_BASE + rel, rel];
+}
+function prepSightings(j, code) {
+  var sp = j.species.map(function (x) { return { code: x[0], name: x[1], grp: x[2], noSeason: !!x[3] }; });
+  var locs = j.locs.map(function (l) { return { id: l[0], n: l[1], lat: l[2], lon: l[3], src: code, obs: [] }; });
+  j.obs.forEach(function (o) { var L = locs[o[0]], x = sp[o[1]]; if (L && x && j.dates[o[2]]) L.obs.push({ sp: x, d: j.dates[o[2]], n: o[3] }); });
+  locs.forEach(function (L) { L.obs.sort(function (a, b) { return a.d < b.d ? 1 : a.d > b.d ? -1 : (b.n || 0) - (a.n || 0); }); });
+  return { updated: j.updated, back: j.back || 14, species: sp, locs: locs.filter(function (L) { return L.obs.length; }) };
+}
+function loadSightings(code) {
+  sightUrls(code).reduce(function (p, u) { return p.catch(function () { return get(u); }); }, Promise.reject(new Error('start')))
+    .then(function (j) {
+      if (!CACHE[code] || !j || !j.locs || !j.obs || !j.species || !j.dates) return;
+      CACHE[code].sight = prepSightings(j, code);
+      if (S.shown.indexOf(code) < 0) return;
+      mergeShown(); renderAttrib(); renderKey(); renderSlip(); schedule();
+      if (S.panel === 'layers' || (S.panel === 'ref' && S.refTab === 'src')) renderRail();
+    }).catch(function () {});   // no file yet: the layer simply does not appear
+}
+function sightCut() { return addDays(todayCached(), 1 - S.sight.days); }   // the oldest day still shown
+function sightPass(o, cut) {
+  if (o.d < cut) return false;
+  var g = S.sight.grp;
+  return g === 'all' || (g.indexOf('sp:') === 0 ? o.sp.code === g.slice(3) : o.sp.grp === g);
+}
+function sightVisible() {      // hotspots with a report that passes the filter, biggest first so small dots draw on top
+  var cut = sightCut(), key = S.sight.grp + '|' + cut;
+  if (key === _sightKey) return _sightVis;
+  _sightKey = key; _sightVis = [];
+  (D.sight || []).forEach(function (L) {
+    var list = L.obs.filter(function (o) { return sightPass(o, cut); });
+    if (!list.length) return;
+    _sightVis.push({ L: L, list: list, newest: list[0].d,
+                     birds: list.reduce(function (t, o) { return t + (o.n || 1); }, 0) });
+  });
+  _sightVis.sort(function (a, b) { return b.birds - a.birds; });
+  return _sightVis;
+}
+function sightR(birds, z) { return (3 + 1.5 * Math.log(1 + birds) / Math.LN10) * Math.max(0.6, Math.min(1, (z - 6) / 4)); }
+function sightWhat() {         // 'waterfowl', 'diving ducks', 'Canada Goose'
+  var g = S.sight.grp;
+  if (g.indexOf('sp:') === 0) {
+    var x = (D.sightSp || []).filter(function (s2) { return s2.code === g.slice(3); })[0];
+    return x ? x.name : 'that species';
+  }
+  var m = SIGHT_GROUPS.filter(function (y) { return y[0] === g; })[0];
+  return !m || g === 'all' ? 'waterfowl' : m[1].toLowerCase();
+}
+function setSight(o) {
+  if (o.grp != null) S.sight.grp = o.grp;
+  if (o.days != null && SIGHT_DAYS.indexOf(o.days) >= 0) S.sight.days = o.days;
+  store('sight', JSON.stringify(S.sight));
+  renderRail(); renderSlip(); renderKey(); schedule();
+}
+function sightUpdated() {      // the oldest update among the states shown, so one stale state is not hidden behind a fresh one
+  var u = null;
+  S.shown.forEach(function (c) { var x = CACHE[c] && CACHE[c].sight; if (x && x.updated && (!u || x.updated < u)) u = x.updated; });
+  return u;
+}
+function fmtStamp(t) {
+  var d = new Date(t); if (!t || isNaN(d)) return '—';
+  return new Intl.DateTimeFormat('en-US', { timeZone: TZ, month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).format(d);
+}
+function dayWord(d, tday) { var n = Math.round((dnum(tday) - dnum(d)) / 86400000); return n <= 0 ? 'Today' : n === 1 ? 'Yesterday' : fmtDate(d); }
+function sightCredit() {
+  return h('div', { class: 'tiny muted', style: 'margin-top:8px' }, 'Sightings: ' +
+    h('a', { href: 'https://ebird.org', target: '_blank', rel: 'noopener' }, 'eBird.org') +
+    ' (Cornell Lab of Ornithology), updated ' + esc(fmtStamp(sightUpdated())) + '.');
+}
+function sightPanel() {
+  if (!D.sight || !D.sight.length) return '';
+  var upd = sightUpdated(), ageH = upd ? (Date.now() - new Date(upd).getTime()) / 3600000 : 0, n = sightVisible().length;
+  return sec('Bird sightings', true,
+    h('label', { class: 'lab', for: 'sightGrp', style: 'display:block;margin-bottom:4px' }, 'Show') +
+    h('select', { class: 'fld', id: 'sightGrp' },
+      SIGHT_GROUPS.map(function (g) { return h('option', { value: g[0], selected: S.sight.grp === g[0] }, esc(g[1])); }).join('') +
+      h('optgroup', { label: 'One species' }, D.sightSp.map(function (x) {
+        return h('option', { value: 'sp:' + x.code, selected: S.sight.grp === 'sp:' + x.code }, esc(x.name + (x.noSeason ? ' (no season)' : '')));
+      }).join(''))) +
+    h('div', { class: 'lab', style: 'margin:9px 0 4px' }, 'Reported in the last') +
+    h('div', { class: 'seg' }, SIGHT_DAYS.map(function (d) {
+      return h('button', { 'data-sight-days': d, 'aria-pressed': S.sight.days === d }, d + ' days');
+    }).join('')) +
+    h('div', { class: 'tiny muted', style: 'margin-top:8px' },
+      n.toLocaleString() + ' hotspot' + (n === 1 ? '' : 's') + ' with ' + esc(sightWhat()) + ' · updated ' + esc(fmtStamp(upd))) +
+    (ageH > 48 ? h('div', { class: 'note alert', style: 'margin-top:7px' },
+      'The daily eBird update has not run for ' + Math.floor(ageH / 24) + ' days, so the newest reports are missing.') : '') +
+    h('div', { class: 'tiny muted', style: 'margin-top:7px' },
+      'Ducks, geese and coots that birders reported at public eBird hotspots — personal locations are left out. ' +
+      'Birders gather at parks, refuges and the coast, so no dot does not mean no birds. Data: ' +
+      h('a', { href: 'https://ebird.org', target: '_blank', rel: 'noopener' }, 'eBird.org') + ', Cornell Lab of Ornithology.'));
+}
+function sightTable(L) {
+  var cut = sightCut(), tday = todayCached();
+  return h('div', { class: 'tblwrap' }, h('table', null,
+    h('tr', null, h('th', null, 'Species') + h('th', { style: 'text-align:right' }, 'Count') + h('th', null, 'Seen')) +
+    L.obs.map(function (o) {
+      return h('tr', sightPass(o, cut) ? null : { style: 'opacity:.5' },
+        h('td', { style: 'font-weight:600' }, esc(o.sp.name) +
+          (o.sp.noSeason ? h('span', { class: 'tiny', style: 'color:var(--warn)' }, ' · no season') : '')) +
+        h('td', { class: 'num' }, o.n == null ? h('span', { title: 'Seen, not counted' }, 'X') : o.n.toLocaleString()) +
+        h('td', { class: 'tiny muted' }, esc(dayWord(o.d, tday))));
+    }).join('')));
+}
+function nearbySightings(lat, lon, skip) {
+  if (!S.layers.sight || !D.sight || !D.sight.length) return '';
+  var RAD = 5, tally = {}, places = 0, tday = todayCached();
+  sightVisible().forEach(function (v) {
+    if (v.L === skip || haversine(lat, lon, v.L.lat, v.L.lon) > RAD) return;
+    places++;
+    v.list.forEach(function (o) {
+      var t = tally[o.sp.code] || (tally[o.sp.code] = { sp: o.sp, top: 0, spots: 0, d: '' });
+      t.top = Math.max(t.top, o.n || 0); t.spots++; if (o.d > t.d) t.d = o.d;
+    });
+  });
+  var lab = h('div', { class: 'lab', style: 'margin:12px 0 5px' },
+    (skip ? 'Other hotspots' : 'Birds reported') + ' within ' + RAD + ' miles · last ' + S.sight.days + ' days');
+  var rows = Object.keys(tally).map(function (k) { return tally[k]; }).sort(function (a, b) { return b.top - a.top || b.spots - a.spots; });
+  if (!rows.length) return lab + h('div', { class: 'tiny muted' },
+    'No ' + esc(sightWhat()) + ' reported at an eBird hotspot within ' + RAD + ' miles in the last ' + S.sight.days + ' days.');
+  return lab + h('div', { class: 'tblwrap' }, h('table', null,
+      h('tr', null, h('th', null, 'Species') + h('th', { style: 'text-align:right' }, 'Most') +
+        h('th', { style: 'text-align:right' }, 'Spots') + h('th', null, 'Latest')) +
+      rows.slice(0, 8).map(function (t) {
+        return h('tr', null, h('td', { style: 'font-weight:600' }, esc(t.sp.name)) +
+          h('td', { class: 'num' }, t.top ? t.top.toLocaleString() : 'X') +
+          h('td', { class: 'num' }, String(t.spots)) +
+          h('td', { class: 'tiny muted' }, esc(dayWord(t.d, tday))));
+      }).join(''))) +
+    h('div', { class: 'tiny muted', style: 'margin-top:5px' },
+      'Most = the biggest single count at one hotspot. ' + places + ' hotspot' + (places === 1 ? '' : 's') +
+      (rows.length > 8 ? ' · ' + (rows.length - 8) + ' more species' : '') + ' · ' +
+      h('a', { href: 'https://ebird.org', target: '_blank', rel: 'noopener' }, 'eBird.org'));
+}
+function renderAttrib() {
+  var at = $('#attrib'); if (!at) return;
+  var parts = S.shown.map(function (c) { return STATES[c].attrib; }).concat(['USFWS · NOAA · OpenStreetMap']);
+  if (D.sight && D.sight.length) parts.push('eBird');
+  at.textContent = parts.join(' · ').split(' · ').filter(function (v, i, a) { return a.indexOf(v) === i; }).join(' · ');   // each credit once
 }
 
 /* =========================================================================
@@ -2720,8 +2907,13 @@ function renderKey() {
         h('span', { class: 'tiny muted' }, 'little water') + h('span', { class: 'tiny muted' }, 'lots')) +
       h('div', { class: 'knote', style: 'margin-top:4px' },
         'How much duck water sits within about two miles — marsh counted heaviest, then ponds and lakes, then rivers. ' +
-        'This is habitat, NOT birds. No one publishes bird density at a scale that means anything here. ' +
+        (D.sight && D.sight.length ? 'This is habitat, NOT birds — the eBird sightings show where birds were actually reported. '
+          : 'This is habitat, NOT birds. No one publishes bird density at a scale that means anything here. ') +
         'Shaded relative to each state, so compare within a state, not across the line.')) +
+    (D.sight && D.sight.length ? h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Bird sightings') +
+      krow('<i style="width:11px;height:11px;border-radius:50%;background:' + css('--m-sight') + ';box-shadow:0 0 0 1.5px ' + css('--m-halo') + ';display:block"></i>',
+        'eBird hotspot — ' + sightWhat(),
+        'Reported in the last ' + S.sight.days + ' days. Bigger = more birds counted; faded = older. Birders’ reports at public hotspots, not a census, so no dot does not mean no birds. Data: eBird.org, Cornell Lab of Ornithology.')) : '') +
     h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Wind') +
       krow('<i style="display:inline-block;color:#f94b36;font-size:16px">&#8593;</i>', 'Wind arrow',
            'Points the way the wind blows, so an arrow pointing south is a north wind. Length and colour are speed.') +
@@ -2782,6 +2974,7 @@ function selTitle(sel) {
   if (sel.kind === 'land') return (srcOf(sel.feat).landNames || [])[sel.feat.meta[0] - 1] || 'Conservation land';
   if (sel.kind === 'refuge') return (srcOf(sel.feat).refugeNames || [])[sel.feat.meta[0] - 1] || 'Refuge hunt unit';
   if (sel.kind === 'gbshore') return sel.feat.status === 'open' ? 'Refuge shoreline — open' : 'Refuge shoreline — closed';
+  if (sel.kind === 'sight') return sel.loc.n;
   if (sel.kind === 'me') return 'Where you are';
   return 'Location';
 }
@@ -2911,6 +3104,17 @@ function renderSlip() {
     body += h('div', { class: 'note', style: 'margin-top:9px' }, esc(D.gbshore.note));
     body += h('div', { class: 'row', style: 'margin-top:9px' },
       h('a', { class: 'btn ghost', href: D.gbshore.url, target: '_blank', rel: 'noopener' }, 'Official hunt map'));
+  } else if (sel.kind === 'sight') {
+    var SL = sel.loc, SLs = CACHE[SL.src] && CACHE[SL.src].sight;
+    sub.push('eBird hotspot'); if (town) sub.push(town);
+    body += h('div', { class: 'lab', style: 'margin:0 0 5px' }, 'Waterfowl reported here · last ' + ((SLs && SLs.back) || 14) + ' days') +
+      sightTable(SL) +
+      h('div', { class: 'tiny muted', style: 'margin-top:6px' },
+        'The latest report of each species at this hotspot. X = seen, not counted. Faded rows fall outside the filter you picked. Birders’ counts, not a census.') +
+      h('dl', { class: 'kv', style: 'margin-top:9px' }, h('dt', null, 'Zone') + h('dd', null, zoneBadge(z))) +
+      h('div', { class: 'row', style: 'margin-top:9px' },
+        h('a', { class: 'btn ghost', href: 'https://ebird.org/hotspot/' + encodeURIComponent(SL.id), target: '_blank', rel: 'noopener' }, 'Open in eBird')) +
+      sightCredit();
   } else if (sel.kind === 'me') {
     if (town) sub.push(town);
     sub.push('live position');
@@ -2940,6 +3144,7 @@ function renderSlip() {
   body += wxBlock(lat, lon);
   var tb = tideBlock(lat, lon);
   if (tb && sel.kind !== 'tide') body += h('div', { style: 'margin-top:12px' }, tb);
+  body += nearbySightings(lat, lon, sel.kind === 'sight' ? sel.loc : null);
   body += nearbyClosed(lat, lon);
   body += nearbyAccess(lat, lon, sel.kind === 'access' ? sel.site : null);
   body += h('div', { class: 'row', style: 'margin-top:12px;gap:6px;flex-wrap:wrap' },
@@ -3031,7 +3236,7 @@ function applyTheme() {
 }
 function wire() {
   document.addEventListener('click', function (ev) {
-    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-regstate],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],#slipClose,#hSave') : null;
+    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-regstate],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],[data-sight-days],#slipClose,#hSave') : null;
     if (!t) return;
     var g = function (k) { return t.getAttribute(k); };
     if (g('data-panel')) { S.panel = g('data-panel'); renderRail(); $('#rail').scrollTop = 0; }
@@ -3058,6 +3263,7 @@ function wire() {
     else if (g('data-del-hunt')) { delHunt(g('data-del-hunt')); }
     else if (g('data-add-spot-here')) { addSpotAt(S.sel.lat, S.sel.lon); }
     else if (g('data-zoom-here')) { map.setView([S.sel.lat, S.sel.lon], Math.max(map.getZoom(), 14)); }
+    else if (g('data-sight-days')) { setSight({ days: +g('data-sight-days') }); }
     else if (t.id === 'slipClose') { S.sel = null; renderSlip(); schedule(); }
     else if (t.id === 'hSave') { saveHunt(); }
     else if (t.id === 'railClose') { closeRail(); }
@@ -3076,6 +3282,7 @@ function wire() {
       store('layers', JSON.stringify(S.layers));
     }
     if (t.id === 'dPick') setDate(t.value);
+    if (t.id === 'sightGrp') setSight({ grp: t.value });
     if (t.id === 'tideTarget') {
       var v = parseFloat(t.value);
       S.tideTarget = isNaN(v) ? null : v;
@@ -3358,10 +3565,11 @@ function ensureState(code) {
         CACHE[code].watersMinor = tag(unpack(mn.data, 3), code);
         if (S.shown.indexOf(code) >= 0) { mergeShown(); schedule(); }
       }).catch(function () {});
+      loadSightings(code);
     });
 }
 function mergeShown() {
-  var d = { tides: { stations: {} }, closed: null, habitat: [] };
+  var d = { tides: { stations: {} }, closed: null, habitat: [], sight: [], sightSp: [] };
   ['zones','zonelines','watersMajor','watersMinor','streams','land','towns','roads','access','refuges','gbshore','seaduck']
     .forEach(function (k) { d[k] = []; });
   S.shown.forEach(function (c) {
@@ -3376,15 +3584,21 @@ function mergeShown() {
       d.closed.areas = d.closed.areas.concat(src.closed.areas || []);
     }
     if (src.habitat) d.habitat.push(src.habitat);
+    if (src.sight) {
+      d.sight = d.sight.concat(src.sight.locs);
+      src.sight.species.forEach(function (sp) { if (!d.sightSp.some(function (x) { return x.code === sp.code; })) d.sightSp.push(sp); });
+    }
     if (src.gbshore) d.gbshore = src.gbshore;
     if (src.seaduck) d.seaduck = src.seaduck;
   });
+  var gOrder = SIGHT_GROUPS.map(function (g) { return g[0]; });
+  d.sightSp.sort(function (a, b) { return gOrder.indexOf(a.grp) - gOrder.indexOf(b.grp) || (a.name < b.name ? -1 : 1); });
   if (!d.gbshore || !d.gbshore.proj) d.gbshore = null;
   if (!d.seaduck || !d.seaduck.proj) d.seaduck = null;
   if (!d.refuges.length) d.refuges = null;
   D = d;
   REGS = regsOf(S.state);
-  _zoneCache = {};
+  _zoneCache = {}; _sightKey = '';
   rebuildZoneIndex();
 }
 function shownBounds() {
@@ -3428,9 +3642,7 @@ function setShown(codes, first, refit) {
       if (hv && document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(function () { if (map) fit(); }, 60); });
     }
     writeHash();
-    var at = $('#attrib');
-    if (at) at.textContent = S.shown.map(function (c) { return STATES[c].attrib; }).concat(['USFWS · NOAA · OpenStreetMap']).join(' · ').split(' · ')
-      .filter(function (v, i, a) { return a.indexOf(v) === i; }).join(' · ');   // each credit once
+    renderAttrib();
     renderStateBtn(); renderSlip(); renderKey(); renderRail();
     $('#load').hidden = true;
     schedule();
@@ -3471,6 +3683,9 @@ function boot() {
   S.labels = store('labels') !== '0';
   var saved = store('layers');
   if (saved) { try { var o = JSON.parse(saved); for (var k in o) if (k in S.layers) S.layers[k] = !!o[k]; } catch (e) {} }
+  try { var sg = JSON.parse(store('sight') || 'null');
+        if (sg && typeof sg.grp === 'string') S.sight.grp = sg.grp;
+        if (sg && SIGHT_DAYS.indexOf(sg.days) >= 0) S.sight.days = sg.days; } catch (e) {}
   var hh = readHash(); S.hashView = hh.view;
   var hs = hh.states;
   var want = hs && hs.length ? hs : (store('shown') || store('state') || 'nh').split(',').filter(function (c) { return STATES[c]; });

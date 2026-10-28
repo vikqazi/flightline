@@ -1,0 +1,222 @@
+{
+ "note": "Waterfowl the eBird sightings layer fetches. Codes from the eBird taxonomy (api.ebird.org/v2/ref/taxonomy/ebird). Rebuild with mkspecies.js.",
+ "species": [
+  {
+   "code": "snogoo",
+   "name": "Snow Goose",
+   "sci": "Anser caerulescens",
+   "group": "goose"
+  },
+  {
+   "code": "rosgoo",
+   "name": "Ross's Goose",
+   "sci": "Anser rossii",
+   "group": "goose"
+  },
+  {
+   "code": "gwfgoo",
+   "name": "Greater White-fronted Goose",
+   "sci": "Anser albifrons",
+   "group": "goose"
+  },
+  {
+   "code": "brant",
+   "name": "Brant",
+   "sci": "Branta bernicla",
+   "group": "goose"
+  },
+  {
+   "code": "cacgoo1",
+   "name": "Cackling Goose",
+   "sci": "Branta hutchinsii",
+   "group": "goose"
+  },
+  {
+   "code": "cangoo",
+   "name": "Canada Goose",
+   "sci": "Branta canadensis",
+   "group": "goose"
+  },
+  {
+   "code": "wooduc",
+   "name": "Wood Duck",
+   "sci": "Aix sponsa",
+   "group": "dabbler"
+  },
+  {
+   "code": "buwtea",
+   "name": "Blue-winged Teal",
+   "sci": "Spatula discors",
+   "group": "dabbler"
+  },
+  {
+   "code": "norsho",
+   "name": "Northern Shoveler",
+   "sci": "Spatula clypeata",
+   "group": "dabbler"
+  },
+  {
+   "code": "gadwal",
+   "name": "Gadwall",
+   "sci": "Mareca strepera",
+   "group": "dabbler"
+  },
+  {
+   "code": "eurwig",
+   "name": "Eurasian Wigeon",
+   "sci": "Mareca penelope",
+   "group": "dabbler"
+  },
+  {
+   "code": "amewig",
+   "name": "American Wigeon",
+   "sci": "Mareca americana",
+   "group": "dabbler"
+  },
+  {
+   "code": "mallar3",
+   "name": "Mallard",
+   "sci": "Anas platyrhynchos",
+   "group": "dabbler"
+  },
+  {
+   "code": "ambduc",
+   "name": "American Black Duck",
+   "sci": "Anas rubripes",
+   "group": "dabbler"
+  },
+  {
+   "code": "norpin",
+   "name": "Northern Pintail",
+   "sci": "Anas acuta",
+   "group": "dabbler"
+  },
+  {
+   "code": "gnwtea",
+   "name": "Green-winged Teal",
+   "sci": "Anas crecca",
+   "group": "dabbler"
+  },
+  {
+   "code": "canvas",
+   "name": "Canvasback",
+   "sci": "Aythya valisineria",
+   "group": "diver"
+  },
+  {
+   "code": "redhea",
+   "name": "Redhead",
+   "sci": "Aythya americana",
+   "group": "diver"
+  },
+  {
+   "code": "rinduc",
+   "name": "Ring-necked Duck",
+   "sci": "Aythya collaris",
+   "group": "diver"
+  },
+  {
+   "code": "gresca",
+   "name": "Greater Scaup",
+   "sci": "Aythya marila",
+   "group": "diver"
+  },
+  {
+   "code": "lessca",
+   "name": "Lesser Scaup",
+   "sci": "Aythya affinis",
+   "group": "diver"
+  },
+  {
+   "code": "kineid",
+   "name": "King Eider",
+   "sci": "Somateria spectabilis",
+   "group": "seaduck"
+  },
+  {
+   "code": "comeid",
+   "name": "Common Eider",
+   "sci": "Somateria mollissima",
+   "group": "seaduck"
+  },
+  {
+   "code": "harduc",
+   "name": "Harlequin Duck",
+   "sci": "Histrionicus histrionicus",
+   "group": "seaduck",
+   "noSeason": true
+  },
+  {
+   "code": "sursco",
+   "name": "Surf Scoter",
+   "sci": "Melanitta perspicillata",
+   "group": "seaduck"
+  },
+  {
+   "code": "whwsco2",
+   "name": "White-winged Scoter",
+   "sci": "Melanitta deglandi",
+   "group": "seaduck"
+  },
+  {
+   "code": "blksco2",
+   "name": "Black Scoter",
+   "sci": "Melanitta americana",
+   "group": "seaduck"
+  },
+  {
+   "code": "lotduc",
+   "name": "Long-tailed Duck",
+   "sci": "Clangula hyemalis",
+   "group": "seaduck"
+  },
+  {
+   "code": "buffle",
+   "name": "Bufflehead",
+   "sci": "Bucephala albeola",
+   "group": "diver"
+  },
+  {
+   "code": "comgol",
+   "name": "Common Goldeneye",
+   "sci": "Bucephala clangula",
+   "group": "diver"
+  },
+  {
+   "code": "bargol",
+   "name": "Barrow's Goldeneye",
+   "sci": "Bucephala islandica",
+   "group": "diver"
+  },
+  {
+   "code": "hoomer",
+   "name": "Hooded Merganser",
+   "sci": "Lophodytes cucullatus",
+   "group": "merganser"
+  },
+  {
+   "code": "commer",
+   "name": "Common Merganser",
+   "sci": "Mergus merganser",
+   "group": "merganser"
+  },
+  {
+   "code": "rebmer",
+   "name": "Red-breasted Merganser",
+   "sci": "Mergus serrator",
+   "group": "merganser"
+  },
+  {
+   "code": "rudduc",
+   "name": "Ruddy Duck",
+   "sci": "Oxyura jamaicensis",
+   "group": "diver"
+  },
+  {
+   "code": "y00475",
+   "name": "American Coot",
+   "sci": "Fulica americana",
+   "group": "coot"
+  }
+ ]
+}

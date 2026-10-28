@@ -24,5 +24,14 @@ Each state's data loads when you turn that state on. Once loaded, zones,
 seasons and layers keep working without signal while the page stays open.
 Weather, satellite and topo imagery need a connection.
 
+Waterfowl sightings come from eBird (Cornell Lab of Ornithology): ducks,
+geese and coots reported at public eBird hotspots in the last two weeks.
+Personal locations are left out. A scheduled GitHub Action
+(`.github/workflows/sightings.yml`) refreshes `data/<state>/sightings.json`
+every morning. It uses an API key kept as a repository secret, so the key
+never reaches the page. Until that secret exists the job does nothing and
+the layer stays hidden. eBird data are used under the eBird API Terms of
+Use: non-commercial, credited to eBird.org.
+
 Sources and limitations are listed in the app under Regs → Sources, and in
 LICENSE.
