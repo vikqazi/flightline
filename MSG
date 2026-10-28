@@ -1,22 +1,8 @@
-Habitat density layer; satellite by default
+Wind arrows red and larger
 
-A derived surface, not a survey: how much duck water sits within about two
-miles of each point, marsh weighted heaviest, then ponds and lakes, then
-rivers. Built on a 500 m grid in Web Mercator so it maps to a screen
-rectangle exactly, blurred to a 2.5 km neighbourhood, and normalised on the
-99.5th percentile inside each state so a few big lakes do not flatten it.
-
-It is labelled habitat, not birds, in the layer name and the key. There is
-no open dataset of waterfowl density at a resolution that would mean
-anything here - eBird Status and Trends is the right data and is not open,
-and the USGS layers are 50 km cells. Drawing a bird-density gradient from
-nothing would look authoritative over exactly the marsh where someone makes
-a decision.
-
-Massachusetts marsh comes from NWI emergent and estuarine wetlands over an
-acre, since the state hydrography has no marsh class. The Atlantic itself
-arrives as a single 2.6 million acre polygon and is excluded.
-
-Satellite with street and place names is now the default view.
+They were hard to pick out over imagery. Now a red ramp from pale to deep,
+about 50 percent longer, heavier stroke, bigger head, and the head carries
+its own halo so it does not vanish over bright ground. Speed still reads
+from both length and shade.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>

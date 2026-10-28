@@ -1549,7 +1549,7 @@ function draw() {
       var g = WX.grid[wi];
       var wxp = projX(g.lon) * V.sc - V.ox, wyp = projY(g.lat) * V.sc - V.oy;
       if (wxp < -40 || wyp < -40 || wxp > V.w + 40 || wyp > V.h + 40) continue;
-      var L2 = Math.max(11, Math.min(34, 9 + g.spd * 1.1));
+      var L2 = Math.max(18, Math.min(52, 15 + g.spd * 1.5));
       var ang = ((g.dir + 180) % 360) * Math.PI / 180;
       var dx = Math.sin(ang), dy = -Math.cos(ang);
       var tipx = wxp + dx * L2 / 2, tipy = wyp + dy * L2 / 2;
@@ -1557,19 +1557,21 @@ function draw() {
       var col = windColor(g.spd);
       ctx.lineCap = 'round';
       ctx.beginPath(); ctx.moveTo(tailx, taily); ctx.lineTo(tipx, tipy);
-      ctx.lineWidth = 4.2; ctx.strokeStyle = hexA(css('--m-halo'), 0.8); ctx.stroke();
+      ctx.lineWidth = 6.5; ctx.strokeStyle = hexA(css('--m-halo'), 0.85); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(tailx, taily); ctx.lineTo(tipx, tipy);
-      ctx.lineWidth = 2.1; ctx.strokeStyle = col; ctx.stroke();
-      var hx = dx * 7, hy = dy * 7, px2 = -dy * 4.2, py2 = dx * 4.2;
+      ctx.lineWidth = 3.2; ctx.strokeStyle = col; ctx.stroke();
+      var hx = dx * 10, hy = dy * 10, px2 = -dy * 6, py2 = dx * 6;
       ctx.beginPath();
       ctx.moveTo(tipx, tipy);
       ctx.lineTo(tipx - hx + px2, tipy - hy + py2);
       ctx.lineTo(tipx - hx - px2, tipy - hy - py2);
-      ctx.closePath(); ctx.fillStyle = col; ctx.fill();
+      ctx.closePath();
+      ctx.lineWidth = 2.4; ctx.strokeStyle = hexA(css('--m-halo'), 0.85); ctx.stroke();
+      ctx.fillStyle = col; ctx.fill();
       if (V.z >= 9) {
-        ctx.font = '600 9px "IBM Plex Mono",monospace';
+        ctx.font = '600 11px "IBM Plex Mono",monospace';
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-        ctx.lineWidth = 2.6; ctx.strokeStyle = css('--m-halo');
+        ctx.lineWidth = 3.2; ctx.strokeStyle = css('--m-halo');
         ctx.strokeText(Math.round(g.spd), wxp, wyp + L2 / 2 + 3);
         ctx.fillStyle = col; ctx.fillText(Math.round(g.spd), wxp, wyp + L2 / 2 + 3);
       }
@@ -2424,7 +2426,7 @@ function panelLog() {
    ========================================================================= */
 var WX = { grid: null, gridKey: '', gridLoading: false, gridErr: null,
            pt: null, ptKey: '', ptLoading: false, ptErr: null, horizon: null };
-var WIND_RAMP = [[0, '#8fb8d6'], [6, '#86bf86'], [11, '#d9c35c'], [16, '#e0913f'], [22, '#d2452f'], [30, '#a4243b']];
+var WIND_RAMP = [[0, '#ff9e8f'], [6, '#ff7461'], [11, '#f94b36'], [16, '#e42912'], [22, '#c2160a'], [30, '#8f0a06']];
 function windColor(mph) {
   var c = WIND_RAMP[0][1];
   for (var i = 0; i < WIND_RAMP.length; i++) if (mph >= WIND_RAMP[i][0]) c = WIND_RAMP[i][1];
@@ -2584,7 +2586,7 @@ function renderKey() {
         'This is habitat, NOT birds. No one publishes bird density at a scale that means anything here. ' +
         'Shaded relative to each state, so compare within a state, not across the line.')) +
     h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Wind') +
-      krow('<i style="display:inline-block;color:#86bf86;font-size:14px">&#8593;</i>', 'Wind arrow',
+      krow('<i style="display:inline-block;color:#f94b36;font-size:16px">&#8593;</i>', 'Wind arrow',
            'Points the way the wind blows, so an arrow pointing south is a north wind. Length and colour are speed.') +
       h('div', { class: 'row', style: 'gap:2px;margin-top:4px' },
         WIND_RAMP.map(function (r) {
