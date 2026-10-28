@@ -80,8 +80,10 @@ button{cursor:pointer;background:none;border:0}
 .brand{display:flex;align-items:center;gap:9px;min-width:0}
 .brand svg{width:26px;height:26px;flex:0 0 auto;color:var(--accent)}
 .word{font-family:var(--f-disp);font-weight:700;font-size:17px;letter-spacing:.2px;white-space:nowrap}
-.season{font-family:var(--f-data);font-size:10.5px;letter-spacing:.07em;color:var(--accent);
-  border:1px solid var(--accent);border-radius:3px;padding:1px 5px;white-space:nowrap}
+.statesw{display:flex;gap:0;border:1px solid var(--line2);border-radius:5px;overflow:hidden;flex:0 0 auto}
+.statesw .sw{font-family:var(--f-data);font-size:11px;letter-spacing:.06em;padding:3px 8px;color:var(--dim);background:var(--surface2)}
+.statesw .sw.on{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.statesw:hover{border-color:var(--accent)}
 .spacer{flex:1 1 auto;min-width:0}
 .datebox{display:flex;align-items:center;gap:0;background:var(--surface2);border:1px solid var(--line);
   border-radius:6px;overflow:hidden;flex:0 0 auto}
@@ -280,7 +282,7 @@ a:hover{text-decoration:underline}
   .tabs{display:none}
   .mobtabs{display:flex;gap:2px;flex:0 0 auto}
   .word{font-size:15px}
-  .season{display:none}
+  .statesw .sw{padding:3px 7px}
   .zchip{min-width:124px}
 }
 @media (max-width:560px){
@@ -883,7 +885,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <path d="M24.6 12.1h.02"/>
       </svg>
       <span class="word">Granite Flyway</span>
-      <span class="season">NH&nbsp;2026&ndash;27</span>
+      <button id="stateBtn" class="statesw" aria-label="Switch state"></button>
     </div>
     <div class="spacer"></div>
     <div class="datebox">
@@ -946,9 +948,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 var $ = function (s) { return document.querySelector(s); };
 var DPR = Math.min(window.devicePixelRatio || 1, 2);
-var ZONE_IDS = ['northern', 'inland', 'ct', 'coastal'];
-var ZONE_COLOR = { northern: '#5b7fb8', inland: '#8a9a4e', ct: '#b06fa8', coastal: '#c9893c' };
+var STATES = {
+  nh: { name: 'New Hampshire', abbr: 'NH', bounds: [[42.63, -72.63], [45.33, -70.55]],
+        zones: ['northern', 'inland', 'ct', 'coastal'],
+        colors: { northern: '#5b7fb8', inland: '#8a9a4e', ct: '#b06fa8', coastal: '#c9893c' },
+        extras: ['closed', 'refuges', 'gbshore', 'seaduck'] },
+  ma: { name: 'Massachusetts', abbr: 'MA', bounds: [[41.18, -73.52], [42.90, -69.85]],
+        zones: ['berkshire', 'central', 'coastal'],
+        colors: { berkshire: '#5b7fb8', central: '#8a9a4e', coastal: '#c9893c' },
+        extras: [] }
+};
+var ZONE_IDS = STATES.nh.zones;
+var ZONE_COLOR = STATES.nh.colors;
+var CACHE = {};
 var SEASON_START = '2026-08-15', SEASON_END = '2027-03-31';
+var NH_BOUNDS_FALLBACK = [[42.63, -72.63], [45.33, -70.55]];
 
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -1103,7 +1117,10 @@ function ranges(sp, zone) {
   if (e.sameAs) return ranges(e.sameAs, zone);
   return (e.z && e.z[zone]) || [];
 }
+function isSunday(isoStr) { return new Date(dnum(isoStr)).getUTCDay() === 0; }
+function sundayShut(isoStr) { return !!(REGS && REGS.sundayClosed) && isSunday(isoStr); }
 function openOn(sp, zone, isoStr) {
+  if (sundayShut(isoStr)) return false;
   var t = dnum(isoStr), r = ranges(sp, zone);
   for (var i = 0; i < r.length; i++) if (t >= dnum(r[i][0]) && t <= dnum(r[i][1])) return true;
   return false;
@@ -1129,6 +1146,7 @@ var D = {};                 // loaded datasets
 var map = null, canvas = null, ctx = null, layer = null;
 var S = {
   date: null, zone: null, panel: 'season', sel: null, ref: null, pinMode: false,
+  state: 'nh', loading: false,
   base: 'vector', tileState: 'idle', labels: true,
   geo: { on: false, follow: false, lat: null, lon: null, acc: null, heading: null, ts: 0, err: null, watch: null },
   layers: { zones: true, zoneLines: true, towns: false, roads: true, water: true, marsh: true,
@@ -1344,7 +1362,7 @@ function draw() {
   /* the state itself, so in-state reads differently from the surround */
   if (!img) drawPolys(D.zones, V, css('--m-nh'), css('--m-nh'), 1);
 
-  if (S.layers.seaduck && D.seaduck) {
+  if (S.layers.seaduck && D.seaduck && D.seaduck.proj) {
     var sd = D.seaduck.proj;
     if (hits(sd.bb, V)) {
       ctx.beginPath(); tracePart(sd.parts[0], V, 0.4); ctx.closePath();
@@ -1415,7 +1433,7 @@ function draw() {
   }
 
   /* closed areas */
-  if (S.layers.closed && D.closed) {
+  if (S.layers.closed && D.closed && D.closed.areas) {
     var cl = D.closed.areas;
     for (var i = 0; i < cl.length; i++) {
       var a = cl[i];
@@ -1634,7 +1652,7 @@ function onMapClick(e) {
     var st = D.tides.stations[id];
     if (near(st.lat, st.lon, 10)) return select({ kind: 'tide', station: st, id: id, lat: st.lat, lon: st.lon });
   }
-  if (S.layers.closed) for (i = 0; i < D.closed.areas.length; i++) {
+  if (S.layers.closed && D.closed) for (i = 0; i < D.closed.areas.length; i++) {
     var ca = D.closed.areas[i];
     var mpp = 40075016.686 * Math.cos(ca.lat * Math.PI / 180) / (256 * V.sc);
     if (near(ca.lat, ca.lon, Math.max(9, ca.r / mpp))) return select({ kind: 'closed', area: ca, lat: ca.lat, lon: ca.lon });
@@ -1868,8 +1886,9 @@ function panelSeason() {
   } else {
     var gz = zoneAt(S.geo.lat, S.geo.lon), gt = townAt(S.geo.lat, S.geo.lon);
     var gOpen = gz && openOn('duck', gz, S.date);
-    var nearC = D.closed.areas.map(function (a) { return { a: a, d: haversine(S.geo.lat, S.geo.lon, a.lat, a.lon) }; })
+    var nearC = !D.closed ? null : D.closed.areas.map(function (a) { return { a: a, d: haversine(S.geo.lat, S.geo.lon, a.lat, a.lon) }; })
       .sort(function (x, y) { return x.d - y.d; })[0];
+    nearC = nearC || null;
     geoBody =
       h('div', { class: 'between' }, h('span', { class: 'lab' }, 'You are in') +
         h('span', { class: 'pill ' + (gz ? (gOpen ? 'is-open' : 'is-closed') : 'muted') },
@@ -1935,9 +1954,10 @@ function panelLayers() {
     water: D.watersMajor.filter(function (f) { return f.meta[1] !== 2; }).length,
     marsh: D.watersMajor.filter(function (f) { return f.meta[1] === 2; }).length,
     minor: D.watersMinor.length, streams: D.streams.length, land: D.land.length,
-    access: D.access.length, closed: D.closed.areas.length, towns: D.towns.length,
+    access: D.access.length, closed: D.closed ? D.closed.areas.length : 0, towns: D.towns.length,
     roads: D.roads.length, spots: spots.length, tides: Object.keys(D.tides.stations).length,
-    refuges: D.refuges ? D.refuges.length : 0, gbshore: D.gbshore ? D.gbshore.features.length : 0
+    refuges: D.refuges ? D.refuges.length : 0, gbshore: D.gbshore ? D.gbshore.features.length : 0,
+    seaduck: D.seaduck ? 1 : 0
   };
   var tileMsg = S.base === 'vector' ? 'Drawn from data that ships with this page — it works with no signal.'
     : S.tileState === 'loading' ? 'Fetching tiles…'
@@ -2094,6 +2114,12 @@ function panelRef() {
         h('div', { class: 'small muted', style: 'margin-top:3px;white-space:normal' }, esc(l.d)));
     }).join(''));
   } else if (S.refTab === 'closed') {
+    if (!D.closed) {
+      body = h('div', { class: 'note' },
+        'Massachusetts does not publish a single statewide list of waters closed to waterfowl like New Hampshire does. Closures are set per property — wildlife management areas, refuges, town rules and posted land — so check the property you plan to hunt.') +
+        h('div', { class: 'row', style: 'margin-top:9px' },
+          h('a', { class: 'btn ghost', href: 'https://www.mass.gov/info-details/migratory-game-bird-hunting-regulations', target: '_blank', rel: 'noopener' }, 'MassWildlife regulations'));
+    } else {
     body = h('div', { class: 'note alert' }, esc(D.closed.warning)) +
       h('div', { class: 'row', style: 'margin:10px 0' },
         h('a', { class: 'btn ghost', href: D.closed.sourceUrl, target: '_blank', rel: 'noopener' }, 'Official PDF') +
@@ -2121,6 +2147,7 @@ function panelRef() {
       h('div', { class: 'note alert', style: 'margin-top:7px' }, esc(D.seaduck.note)) +
       h('div', { class: 'row', style: 'margin-top:9px' },
         h('a', { class: 'btn ghost', href: D.seaduck.url, target: '_blank', rel: 'noopener' }, 'Official sea duck map'));
+    }
   } else {
     body = h('div', { class: 'small muted', style: 'margin-bottom:9px' },
         'Every date, limit and boundary on this page came from these. Rules change — check the state source before you hunt.') +
@@ -2129,9 +2156,11 @@ function panelRef() {
           h('div', { class: 't1' }, esc(s.label)) + h('div', { class: 't2' }, esc(s.url.replace(/^https?:\/\//, '').slice(0, 54))));
       }).join('')) +
       h('div', { class: 'tiny muted', style: 'margin-top:10px' },
-        'Geometry: NH GRANIT (water bodies, streams, conservation land, town and state boundaries, public access sites); ' +
-        'OpenStreetMap (highways, used to trace the zone boundary routes); NOAA CO-OPS (tide predictions). ' +
-        'Zone polygons were built by routing along the actual roads named in the Fish and Game boundary descriptions.');
+        (S.state === 'ma'
+          ? 'Geometry: MassGIS (1:25,000 hydrography, Office of Fishing and Boating Access sites, Protected and Recreational OpenSpace, municipalities), US Census TIGER (state outline), OpenStreetMap (highways), NOAA CO-OPS (tides). '
+          : 'Geometry: NH GRANIT (water bodies, streams, conservation land, town and state boundaries, public access sites), OpenStreetMap (highways), NOAA CO-OPS (tides). ') +
+        'Zone polygons were built by routing along the actual roads named in the state boundary descriptions; the three (NH: four) zones add up to the state outline exactly.' +
+        (S.state === 'ma' ? ' One exception: the short street-level jog through Taunton and Somerset on the Coastal boundary is approximated along numbered routes.' : ''));
   }
   return sec('Reference', true,
     h('div', { class: 'seg', style: 'flex-wrap:wrap;gap:3px' }, REF_TABS.map(function (t) {
@@ -2205,16 +2234,16 @@ function renderKey() {
   card.innerHTML =
     h('h3', null, 'Map key' + h('button', { id: 'keyClose', 'aria-label': 'Hide the key' }, '&times;')) +
 
-    h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Do not hunt here') +
-      krow(ring(css('--m-closed')), 'Closed area', 'A state closed area from Fis 306.01 — 20 of them. The circle is an approximate locator the size of the closure, not its legal edge. Tap it for the exact wording.') +
-      krow(bar('#d2342a'), 'Refuge shoreline, closed', 'Great Bay NWR')) +
+    (D.closed || D.gbshore ? h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Do not hunt here') +
+      (D.closed ? krow(ring(css('--m-closed')), 'Closed area', 'A state closed area from Fis 306.01 — 20 of them. The circle is an approximate locator the size of the closure, not its legal edge. Tap it for the exact wording.') : '') +
+      (D.gbshore ? krow(bar('#d2342a'), 'Refuge shoreline, closed', 'Great Bay NWR') : '')) : '') +
 
     h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Where you can go') +
       krow(sq(css('--m-access'), '0'), 'Boat ramp', 'Trailer launch — square') +
       krow(sq(css('--m-access'), '50%'), 'Cartop access', 'Hand carry, no trailer — circle') +
-      krow(bar('#2f7fd4'), 'Refuge shoreline, open', 'Great Bay NWR, boat access only') +
-      krow(sq(hexA(css('--m-public'), 0.55)), 'Conservation land', 'Not automatically open to hunting') +
-      krow(sq(hexA(css('--open'), 0.5)), 'Federal refuge unit', 'Special regulations, often a permit')) +
+      (D.gbshore ? krow(bar('#2f7fd4'), 'Refuge shoreline, open', 'Great Bay NWR, boat access only') : '') +
+      krow(sq(hexA(css('--m-public'), 0.55)), 'Conservation land', S.state === 'ma' ? 'Protected and recreational open space — check the access rule' : 'Not automatically open to hunting') +
+      (D.refuges ? krow(sq(hexA(css('--open'), 0.5)), 'Federal refuge unit', 'Special regulations, often a permit') : '')) +
 
     h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Water') +
       krow(sq(css('--m-water')), 'Lake, pond, river') +
@@ -2235,7 +2264,8 @@ function renderKey() {
       krow('<i style="font:600 12px var(--f-data);color:var(--fg)">&#9776;</i>', 'This key') +
       krow('<i style="font:600 13px var(--f-data);color:var(--fg)">&#9906;</i>', 'Drop a spot', 'The pin with a plus — then tap the map to save a place')) +
     h('div', { class: 'knote', style: 'margin-top:10px' },
-      'Zone shading shows duck season on the chosen date: green open, red closed.');
+      'Zone shading shows duck season on the chosen date: green open, red closed.' +
+      (REGS && REGS.sundayClosed ? ' Massachusetts closes all hunting on Sundays, so every zone reads closed then.' : ''));
 }
 
 function renderRail() {
@@ -2287,6 +2317,7 @@ function zoneSeasonBlock(z) {
       h('tr', null, h('th', null, 'Species') + h('th', null, 'Status') + h('th', { style: 'text-align:right' }, 'Daily') + h('th', null, 'Window')) + rows));
 }
 function nearbyClosed(lat, lon) {
+  if (!D.closed) return '';
   var near = D.closed.areas.map(function (a) { return { a: a, d: haversine(lat, lon, a.lat, a.lon) }; })
     .filter(function (x) { return x.d < 3; }).sort(function (x, y) { return x.d - y.d; });
   if (!near.length) return '';
@@ -2474,8 +2505,9 @@ function setDate(isoStr) {
   $('#dPick').value = isoStr;
   $('#dLabel').textContent = fmtDate(isoStr) + ' ' + isoStr.slice(0, 4);
   var any = ZONE_IDS.some(function (z) { return openOn('duck', z, isoStr); });
-  $('#dSub').textContent = any ? 'duck season running' : 'no duck season';
-  $('#dSub').style.color = any ? 'var(--open)' : 'var(--dim)';
+  var shut = sundayShut(isoStr);
+  $('#dSub').textContent = shut ? 'Sunday — no hunting in MA' : (any ? 'duck season running' : 'no duck season');
+  $('#dSub').style.color = shut ? 'var(--closed)' : (any ? 'var(--open)' : 'var(--dim)');
   store('date', isoStr);
   renderStrip(); renderRail(); renderSlip(); schedule();
 }
@@ -2541,7 +2573,7 @@ function wire() {
   $('#dToday').onclick = function () { setDate(todayISO()); };
   $('#zIn').onclick = function () { map.zoomIn(1); };
   $('#zOut').onclick = function () { map.zoomOut(1); };
-  $('#zFit').onclick = function () { S.zone = null; renderStrip(); map.fitBounds(NH_BOUNDS, { padding: [8, 8] }); schedule(); };
+  $('#zFit').onclick = function () { S.zone = null; renderStrip(); map.fitBounds(STATES[S.state].bounds, { padding: [8, 8] }); schedule(); };
   $('#zLoc').onclick = toggleGeo;
   $('#zPin').onclick = function () {
     S.pinMode = !S.pinMode;
@@ -2560,6 +2592,10 @@ function wire() {
   document.addEventListener('click', function (ev) {
     if (ev.target.closest && ev.target.closest('#keyClose')) { store('key', '0'); renderKey(); }
   });
+  $('#stateBtn').onclick = function () {
+    var keys = Object.keys(STATES);
+    loadState(keys[(keys.indexOf(S.state) + 1) % keys.length], false);
+  };
   $('#mRail').onclick = function () { $('#rail').classList.add('on'); $('#scrim').classList.add('on'); };
   $('#scrim').onclick = closeRail;
   document.addEventListener('keydown', function (e) {
@@ -2706,78 +2742,113 @@ function todayISO() {
 function get(path) {
   return fetch(path).then(function (r) { if (!r.ok) throw new Error(path + ' ' + r.status); return r.json(); });
 }
+function projLine(coords) {
+  var a = new Float64Array(coords.length * 2), bb = [Infinity, Infinity, -Infinity, -Infinity];
+  for (var i = 0; i < coords.length; i++) {
+    var wx = projX(coords[i][0]), wy = projY(coords[i][1]);
+    a[i * 2] = wx; a[i * 2 + 1] = wy;
+    if (wx < bb[0]) bb[0] = wx; if (wx > bb[2]) bb[2] = wx;
+    if (wy < bb[1]) bb[1] = wy; if (wy > bb[3]) bb[3] = wy;
+  }
+  return { parts: [a], bb: bb };
+}
+var CORE = ['regs', 'zones', 'zonelines', 'waters-major', 'streams', 'publicland',
+            'access', 'tides', 'towns', 'roads'];
+function buildState(code, files) {
+  var st = STATES[code], d = {};
+  d.regs = files.regs;
+  d.zones = geoToWorld(files.zones);
+  d.zonelines = geoToWorld(files.zonelines);
+  d.watersMajor = unpack(files['waters-major'].data, 3); d.waterNames = files['waters-major'].names;
+  d.streams = unpack(files.streams.data, 2);
+  d.land = unpack(files.publicland.data, 4); d.landNames = files.publicland.names;
+  d.landAgency = files.publicland.agency || files.publicland.own;
+  d.landLevel = files.publicland.level || files.publicland.acc;
+  d.access = files.access;
+  d.tides = files.tides;
+  d.towns = unpack(files.towns.data, 1); d.townNames = files.towns.names;
+  d.roads = unpack(files.roads.data, 2); d.roadNames = files.roads.names;
+  d.watersMinor = [];
+  if (files.closed) d.closed = files.closed;
+  if (files.refuges) {
+    d.refuges = unpack(files.refuges.data, 4); d.refugeNames = files.refuges.names;
+    d.refugeAttrs = files.refuges.attrs; d.refugeSource = files.refuges.source;
+  }
+  if (files.gbshore) {
+    d.gbshore = files.gbshore;
+    d.gbshore.proj = files.gbshore.features.map(function (f) {
+      var p = projLine(f.line); p.status = f.status; p.km = f.km; return p;
+    });
+  }
+  if (files.seaduck) { d.seaduck = files.seaduck; d.seaduck.proj = projLine(files.seaduck.ring); }
+  return d;
+}
+function loadState(code, first) {
+  var st = STATES[code]; if (!st || S.loading) return;
+  if (CACHE[code]) { activate(code, first); return; }
+  S.loading = true;
+  var el = $('#load');
+  if (el) { el.hidden = false; el.innerHTML = '<div><b>Granite Flyway</b>Loading ' + esc(st.name) + '&hellip;</div>'; }
+  var names = CORE.concat(st.extras);
+  Promise.all(names.map(function (n) { return get('data/' + code + '/' + n + '.json'); }))
+    .then(function (arr) {
+      var files = {}; names.forEach(function (n, i) { files[n] = arr[i]; });
+      CACHE[code] = buildState(code, files);
+      S.loading = false;
+      activate(code, first);
+      get('data/' + code + '/waters-minor.json').then(function (mn) {
+        CACHE[code].watersMinor = unpack(mn.data, 3);
+        if (S.state === code) { D.watersMinor = CACHE[code].watersMinor; schedule(); if (S.panel === 'layers') renderRail(); }
+      }).catch(function () {});
+    })
+    .catch(function (e) {
+      S.loading = false;
+      if (el) el.innerHTML = '<div><b>Could not load ' + esc(st.name) + '</b>' + esc(e && e.message ? e.message : 'Unknown error') + '</div>';
+    });
+}
+function activate(code, first) {
+  var st = STATES[code];
+  S.state = code; store('state', code);
+  ZONE_IDS = st.zones; ZONE_COLOR = st.colors;
+  D = CACHE[code]; REGS = D.regs;
+  S.zone = null; S.sel = null; S.ref = null;
+  _zoneCache = {};
+  if (first) {
+    initMap();
+    wire();
+    var sb = store('base'); if (sb && sb !== 'vector') setBase(sb);
+    initDb();
+  }
+  var saved = store('date'), t = todayISO();
+  setDate(saved && saved >= SEASON_START && saved <= SEASON_END ? saved
+    : (t >= SEASON_START && t <= SEASON_END ? t : '2026-10-24'));
+  if (map) {
+    syncSize();
+    map.fitBounds(st.bounds, { padding: [8, 8] });
+    setTimeout(function () { if (S.state === code && map) { syncSize(); map.fitBounds(st.bounds, { padding: [8, 8] }); } }, 120);
+  }
+  var at = $('#attrib');
+  if (at) at.textContent = (code === 'ma'
+    ? 'MassGIS · MassWildlife · US Census · NOAA · OpenStreetMap'
+    : 'NH GRANIT · NH Fish and Game · USFWS · NOAA · OpenStreetMap');
+  renderStateBtn(); renderSlip(); renderKey(); renderRail();
+  $('#load').hidden = true;
+  schedule();
+}
+function renderStateBtn() {
+  var b = $('#stateBtn'); if (!b) return;
+  b.innerHTML = Object.keys(STATES).map(function (c) {
+    return h('span', { class: 'sw' + (S.state === c ? ' on' : '') }, esc(STATES[c].abbr));
+  }).join('');
+  b.setAttribute('title', 'Showing ' + STATES[S.state].name);
+}
 function boot() {
   applyTheme();
   S.labels = store('labels') !== '0';
   var saved = store('layers');
   if (saved) { try { var o = JSON.parse(saved); for (var k in o) if (k in S.layers) S.layers[k] = !!o[k]; } catch (e) {} }
-
-  Promise.all([
-    get('data/regs.json'), get('data/zones.json'), get('data/zonelines.json'),
-    get('data/waters-major.json'), get('data/streams.json'), get('data/publicland.json'),
-    get('data/access.json'), get('data/closed.json'), get('data/tides.json'),
-    get('data/towns.json'), get('data/roads.json'),
-    get('data/refuges.json'), get('data/gbshore.json'), get('data/seaduck.json')
-  ]).then(function (r) {
-    REGS = r[0];
-    D.zones = geoToWorld(r[1]);
-    D.zonelines = geoToWorld(r[2]);
-    D.watersMajor = unpack(r[3].data, 3); D.waterNames = r[3].names;
-    D.streams = unpack(r[4].data, 2); D.streamNames = r[4].names;
-    D.land = unpack(r[5].data, 4); D.landNames = r[5].names;
-    D.landAgency = r[5].agency; D.landLevel = r[5].level;
-    D.access = r[6];
-    D.closed = r[7];
-    D.tides = r[8];
-    D.towns = unpack(r[9].data, 1); D.townNames = r[9].names;
-    D.roads = unpack(r[10].data, 2); D.roadNames = r[10].names;
-    D.refuges = unpack(r[11].data, 4); D.refugeNames = r[11].names;
-    D.refugeAttrs = r[11].attrs; D.refugeSource = r[11].source;
-    D.gbshore = r[12];
-    D.gbshore.proj = D.gbshore.features.map(function (f) {
-      var a = new Float64Array(f.line.length * 2);
-      var bb = [Infinity, Infinity, -Infinity, -Infinity];
-      for (var i = 0; i < f.line.length; i++) {
-        var wx = projX(f.line[i][0]), wy = projY(f.line[i][1]);
-        a[i * 2] = wx; a[i * 2 + 1] = wy;
-        if (wx < bb[0]) bb[0] = wx; if (wx > bb[2]) bb[2] = wx;
-        if (wy < bb[1]) bb[1] = wy; if (wy > bb[3]) bb[3] = wy;
-      }
-      return { status: f.status, km: f.km, parts: [a], bb: bb };
-    });
-    D.seaduck = r[13];
-    D.seaduck.proj = (function () {
-      var ring = D.seaduck.ring, a = new Float64Array(ring.length * 2);
-      var bb = [Infinity, Infinity, -Infinity, -Infinity];
-      for (var i = 0; i < ring.length; i++) {
-        var wx = projX(ring[i][0]), wy = projY(ring[i][1]);
-        a[i * 2] = wx; a[i * 2 + 1] = wy;
-        if (wx < bb[0]) bb[0] = wx; if (wx > bb[2]) bb[2] = wx;
-        if (wy < bb[1]) bb[1] = wy; if (wy > bb[3]) bb[3] = wy;
-      }
-      return { parts: [a], bb: bb };
-    })();
-    D.watersMinor = [];
-
-    initMap();
-    var start = store('date');
-    var t = todayISO();
-    setDate(start && start >= SEASON_START && start <= SEASON_END ? start : (t >= SEASON_START && t <= SEASON_END ? t : '2026-10-24'));
-    wire();
-    var sb = store('base'); if (sb && sb !== 'vector') setBase(sb);
-    renderKey();
-    $('#load').hidden = true;
-    schedule();
-
-    get('data/waters-minor.json').then(function (mn) {
-      D.watersMinor = unpack(mn.data, 3);
-      schedule();
-      if (S.panel === 'layers') renderRail();
-    }).catch(function () {});
-    initDb();
-  }).catch(function (e) {
-    $('#load').innerHTML = '<div><b>Could not load the map data</b>' + esc(e && e.message ? e.message : 'Unknown error') + '</div>';
-  });
+  var want = store('state');
+  loadState(STATES[want] ? want : 'nh', true);
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();

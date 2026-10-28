@@ -1,14 +1,22 @@
-Make location actually arrive, and say why when it does not
+Add Massachusetts behind a state switcher
 
-The watch asked for high accuracy only. On a phone indoors that can hang
-indefinitely while a coarse network fix would return in a second. It now
-fires getCurrentPosition at low accuracy alongside the precise watch and
-draws whichever lands first, with a guard so a late coarse fix cannot
-overwrite a good GPS one.
+The app now carries two states. NH and MA data live under data/<state>/ and
+load on demand, so switching costs one fetch and nothing is downloaded that
+you do not look at.
 
-It also checks the Permissions API up front, so a site that is already
-blocked says so immediately instead of spinning for thirty seconds, and
-checks isSecureContext. The waiting state shows secure-page, permission
-and in-a-frame values so a failure can be reported precisely.
+Massachusetts zones were built the same way as New Hampshire: by routing
+along the actual roads named in the MassWildlife boundary description. The
+three zones add up to the state outline exactly - 4,754 + 12,650 + 9,933 =
+27,337 sq km. One exception, noted in the app: the street-level jog through
+Taunton and Somerset on the Coastal boundary is approximated.
+
+Data from MassGIS: 27,034 water bodies at 1:25,000, 2,663 river reaches,
+282 Office of Fishing and Boating Access sites, 3,433 open-space parcels
+over 50 acres, 351 municipalities. Twelve NOAA tide stations from
+Newburyport to Nantucket. Season dates, bag limits and the zone text come
+from mass.gov.
+
+Massachusetts closes all hunting on Sundays, so the date control and every
+zone read closed on a Sunday.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
