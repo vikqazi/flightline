@@ -272,6 +272,28 @@ a:hover{text-decoration:underline}
 .ksw{width:17px;min-height:15px;flex:0 0 auto;display:grid;place-items:center;margin-top:1px}
 .knote{font-size:10.5px;color:var(--dim);margin-top:2px;line-height:1.35}
 @media (max-width:900px){.keycard{max-height:calc(100% - 120px);width:206px}}
+.searchcard{position:absolute;left:calc(10px + env(safe-area-inset-left,0px));top:10px;z-index:560;
+  width:min(370px,calc(100% - 64px));max-height:calc(100% - 96px);display:flex;flex-direction:column;
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);overflow:hidden}
+.searchcard[hidden]{display:none}
+.mapwrap.searching .keycard{display:none}
+.srow{display:flex;align-items:center;gap:7px;padding:5px 5px 5px 10px;border-bottom:1px solid var(--line);flex:0 0 auto}
+.srow svg{width:15px;height:15px;color:var(--dim);flex:0 0 auto}
+.sfld{flex:1 1 auto;min-width:0;border:0;background:transparent;padding:6px 2px;font-size:14px;outline:none}
+.sfld::-webkit-search-cancel-button{display:none}
+.sx{color:var(--dim);font-size:19px;line-height:1;padding:3px 8px;border-radius:4px}
+.sx:hover{background:var(--sunk);color:var(--fg)}
+.sres{overflow-y:auto;overscroll-behavior:contain}
+.sitem{display:grid;grid-template-columns:50px 1fr;column-gap:8px;width:100%;text-align:left;padding:7px 10px;
+  border-bottom:1px solid var(--line)}
+.sitem:last-child{border-bottom:0}
+.sitem:hover,.sitem.hi{background:var(--sunk)}
+.sitem .sk{grid-row:span 2;align-self:start;justify-self:start;margin-top:2px;font-family:var(--f-data);font-size:9px;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line2);border-radius:3px;padding:1px 4px;white-space:nowrap}
+.sitem .sn{font-size:13px;font-weight:600;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sitem .ss{font-size:11.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:1px}
+.smsg{padding:9px 10px;font-size:12px;color:var(--dim);line-height:1.4}
+@media (max-width:900px){.sfld{font-size:16px}}   /* 16px keeps iOS from zooming the page when the box gets focus */
 /* ---------- mobile ---------- */
 .scrim{position:fixed;inset:0;background:rgba(8,14,16,.5);z-index:70;display:none}
 .scrim.on{display:block}
@@ -928,7 +950,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="crosshair" id="cross"></div>
       <div class="keycard" id="keycard"></div>
       <div class="geostat" id="geostat" hidden></div>
+      <div class="searchcard" id="searchcard" hidden></div>
       <div class="mapctl">
+        <button id="zSearch" aria-label="Search the map" title="Search (/)" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg></button>
         <button id="zIn" aria-label="Zoom in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
         <button id="zOut" aria-label="Zoom out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
         <button id="zFit" aria-label="Fit the states shown" title="Whole state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
@@ -2517,6 +2541,7 @@ function panelRef() {
          ['NOAA tide predictions', function (c) { return !!(CACHE[c] && CACHE[c].tides); }],
          ['Habitat density', function (c) { return !!(CACHE[c] && CACHE[c].habitat); }],
          ['Waterfowl sightings (eBird)', function (c) { return !!(CACHE[c] && CACHE[c].sight); }],
+         ['Place names for search (USGS)', function (c) { return !!CACHE[c]; }],
          ['Satellite, topo, wind, location', function () { return true; }],
          ['Statewide closed-area list', function (c) { return !!(CACHE[c] && CACHE[c].closed); }],
          ['Sea duck area drawn', function (c) { return !!(CACHE[c] && CACHE[c].seaduck); }]
@@ -2747,6 +2772,319 @@ function renderAttrib() {
   if (D.sight && D.sight.length) parts.push('eBird');
   at.textContent = parts.join(' · ').split(' · ').filter(function (v, i, a) { return a.indexOf(v) === i; }).join(' · ');   // each credit once
 }
+
+/* =========================================================================
+   SEARCH — places from the data already on the page, typed or pasted
+   coordinates, and street addresses from OpenStreetMap's Nominatim, which
+   is only asked when you choose to (its rules: no lookups as you type, at
+   most one a second, results cached, credit OpenStreetMap).
+   ========================================================================= */
+var SX = null;                 // search index for the states shown; rebuilt after mergeShown
+var SQ = { q: '', res: [], hi: 0, online: null, onlineQ: '', busy: false, err: '' };
+var _nomAt = 0, _nomCache = {};
+var SKIND = { spot: 'Spot', town: 'Town', water: 'Water', land: 'Land', refuge: 'Refuge', closed: 'Closed',
+              rules: 'Rules', tide: 'Tide', hotspot: 'eBird' };
+var SRANK = { spot: 0, town: 1, water: 2, place: 2, access: 3, land: 4, refuge: 5, closed: 6, rules: 6, hotspot: 7, tide: 8 };
+var BIGPLACE = /^(Bay|Lake|Pond|Marsh|Basin|Village)$/;
+var SALIAS = { pd: 'pond', lk: 'lake', res: 'reservoir', resv: 'reservoir', mtn: 'mountain', mt: 'mount', st: 'saint',
+               ft: 'fort', pt: 'point', isl: 'island', hbr: 'harbor', harbour: 'harbor', brk: 'brook', cr: 'creek',
+               sp: 'state park', nwr: 'national wildlife refuge', wma: 'wildlife management area' };
+
+function snorm(x) {
+  return String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/['’‘]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+}
+/* Coordinates as people paste them: 43.0566, -70.8322 · 43.0566N 70.8322W · N43 03.396 W070 49.933 ·
+   43°03'24"N 70°49'56"W · a Google or Apple Maps link. A missing minus on a New England longitude is
+   put back; so is a longitude typed first. */
+function parseCoords(q) {
+  var x = String(q || '').trim(); if (!x) return null;
+  var m = /@(-?\d{1,2}(?:\.\d+)?),\s*(-?\d{1,3}(?:\.\d+)?)/.exec(x) ||
+          /[?&](?:q|query|ll|center|destination|sll)=(-?\d{1,2}(?:\.\d+)?)(?:,|%2C)\s*(-?\d{1,3}(?:\.\d+)?)/i.exec(x);
+  if (m) return coordFix(+m[1], +m[2], true);
+  x = x.toUpperCase().replace(/NORTH/g, 'N').replace(/SOUTH/g, 'S').replace(/EAST/g, 'E').replace(/WEST/g, 'W')
+       .replace(/DEGREES?|DEG/g, '°');
+  if (/[A-DF-MO-RT-VX-Z]/.test(x)) return null;        // other words: a name or an address, not coordinates
+  var toks = x.match(/[NSEW]|-?\d+(?:\.\d+)?/g); if (!toks) return null;
+  var nums = [], hem = [];
+  toks.forEach(function (t) { if (/^[NSEW]$/.test(t)) hem.push({ h: t, at: nums.length }); else nums.push(t); });
+  var n = nums.length; if (n !== 2 && n !== 4 && n !== 6) return null;
+  if (n === 2 && !hem.length && !/[.°]/.test(x)) return null;   // two bare whole numbers could be anything
+  var half = n / 2, lead = hem.length > 0 && hem[0].at === 0;
+  var part = function (a) {      // [deg] [deg, min] [deg, min, sec] -> degrees
+    var neg = a[0].charAt(0) === '-', d = Math.abs(parseFloat(a[0]));
+    if (a.length > 1) { if (/\./.test(a[0])) return NaN; var mi = parseFloat(a[1]); if (!(mi < 60)) return NaN; d += mi / 60; }
+    if (a.length > 2) { if (/\./.test(a[1])) return NaN; var se = parseFloat(a[2]); if (!(se < 60)) return NaN; d += se / 3600; }
+    return neg ? -d : d;
+  };
+  var A = part(nums.slice(0, half)), B = part(nums.slice(half)), hA = null, hB = null;
+  if (isNaN(A) || isNaN(B)) return null;
+  hem.forEach(function (y) { if (lead ? y.at < half : y.at <= half) hA = hA || y.h; else hB = hB || y.h; });
+  var lat = A, lon = B;
+  if (hA === 'E' || hA === 'W' || hB === 'N' || hB === 'S') { lat = B; lon = A; var sw = hA; hA = hB; hB = sw; }
+  if (hA === 'S') lat = -Math.abs(lat); else if (hA === 'N') lat = Math.abs(lat);
+  if (hB === 'W') lon = -Math.abs(lon); else if (hB === 'E') lon = Math.abs(lon);
+  return coordFix(lat, lon, !!(hA || hB));
+}
+function coordFix(lat, lon, sure) {
+  if (!(Math.abs(lat) <= 90 && Math.abs(lon) <= 180)) return null;
+  var inAny = function (la, lo) {
+    return Object.keys(STATES).some(function (c) { var b = STATES[c].bounds;
+      return la >= b[0][0] - 1 && la <= b[1][0] + 1 && lo >= b[0][1] - 1 && lo <= b[1][1] + 1; });
+  };
+  var note = '';
+  if (!sure && !inAny(lat, lon)) {
+    if (lon > 0 && inAny(lat, -lon)) { lon = -lon; note = 'Read as west longitude'; }
+    else if (inAny(lon, lat)) { var t = lat; lat = lon; lon = t; note = 'Read as longitude, latitude'; }
+    else if (lat > 0 && inAny(lon, -lat)) { var t2 = lat; lat = lon; lon = -t2; note = 'Read as west longitude, latitude'; }
+  }
+  return { lat: lat, lon: lon, note: note };
+}
+function groupFeats(feats, nameOf, km, sizeOf) {   // same name, same state, close together -> one result
+  var groups = {}, out = [], pad = km * 0.0088;      // world units per km at New England latitudes
+  (feats || []).forEach(function (f) {
+    var n = nameOf(f); if (!n) return;
+    var key = f.src + '|' + n, list = groups[key] || (groups[key] = []), b = f.bb, hit = null;
+    for (var i = 0; i < list.length && !hit; i++) {
+      var c = list[i].bb;
+      if (b[0] <= c[2] + pad && b[2] >= c[0] - pad && b[1] <= c[3] + pad && b[3] >= c[1] - pad) hit = list[i];
+    }
+    if (!hit) { hit = { n: n, st: f.src, bb: b.slice(), f: f }; list.push(hit); out.push(hit); return; }
+    hit.bb = [Math.min(hit.bb[0], b[0]), Math.min(hit.bb[1], b[1]), Math.max(hit.bb[2], b[2]), Math.max(hit.bb[3], b[3])];
+    if (sizeOf(f) > sizeOf(hit.f)) hit.f = f;
+  });
+  return out;
+}
+function bbMid(bb) { return { lat: unprojY((bb[1] + bb[3]) / 2), lon: unprojX((bb[0] + bb[2]) / 2) }; }
+function searchIndex() {
+  if (SX) return SX;
+  SX = [];
+  var add = function (n, k, st, lat, lon, bb, sel, extra) {
+    var t = snorm(n + (extra ? ' ' + extra : ''));
+    if (!t || !isFinite(lat) || !isFinite(lon)) return null;
+    var en = { n: n, k: k, st: st, lat: lat, lon: lon, bb: bb, sel: sel, t: t, w: t.split(' ') };
+    SX.push(en); return en;
+  };
+  var area = function (f) { return (f.bb[2] - f.bb[0]) * (f.bb[3] - f.bb[1]); };
+  groupFeats(D.towns, function (f) { return (srcOf(f).townNames || [])[f.meta[0] - 1]; }, 0.5, area).forEach(function (g) {
+    var c = bbMid(g.bb); add(g.n, 'town', g.st, c.lat, c.lon, g.bb, null, STATES[g.st] ? STATES[g.st].name : '');
+  });
+  groupFeats(D.watersMajor, function (f) { return (srcOf(f).waterNames || [])[f.meta[0] - 1]; }, 3, function (f) { return f.meta[2] || 0; }).forEach(function (g) {
+    var c = bbMid(g.f.bb); add(g.n, 'water', g.st, c.lat, c.lon, g.bb, { kind: 'water', feat: g.f, lat: c.lat, lon: c.lon });
+  });
+  groupFeats(D.land, function (f) { return (srcOf(f).landNames || [])[f.meta[0] - 1]; }, 1.5, function (f) { return f.meta[1] || 0; }).forEach(function (g) {
+    var c = bbMid(g.f.bb); add(g.n, 'land', g.st, c.lat, c.lon, g.bb, { kind: 'land', feat: g.f, lat: c.lat, lon: c.lon });
+  });
+  groupFeats(D.refuges, function (f) { return (srcOf(f).refugeNames || [])[f.meta[0] - 1]; }, 2, function (f) { return f.meta[1] || 0; }).forEach(function (g) {
+    var c = bbMid(g.f.bb); add(g.n, 'refuge', g.st, c.lat, c.lon, g.bb, { kind: 'refuge', feat: g.f, lat: c.lat, lon: c.lon });
+  });
+  (D.access || []).forEach(function (a) {
+    add(a.n, 'access', a.src, a.lat, a.lon, null, { kind: 'access', site: a, lat: a.lat, lon: a.lon },
+      [a.w, a.t, a.lvl === 'Trailer' ? 'ramp boat launch' : a.lvl === 'Cartop' ? 'cartop launch' : 'access'].filter(Boolean).join(' '));
+  });
+  if (D.closed) D.closed.areas.forEach(function (a) {
+    add(a.n, isRules(a) ? 'rules' : 'closed', a.src, a.lat, a.lon, null, { kind: 'closed', area: a, lat: a.lat, lon: a.lon }, a.town);
+  });
+  for (var id in D.tides.stations) {
+    var ts = D.tides.stations[id];
+    add(ts.name, 'tide', null, ts.lat, ts.lon, null, { kind: 'tide', station: ts, id: id, lat: ts.lat, lon: ts.lon }, 'tide station');
+  }
+  (D.sight || []).forEach(function (L) { add(L.n, 'hotspot', L.src, L.lat, L.lon, null, { kind: 'sight', loc: L, lat: L.lat, lon: L.lon }, 'ebird hotspot'); });
+  S.shown.forEach(function (c) {
+    var P = CACHE[c] && CACHE[c].places; if (!P) return;
+    P.p.forEach(function (r) { var en = add(r[0], 'place', c, r[2] / 1e4, r[3] / 1e4, null, null, P.classes[r[1]]); if (en) en.cls = P.classes[r[1]]; });
+  });
+  return SX;
+}
+function searchLocal(q) {
+  var toks = snorm(q).split(' ').filter(Boolean); if (!toks.length) return [];
+  var stF = null;
+  if (toks.length > 1) toks = toks.filter(function (t) { if (STATES[t] && S.shown.indexOf(t) >= 0 && !stF) { stF = t; return false; } return true; });
+  var qn = toks.join(' ');
+  var hitTok = function (e, tk) {
+    var al = SALIAS[tk];
+    for (var j = 0; j < e.w.length; j++) if (e.w[j].indexOf(tk) === 0 || (al && al.indexOf(' ') < 0 && e.w[j].indexOf(al) === 0)) return true;
+    return !!(al && al.indexOf(' ') > 0 && e.t.indexOf(al) >= 0);
+  };
+  var mine = spots.map(function (p) {
+    var t = snorm(p.name);
+    return { n: p.name, k: 'spot', st: null, lat: p.lat, lon: p.lon, bb: null, sel: { kind: 'spot', spot: p, lat: p.lat, lon: p.lon }, t: t, w: t.split(' ') };
+  });
+  var out = [];
+  mine.concat(searchIndex()).forEach(function (e) {
+    if (stF && e.st && e.st !== stF) return;
+    for (var i = 0; i < toks.length; i++) if (!hitTok(e, toks[i])) return;
+    var nn = snorm(e.n), sc = nn === qn ? 100 : nn.indexOf(qn) === 0 ? 60 : e.t.indexOf(qn) >= 0 ? 25 : 0;
+    out.push({ e: e, sc: sc - SRANK[e.k] * 2 - nn.length * 0.05 });
+  });
+  out.sort(function (a, b) { return b.sc - a.sc; });
+  /* one result per place: a neighbouring state's data can carry the same water across the line */
+  var kept = [], home = function (e) { var z = zoneAt(e.lat, e.lon); return !z || !e.st || zCode(z) === e.st; };
+  var same = function (k, e) {
+    if (snorm(k.n) !== snorm(e.n)) return false;
+    var kp = k.k === 'place', ep = e.k === 'place';
+    if (k.k !== e.k && !kp && !ep) return false;
+    if (k.bb && e.bb) return !(k.bb[2] < e.bb[0] || e.bb[2] < k.bb[0] || k.bb[3] < e.bb[1] || e.bb[3] < k.bb[1]);
+    var b = k.bb || e.bb, p = k.bb ? e : k;
+    if (b) { var pad = 0.0176, px = projX(p.lon), py = projY(p.lat);      // about 2 km around the feature
+             return px >= b[0] - pad && px <= b[2] + pad && py >= b[1] - pad && py <= b[3] + pad; }
+    return haversine(k.lat, k.lon, e.lat, e.lon) < (kp || ep ? 1 : 0.5);
+  };
+  for (var i = 0; i < out.length && kept.length < 8; i++) {
+    var e = out[i].e, dupAt = -1;
+    for (var j = 0; j < kept.length && dupAt < 0; j++) if (same(kept[j], e)) dupAt = j;
+    if (dupAt < 0) { kept.push(e); continue; }
+    var kk = kept[dupAt];
+    if (kk.k === 'place' && e.k !== 'place') kept[dupAt] = e;              // the app's own feature carries more
+    else if (kk.k === e.k && !home(kk) && home(e)) kept[dupAt] = e;       // keep the copy from the state it is in
+  }
+  return kept;
+}
+function kindLabel(e) {
+  if (e.k === 'place') return e.cls;
+  if (e.k !== 'access') return SKIND[e.k];
+  var lv = e.sel.site.lvl;
+  return lv === 'Trailer' ? 'Ramp' : lv === 'Cartop' ? 'Cartop' : 'Access';
+}
+function localRow(e) {
+  var zs = e.k === 'town' ? null : zoneAt(e.lat, e.lon), sc = zs ? zCode(zs) : e.st;     // the state it is in
+  var ab = sc && STATES[sc] ? STATES[sc].abbr : '', sub;
+  if (e.k === 'town') sub = e.st ? STATES[e.st].name : '';
+  else if (e.k === 'access') sub = [e.sel.site.w !== e.n ? e.sel.site.w : '', e.sel.site.t, ab].filter(Boolean).join(' · ');
+  else { var tw = townAt(e.lat, e.lon); sub = [tw && tw !== e.n ? tw : '', ab].filter(Boolean).join(' · '); }
+  return { kl: kindLabel(e), label: e.n, sub: sub, go: function () { goEntry(e); } };
+}
+function runSearch(q) {
+  SQ.q = q; SQ.hi = 0; SQ.err = '';
+  var t = String(q || '').trim(), rows = [], c = parseCoords(t);
+  if (c) {
+    var lab = num(c.lat, 5) + ', ' + num(c.lon, 5);
+    rows.push({ kl: 'Coords', label: lab, sub: c.note || 'Go to this point', go: function () { goPlace(c.lat, c.lon, null, lab); } });
+  } else if (t.length >= 2) {
+    searchLocal(t).forEach(function (e) { rows.push(localRow(e)); });
+    if (SQ.online && SQ.onlineQ === t) rows = rows.concat(SQ.online);
+    else if (t.length >= 3) {
+      var on = { kl: 'Online', label: 'Look up “' + t + '” online', sub: 'Street addresses and other places, from OpenStreetMap',
+                 go: function () { searchOnline(t); } };
+      if (/^\d+[a-z]?\s+\S/i.test(t) || !rows.length) rows.unshift(on); else rows.push(on);
+    }
+  }
+  SQ.res = rows;
+  renderSearchResults();
+}
+function renderSearchResults() {
+  var box = $('#sres'); if (!box) return;
+  if (!SQ.q.trim()) {
+    box.innerHTML = h('div', { class: 'smsg' },
+      'Towns, villages, lakes, rivers, bays, points, islands, marshes, ramps, WMAs, refuges, eBird hotspots and your spots ' +
+      'in the states shown (place names from USGS). ' +
+      'Paste coordinates as decimals, degrees and minutes, or a Google Maps link. Street addresses look up online.');
+    return;
+  }
+  box.innerHTML = SQ.res.map(function (r, i) {
+    return h('button', { class: 'sitem' + (i === SQ.hi ? ' hi' : ''), 'data-sx': i, role: 'option', 'aria-selected': i === SQ.hi ? 'true' : 'false' },
+      h('span', { class: 'sk' }, esc(r.kl)) + h('span', { class: 'sn' }, esc(r.label)) + h('span', { class: 'ss' }, esc(r.sub || '')));
+  }).join('') +
+    (SQ.err ? h('div', { class: 'smsg' }, SQ.err) : '') +
+    (!SQ.res.length && !SQ.err ? h('div', { class: 'smsg' }, 'Nothing by that name in the states shown.') : '') +
+    (SQ.online && SQ.onlineQ === SQ.q.trim() && SQ.online.length ? h('div', { class: 'smsg tiny' }, 'Addresses © OpenStreetMap contributors, via Nominatim.') : '');
+  var hi = box.querySelector('.sitem.hi'); if (hi && hi.scrollIntoView) hi.scrollIntoView({ block: 'nearest' });
+}
+function chooseResult(i) { var r = SQ.res[i]; if (r) r.go(); }
+function nomRow(o) {
+  var lat = +o.lat, lon = +o.lon, parts = String(o.display_name || '').split(', ');
+  var house = /^\d+[a-z]?$/i.test(parts[0]) && parts.length > 1;
+  var label = o.name || (house ? parts[0] + ' ' + parts[1] : parts[0]) || 'Place';
+  var sub = parts.slice(house && !o.name ? 2 : 1)
+    .filter(function (p) { return p !== 'United States' && !/County$/.test(p) && !/^\d{5}(-\d{4})?$/.test(p); }).slice(0, 3).join(', ');
+  var bb = o.boundingbox ? o.boundingbox.map(Number) : null;      // [south, north, west, east]
+  return { kl: house || o.addresstype === 'road' ? 'Address' : 'Place', label: label, sub: sub,
+           go: function () { goPlace(lat, lon, bb, label); } };
+}
+function searchOnline(t) {
+  if (SQ.busy) return;
+  var key = snorm(t);
+  if (_nomCache[key]) { SQ.online = _nomCache[key]; SQ.onlineQ = t; runSearch(t); return; }
+  SQ.busy = true; SQ.err = 'Looking it up…'; renderSearchResults();
+  setTimeout(function () {
+    _nomAt = Date.now();
+    var b = shownBounds();
+    var url = 'https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&countrycodes=us&accept-language=en' +
+      '&viewbox=' + [b[0][1] - 1, b[1][0] + 1, b[1][1] + 1, b[0][0] - 1].join(',') + '&q=' + encodeURIComponent(t);
+    fetch(url).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (arr) {
+        SQ.busy = false;
+        var rows = (arr || []).filter(function (o) { return isFinite(+o.lat) && isFinite(+o.lon); }).map(nomRow);
+        _nomCache[key] = rows; SQ.online = rows; SQ.onlineQ = t;
+        if (SQ.q.trim() !== t) return;
+        runSearch(SQ.q);
+        if (!rows.length) { SQ.err = 'No address or place found for that.'; renderSearchResults(); }
+      }).catch(function () {
+        SQ.busy = false;
+        SQ.err = hostedCopy() ? 'Could not reach the address service. Check your connection and try again.'
+          : 'Address lookup does not run inside this copy of the map. It works on the full site, ' +
+            h('a', { href: LIVE_BASE, target: '_blank', rel: 'noopener' }, 'vikqazi.github.io/granite-flyway') + '.';
+        renderSearchResults();
+      });
+  }, Math.max(0, _nomAt + 1100 - Date.now()));      // Nominatim allows one request a second
+}
+function withStateFor(lat, lon, then) {    // a place in a state that is not turned on: turn that state on first
+  if (S.loading || zoneAt(lat, lon)) return then();
+  var add = Object.keys(STATES).filter(function (c) { var b = STATES[c].bounds;
+    return S.shown.indexOf(c) < 0 && lat >= b[0][0] && lat <= b[1][0] && lon >= b[0][1] && lon <= b[1][1]; });
+  if (!add.length) return then();
+  var next = S.shown.concat(add).sort(function (x, y) { return Object.keys(STATES).indexOf(x) - Object.keys(STATES).indexOf(y); });
+  setShown(next, false, false, then);
+}
+function goPlace(lat, lon, bb, label, z) {
+  closeSearch();
+  var big = bb && haversine(bb[0], bb[2], bb[1], bb[3]) > 1.5;    // across the box, in miles
+  withStateFor(lat, lon, function () {
+    if (big) map.fitBounds([[bb[0], bb[2]], [bb[1], bb[3]]], { padding: [30, 30], maxZoom: 15 });
+    else map.setView([lat, lon], z || Math.max(map.getZoom(), 15));
+    select({ kind: 'point', lat: lat, lon: lon, label: label });
+  });
+}
+function goEntry(e) {
+  if (e.k === 'place') return goPlace(e.lat, e.lon, null, e.n, BIGPLACE.test(e.cls) ? 13 : 15);
+  closeSearch();
+  if (e.bb) map.fitBounds([[unprojY(e.bb[3]), unprojX(e.bb[0])], [unprojY(e.bb[1]), unprojX(e.bb[2])]],
+    { padding: [30, 30], maxZoom: e.k === 'town' ? 13 : 15 });
+  else map.setView([e.lat, e.lon], Math.max(map.getZoom(), 14));
+  if (e.sel) select(e.sel); else { S.sel = null; renderSlip(); schedule(); }
+}
+function loadPlaces() {
+  S.shown.forEach(function (c) {
+    var C = CACHE[c]; if (!C || C.places || C.placesLoading) return;
+    C.placesLoading = true;
+    get('data/' + c + '/places.json').then(function (j) {
+      C.places = j; SX = null;
+      var card = $('#searchcard'); if (card && !card.hidden && SQ.q.trim()) runSearch(SQ.q);
+    }).catch(function () { C.placesLoading = false; });
+  });
+}
+function openSearch() {
+  var card = $('#searchcard'); if (!card || !D.zones) return;
+  if (card.hidden) {
+    card.hidden = false;
+    $('.mapwrap').classList.add('searching'); $('#zSearch').setAttribute('aria-pressed', 'true');
+    card.innerHTML = h('div', { class: 'srow' },
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>' +
+        h('input', { id: 'sq', class: 'sfld', type: 'search', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false',
+                     enterkeyhint: 'search', placeholder: 'Town, water, ramp, address or 43.06, -70.83', 'aria-label': 'Search the map', value: SQ.q }) +
+        h('button', { class: 'sx', id: 'sClose', 'aria-label': 'Close search' }, '&times;')) +
+      h('div', { class: 'sres', id: 'sres', role: 'listbox', 'aria-label': 'Search results' }, '');
+    runSearch(SQ.q);
+  }
+  loadPlaces();
+  var inp = $('#sq'); if (inp) { inp.focus(); inp.select(); }
+}
+function closeSearch() {
+  var card = $('#searchcard'); if (!card || card.hidden) return;
+  card.hidden = true; card.innerHTML = '';
+  $('.mapwrap').classList.remove('searching'); $('#zSearch').setAttribute('aria-pressed', 'false');
+}
+function toggleSearch() { var card = $('#searchcard'); if (card && !card.hidden) closeSearch(); else openSearch(); }
 
 /* =========================================================================
    WEATHER — Open-Meteo, no key, CORS open. Wind is the thing that decides
@@ -2982,6 +3320,7 @@ function selTitle(sel) {
   if (sel.kind === 'gbshore') return sel.feat.status === 'open' ? 'Refuge shoreline — open' : 'Refuge shoreline — closed';
   if (sel.kind === 'sight') return sel.loc.n;
   if (sel.kind === 'me') return 'Where you are';
+  if (sel.kind === 'point' && sel.label) return sel.label;
   return 'Location';
 }
 function spLabel(e) { return e.label.replace(/ — regular$/, '').replace(/ — (.*)$/, ' ($1)'); }   // 'Canada geese — late' -> 'Canada geese (late)'
@@ -3242,7 +3581,7 @@ function applyTheme() {
 }
 function wire() {
   document.addEventListener('click', function (ev) {
-    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-regstate],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],[data-sight-days],#slipClose,#hSave') : null;
+    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-regstate],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],[data-sight-days],[data-sx],#sClose,#slipClose,#hSave') : null;
     if (!t) return;
     var g = function (k) { return t.getAttribute(k); };
     if (g('data-panel')) { S.panel = g('data-panel'); renderRail(); $('#rail').scrollTop = 0; }
@@ -3270,6 +3609,8 @@ function wire() {
     else if (g('data-add-spot-here')) { addSpotAt(S.sel.lat, S.sel.lon); }
     else if (g('data-zoom-here')) { map.setView([S.sel.lat, S.sel.lon], Math.max(map.getZoom(), 14)); }
     else if (g('data-sight-days')) { setSight({ days: +g('data-sight-days') }); }
+    else if (g('data-sx') != null) { chooseResult(+g('data-sx')); }
+    else if (t.id === 'sClose') { closeSearch(); }
     else if (t.id === 'slipClose') { S.sel = null; renderSlip(); schedule(); }
     else if (t.id === 'hSave') { saveHunt(); }
     else if (t.id === 'railClose') { closeRail(); }
@@ -3313,6 +3654,7 @@ function wire() {
       clearTimeout(window._tsc);
       window._tsc = setTimeout(function () { renderRail(); renderSlip(); }, 260);
     }
+    if (t.id === 'sq') { var sv = t.value; clearTimeout(window._sqT); window._sqT = setTimeout(function () { runSearch(sv); }, 110); }
     if (t.id === 'accQ') { S.access.q = t.value; clearTimeout(window._aq); window._aq = setTimeout(function () { var v = document.getElementById('accQ'); var pos = v && v.selectionStart; renderRail(); var n = document.getElementById('accQ'); if (n) { n.focus(); try { n.setSelectionRange(pos, pos); } catch (e) {} } schedule(); }, 220); }
   });
   var face = document.querySelector('.dface');
@@ -3339,6 +3681,18 @@ function wire() {
     store('theme', cur === 'auto' ? 'dark' : cur === 'dark' ? 'light' : 'auto');
     applyTheme(); renderKey(); if (S.panel === 'layers') renderRail();
   };
+  $('#zSearch').onclick = toggleSearch;
+  document.addEventListener('keydown', function (e) {     // keys inside the search box
+    if (!e.target || e.target.id !== 'sq') return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (SQ.res.length) { SQ.hi = (SQ.hi + (e.key === 'ArrowDown' ? 1 : -1) + SQ.res.length) % SQ.res.length; renderSearchResults(); }
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (e.target.value !== SQ.q) { clearTimeout(window._sqT); runSearch(e.target.value); }
+      chooseResult(SQ.hi);
+    } else if (e.key === 'Escape') { e.preventDefault(); closeSearch(); }
+  });
   $('#zKey').onclick = function () {
     store('key', store('key') === '0' ? '1' : '0');
     renderKey();
@@ -3356,7 +3710,8 @@ function wire() {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
     if (e.key === 'ArrowLeft') setDate(addDays(S.date, -1));
     else if (e.key === 'ArrowRight') setDate(addDays(S.date, 1));
-    else if (e.key === 'Escape') { S.sel = null; renderSlip(); closeRail(); schedule(); }
+    else if (e.key === 'Escape') { S.sel = null; renderSlip(); closeRail(); closeSearch(); schedule(); }
+    else if (e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) { e.preventDefault(); openSearch(); }
   });
 }
 function closeRail() { $('#rail').classList.remove('on'); $('#scrim').classList.remove('on'); }
@@ -3604,7 +3959,7 @@ function mergeShown() {
   if (!d.refuges.length) d.refuges = null;
   D = d;
   REGS = regsOf(S.state);
-  _zoneCache = {}; _sightKey = '';
+  _zoneCache = {}; _sightKey = ''; SX = null;
   rebuildZoneIndex();
 }
 function shownBounds() {
@@ -3617,7 +3972,7 @@ function shownBounds() {
   });
   return b || STATES.nh.bounds;
 }
-function setShown(codes, first, refit) {
+function setShown(codes, first, refit, done) {
   codes = codes.filter(function (c) { return STATES[c]; });
   if (!codes.length) return;
   if (S.loading) return;
@@ -3652,6 +4007,7 @@ function setShown(codes, first, refit) {
     renderStateBtn(); renderSlip(); renderKey(); renderRail();
     $('#load').hidden = true;
     schedule();
+    if (done) done();
   }).catch(function (e) {
     S.loading = false;
     if (el) el.innerHTML = '<div><b>Could not load the map data</b>' + esc(e && e.message ? e.message : 'Unknown error') + '</div>';

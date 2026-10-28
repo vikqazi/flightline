@@ -24,6 +24,13 @@ Each state's data loads when you turn that state on. Once loaded, zones,
 seasons and layers keep working without signal while the page stays open.
 Weather, satellite and topo imagery need a connection.
 
+Search (the magnifier, or press /) finds towns, villages, lakes, rivers, bays,
+points, islands, marshes, ramps, public land, refuges and eBird hotspots in
+the states shown. It uses the data already on the page plus USGS place names,
+and it reads pasted coordinates: decimal degrees, degrees and minutes, or a
+Google or Apple Maps link. Street addresses are looked up only when you ask,
+through OpenStreetMap's Nominatim.
+
 Waterfowl sightings come from eBird (Cornell Lab of Ornithology): ducks,
 geese and coots reported at public eBird hotspots in the last two weeks.
 Personal locations are left out. A scheduled GitHub Action
