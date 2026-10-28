@@ -956,7 +956,7 @@ var STATES = {
   nh: { name: 'New Hampshire', abbr: 'NH', bounds: [[42.63, -72.63], [45.33, -70.55]],
         zones: ['northern', 'inland', 'ct', 'coastal'],
         colors: { northern: '#5b7fb8', inland: '#8a9a4e', ct: '#b06fa8', coastal: '#c9893c' },
-        extras: ['closed', 'refuges', 'gbshore', 'seaduck'] },
+        extras: ['closed', 'gbshore', 'seaduck'] },
   ma: { name: 'Massachusetts', abbr: 'MA', bounds: [[41.18, -73.52], [42.90, -69.85]],
         zones: ['berkshire', 'central', 'coastal'],
         colors: { berkshire: '#5b7fb8', central: '#8a9a4e', coastal: '#c9893c' },
@@ -2092,7 +2092,7 @@ function panelSeason() {
         h('span', { class: 'pill ' + (gz ? (gOpen ? 'is-open' : 'is-closed') : 'muted') },
           gz ? esc(zMeta(gz).short) : 'outside the mapped states')) +
       h('div', { class: 'small', style: 'margin:4px 0 8px;color:' + (gOpen ? 'var(--open)' : 'var(--closed)') },
-        gz ? (gOpen ? 'Duck season is open here today.' : 'Duck season is closed here today.') : 'No New Hampshire zone at this position.') +
+        gz ? (gOpen ? 'Duck season is open here today.' : 'Duck season is closed here today.') : 'No mapped zone at this position.') +
       h('dl', { class: 'kv' },
         (gt ? h('dt', null, 'Town') + h('dd', null, esc(gt)) : '') +
         h('dt', null, 'Coords') + h('dd', null, num(S.geo.lat, 5) + ', ' + num(S.geo.lon, 5)) +
@@ -2124,7 +2124,7 @@ function panelSeason() {
       return b || h('div', { class: 'tiny muted' }, 'Tap a spot on the map for its forecast.');
     })()) +
     sec('Tides', false, tideBlock((S.ref || mapCenter()).lat, (S.ref || mapCenter()).lon) ||
-      h('div', { class: 'tiny muted' }, 'Pick a spot on the coast or in Great Bay to see tides. Stations are stored for Sept 1 2026 – Mar 15 2027.'));
+      h('div', { class: 'tiny muted' }, 'Pick a coastal or tidal spot to see tides. Predictions are stored for Sept 1 2026 to Mar 15 2027.'));
 }
 
 function sec(title, open, body) {
@@ -2144,11 +2144,11 @@ var LAYER_DEFS = [
   ['streams', 'Streams & rivers', '--m-stream'],
   ['land', 'Conservation & public land', '--m-public'],
   ['access', 'Boat & cartop access', '--m-access'],
-  ['closed', 'Closed to waterfowl', '--m-closed'],
-  ['refuges', 'Federal refuge hunt units', '--open'],
-  ['gbshore', 'Great Bay NWR shoreline', '--m-closed'],
-  ['seaduck', 'Sea duck area (indicative)', '--info'],
-  ['habitat', 'Habitat density (not birds)', '--m-marsh'],
+  ['closed', 'Closed to waterfowl', '--m-closed', function () { return !!D.closed; }],
+  ['refuges', 'Federal refuge hunt units', '--open', function () { return !!(D.refuges && D.refuges.length); }],
+  ['gbshore', 'Great Bay NWR shoreline', '--m-closed', function () { return !!D.gbshore; }],
+  ['seaduck', 'Sea duck area (indicative)', '--info', function () { return !!D.seaduck; }],
+  ['habitat', 'Habitat density (not birds)', '--m-marsh', function () { return !!(D.habitat && D.habitat.length); }],
   ['wind', 'Wind arrows (forecast)', '--warn'],
   ['tides', 'Tide stations', '--info'],
   ['towns', 'Town lines & names', '--m-label'],
@@ -2183,7 +2183,7 @@ function panelLayers() {
     (S.tileState === 'blocked' ? h('div', { class: 'note alert', style: 'margin-top:8px' },
       'No imagery reached the page. Everything else on the map is local data and still works offline.') : '')) +
   sec('Map layers', true,
-    LAYER_DEFS.map(function (l) {
+    LAYER_DEFS.filter(function (l) { return !l[3] || l[3](); }).map(function (l) {
       return h('label', { class: 'toggle' },
         h('input', { type: 'checkbox', 'data-layer': l[0], checked: S.layers[l[0]] }) +
         '<i class="sw" style="background:var(' + l[2] + ')"></i>' +
@@ -2336,7 +2336,7 @@ function panelRef() {
             h('span', { class: 'pill', style: 'color:var(--closed)' }, a.kind === 'all' ? 'All hunting' : 'Waterfowl')) +
           h('div', { class: 't2' }, esc(a.town)));
       }).join('')) +
-      h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Federal refuges in New Hampshire') +
+      h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Federal refuge hunt units — ' + S.shown.map(function (c) { return STATES[c].name; }).join(' and ')) +
       h('div', { class: 'list' }, D.refuges.map(function (rf, i) {
         var RS = srcOf(rf);
         var at = (RS.refugeAttrs || [])[(RS.refuges || []).indexOf(rf)] || {};
@@ -2348,12 +2348,12 @@ function panelRef() {
           h('div', { class: 't2' }, esc((at.ac || 0).toLocaleString() + ' acres · ' + (at.huntable || ''))));
       }).join('')) +
       h('div', { class: 'tiny muted', style: 'margin-top:7px' }, esc((CACHE.nh && CACHE.nh.refugeSource) || '')) +
-      h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Sea duck hunting area') +
-      h('div', { class: 'note' }, '<b>' + esc(D.seaduck.rule) + '</b>') +
-      h('div', { class: 'note', style: 'margin-top:7px' }, esc(D.seaduck.exception)) +
-      h('div', { class: 'note alert', style: 'margin-top:7px' }, esc(D.seaduck.note)) +
-      h('div', { class: 'row', style: 'margin-top:9px' },
-        h('a', { class: 'btn ghost', href: D.seaduck.url, target: '_blank', rel: 'noopener' }, 'Official sea duck map'));
+      (D.seaduck ? h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Sea duck hunting area') : '') +
+      (D.seaduck ? h('div', { class: 'note' }, '<b>' + esc(D.seaduck.rule) + '</b>') : '') +
+      (D.seaduck ? h('div', { class: 'note', style: 'margin-top:7px' }, esc(D.seaduck.exception)) : '') +
+      (D.seaduck ? h('div', { class: 'note alert', style: 'margin-top:7px' }, esc(D.seaduck.note)) : '') +
+      (D.seaduck ? h('div', { class: 'row', style: 'margin-top:9px' },
+        h('a', { class: 'btn ghost', href: D.seaduck.url, target: '_blank', rel: 'noopener' }, 'Official sea duck map')) : '');
     }
   } else {
     body = h('div', { class: 'small muted', style: 'margin-bottom:9px' },
@@ -2362,6 +2362,29 @@ function panelRef() {
         return h('a', { class: 'item', href: s.url, target: '_blank', rel: 'noopener' },
           h('div', { class: 't1' }, esc(s.label)) + h('div', { class: 't2' }, esc(s.url.replace(/^https?:\/\//, '').slice(0, 54))));
       }).join('')) +
+      h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'What each state carries') +
+      h('div', { class: 'tblwrap' }, h('table', { class: 'wide' },
+        h('tr', null, h('th', null, '') + Object.keys(STATES).map(function (c) {
+          return h('th', { style: 'text-align:center' }, esc(STATES[c].abbr)); }).join('')) +
+        [['Zones, seasons, bag limits', function (c) { return !!CACHE[c]; }],
+         ['Water, marsh and rivers', function (c) { return !!(CACHE[c] && CACHE[c].watersMajor); }],
+         ['Boat and cartop access', function (c) { return !!(CACHE[c] && CACHE[c].access); }],
+         ['Conservation and public land', function (c) { return !!(CACHE[c] && CACHE[c].land); }],
+         ['Federal refuge hunt units', function (c) { return !!(CACHE[c] && CACHE[c].refuges); }],
+         ['NOAA tide predictions', function (c) { return !!(CACHE[c] && CACHE[c].tides); }],
+         ['Habitat density', function (c) { return !!(CACHE[c] && CACHE[c].habitat); }],
+         ['Satellite, topo, wind, location', function () { return true; }],
+         ['Statewide closed-area list', function (c) { return !!(CACHE[c] && CACHE[c].closed); }],
+         ['Sea duck area drawn', function (c) { return !!(CACHE[c] && CACHE[c].seaduck); }]
+        ].map(function (row) {
+          return h('tr', null, h('td', null, esc(row[0])) + Object.keys(STATES).map(function (c) {
+            var loaded = !!CACHE[c], ok = loaded && row[1](c);
+            return h('td', { style: 'text-align:center;color:' + (ok ? 'var(--open)' : 'var(--dim)') },
+              !loaded ? '·' : ok ? '✓' : '—'); }).join(''));
+        }).join(''))) +
+      h('div', { class: 'tiny muted', style: 'margin-top:6px' },
+        'A dash means that state does not publish it, not that the app skips it. A dot means that state is not loaded right now. ' +
+        'Base map, wind, location, the hunt log and every tool work the same in every state.') +
       h('div', { class: 'tiny muted', style: 'margin-top:10px' },
         (S.state === 'ma'
           ? 'Geometry: MassGIS (1:25,000 hydrography, Office of Fishing and Boating Access sites, Protected and Recreational OpenSpace, municipalities), US Census TIGER (state outline), OpenStreetMap (highways), NOAA CO-OPS (tides). '
@@ -2609,7 +2632,12 @@ function renderKey() {
       krow('<i style="font:600 13px var(--f-data);color:var(--fg)">&#9906;</i>', 'Drop a spot', 'The pin with a plus — then tap the map to save a place')) +
     h('div', { class: 'knote', style: 'margin-top:10px' },
       'Zone shading shows duck season on the chosen date: green open, red closed.' +
-      (REGS && REGS.sundayClosed ? ' Massachusetts closes all hunting on Sundays, so every zone reads closed then.' : ''));
+      (function () {
+        var sun = S.shown.filter(function (c) { var R = regsOf(c); return R && R.sundayClosed; })
+          .map(function (c) { return STATES[c].name; });
+        return sun.length ? ' ' + sun.join(' and ') + ' close' + (sun.length > 1 ? '' : 's') +
+          ' all hunting on Sundays, so those zones read closed then.' : '';
+      })());
 }
 
 function renderRail() {
@@ -3144,7 +3172,7 @@ function projLine(coords) {
   return { parts: [a], bb: bb };
 }
 var CORE = ['regs', 'zones', 'zonelines', 'waters-major', 'streams', 'publicland',
-            'access', 'tides', 'towns', 'roads', 'habitat'];
+            'access', 'tides', 'towns', 'roads', 'habitat', 'refuges'];
 var HAB_RAMP = [[0,0,0,0,0],[40,26,74,92,70],[90,42,110,86,120],[150,150,140,62,150],
                 [200,206,132,56,170],[255,214,80,50,185]];
 function prepHabitat(j) {
