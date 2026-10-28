@@ -2597,11 +2597,15 @@ var SIGHT_GROUPS = [['all', 'All waterfowl'], ['dabbler', 'Dabbling ducks'], ['d
 var SIGHT_DAYS = [3, 7, 14];
 var _sightKey = '', _sightVis = [], _today = '', _todayAt = 0;
 function todayCached() { var t = Date.now(); if (t - _todayAt > 60000) { _today = todayISO(); _todayAt = t; } return _today; }
+function hostedCopy() {
+  var host = location.hostname;
+  return host === 'vikqazi.github.io' || host === 'localhost' || host === '127.0.0.1' || location.protocol === 'file:';
+}
 function sightUrls(code) {
-  var rel = 'data/' + code + '/sightings.json', host = location.hostname;
-  /* the hosted site reads its own copy; an embedded copy (the artifact, a phone shell) reads the live file first */
-  if (host === 'vikqazi.github.io' || host === 'localhost' || host === '127.0.0.1' || location.protocol === 'file:') return [rel];
-  return [LIVE_BASE + rel, rel];
+  var rel = 'data/' + code + '/sightings.json';
+  /* the hosted site reads its own copy, refreshed daily; an embedded copy (the artifact, a phone shell) tries the
+     live file first, then the snapshot published with it */
+  return hostedCopy() ? [rel] : [LIVE_BASE + rel, rel];
 }
 function prepSightings(j, code) {
   var sp = j.species.map(function (x) { return { code: x[0], name: x[1], grp: x[2], noSeason: !!x[3] }; });
@@ -2687,7 +2691,9 @@ function sightPanel() {
     h('div', { class: 'tiny muted', style: 'margin-top:8px' },
       n.toLocaleString() + ' hotspot' + (n === 1 ? '' : 's') + ' with ' + esc(sightWhat()) + ' · updated ' + esc(fmtStamp(upd))) +
     (ageH > 48 ? h('div', { class: 'note alert', style: 'margin-top:7px' },
-      'The daily eBird update has not run for ' + Math.floor(ageH / 24) + ' days, so the newest reports are missing.') : '') +
+      'These sightings are ' + Math.floor(ageH / 24) + ' days old, so the newest reports are missing.' +
+      (hostedCopy() ? '' : ' The live map at ' + h('a', { href: LIVE_BASE, target: '_blank', rel: 'noopener' }, 'vikqazi.github.io/granite-flyway') +
+        ' updates every morning.')) : '') +
     h('div', { class: 'tiny muted', style: 'margin-top:7px' },
       'Ducks, geese and coots that birders reported at public eBird hotspots — personal locations are left out. ' +
       'Birders gather at parks, refuges and the coast, so no dot does not mean no birds. Data: ' +
