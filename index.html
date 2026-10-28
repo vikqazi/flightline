@@ -949,6 +949,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
    All geometry ships with the page; nothing is fetched from the network.
    ========================================================================= */
 
+var LEAF = window.L;   // captured once; a later global named L cannot break us
 var $ = function (s) { return document.querySelector(s); };
 var DPR = Math.min(window.devicePixelRatio || 1, 2);
 var STATES = {
@@ -1174,7 +1175,7 @@ var S = {
   geo: { on: false, follow: false, lat: null, lon: null, acc: null, heading: null, ts: 0, err: null, watch: null },
   layers: { zones: true, zoneLines: true, towns: false, roads: true, water: true, marsh: true,
             streams: true, land: true, access: true, closed: true, tides: true, spots: true, minor: true,
-            refuges: true, gbshore: true, seaduck: false },
+            refuges: true, gbshore: true, seaduck: false, wind: false },
   access: { lvl: 'all', q: '', fee: 'all' },
   refTab: 'seasons'
 };
@@ -1186,7 +1187,7 @@ var spots = [], hunts = [], db = null, dbReady = false;
 var NH_BOUNDS = [[42.63, -72.63], [45.33, -70.55]];
 
 function initMap() {
-  map = L.map('map', {
+  map = LEAF.map('map', {
     zoomControl: false, attributionControl: false,
     zoomAnimation: false, fadeAnimation: false, markerZoomAnimation: false,
     minZoom: 7, maxZoom: 19, zoomSnap: 0.5, wheelPxPerZoomLevel: 110,
@@ -1202,7 +1203,7 @@ function initMap() {
   map.on('move zoom resize viewreset', schedule);
   map.on('click', onMapClick);
   map.on('dragstart', function () { if (S.geo.follow) { S.geo.follow = false; geoMsg('Following off — tap the target to re-centre'); setTimeout(function(){ if(!S.geo.follow) geoMsg(''); }, 2600); } });
-  map.on('zoomend moveend', function () { renderScale(); });
+  map.on('zoomend moveend', function () { renderScale(); clearTimeout(window._wxT); window._wxT = setTimeout(loadWind, 500); });
 
   // Leaflet caches the container size at construction; if layout was not
   // settled it keeps a zero and never redraws. Measure the element instead
@@ -1242,16 +1243,16 @@ function setBase(b) {
   S.tileState = 'loading';
   if (S.panel === 'layers') renderRail();
   var def = BASES[b];
-  var baseTile = L.tileLayer(def.url, {
+  var baseTile = LEAF.tileLayer(def.url, {
     maxZoom: 19, maxNativeZoom: def.maxNative, opacity: 1, errorTileUrl: BLANK_TILE
   });
   baseTile.on('tileload', function () {
     if (S.tileState !== 'ok') { S.tileState = 'ok'; if (S.panel === 'layers') renderRail(); schedule(); }
   });
-  tileLayer = L.layerGroup([baseTile]);
+  tileLayer = LEAF.layerGroup([baseTile]);
   if (def.ref && S.labels) {
     def.ref.forEach(function (name) {
-      tileLayer.addLayer(L.tileLayer(ESRI_REF + name + '/MapServer/tile/{z}/{y}/{x}',
+      tileLayer.addLayer(LEAF.tileLayer(ESRI_REF + name + '/MapServer/tile/{z}/{y}/{x}',
         { maxZoom: 19, maxNativeZoom: 19, errorTileUrl: BLANK_TILE }));
     });
   }
@@ -1293,7 +1294,7 @@ function schedule() { if (rafId) return; rafId = requestAnimationFrame(function 
 function view() {
   var z = map.getZoom(), sc = Math.pow(2, z);
   var o = map.getPixelOrigin();
-  var pp = L.DomUtil.getPosition(map.getPanes().mapPane) || { x: 0, y: 0 };
+  var pp = LEAF.DomUtil.getPosition(map.getPanes().mapPane) || { x: 0, y: 0 };
   var size = mapSizePx();
   var ox = o.x - pp.x, oy = o.y - pp.y;
   return {
@@ -1529,6 +1530,39 @@ function draw() {
     }
   }
 
+  /* wind arrows */
+  if (S.layers.wind && WX.grid && WX.grid.length) {
+    for (var wi = 0; wi < WX.grid.length; wi++) {
+      var g = WX.grid[wi];
+      var wxp = projX(g.lon) * V.sc - V.ox, wyp = projY(g.lat) * V.sc - V.oy;
+      if (wxp < -40 || wyp < -40 || wxp > V.w + 40 || wyp > V.h + 40) continue;
+      var L2 = Math.max(11, Math.min(34, 9 + g.spd * 1.1));
+      var ang = ((g.dir + 180) % 360) * Math.PI / 180;
+      var dx = Math.sin(ang), dy = -Math.cos(ang);
+      var tipx = wxp + dx * L2 / 2, tipy = wyp + dy * L2 / 2;
+      var tailx = wxp - dx * L2 / 2, taily = wyp - dy * L2 / 2;
+      var col = windColor(g.spd);
+      ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(tailx, taily); ctx.lineTo(tipx, tipy);
+      ctx.lineWidth = 4.2; ctx.strokeStyle = hexA(css('--m-halo'), 0.8); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(tailx, taily); ctx.lineTo(tipx, tipy);
+      ctx.lineWidth = 2.1; ctx.strokeStyle = col; ctx.stroke();
+      var hx = dx * 7, hy = dy * 7, px2 = -dy * 4.2, py2 = dx * 4.2;
+      ctx.beginPath();
+      ctx.moveTo(tipx, tipy);
+      ctx.lineTo(tipx - hx + px2, tipy - hy + py2);
+      ctx.lineTo(tipx - hx - px2, tipy - hy - py2);
+      ctx.closePath(); ctx.fillStyle = col; ctx.fill();
+      if (V.z >= 9) {
+        ctx.font = '600 9px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+        ctx.lineWidth = 2.6; ctx.strokeStyle = css('--m-halo');
+        ctx.strokeText(Math.round(g.spd), wxp, wyp + L2 / 2 + 3);
+        ctx.fillStyle = col; ctx.fillText(Math.round(g.spd), wxp, wyp + L2 / 2 + 3);
+      }
+    }
+  }
+
   /* where you are */
   if (S.geo.on && S.geo.lat != null) {
     var gx = projX(S.geo.lon) * V.sc - V.ox, gy = projY(S.geo.lat) * V.sc - V.oy;
@@ -1759,7 +1793,7 @@ function select(sel) {
     if (ns && zCode(ns) !== S.state) { S.state = zCode(ns); REGS = regsOf(S.state); store('state', S.state); renderStrip(); renderRail(); }
   }
   S.sel = sel;
-  if (sel.lat != null) S.ref = { lat: sel.lat, lon: sel.lon };
+  if (sel.lat != null) { S.ref = { lat: sel.lat, lon: sel.lon }; loadPointWx(sel.lat, sel.lon); }
   renderSlip(); schedule();
 }
 
@@ -2068,6 +2102,12 @@ function panelSeason() {
       (sw.length
         ? h('div', { class: 'note good', style: 'margin-top:9px' }, '<b>Statewide today:</b> ' + esc(sw.join(', ')))
         : h('div', { class: 'note', style: 'margin-top:9px' }, 'No statewide seasons are open on this date.'))) +
+    sec('Weather', true, (function () {
+      var p = S.ref || mapCenter();
+      if (!WX.pt && !WX.ptLoading && wxInRange(S.date)) loadPointWx(p.lat, p.lon);
+      var b = wxBlock(p.lat, p.lon);
+      return b || h('div', { class: 'tiny muted' }, 'Tap a spot on the map for its forecast.');
+    })()) +
     sec('Tides', false, tideBlock((S.ref || mapCenter()).lat, (S.ref || mapCenter()).lon) ||
       h('div', { class: 'tiny muted' }, 'Pick a spot on the coast or in Great Bay to see tides. Stations are stored for Sept 1 2026 – Mar 15 2027.'));
 }
@@ -2093,6 +2133,7 @@ var LAYER_DEFS = [
   ['refuges', 'Federal refuge hunt units', '--open'],
   ['gbshore', 'Great Bay NWR shoreline', '--m-closed'],
   ['seaduck', 'Sea duck area (indicative)', '--info'],
+  ['wind', 'Wind arrows (forecast)', '--warn'],
   ['tides', 'Tide stations', '--info'],
   ['towns', 'Town lines & names', '--m-label'],
   ['roads', 'Highways', '--m-label'],
@@ -2363,6 +2404,124 @@ function panelLog() {
     sec('Log', true, huntList);
 }
 
+/* =========================================================================
+   WEATHER — Open-Meteo, no key, CORS open. Wind is the thing that decides
+   where birds land, so it gets a map layer as well as a point read-out.
+   ========================================================================= */
+var WX = { grid: null, gridKey: '', gridLoading: false, gridErr: null,
+           pt: null, ptKey: '', ptLoading: false, ptErr: null, horizon: null };
+var WIND_RAMP = [[0, '#8fb8d6'], [6, '#86bf86'], [11, '#d9c35c'], [16, '#e0913f'], [22, '#d2452f'], [30, '#a4243b']];
+function windColor(mph) {
+  var c = WIND_RAMP[0][1];
+  for (var i = 0; i < WIND_RAMP.length; i++) if (mph >= WIND_RAMP[i][0]) c = WIND_RAMP[i][1];
+  return c;
+}
+function compass(deg) {
+  var p = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+  return p[Math.round(((deg % 360) + 360) % 360 / 22.5) % 16];
+}
+function wxHour() { return Math.max(0, Math.min(23, Math.floor(S.tideMin / 60))); }
+/* Open-Meteo gives about 16 days ahead; anything past that has no forecast. */
+function wxInRange(isoStr) {
+  var t = dnum(isoStr), now = dnum(todayISO());
+  return t >= now - 2 * 86400000 && t <= now + 15 * 86400000;
+}
+function wxFetch(lats, lons, isoStr) {
+  var u = 'https://api.open-meteo.com/v1/forecast?latitude=' + lats.join(',') +
+    '&longitude=' + lons.join(',') +
+    '&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,wind_gusts_10m,pressure_msl,cloud_cover,precipitation' +
+    '&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch' +
+    '&timezone=America%2FNew_York&start_date=' + isoStr + '&end_date=' + isoStr;
+  return fetch(u).then(function (r) { if (!r.ok) throw new Error('weather ' + r.status); return r.json(); })
+    .then(function (j) { return Array.isArray(j) ? j : [j]; });
+}
+function windGrid() {
+  if (!map) return null;
+  var b = map.getBounds(), nx = 6, ny = 5;
+  var la0 = b.getSouth(), la1 = b.getNorth(), lo0 = b.getWest(), lo1 = b.getEast();
+  var dla = (la1 - la0) / (ny + 1), dlo = (lo1 - lo0) / (nx + 1);
+  var pts = [];
+  for (var i = 1; i <= ny; i++) for (var j = 1; j <= nx; j++)
+    pts.push([+(la0 + dla * i).toFixed(3), +(lo0 + dlo * j).toFixed(3)]);
+  return pts;
+}
+function loadWind() {
+  if (!S.layers.wind || !map) return;
+  if (!wxInRange(S.date)) { WX.grid = null; WX.gridErr = 'range'; schedule(); return; }
+  var pts = windGrid(); if (!pts) return;
+  var key = S.date + '|' + wxHour() + '|' + pts[0].join(',') + '|' + pts[pts.length - 1].join(',');
+  if (key === WX.gridKey && WX.grid) return;
+  WX.gridLoading = true; WX.gridErr = null;
+  var mine = key; WX.gridKey = key;
+  wxFetch(pts.map(function (p) { return p[0]; }), pts.map(function (p) { return p[1]; }), S.date)
+    .then(function (arr) {
+      if (WX.gridKey !== mine) return;
+      var hr = wxHour();
+      WX.grid = arr.map(function (a, i) {
+        var hh = a.hourly || {};
+        return { lat: pts[i][0], lon: pts[i][1],
+                 spd: (hh.wind_speed_10m || [])[hr], dir: (hh.wind_direction_10m || [])[hr],
+                 gust: (hh.wind_gusts_10m || [])[hr] };
+      }).filter(function (g) { return typeof g.spd === 'number' && typeof g.dir === 'number'; });
+      WX.gridLoading = false; WX.gridErr = WX.grid.length ? null : 'empty';
+      if (S.panel === 'layers') renderRail();
+      schedule();
+    })
+    .catch(function () { if (WX.gridKey !== mine) return; WX.gridLoading = false; WX.gridErr = 'net'; schedule(); });
+}
+function loadPointWx(lat, lon) {
+  if (lat == null || !wxInRange(S.date)) { WX.pt = null; WX.ptErr = wxInRange(S.date) ? null : 'range'; return; }
+  var key = S.date + '|' + lat.toFixed(3) + '|' + lon.toFixed(3);
+  if (key === WX.ptKey && WX.pt) return;
+  WX.ptKey = key; WX.ptLoading = true; WX.ptErr = null;
+  var mine = key;
+  wxFetch([lat.toFixed(4)], [lon.toFixed(4)], S.date).then(function (arr) {
+    if (WX.ptKey !== mine) return;
+    WX.pt = arr[0] && arr[0].hourly ? arr[0].hourly : null;
+    WX.ptLoading = false;
+    renderSlip(); if (S.panel === 'season') renderRail();
+  }).catch(function () { if (WX.ptKey !== mine) return; WX.ptLoading = false; WX.ptErr = 'net'; renderSlip(); });
+}
+function wxBlock(lat, lon) {
+  if (!wxInRange(S.date))
+    return h('div', { class: 'tiny muted' }, 'Weather only reaches about 16 days out, so there is no forecast for this date.');
+  if (WX.ptLoading && !WX.pt) return h('div', { class: 'tiny muted' }, 'Fetching the forecast…');
+  if (WX.ptErr) return h('div', { class: 'tiny muted' }, 'Could not reach the weather service.');
+  if (!WX.pt) return '';
+  var hh = WX.pt, hr = wxHour();
+  var spd = (hh.wind_speed_10m || [])[hr], dir = (hh.wind_direction_10m || [])[hr],
+      gust = (hh.wind_gusts_10m || [])[hr], tmp = (hh.temperature_2m || [])[hr],
+      mslp = (hh.pressure_msl || [])[hr], cld = (hh.cloud_cover || [])[hr], pcp = (hh.precipitation || [])[hr];
+  if (spd == null) return '';
+  var p0 = (hh.pressure_msl || [])[Math.max(0, hr - 3)], trend = (mslp != null && p0 != null) ? mslp - p0 : null;
+  var trendTxt = trend == null ? '' : trend <= -1.5 ? 'falling fast' : trend <= -0.5 ? 'falling'
+    : trend >= 1.5 ? 'rising fast' : trend >= 0.5 ? 'rising' : 'steady';
+  var strip = '';
+  for (var i = 5; i <= 19; i++) {
+    var s2 = (hh.wind_speed_10m || [])[i], d2 = (hh.wind_direction_10m || [])[i];
+    if (s2 == null) continue;
+    strip += h('div', { style: 'flex:1 1 0;text-align:center;min-width:0' },
+      h('div', { class: 'tiny muted', style: 'font-size:8.5px' }, (i % 2 ? '' : pad(i))) +
+      '<div style="height:16px;display:grid;place-items:center"><span style="display:inline-block;font-size:12px;color:' +
+      windColor(s2) + ';transform:rotate(' + ((d2 + 180) % 360) + 'deg)">&#8593;</span></div>' +
+      h('div', { style: 'font-size:8.5px;color:' + windColor(s2) }, Math.round(s2)));
+  }
+  return h('div', { class: 'lab', style: 'margin:12px 0 5px' }, 'Weather at ' + esc(hm(S.tideMin))) +
+    h('dl', { class: 'kv' },
+      h('dt', null, 'Wind') + h('dd', { style: 'color:' + windColor(spd) + ';font-weight:600' },
+        esc(compass(dir) + ' ' + Math.round(spd) + ' mph' + (gust != null && gust - spd > 4 ? ', gusting ' + Math.round(gust) : ''))) +
+      h('dt', null, 'Temperature') + h('dd', null, tmp == null ? '—' : Math.round(tmp) + '°F') +
+      h('dt', null, 'Pressure') + h('dd', { style: /falling/.test(trendTxt) ? 'color:var(--open)' : '' },
+        (mslp == null ? '—' : Math.round(mslp) + ' hPa') + (trendTxt ? ' · ' + trendTxt : '')) +
+      h('dt', null, 'Cloud / rain') + h('dd', null, (cld == null ? '—' : Math.round(cld) + '%') +
+        (pcp ? ' · ' + num(pcp, 2) + ' in' : ''))) +
+    (/falling/.test(trendTxt) ? h('div', { class: 'note good', style: 'margin-top:7px' },
+      'Pressure is ' + esc(trendTxt) + ' — a front moving through is what pushes new birds down the flyway.') : '') +
+    h('div', { class: 'lab', style: 'margin:10px 0 3px' }, 'Wind through the day') +
+    h('div', { class: 'row', style: 'gap:1px;align-items:flex-end' }, strip) +
+    h('div', { class: 'tiny muted', style: 'margin-top:4px' }, 'Arrows point the way the wind is blowing. Hours 05–19.');
+}
+
 /* ---------------- map key ------------------------------------------------ */
 function krow(swatch, label, note) {
   return h('div', { class: 'krow' },
@@ -2400,6 +2559,15 @@ function renderKey() {
       krow(sq(css('--m-marsh')), 'Marsh and swamp') +
       krow(bar(css('--m-stream')), 'Stream') +
       krow(tri(css('--info')), 'Tide station', 'NOAA predictions')) +
+    h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Wind') +
+      krow('<i style="display:inline-block;color:#86bf86;font-size:14px">&#8593;</i>', 'Wind arrow',
+           'Points the way the wind blows, so an arrow pointing south is a north wind. Length and colour are speed.') +
+      h('div', { class: 'row', style: 'gap:2px;margin-top:4px' },
+        WIND_RAMP.map(function (r) {
+          return h('span', { style: 'flex:1 1 0;height:7px;background:' + r[1] + ';border-radius:1px' }, '');
+        }).join('')) +
+      h('div', { class: 'row', style: 'justify-content:space-between' },
+        h('span', { class: 'tiny muted' }, 'calm') + h('span', { class: 'tiny muted' }, '30+ mph'))) +
 
     h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Zones') +
       ZONE_IDS.map(function (z) {
@@ -2594,6 +2762,7 @@ function renderSlip() {
 
   body += zoneSeasonBlock(z);
   body += h('div', { class: 'lab', style: 'margin:12px 0 5px' }, 'Shooting hours here') + sunBlock();
+  body += wxBlock(lat, lon);
   var tb = tideBlock(lat, lon);
   if (tb && sel.kind !== 'tide') body += h('div', { style: 'margin-top:12px' }, tb);
   body += nearbyClosed(lat, lon);
@@ -2673,6 +2842,9 @@ function setDate(isoStr) {
       S.tideMin = Math.max(0, (+hhmm[0] % 24) * 60 + (+hhmm[1]) - 30);
     }
   }
+  WX.gridKey = ''; WX.ptKey = ''; WX.pt = null;
+  if (S.layers.wind) loadWind();
+  if (S.ref) loadPointWx(S.ref.lat, S.ref.lon);
   renderStrip(); renderRail(); renderSlip(); schedule();
 }
 function applyTheme() {
@@ -2724,6 +2896,7 @@ function wire() {
     var t = ev.target;
     if (t.getAttribute && t.getAttribute('data-layer')) {
       S.layers[t.getAttribute('data-layer')] = t.checked; schedule();
+      if (t.getAttribute('data-layer') === 'wind' && t.checked) loadWind();
       store('layers', JSON.stringify(S.layers));
     }
     if (t.id === 'dPick') setDate(t.value);
