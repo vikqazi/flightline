@@ -2995,8 +2995,10 @@ function nomRow(o) {
   var lat = +o.lat, lon = +o.lon, parts = String(o.display_name || '').split(', ');
   var house = /^\d+[a-z]?$/i.test(parts[0]) && parts.length > 1;
   var label = o.name || (house ? parts[0] + ' ' + parts[1] : parts[0]) || 'Place';
-  var sub = parts.slice(house && !o.name ? 2 : 1)
-    .filter(function (p) { return p !== 'United States' && !/County$/.test(p) && !/^\d{5}(-\d{4})?$/.test(p); }).slice(0, 3).join(', ');
+  var rest = parts.slice(house && !o.name ? 2 : 1)
+    .filter(function (p) { return p !== 'United States' && !/County$/.test(p) && !/^\d{5}(-\d{4})?$/.test(p); });
+  if (/^\d+[a-z]?$/i.test(rest[0]) && rest[1]) rest = [rest[0] + ' ' + rest[1]].concat(rest.slice(2));   // '107' + 'North Main Street'
+  var sub = rest.slice(0, 3).join(', ');
   var bb = o.boundingbox ? o.boundingbox.map(Number) : null;      // [south, north, west, east]
   return { kl: house || o.addresstype === 'road' ? 'Address' : 'Place', label: label, sub: sub,
            go: function () { goPlace(lat, lon, bb, label); } };
@@ -3848,8 +3850,17 @@ function todayISO() {
 /* =========================================================================
    BOOT
    ========================================================================= */
-function get(path) {
-  return fetch(path).then(function (r) { if (!r.ok) throw new Error(path + ' ' + r.status); return r.json(); });
+function get(path, tries) {
+  tries = tries || 0;
+  return fetch(path).then(function (r) {
+    if (!r.ok) { var er = new Error(path + ' ' + r.status); er.status = r.status; throw er; }
+    return r.json();
+  }).catch(function (e) {
+    /* the site's own files get two more tries after a dropped connection or a server hiccup (5xx);
+       a missing file (4xx) and anything from another site fail straight away */
+    if (tries >= 2 || (e.status && e.status < 500) || /^https?:/.test(path)) throw e;
+    return new Promise(function (ok) { setTimeout(ok, 1000 * (tries + 1)); }).then(function () { return get(path, tries + 1); });
+  });
 }
 function projLine(coords) {
   var a = new Float64Array(coords.length * 2), bb = [Infinity, Infinity, -Infinity, -Infinity];
