@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="New Hampshire waterfowl hunting zones, 2026-27 season dates and bag limits, water bodies, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Waterfowl hunting map for New Hampshire, Massachusetts, Maine and Rhode Island: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -293,6 +293,13 @@ a:hover{text-decoration:underline}
   .dface{flex:1 1 auto}
   .brand .word{font-size:14px}
 }
+/* four state buttons and the two icon buttons still fit one row on a phone */
+@media (max-width:420px){
+  .bar{gap:6px}
+  .brand{gap:6px}
+  .statesw .sw{padding:3px 5px}
+}
+@media (max-width:360px){ .brand .word{display:none} }
 @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
 
 /* --- Leaflet 1.9.4 --- */
@@ -923,7 +930,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="mapctl">
         <button id="zIn" aria-label="Zoom in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
         <button id="zOut" aria-label="Zoom out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
-        <button id="zFit" aria-label="Fit New Hampshire" title="Whole state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+        <button id="zFit" aria-label="Fit the states shown" title="Whole state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
         <button id="zLoc" aria-label="Find me" title="Find me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="7.2"/><path d="M12 1.6v3.2M12 19.2v3.2M1.6 12h3.2M19.2 12h3.2"/></svg></button>
         <button id="zKey" aria-label="Map key" title="Map key" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h4M4 12h4M4 18h4M12 6h8M12 12h8M12 18h8"/></svg></button>
         <button id="zPin" aria-label="Drop a spot" title="Drop a spot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><path d="M12 7.3v5.4M9.3 10h5.4"/></svg></button>
@@ -932,7 +939,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <div class="scalebar" id="scale">&nbsp;<i style="width:60px"></i></div>
         <div class="attrib" id="attrib">NH GRANIT &middot; NH Fish and Game &middot; NOAA &middot; OpenStreetMap</div>
       </div>
-      <div class="loading" id="load"><div><b>Granite Flyway</b>Loading New Hampshire&hellip;</div></div>
+      <div class="loading" id="load"><div><b>Granite Flyway</b>Loading&hellip;</div></div>
     </div>
     <aside class="slip" id="slip" hidden></aside>
   </div>
@@ -965,7 +972,11 @@ var STATES = {
   me: { name: 'Maine', abbr: 'ME', bounds: [[42.97, -71.09], [47.47, -66.95]],
         zones: ['north', 'south', 'coastal'],
         colors: { north: '#5b7fb8', south: '#8a9a4e', coastal: '#c9893c' },
-        extras: ['closed'], attrib: 'Maine GeoLibrary · MDIFW · USGS NHD' }
+        extras: ['closed'], attrib: 'Maine GeoLibrary · MDIFW · USGS NHD' },
+  ri: { name: 'Rhode Island', abbr: 'RI', bounds: [[41.09, -71.91], [42.03, -71.08]],
+        zones: ['nw', 'se'],
+        colors: { nw: '#8a9a4e', se: '#c9893c' },
+        extras: ['closed'], attrib: 'RIGIS · RIDEM · CRMC · USGS NHD' }
 };
 var ZONE_IDS = [];            // namespaced, across every shown state
 var ZONE_COLOR = {};
@@ -987,7 +998,7 @@ function rebuildZoneIndex() {
     });
   });
 }
-var SEASON_START = '2026-08-15', SEASON_END = '2027-03-31';
+var SEASON_START = '2026-08-15', SEASON_END = '2027-04-15';
 var NH_BOUNDS_FALLBACK = [[42.63, -72.63], [45.33, -70.55]];
 
 function esc(s) {
@@ -1085,6 +1096,8 @@ function pipLatLon(poly, lat, lon) {   // poly: [[lat, lon], ...]
   }
   return inside;
 }
+function polyRings(a) { return a.poly && a.poly.length && Array.isArray(a.poly[0][0]) ? a.poly : [a.poly]; }   // [[lat, lon]...] or a list of those
+function pipRings(a, lat, lon) { return polyRings(a).reduce(function (inside, ring) { return pipLatLon(ring, lat, lon) ? !inside : inside; }, false); }
 function closedMeta(a) { return (D.closed && D.closed.meta[a.src]) || {}; }
 function listAnd(a) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]; }
 function pipWorld(parts, x, y) {   // even-odd across every ring of the feature
@@ -1157,18 +1170,30 @@ function ranges(sp, zone, code) {
   if (!zone) return [];
   return (e.z && e.z[zId(zone)]) || [];
 }
+function inRange(r, t) {             // r = [from, to] or [from, to, { dow: [weekdays, 0 = Sunday] }]
+  if (t < dnum(r[0]) || t > dnum(r[1])) return false;
+  return !(r[2] && r[2].dow) || r[2].dow.indexOf(new Date(t).getUTCDay()) >= 0;
+}
 function isSunday(isoStr) { return new Date(dnum(isoStr)).getUTCDay() === 0; }
 function sundayShut(isoStr, code) { var R = regsOf(code); return !!(R && R.sundayClosed) && isSunday(isoStr); }
 function openOn(sp, zone, isoStr, code) {
   code = code || (zone && zone.indexOf(':') > 0 ? zCode(zone) : undefined);
   if (sundayShut(isoStr, code)) return false;
   var t = dnum(isoStr), r = ranges(sp, zone, code);
-  for (var i = 0; i < r.length; i++) if (t >= dnum(r[i][0]) && t <= dnum(r[i][1])) return true;
+  for (var i = 0; i < r.length; i++) if (inRange(r[i], t)) return true;
   return false;
 }
 function nextChange(sp, zone, isoStr, code) {
   code = code || (zone && zone.indexOf(':') > 0 ? zCode(zone) : undefined);
   var t = dnum(isoStr), r = ranges(sp, zone, code), best = null, kind = null;
+  if (r.some(function (x) { return x[2] && x[2].dow; })) {   // weekday-limited segments: walk the days
+    var open = r.some(function (x) { return inRange(x, t); });
+    for (var k = 1; k <= 400; k++) {
+      var tk = t + k * 86400000;
+      if (r.some(function (x) { return inRange(x, tk); }) !== open) return { days: k, kind: open ? 'closes after' : 'opens', date: iso(open ? tk - 86400000 : tk) };
+    }
+    return null;
+  }
   for (var i = 0; i < r.length; i++) {
     var a = dnum(r[i][0]), b = dnum(r[i][1]);
     if (t < a && (best === null || a < best)) { best = a; kind = 'opens'; }
@@ -1182,7 +1207,8 @@ function bag(sp, code) { var R = regsOf(code); if (!R) return null;
 var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 var DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 function fmtDate(isoStr) { var d = new Date(dnum(isoStr)); return DOW[d.getUTCDay()] + ' ' + MON[d.getUTCMonth()] + ' ' + d.getUTCDate(); }
-function fmtRange(r) { return MON[+r[0].split('-')[1] - 1] + ' ' + (+r[0].split('-')[2]) + ' – ' + MON[+r[1].split('-')[1] - 1] + ' ' + (+r[1].split('-')[2]); }
+function fmtRange(r) { return MON[+r[0].split('-')[1] - 1] + ' ' + (+r[0].split('-')[2]) + ' – ' + MON[+r[1].split('-')[1] - 1] + ' ' + (+r[1].split('-')[2]) +
+  (r[2] && r[2].dow ? ' (' + r[2].dow.map(function (d) { return DOW[d]; }).join(', ') + ' only)' : ''); }
 
 /* ---------------- state --------------------------------------------------- */
 var D = {};                 // loaded datasets
@@ -1515,12 +1541,14 @@ function draw() {
       if (x < -pad || y < -pad || x > V.w + pad || y > V.h + pad) continue;
       if (a.poly && a.r / mPerPx > 6) {      // the exact outline, once it is big enough to see
         ctx.beginPath();
-        for (var q = 0; q < a.poly.length; q++) {
-          var qx = projX(a.poly[q][1]) * V.sc - V.ox, qy = projY(a.poly[q][0]) * V.sc - V.oy;
-          if (q) ctx.lineTo(qx, qy); else ctx.moveTo(qx, qy);
-        }
-        ctx.closePath();
-        ctx.fillStyle = hexA(css('--m-closed'), 0.24); ctx.fill();
+        polyRings(a).forEach(function (ring) {
+          for (var q = 0; q < ring.length; q++) {
+            var qx = projX(ring[q][1]) * V.sc - V.ox, qy = projY(ring[q][0]) * V.sc - V.oy;
+            if (q) ctx.lineTo(qx, qy); else ctx.moveTo(qx, qy);
+          }
+          ctx.closePath();
+        });
+        ctx.fillStyle = hexA(css('--m-closed'), 0.24); ctx.fill('evenodd');
         ctx.lineWidth = 2; ctx.setLineDash([]); ctx.strokeStyle = css('--m-closed'); ctx.stroke();
         continue;
       }
@@ -1774,7 +1802,7 @@ function onMapClick(e) {
   if (S.layers.closed && D.closed) for (i = 0; i < D.closed.areas.length; i++) {
     var ca = D.closed.areas[i];
     var mpp = 40075016.686 * Math.cos(ca.lat * Math.PI / 180) / (256 * V.sc);
-    var hitC = ca.poly && ca.r / mpp > 6 ? pipLatLon(ca.poly, e.latlng.lat, e.latlng.lng) : near(ca.lat, ca.lon, Math.max(9, ca.r / mpp));
+    var hitC = ca.poly && ca.r / mpp > 6 ? pipRings(ca, e.latlng.lat, e.latlng.lng) : near(ca.lat, ca.lon, Math.max(9, ca.r / mpp));
     if (hitC) return select({ kind: 'closed', area: ca, lat: ca.lat, lon: ca.lon });
   }
   if (S.layers.gbshore && D.gbshore && V.z >= 10) {
@@ -1895,6 +1923,10 @@ function renderStrip() {
   $('#strip').innerHTML = html;
 }
 
+function lateSeasons(lat, lon) {      // seasons open today at this point whose shooting hours end after sunset
+  var ns = zoneAt(lat, lon), code = ns ? zCode(ns) : S.state, R = regsOf(code); if (!R) return [];
+  return R.seasons.filter(function (e) { return e.endAfterSunset && openOn(e.sp, ns, S.date, code); });
+}
 function sunBlock() {
   var p = S.ref || mapCenter();
   var d = S.date.split('-').map(Number);
@@ -1902,14 +1934,19 @@ function sunBlock() {
   var legalStart = s.rise ? new Date(s.rise.getTime() - 30 * 60000) : null;
   var mp = moon(dnum(S.date) + 12 * 3600000);
   var tz = tzAbbr(s.rise || new Date());
+  var late = lateSeasons(p.lat, p.lon), lateMin = late.reduce(function (m, e) { return Math.max(m, e.endAfterSunset); }, 0);
+  var lateNames = late.map(function (e) { return e.label.replace(/ — (.*)$/, ' ($1)'); }).join(', ');
   return h('dl', { class: 'kv' },
     h('dt', null, 'Legal start') + h('dd', { style: 'color:var(--open);font-weight:600' }, esc(hhmm(legalStart))) +
     h('dt', null, 'Sunrise') + h('dd', null, esc(hhmm(s.rise))) +
     h('dt', null, 'Sunset / legal end') + h('dd', { style: 'color:var(--closed);font-weight:600' }, esc(hhmm(s.set))) +
+    (late.length && s.set ? h('dt', null, 'Later end') + h('dd', { style: 'color:var(--closed);font-weight:600' },
+      esc(hhmm(new Date(s.set.getTime() + lateMin * 60000)) + ' · ' + lateNames)) : '') +
     h('dt', null, 'Civil dawn') + h('dd', null, esc(hhmm(s.dawn))) +
     h('dt', null, 'Moon') + h('dd', null, esc(mp.name + ' · ' + mp.illum + '%'))) +
     h('div', { class: 'tiny muted', style: 'margin-top:5px' },
-      'Half an hour before sunrise to sunset, computed for ' + num(p.lat, 3) + ', ' + num(p.lon, 3) + ' (' + esc(tz) + ').');
+      'Half an hour before sunrise to sunset' + (late.length ? ' (' + esc(lateNames) + ': to ' + lateMin + ' minutes after sunset)' : '') +
+      ', computed for ' + num(p.lat, 3) + ', ' + num(p.lon, 3) + ' (' + esc(tz) + ').');
 }
 function mapCenter() { var c = map.getCenter(); return { lat: c.lat, lon: c.lng }; }
 
@@ -2087,14 +2124,15 @@ function timeline() {
     var now = '<i class="tlnow" style="left:' + pct(S.date).toFixed(2) + '%"></i>';
     return h('div', { class: 'tlname' }, esc(zMeta(z).short)) + h('div', { class: 'tltrack' }, segs + now);
   }).join('');
-  var ticks = ['2026-09-01', '2026-10-01', '2026-11-01', '2026-12-01', '2027-01-01', '2027-02-01', '2027-03-01']
+  var ticks = ['2026-09-01', '2026-10-01', '2026-11-01', '2026-12-01', '2027-01-01', '2027-02-01', '2027-03-01', '2027-04-01']
     .map(function (d) { return '<span style="left:' + pct(d).toFixed(2) + '%">' + MON[+d.split('-')[1] - 1] + '</span>'; }).join('');
   return h('div', { class: 'tl' }, rows + h('div', null, '') + h('div', { class: 'tlaxis' }, ticks));
 }
 
 function statewideToday() {
   var out = [];
-  [['canadasept', 'Canada geese (Sept.)'], ['woodcock', 'Woodcock'], ['snipe', 'Snipe'], ['crow', 'Crow'],
+  [['canadasept', 'Canada geese (Sept.)'], ['woodcock', 'Woodcock'], ['snipe', 'Snipe'], ['sora', 'Rails'], ['kingrail', 'King & clapper rails'],
+   ['dove', 'Mourning dove'], ['crow', 'Crow'],
    ['youth', 'Youth weekend'], ['vet', 'Veteran & military weekend']].forEach(function (p) {
     var st = S.shown.filter(function (c) { return openOn(p[0], null, S.date, c); });
     if (st.length) out.push(p[1] + (S.shown.length > 1 ? ' (' + st.map(function (c) { return STATES[c].abbr; }).join(', ') + ')' : ''));
@@ -2107,7 +2145,7 @@ function panelSeason() {
   var maxIdx = Math.round((dnum(SEASON_END) - dnum(SEASON_START)) / 86400000);
   var sw = statewideToday();
   var zoneRows = ZONE_IDS.map(function (z) {
-    var sps = ['duck', 'canada', 'brant', 'merganser', 'coot', 'seaduck', 'snow', 'falconry'];
+    var sps = ['duck', 'canada', 'canadalate', 'brant', 'merganser', 'coot', 'seaduck', 'snow', 'snowlate', 'falconry'];
     var ye = entry('youth', zCode(z));
     if (ye && ye.z) sps = sps.concat(['youth']);
     var openSps = sps.filter(function (s) { return openOn(s, z, S.date, zCode(z)); });
@@ -2116,7 +2154,7 @@ function panelSeason() {
       h('div', { class: 'between' },
         h('span', { class: 't1' }, '<i class="zsw" style="display:inline-block;background:' + ZONE_COLOR[z] + ';margin-right:6px"></i>' + esc(zMeta(z).name)) +
         h('span', { class: 'pill ' + (on ? 'is-open' : 'is-closed') }, on ? 'Open' : 'Closed')) +
-      h('div', { class: 't2' }, openSps.length ? esc(openSps.map(function (s) { return entry(s, zCode(z)).label.replace(/ —.*/, ''); }).join(' · ')) : 'Nothing open in this zone today'));
+      h('div', { class: 't2' }, openSps.length ? esc(openSps.map(function (s) { return spLabel(entry(s, zCode(z))); }).join(' · ')) : 'Nothing open in this zone today'));
   }).join('');
   var geoBody;
   if (!S.geo.on) {
@@ -2175,7 +2213,7 @@ function panelSeason() {
       return b || h('div', { class: 'tiny muted' }, 'Tap a spot on the map for its forecast.');
     })()) +
     sec('Tides', false, tideBlock((S.ref || mapCenter()).lat, (S.ref || mapCenter()).lon) ||
-      h('div', { class: 'tiny muted' }, 'Pick a coastal or tidal spot to see tides. Predictions are stored for Sept 1 2026 to Mar 15 2027.'));
+      h('div', { class: 'tiny muted' }, 'Pick a coastal or tidal spot to see tides. Predictions are stored for Sept 1 2026 to Apr 15 2027.'));
 }
 
 function sec(title, open, body) {
@@ -2731,18 +2769,19 @@ function selTitle(sel) {
   if (sel.kind === 'me') return 'Where you are';
   return 'Location';
 }
+function spLabel(e) { return e.label.replace(/ — regular$/, '').replace(/ — (.*)$/, ' ($1)'); }   // 'Canada geese — late' -> 'Canada geese (late)'
 function zoneBadge(z) {
   if (!z) return h('span', { class: 'pill muted' }, 'No mapped zone');
   return h('span', { class: 'pill', style: 'color:' + ZONE_COLOR[z] }, esc(zMeta(z).name));
 }
 function zoneSeasonBlock(z) {
   if (!z) return '';
-  var sps = ['duck', 'canada', 'brant', 'seaduck', 'merganser', 'coot', 'snow'];
+  var sps = ['duck', 'canada', 'canadalate', 'brant', 'seaduck', 'merganser', 'coot', 'snow', 'snowlate'];
   var rows = sps.map(function (sp) {
     var zc = zCode(z), en = entry(sp, zc); if (!en) return '';
     var on = openOn(sp, z, S.date, zc), b = bag(sp, zc), nc = nextChange(sp, z, S.date, zc);
     return h('tr', null,
-      h('td', { style: 'font-weight:600' }, esc(en.label.replace(/ —.*/, ''))) +
+      h('td', { style: 'font-weight:600' }, esc(spLabel(en))) +
       h('td', { style: 'color:' + (on ? 'var(--open)' : 'var(--closed)') + ';font-weight:600' }, on ? 'Open' : 'Closed') +
       h('td', { class: 'num' }, b ? esc(b.daily) : '—') +
       h('td', { class: 'tiny muted' }, nc ? esc((nc.kind === 'opens' ? 'opens ' : 'thru ') + fmtDate(nc.date)) : '—'));
@@ -3351,7 +3390,7 @@ function setShown(codes, first, refit) {
   if (missing.length && el) {
     el.hidden = false;
     el.innerHTML = '<div><b>Granite Flyway</b>Loading ' +
-      esc(missing.map(function (c) { return STATES[c].name; }).join(' and ')) + '&hellip;</div>';
+      esc(listAnd(missing.map(function (c) { return STATES[c].name; }))) + '&hellip;</div>';
   }
   Promise.all(codes.map(ensureState)).then(function () {
     S.loading = false;
@@ -3373,7 +3412,8 @@ function setShown(codes, first, refit) {
     }
     writeHash();
     var at = $('#attrib');
-    if (at) at.textContent = S.shown.map(function (c) { return STATES[c].attrib; }).join(' · ') + ' · USFWS · NOAA · OpenStreetMap';
+    if (at) at.textContent = S.shown.map(function (c) { return STATES[c].attrib; }).concat(['USFWS · NOAA · OpenStreetMap']).join(' · ').split(' · ')
+      .filter(function (v, i, a) { return a.indexOf(v) === i; }).join(' · ');   // each credit once
     renderStateBtn(); renderSlip(); renderKey(); renderRail();
     $('#load').hidden = true;
     schedule();

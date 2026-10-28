@@ -1,0 +1,574 @@
+{
+ "state": "RI",
+ "stateName": "Rhode Island",
+ "season": "2026–27",
+ "updated": "2026-10-28",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "RIDEM hunting guide 2026–27 — Migratory bird seasons and limits",
+   "url": "https://www.eregulations.com/rhodeisland/hunting/migratory-bird-seasons-and-limits"
+  },
+  {
+   "label": "RIDEM hunting guide 2026–27 — Migratory bird rules and closed areas",
+   "url": "https://www.eregulations.com/rhodeisland/hunting/migratory-bird-hunting"
+  },
+  {
+   "label": "RIDEM hunting guide 2026–27 — Goose hunting (South Shore Management Area)",
+   "url": "https://www.eregulations.com/rhodeisland/hunting/goose-hunting"
+  },
+  {
+   "label": "Rhode Island Hunting and Trapping Regulations, 250-RICR-60-00-9 §9.10–9.11",
+   "url": "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+  },
+  {
+   "label": "RIDEM Outdoor Recreation map — late-season goose area, restricted waterfowl areas, state hunting land, fishing access",
+   "url": "https://ridemgis.maps.arcgis.com/apps/webappviewer/index.html?id=9afb39aab8c4430c86c6c6d2aef8e5d0"
+  },
+  {
+   "label": "CRMC public shoreline rights-of-way (via RIDEM)",
+   "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/Outdoor_Recreation_Map_v4/FeatureServer/2"
+  },
+  {
+   "label": "RIGIS — municipal boundaries",
+   "url": "https://maps.edc.uri.edu/rigis/rest/services/BND/Municipal_Boundaries/MapServer/0"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline and shared state borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  }
+ ],
+ "zones": {
+  "nw": {
+   "name": "North & West",
+   "short": "North & West",
+   "bounds": "North and west of the late-season goose line: I-95 at the Connecticut line north to Exit 3 (Route 138) in Richmond; east on Route 138 to Glen Rock Road; north on Glen Rock Road to Mail Road, Exeter; east on Mail Road to Route 2 (South County Trail); north on Route 2 to Exeter Road; east on Exeter Road to Indian Corner Road and on to where it merges with West Allenton Road; east to Route 4; south on Route 4 to Route 1 (Tower Hill Road); south on Route 1 to Route 138; east on Route 138 to the base of the Jamestown Bridge; north-northeast along the Washington/Newport county line; east, 1,000 feet north of the northern tip of Jamestown, to a point 1,000 feet off the Melville boat launch in Portsmouth; north, 1,000 feet off Portsmouth’s western shore, to the Mount Hope Bridge; then east-northeast across Mount Hope Bay to the Massachusetts line.",
+   "note": "Rhode Island sets every waterfowl season statewide except one: the late Canada goose season (Jan 30 – Feb 13, 2027) is open only here — Providence, Bristol and Kent counties, northern Washington County and Prudence Island. The two Rhode Island areas on this map exist only for that season."
+  },
+  "se": {
+   "name": "South & East",
+   "short": "South & East",
+   "bounds": "South and east of the late-season goose line: I-95 at the Connecticut line north to Exit 3 (Route 138) in Richmond; east on Route 138 to Glen Rock Road; north on Glen Rock Road to Mail Road, Exeter; east on Mail Road to Route 2 (South County Trail); north on Route 2 to Exeter Road; east on Exeter Road to Indian Corner Road and on to where it merges with West Allenton Road; east to Route 4; south on Route 4 to Route 1 (Tower Hill Road); south on Route 1 to Route 138; east on Route 138 to the base of the Jamestown Bridge; north-northeast along the Washington/Newport county line; east, 1,000 feet north of the northern tip of Jamestown, to a point 1,000 feet off the Melville boat launch in Portsmouth; north, 1,000 feet off Portsmouth’s western shore, to the Mount Hope Bridge; then east-northeast across Mount Hope Bay to the Massachusetts line.",
+   "note": "Closed during the late Canada goose season (Jan 30 – Feb 13, 2027): southern Washington County, Jamestown, Aquidneck Island, Tiverton, Little Compton, Block Island and the coastal waters. Every other season is statewide."
+  }
+ },
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-10-09",
+     "2026-10-12"
+    ],
+    [
+     "2026-11-25",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-05",
+     "2027-01-24"
+    ]
+   ]
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "Rhode Island has no separate sea duck season or area — scoters, eiders and long-tailed ducks follow the duck season, 4 a day inside the 6."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ]
+   ],
+   "endAfterSunset": 30,
+   "note": "Shooting hours run to half an hour after sunset in this season only."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-05",
+     "2027-01-24"
+    ]
+   ],
+   "note": "White-fronted geese count in the 2-goose limit. South Shore Management Area: SSMA permit and field reservation required."
+  },
+  {
+   "sp": "canadalate",
+   "label": "Canada geese — late",
+   "z": {
+    "nw": [
+     [
+      "2027-01-30",
+      "2027-02-13"
+     ]
+    ],
+    "se": []
+   },
+   "note": "North & West area only. The South Shore Management Area is closed."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "statewide": [
+    [
+     "2026-10-14",
+     "2027-01-24"
+    ]
+   ],
+   "note": "Blue geese count as snow geese. No possession limit."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2026-12-26",
+     "2027-01-24"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2026-11-30"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora rail",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "virginiarail",
+   "label": "Virginia rail",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "King and clapper rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ],
+    [
+     "2026-10-17",
+     "2026-12-15"
+    ]
+   ],
+   "note": "Eurasian collared-doves count in the same limit."
+  },
+  {
+   "sp": "crow",
+   "label": "Crows",
+   "statewide": [
+    [
+     "2026-08-14",
+     "2026-10-04",
+     {
+      "dow": [
+       5,
+       6,
+       0
+      ]
+     }
+    ],
+    [
+     "2026-10-17",
+     "2026-12-07"
+    ],
+    [
+     "2026-12-18",
+     "2027-04-03",
+     {
+      "dow": [
+       5,
+       6,
+       0
+      ]
+     }
+    ]
+   ],
+   "endAfterSunset": 30,
+   "note": "The first and last segments are Fridays, Saturdays and Sundays only. Patience Island is closed to crow hunting."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-10-24",
+     "2026-10-25"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Active military and veteran days",
+   "statewide": [
+    [
+     "2026-11-10",
+     "2026-11-11"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks a day in the aggregate, inside which the species limits below apply. Mergansers are in addition to the six; coots have their own limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Common, red-breasted and hooded — in addition to the 6-duck bag."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Scoters, eiders and long-tailed ducks: 4 a day in total, no more than 3 scoters, 3 eiders (1 hen) or 3 long-tailed ducks — inside the 6-duck bag."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "15",
+   "poss": "45",
+   "detail": "September season."
+  },
+  {
+   "sp": "canada",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Includes white-fronted geese."
+  },
+  {
+   "sp": "canadalate",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Late season, North & West area only."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Includes blue geese."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Sora and Virginia rails: three, singly (the rule’s wording)."
+  },
+  {
+   "sp": "virginiarail",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Sora and Virginia rails: three, singly (the rule’s wording)."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "1",
+   "poss": "3",
+   "detail": "King and clapper rails: one, singly."
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Mourning and Eurasian collared-doves in the aggregate."
+  },
+  {
+   "sp": "crow",
+   "daily": "None",
+   "poss": "None",
+   "detail": "No daily or possession limit. No HIP needed for crows."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular-season limits, except scaup: 2."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular-season limits, except scaup: 2."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": "2 a day from January 5 to 24, 2027 (and on youth and veteran days)"
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "scoters, eiders, long-tailed ducks — no more than 3 of each, eiders no more than 1 hen"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "any species — in addition to the 6-duck bag"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed — they winter off Sachuest Point and Beavertail; hens look like bufflehead, goldeneye or scoter hens"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Sundays are open",
+   "d": "Rhode Island has no Sunday closure for migratory birds. Town ordinances and individual management areas can still restrict hunting."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset. September Canada geese and crows: one-half hour before sunrise to one-half hour after sunset."
+  },
+  {
+   "g": "Hours",
+   "t": "Loaded guns",
+   "d": "No loaded firearm outside legal shooting hours, except that a stationary hunter may load within 15 minutes before they begin."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Required for waterfowl, rails and snipe statewide, including tidal waters out to three miles. Nothing larger than BB (duplex loads included), and no tin shot."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No larger than 10 gauge, plugged with a one-piece filler to hold no more than three shells. No rifles, pistols or crossbows; archery requires a bowhunter education course."
+  },
+  {
+   "g": "Gear",
+   "t": "Calls, decoys and bait",
+   "d": "No recorded or electronically amplified calls. No live decoys. No hunting over bait — an area stays baited for 10 days after the bait is gone, whether or not you knew it was there."
+  },
+  {
+   "g": "Boats",
+   "t": "Boats",
+   "d": "No shooting from a motorboat or sailboat unless the motor is off or the sail furled and it has stopped moving. No driving or rallying birds with a motorboat, sailboat or vehicle. Sink boxes are illegal."
+  },
+  {
+   "g": "Safety",
+   "t": "500 feet from homes",
+   "d": "No firearm discharge within 500 feet of an occupied dwelling without written permission."
+  },
+  {
+   "g": "Safety",
+   "t": "Hunter orange",
+   "d": "200 square inches on state management areas, undeveloped state parks and co-op units from the second Saturday in September to the end of February (500 during shotgun deer season). Waterfowl hunters in a boat or blind with decoys are exempt."
+  },
+  {
+   "g": "Ethics",
+   "t": "Retrieve your birds",
+   "d": "New for 2026–27: no shooting a bird without a visible way to retrieve it. Make a reasonable effort to retrieve every bird, and count it in your bag. In Little Compton and at Great Swamp you must carry a way to retrieve — a retrieving dog or a non-motorized boat."
+  },
+  {
+   "g": "Special",
+   "t": "South Shore Management Area",
+   "d": "During the regular Canada goose season, goose hunting at the SSMA (South Kingstown) needs an SSMA permit and a field reservation. Closed during the late goose season. Other waterfowl after the crops are in, without a permit, outside the regular goose season."
+  },
+  {
+   "g": "Special",
+   "t": "Restricted waters",
+   "d": "Seekonk River above the railroad bridge; Brush Neck, Mill and Buttonwoods coves (Warwick); Mill Cove and western Fishing Cove (Wickford); Watchaug Pond and Poquiant Brook plus 100 yards; the Emilie Ruecker estuary (Tiverton); the Sachuest Point refuge shoreline; Valley Marshes (Lincoln/Central Falls); most of the Barrington River; Belleville Pond except its signed northwest part (after November 15). The red areas on this map are RIDEM’s."
+  },
+  {
+   "g": "Special",
+   "t": "Shoot toward open water",
+   "d": "Seekonk River, Barrington River, Walker Island (Bristol), East Providence, Rock Island (Warwick), and Pawtuxet Cove north to Fields Point (Cranston, no shooting within 500 feet of occupied buildings): discharge only toward open water."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth days",
+   "d": "October 24–25. Ages 12–17 with a licensed adult 21 or older, who may not hunt. Ducks, mergansers, coots, geese and brant at regular limits; scaup 2."
+  },
+  {
+   "g": "Youth",
+   "t": "Military and veterans",
+   "d": "November 10–11. Proof of eligibility on you, plus HIP, the state waterfowl stamp and the federal duck stamp. Regular limits; scaup 2."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on every bird (doves excepted) until you get it home. Tag any birds you leave with someone else: your signature, address, the number by species and the dates taken."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Rhode Island hunting licence",
+   "who": "Residents and non-residents",
+   "d": "From rio.ri.gov, licence agents or DEM. A first licence needs a hunter education certificate (or a previous licence from any state)."
+  },
+  {
+   "t": "HIP permit",
+   "who": "Every migratory bird hunter",
+   "d": "Free; added to your licence through rio.ri.gov, agents or DEM. Not needed for crows."
+  },
+  {
+   "t": "Rhode Island waterfowl stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "$9.50 for residents, $10 for non-residents (access fee included). A signed stamp, or the stamp certification added to your licence on rio.ri.gov."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Age 16+",
+   "d": "Carry it signed in ink across the face. Post office, USPS.com, or an e-stamp at duckstamp.com."
+  },
+  {
+   "t": "SSMA permit",
+   "who": "Goose hunters at the South Shore Management Area",
+   "d": "Regular Canada goose season only, with a field reservation. From rio.ri.gov or the Great Swamp field headquarters, West Kingston."
+  }
+ ],
+ "geometryNote": "Geometry: RIDEM (the late-season goose line, restricted waterfowl areas, state hunting land, fishing access), CRMC (shoreline rights-of-way), RIGIS (town boundaries), USGS NHD (ponds, marshes, rivers and bays, streams), USFWS (refuge hunt units; NWI marsh for the habitat surface), OpenStreetMap (numbered routes), NOAA CO-OPS (tides), Census TIGER (state outline)."
+}
