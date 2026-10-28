@@ -3,8 +3,8 @@
 
    - Public eBird hotspots only. Personal locations (someone's yard) are never asked for, and any that
      slip through are dropped.
-   - The API key comes from the EBIRD_API_KEY repository secret. It goes in the request header and
-     nowhere else — never into a file or the log.
+   - The API key comes from the EBIRD repository secret (passed in as EBIRD_API_KEY). It goes in the
+     request header and nowhere else — never into a file or the log.
    - eBird API terms: non-commercial use, credit eBird.org with a link, keep the load light. So: one
      request at a time, a pause between them, once a day.
    - A state whose fetch is incomplete keeps yesterday's file rather than shipping a partial one. */
@@ -32,7 +32,7 @@ async function getJSON(url) {
       if (attempt >= 4) throw new Error('no response (' + ((e.cause && e.cause.code) || e.name) + ')');
       await sleep(3000 * attempt * attempt); continue;
     }
-    if (res.status === 401 || res.status === 403) throw new KeyRefused('eBird refused the API key (HTTP ' + res.status + '). Check the EBIRD_API_KEY repository secret.');
+    if (res.status === 401 || res.status === 403) throw new KeyRefused('eBird refused the API key (HTTP ' + res.status + '). Check the EBIRD repository secret.');
     if (res.ok) return res.json();
     if ((res.status === 429 || res.status >= 500) && attempt < 4) { await sleep(6000 * attempt * attempt); continue; }
     throw new Error('HTTP ' + res.status);
@@ -71,7 +71,7 @@ function build(region, results) {
 
 (async () => {
   if (!KEY) {
-    console.log('EBIRD_API_KEY is not set, so there is nothing to fetch. Add the repository secret to turn the sightings layer on.');
+    console.log('The EBIRD repository secret is not set, so there is nothing to fetch. Add it to turn the sightings layer on.');
     return;
   }
   const states = fs.readdirSync(DATA).filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(path.join(DATA, d, 'zones.json'))).sort();

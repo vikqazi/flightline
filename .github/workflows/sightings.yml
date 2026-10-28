@@ -1,5 +1,5 @@
 # Daily eBird waterfowl sightings for the map (data/<state>/sightings.json).
-# Needs the EBIRD_API_KEY repository secret (Settings → Secrets and variables → Actions).
+# Needs the EBIRD repository secret, holding the eBird API key (Settings → Secrets and variables → Actions).
 # Without it the job does nothing and stays green.
 name: eBird sightings
 
@@ -25,7 +25,7 @@ jobs:
       - name: Fetch recent waterfowl sightings from eBird
         id: fetch
         env:
-          EBIRD_API_KEY: ${{ secrets.EBIRD_API_KEY }}
+          EBIRD_API_KEY: ${{ secrets.EBIRD }}
         run: node .github/sightings/fetch.js
 
       - name: Commit what changed
