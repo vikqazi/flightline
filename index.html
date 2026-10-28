@@ -945,8 +945,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 'use strict';
 
 /* =========================================================================
-   Granite Flyway — NH waterfowl zones, seasons, waters and access.
-   All geometry ships with the page; nothing is fetched from the network.
+   Granite Flyway — waterfowl zones, seasons, waters and access for every
+   state shown. State data ship with the site and load per state; weather
+   and map tiles are the only things fetched from elsewhere.
    ========================================================================= */
 
 var LEAF = window.L;   // captured once; a later global named L cannot break us
@@ -956,17 +957,21 @@ var STATES = {
   nh: { name: 'New Hampshire', abbr: 'NH', bounds: [[42.63, -72.63], [45.33, -70.55]],
         zones: ['northern', 'inland', 'ct', 'coastal'],
         colors: { northern: '#5b7fb8', inland: '#8a9a4e', ct: '#b06fa8', coastal: '#c9893c' },
-        extras: ['closed', 'gbshore', 'seaduck'] },
+        extras: ['closed', 'gbshore', 'seaduck'], attrib: 'NH GRANIT · NH Fish and Game' },
   ma: { name: 'Massachusetts', abbr: 'MA', bounds: [[41.18, -73.52], [42.90, -69.85]],
         zones: ['berkshire', 'central', 'coastal'],
         colors: { berkshire: '#5b7fb8', central: '#8a9a4e', coastal: '#c9893c' },
-        extras: [] }
+        extras: [], attrib: 'MassGIS · MassWildlife' },
+  me: { name: 'Maine', abbr: 'ME', bounds: [[42.97, -71.09], [47.47, -66.95]],
+        zones: ['north', 'south', 'coastal'],
+        colors: { north: '#5b7fb8', south: '#8a9a4e', coastal: '#c9893c' },
+        extras: ['closed'], attrib: 'Maine GeoLibrary · MDIFW · USGS NHD' }
 };
 var ZONE_IDS = [];            // namespaced, across every shown state
 var ZONE_COLOR = {};
 var CACHE = {};
-function zCode(ns) { var i = ns.indexOf(':'); return i < 0 ? S.state : ns.slice(0, i); }
-function zId(ns) { var i = ns.indexOf(':'); return i < 0 ? ns : ns.slice(i + 1); }
+function zCode(ns) { if (!ns) return S.state; var i = ns.indexOf(':'); return i < 0 ? S.state : ns.slice(0, i); }
+function zId(ns) { if (!ns) return ''; var i = ns.indexOf(':'); return i < 0 ? ns : ns.slice(i + 1); }
 function zMeta(ns) {
   var R = regsOf(zCode(ns)), z = R && R.zones && R.zones[zId(ns)];
   var multi = S.shown.length > 1, ab = STATES[zCode(ns)].abbr;
@@ -1072,6 +1077,16 @@ function ringCentroid(a) {
   for (var i = 0; i < a.length; i += 2) { sx += a[i]; sy += a[i + 1]; }
   return [sx / n, sy / n];
 }
+function pipLatLon(poly, lat, lon) {   // poly: [[lat, lon], ...]
+  var inside = false;
+  for (var i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    var yi = poly[i][0], yj = poly[j][0];
+    if ((yi > lat) !== (yj > lat) && lon < (poly[j][1] - poly[i][1]) * (lat - yi) / (yj - yi) + poly[i][1]) inside = !inside;
+  }
+  return inside;
+}
+function closedMeta(a) { return (D.closed && D.closed.meta[a.src]) || {}; }
+function listAnd(a) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]; }
 function pipWorld(parts, x, y) {   // even-odd across every ring of the feature
   var inside = false;
   for (var p = 0; p < parts.length; p++) {
@@ -1135,20 +1150,24 @@ function regsOf(code) { var c = CACHE[code || S.state]; return (c && c.regs) || 
 function entry(sp, code) { var R = regsOf(code); if (!R) return null;
   for (var i = 0; i < R.seasons.length; i++) if (R.seasons[i].sp === sp) return R.seasons[i]; return null; }
 function ranges(sp, zone, code) {
+  code = code || (zone && zone.indexOf(':') > 0 ? zCode(zone) : undefined);
   var e = entry(sp, code); if (!e) return [];
   if (e.statewide) return e.statewide;
   if (e.sameAs) return ranges(e.sameAs, zone, code);
+  if (!zone) return [];
   return (e.z && e.z[zId(zone)]) || [];
 }
 function isSunday(isoStr) { return new Date(dnum(isoStr)).getUTCDay() === 0; }
 function sundayShut(isoStr, code) { var R = regsOf(code); return !!(R && R.sundayClosed) && isSunday(isoStr); }
 function openOn(sp, zone, isoStr, code) {
+  code = code || (zone && zone.indexOf(':') > 0 ? zCode(zone) : undefined);
   if (sundayShut(isoStr, code)) return false;
   var t = dnum(isoStr), r = ranges(sp, zone, code);
   for (var i = 0; i < r.length; i++) if (t >= dnum(r[i][0]) && t <= dnum(r[i][1])) return true;
   return false;
 }
 function nextChange(sp, zone, isoStr, code) {
+  code = code || (zone && zone.indexOf(':') > 0 ? zCode(zone) : undefined);
   var t = dnum(isoStr), r = ranges(sp, zone, code), best = null, kind = null;
   for (var i = 0; i < r.length; i++) {
     var a = dnum(r[i][0]), b = dnum(r[i][1]);
@@ -1186,12 +1205,19 @@ var spots = [], hunts = [], db = null, dbReady = false;
    ========================================================================= */
 var NH_BOUNDS = [[42.63, -72.63], [45.33, -70.55]];
 
+function allBounds(pad) {   // union of every state's bounds, padded (degrees)
+  var b = null;
+  for (var c in STATES) { var q = STATES[c].bounds;
+    if (!b) b = [[q[0][0], q[0][1]], [q[1][0], q[1][1]]];
+    else { b[0][0] = Math.min(b[0][0], q[0][0]); b[0][1] = Math.min(b[0][1], q[0][1]); b[1][0] = Math.max(b[1][0], q[1][0]); b[1][1] = Math.max(b[1][1], q[1][1]); } }
+  return [[b[0][0] - pad, b[0][1] - pad], [b[1][0] + pad, b[1][1] + pad]];
+}
 function initMap() {
   map = LEAF.map('map', {
     zoomControl: false, attributionControl: false,
     zoomAnimation: false, fadeAnimation: false, markerZoomAnimation: false,
     minZoom: 7, maxZoom: 19, zoomSnap: 0.5, wheelPxPerZoomLevel: 110,
-    maxBounds: [[41.9, -74.0], [46.2, -69.2]], maxBoundsViscosity: 0.6
+    maxBounds: allBounds(1), maxBoundsViscosity: 0.6        // every state in the app, plus a margin
   });
   map.fitBounds(NH_BOUNDS);
 
@@ -1202,6 +1228,8 @@ function initMap() {
 
   map.on('move zoom resize viewreset', schedule);
   map.on('click', onMapClick);
+  map.on('moveend', writeHash);
+  window.addEventListener('hashchange', function () { var hv = readHash().view; if (hv && map) map.setView([hv.lat, hv.lon], hv.z, { animate: false }); });
   map.on('dragstart', function () { if (S.geo.follow) { S.geo.follow = false; geoMsg('Following off — tap the target to re-centre'); setTimeout(function(){ if(!S.geo.follow) geoMsg(''); }, 2600); } });
   map.on('zoomend moveend', function () { renderScale(); clearTimeout(window._wxT); window._wxT = setTimeout(loadWind, 500); });
 
@@ -1460,11 +1488,19 @@ function draw() {
     ctx.setLineDash([7, 4]); ctx.lineWidth = 2.4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     for (var zl = 0; zl < D.zonelines.length; zl++) {
       var lf = D.zonelines[zl];
-      if (!hits(lf.bb, V)) continue;
+      if (!hits(lf.bb, V) || lf.props.former) continue;
       ctx.strokeStyle = ZONE_COLOR[lf.props.ns] || css('--accent');
       ctx.beginPath();
       for (var lp = 0; lp < lf.parts.length; lp++) tracePart(lf.parts[lp], V, 0.5);
       ctx.stroke();
+    }
+    /* a former line: light dots on a dark halo, so it stays legible on top of the road it follows */
+    for (zl = 0; zl < D.zonelines.length; zl++) {
+      var ff = D.zonelines[zl];
+      if (!ff.props.former || !hits(ff.bb, V)) continue;
+      ctx.beginPath(); for (var fq = 0; fq < ff.parts.length; fq++) tracePart(ff.parts[fq], V, 0.5);
+      ctx.setLineDash([]); ctx.lineWidth = 4.2; ctx.strokeStyle = hexA(css('--m-halo'), 0.55); ctx.stroke();
+      ctx.setLineDash([2.5, 4]); ctx.lineWidth = 2; ctx.strokeStyle = hexA(css('--m-label'), 0.95); ctx.stroke();
     }
     ctx.setLineDash([]);
   }
@@ -1475,8 +1511,19 @@ function draw() {
     for (var i = 0; i < cl.length; i++) {
       var a = cl[i];
       var x = projX(a.lon) * V.sc - V.ox, y = projY(a.lat) * V.sc - V.oy;
-      if (x < -80 || y < -80 || x > V.w + 80 || y > V.h + 80) continue;
-      var mPerPx = 40075016.686 * Math.cos(a.lat * Math.PI / 180) / (256 * V.sc);
+      var mPerPx = 40075016.686 * Math.cos(a.lat * Math.PI / 180) / (256 * V.sc), pad = 80 + a.r / mPerPx;
+      if (x < -pad || y < -pad || x > V.w + pad || y > V.h + pad) continue;
+      if (a.poly && a.r / mPerPx > 6) {      // the exact outline, once it is big enough to see
+        ctx.beginPath();
+        for (var q = 0; q < a.poly.length; q++) {
+          var qx = projX(a.poly[q][1]) * V.sc - V.ox, qy = projY(a.poly[q][0]) * V.sc - V.oy;
+          if (q) ctx.lineTo(qx, qy); else ctx.moveTo(qx, qy);
+        }
+        ctx.closePath();
+        ctx.fillStyle = hexA(css('--m-closed'), 0.24); ctx.fill();
+        ctx.lineWidth = 2; ctx.setLineDash([]); ctx.strokeStyle = css('--m-closed'); ctx.stroke();
+        continue;
+      }
       var r = Math.max(7, a.r / mPerPx);
       ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832);
       ctx.fillStyle = hexA(css('--m-closed'), 0.18); ctx.fill();
@@ -1727,7 +1774,8 @@ function onMapClick(e) {
   if (S.layers.closed && D.closed) for (i = 0; i < D.closed.areas.length; i++) {
     var ca = D.closed.areas[i];
     var mpp = 40075016.686 * Math.cos(ca.lat * Math.PI / 180) / (256 * V.sc);
-    if (near(ca.lat, ca.lon, Math.max(9, ca.r / mpp))) return select({ kind: 'closed', area: ca, lat: ca.lat, lon: ca.lon });
+    var hitC = ca.poly && ca.r / mpp > 6 ? pipLatLon(ca.poly, e.latlng.lat, e.latlng.lng) : near(ca.lat, ca.lon, Math.max(9, ca.r / mpp));
+    if (hitC) return select({ kind: 'closed', area: ca, lat: ca.lat, lon: ca.lon });
   }
   if (S.layers.gbshore && D.gbshore && V.z >= 10) {
     var bestG = null, bg = 100;
@@ -2048,7 +2096,8 @@ function statewideToday() {
   var out = [];
   [['canadasept', 'Canada geese (Sept.)'], ['woodcock', 'Woodcock'], ['snipe', 'Snipe'], ['crow', 'Crow'],
    ['youth', 'Youth weekend'], ['vet', 'Veteran & military weekend']].forEach(function (p) {
-    if (openOn(p[0], null, S.date)) out.push(p[1]);
+    var st = S.shown.filter(function (c) { return openOn(p[0], null, S.date, c); });
+    if (st.length) out.push(p[1] + (S.shown.length > 1 ? ' (' + st.map(function (c) { return STATES[c].abbr; }).join(', ') + ')' : ''));
   });
   return out;
 }
@@ -2059,6 +2108,8 @@ function panelSeason() {
   var sw = statewideToday();
   var zoneRows = ZONE_IDS.map(function (z) {
     var sps = ['duck', 'canada', 'brant', 'merganser', 'coot', 'seaduck', 'snow', 'falconry'];
+    var ye = entry('youth', zCode(z));
+    if (ye && ye.z) sps = sps.concat(['youth']);
     var openSps = sps.filter(function (s) { return openOn(s, z, S.date, zCode(z)); });
     var on = openOn('duck', z, S.date, zCode(z));
     return h('button', { class: 'item', 'data-zone': z },
@@ -2264,26 +2315,35 @@ function panelAccess() {
     }).join('') || h('div', { class: 'item muted small' }, 'No sites match those filters.')));
 }
 
+function stateZones() { return ZONE_IDS.filter(function (z) { return zCode(z) === S.state; }); }
+/* youth and veteran days, statewide or by zone, only where the state has them */
+function specialDays() {
+  var out = [['youth', 'Youth waterfowl days'], ['vet', 'Veteran & active military days']].map(function (p) {
+    var e = entry(p[0], S.state); if (!e) return '';
+    var days = function (r) { return r.map(function (x) { return x[0] === x[1] ? fmtDate(x[0]) : fmtRange(x); }).join(', '); };
+    if (e.statewide) return '<b>' + esc(p[1]) + '</b> ' + esc(days(e.statewide)) + ', statewide.';
+    return '<b>' + esc(p[1]) + '</b> ' + stateZones().map(function (z) { return esc(zMeta(z).short) + ': ' + esc(days(ranges(p[0], z, S.state))); }).join('; ') + '.';
+  }).filter(Boolean);
+  return out.length ? h('div', { class: 'note', style: 'margin-top:10px' }, out.join('<br>')) : '';
+}
 var REF_TABS = [['seasons', 'Seasons'], ['bags', 'Bag limits'], ['ducks', 'Duck sub-limits'],
                 ['rules', 'Rules'], ['lic', 'Licences'], ['closed', 'Closed areas'], ['src', 'Sources']];
 function panelRef() {
   var body = '';
   if (S.refTab === 'seasons') {
     body = h('div', { class: 'tblwrap' }, h('table', { class: 'wide' },
-      h('tr', null, h('th', null, 'Species') + ZONE_IDS.map(function (z) { return h('th', null, esc(zMeta(z).short)); }).join('')) +
+      h('tr', null, h('th', null, 'Species') + stateZones().map(function (z) { return h('th', null, esc(zMeta(z).short)); }).join('')) +
       REGS.seasons.filter(function (e) { return e.sp !== 'youth' && e.sp !== 'vet'; }).map(function (e) {
         return h('tr', null, h('td', { style: 'font-weight:600' }, esc(e.label)) +
-          ZONE_IDS.map(function (z) {
-            var r = ranges(e.sp, z);
-            var on = openOn(e.sp, z, S.date);
+          stateZones().map(function (z) {
+            var r = ranges(e.sp, z, S.state);
+            var on = openOn(e.sp, z, S.date, S.state);
             return h('td', { class: 'small', style: on ? 'color:var(--open);font-weight:600' : '' },
               r.length ? r.map(fmtRange).join('<br>') : '—');
           }).join(''));
       }).join(''))) +
-      h('div', { class: 'note', style: 'margin-top:10px' },
-        '<b>Youth Waterfowl Weekend</b> ' + esc(ranges('youth', null).map(fmtRange).join('')) + ', statewide.<br>' +
-        '<b>Veteran &amp; Active Military Weekend</b> ' + esc(ranges('vet', null).map(fmtRange).join('')) + ', statewide.') +
-      h('div', { class: 'tiny muted', style: 'margin-top:8px' }, 'Bold green = open on ' + esc(fmtDate(S.date)) + '. Connecticut River Zone follows Inland Zone dates.');
+      specialDays() +
+      h('div', { class: 'tiny muted', style: 'margin-top:8px' }, 'Bold green = open on ' + esc(fmtDate(S.date)) + '.' + (REGS.seasonsNote ? ' ' + esc(REGS.seasonsNote) : ''));
   } else if (S.refTab === 'bags') {
     body = h('div', { class: 'tblwrap' }, h('table', null,
       h('tr', null, h('th', null, 'Species') + h('th', { style: 'text-align:right' }, 'Daily') + h('th', { style: 'text-align:right' }, 'Possession')) +
@@ -2320,23 +2380,26 @@ function panelRef() {
         h('div', { class: 'small muted', style: 'margin-top:3px;white-space:normal' }, esc(l.d)));
     }).join(''));
   } else if (S.refTab === 'closed') {
-    if (!D.closed) {
-      body = h('div', { class: 'note' },
-        'Massachusetts does not publish a single statewide list of waters closed to waterfowl like New Hampshire does. Closures are set per property — wildlife management areas, refuges, town rules and posted land — so check the property you plan to hunt.') +
-        h('div', { class: 'row', style: 'margin-top:9px' },
-          h('a', { class: 'btn ghost', href: 'https://www.mass.gov/info-details/migratory-game-bird-hunting-regulations', target: '_blank', rel: 'noopener' }, 'MassWildlife regulations'));
-    } else {
-    body = h('div', { class: 'note alert' }, esc(D.closed.warning)) +
-      h('div', { class: 'row', style: 'margin:10px 0' },
-        h('a', { class: 'btn ghost', href: D.closed.sourceUrl, target: '_blank', rel: 'noopener' }, 'Official PDF') +
-        h('a', { class: 'btn ghost', href: D.closed.ruleUrl, target: '_blank', rel: 'noopener' }, 'Rule text')) +
-      h('div', { class: 'list' }, D.closed.areas.map(function (a) {
-        return h('button', { class: 'item', 'data-closed': a.id },
-          h('div', { class: 'between' }, h('span', { class: 't1' }, esc(a.n)) +
-            h('span', { class: 'pill', style: 'color:var(--closed)' }, a.kind === 'all' ? 'All hunting' : 'Waterfowl')) +
-          h('div', { class: 't2' }, esc(a.town)));
-      }).join('')) +
-      h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Federal refuge hunt units — ' + S.shown.map(function (c) { return STATES[c].name; }).join(' and ')) +
+    body = S.shown.map(function (c) {
+      var C = CACHE[c] && CACHE[c].closed, R = regsOf(c) || {};
+      var head = S.shown.length > 1 ? h('div', { class: 'lab', style: 'margin:0 0 5px' }, esc(STATES[c].name)) : '';
+      if (!C) return h('div', { style: 'margin-bottom:14px' }, head +
+        h('div', { class: 'note' }, esc(R.closedNote || (STATES[c].name + ' does not publish a statewide list of waters closed to waterfowl. Check the property you plan to hunt.'))) +
+        (R.closedUrl ? h('div', { class: 'row', style: 'margin-top:9px' },
+          h('a', { class: 'btn ghost', href: R.closedUrl, target: '_blank', rel: 'noopener' }, esc(R.closedUrlLabel || 'State regulations'))) : ''));
+      return h('div', { style: 'margin-bottom:14px' }, head +
+        h('div', { class: 'note alert' }, esc(C.warning)) +
+        h('div', { class: 'row', style: 'margin:10px 0' },
+          h('a', { class: 'btn ghost', href: C.sourceUrl, target: '_blank', rel: 'noopener' }, esc(C.sourceLabel || 'Official PDF')) +
+          h('a', { class: 'btn ghost', href: C.ruleUrl, target: '_blank', rel: 'noopener' }, esc(C.ruleLabel || 'Rule text'))) +
+        h('div', { class: 'list' }, D.closed.areas.filter(function (a) { return a.src === c; }).map(function (a) {
+          return h('button', { class: 'item', 'data-closed': a.uid },
+            h('div', { class: 'between' }, h('span', { class: 't1' }, esc(a.n)) +
+              h('span', { class: 'pill', style: 'color:var(--closed)' }, a.kind === 'all' ? 'All hunting' : 'Waterfowl')) +
+            h('div', { class: 't2' }, esc(a.town)));
+        }).join('')));
+    }).join('') +
+      (D.refuges ? h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Federal refuge hunt units — ' + listAnd(S.shown.map(function (c) { return STATES[c].name; }))) +
       h('div', { class: 'list' }, D.refuges.map(function (rf, i) {
         var RS = srcOf(rf);
         var at = (RS.refugeAttrs || [])[(RS.refuges || []).indexOf(rf)] || {};
@@ -2347,14 +2410,13 @@ function panelRef() {
               rf.meta[2] ? (at.permit ? 'Permit' : 'Open') : 'No hunting')) +
           h('div', { class: 't2' }, esc((at.ac || 0).toLocaleString() + ' acres · ' + (at.huntable || ''))));
       }).join('')) +
-      h('div', { class: 'tiny muted', style: 'margin-top:7px' }, esc((CACHE.nh && CACHE.nh.refugeSource) || '')) +
+      h('div', { class: 'tiny muted', style: 'margin-top:7px' }, esc(S.shown.map(function (c) { return CACHE[c] && CACHE[c].refugeSource; }).filter(function (v, i, a) { return v && a.indexOf(v) === i; }).join(' '))) : '') +
       (D.seaduck ? h('div', { class: 'lab', style: 'margin:14px 0 5px' }, 'Sea duck hunting area') : '') +
       (D.seaduck ? h('div', { class: 'note' }, '<b>' + esc(D.seaduck.rule) + '</b>') : '') +
       (D.seaduck ? h('div', { class: 'note', style: 'margin-top:7px' }, esc(D.seaduck.exception)) : '') +
       (D.seaduck ? h('div', { class: 'note alert', style: 'margin-top:7px' }, esc(D.seaduck.note)) : '') +
       (D.seaduck ? h('div', { class: 'row', style: 'margin-top:9px' },
         h('a', { class: 'btn ghost', href: D.seaduck.url, target: '_blank', rel: 'noopener' }, 'Official sea duck map')) : '');
-    }
   } else {
     body = h('div', { class: 'small muted', style: 'margin-bottom:9px' },
         'Every date, limit and boundary on this page came from these. Rules change — check the state source before you hunt.') +
@@ -2386,13 +2448,11 @@ function panelRef() {
         'A dash means that state does not publish it, not that the app skips it. A dot means that state is not loaded right now. ' +
         'Base map, wind, location, the hunt log and every tool work the same in every state.') +
       h('div', { class: 'tiny muted', style: 'margin-top:10px' },
-        (S.state === 'ma'
-          ? 'Geometry: MassGIS (1:25,000 hydrography, Office of Fishing and Boating Access sites, Protected and Recreational OpenSpace, municipalities), US Census TIGER (state outline), OpenStreetMap (highways), NOAA CO-OPS (tides). '
-          : 'Geometry: NH GRANIT (water bodies, streams, conservation land, town and state boundaries, public access sites), OpenStreetMap (highways), NOAA CO-OPS (tides). ') +
-        'Zone polygons were built by routing along the actual roads named in the state boundary descriptions; the three (NH: four) zones add up to the state outline exactly.' +
-        (S.state === 'ma' ? ' One exception: the short street-level jog through Taunton and Somerset on the Coastal boundary is approximated along numbered routes.' : ''));
+        esc(REGS.geometryNote || '') + ' Every state\u2019s zones add up to its outline exactly, and neighbouring states meet on the same Census border line — no gaps or overlaps at a state line.');
   }
-  return sec('Reference', true,
+  var stSw = S.shown.length > 1 ? h('div', { class: 'between', style: 'margin-bottom:9px' }, h('span', { class: 'lab' }, 'Rules for') +
+    h('div', { class: 'seg' }, S.shown.map(function (c) { return h('button', { 'data-regstate': c, 'aria-pressed': S.state === c, title: STATES[c].name }, esc(STATES[c].abbr)); }).join(''))) : '';
+  return sec('Reference', true, stSw +
     h('div', { class: 'seg', style: 'flex-wrap:wrap;gap:3px' }, REF_TABS.map(function (t) {
       return h('button', { 'data-ref': t[0], 'aria-pressed': S.refTab === t[0], style: 'flex:0 1 auto;padding:5px 8px' }, esc(t[1]));
     }).join('')) + h('div', { style: 'margin-top:11px' }, body));
@@ -2583,14 +2643,14 @@ function renderKey() {
     h('h3', null, 'Map key' + h('button', { id: 'keyClose', 'aria-label': 'Hide the key' }, '&times;')) +
 
     (D.closed || D.gbshore ? h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Do not hunt here') +
-      (D.closed ? krow(ring(css('--m-closed')), 'Closed area', 'A state closed area from Fis 306.01 — 20 of them. The circle is an approximate locator the size of the closure, not its legal edge. Tap it for the exact wording.') : '') +
+      (D.closed ? krow(ring(css('--m-closed')), 'Closed area', 'State-listed closures — ' + D.closed.areas.length + ' in the states shown. A circle is an approximate locator the size of the closure; a solid outline is drawn from the rule\u2019s own corners or the whole water body. Tap one for the exact wording.') : '') +
       (D.gbshore ? krow(bar('#d2342a'), 'Refuge shoreline, closed', 'Great Bay NWR') : '')) : '') +
 
     h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Where you can go') +
       krow(sq(css('--m-access'), '0'), 'Boat ramp', 'Trailer launch — square') +
       krow(sq(css('--m-access'), '50%'), 'Cartop access', 'Hand carry, no trailer — circle') +
       (D.gbshore ? krow(bar('#2f7fd4'), 'Refuge shoreline, open', 'Great Bay NWR, boat access only') : '') +
-      krow(sq(hexA(css('--m-public'), 0.55)), 'Conservation land', S.state === 'ma' ? 'Protected and recreational open space — check the access rule' : 'Not automatically open to hunting') +
+      krow(sq(hexA(css('--m-public'), 0.55)), 'Conservation land', 'Not automatically open to hunting — tap a parcel for its owner and any access rule the state records') +
       (D.refuges ? krow(sq(hexA(css('--open'), 0.5)), 'Federal refuge unit', 'Special regulations, often a permit') : '')) +
 
     h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Water') +
@@ -2622,7 +2682,9 @@ function renderKey() {
       ZONE_IDS.map(function (z) {
         return krow(sq(ZONE_COLOR[z]), zMeta(z).name);
       }).join('') +
-      krow(bar(css('--accent'), true), 'Zone boundary', 'Follows the roads in the Fish and Game description') +
+      krow(bar(css('--accent'), true), 'Zone boundary', 'Follows the roads named in each state\u2019s boundary description') +
+      (D.zonelines && D.zonelines.some(function (f) { return f.props.former; })
+        ? krow(bar(hexA(css('--m-label'), 0.75), true), 'Former zone line', 'Maine\u2019s pre-2026 North/South line, drawn for comparison — no longer in force') : '') +
       krow(sq(css('--m-spot'), '50%'), 'My spots') +
       krow('<i style="width:13px;height:13px;border-radius:50%;background:#2f7fd4;box-shadow:0 0 0 2.5px #fff;display:block"></i>', 'You', 'Blue halo shows GPS accuracy')) +
 
@@ -2670,16 +2732,17 @@ function selTitle(sel) {
   return 'Location';
 }
 function zoneBadge(z) {
-  if (!z) return h('span', { class: 'pill muted' }, 'Outside NH');
+  if (!z) return h('span', { class: 'pill muted' }, 'No mapped zone');
   return h('span', { class: 'pill', style: 'color:' + ZONE_COLOR[z] }, esc(zMeta(z).name));
 }
 function zoneSeasonBlock(z) {
   if (!z) return '';
   var sps = ['duck', 'canada', 'brant', 'seaduck', 'merganser', 'coot', 'snow'];
   var rows = sps.map(function (sp) {
-    var on = openOn(sp, z, S.date), b = bag(sp), nc = nextChange(sp, z, S.date);
+    var zc = zCode(z), en = entry(sp, zc); if (!en) return '';
+    var on = openOn(sp, z, S.date, zc), b = bag(sp, zc), nc = nextChange(sp, z, S.date, zc);
     return h('tr', null,
-      h('td', { style: 'font-weight:600' }, esc(entry(sp).label.replace(/ —.*/, ''))) +
+      h('td', { style: 'font-weight:600' }, esc(en.label.replace(/ —.*/, ''))) +
       h('td', { style: 'color:' + (on ? 'var(--open)' : 'var(--closed)') + ';font-weight:600' }, on ? 'Open' : 'Closed') +
       h('td', { class: 'num' }, b ? esc(b.daily) : '—') +
       h('td', { class: 'tiny muted' }, nc ? esc((nc.kind === 'opens' ? 'opens ' : 'thru ') + fmtDate(nc.date)) : '—'));
@@ -2696,7 +2759,7 @@ function nearbyClosed(lat, lon) {
   return h('div', { class: 'note alert', style: 'margin-top:11px' },
     '<b>Closed areas within 3 miles</b><br>' + near.map(function (x) {
       return esc(x.a.n) + ' — ' + esc(x.a.kind === 'all' ? 'all hunting' : 'waterfowl') + ' (' + num(x.d, 1) + ' mi)';
-    }).join('<br>') + h('div', { class: 'tiny', style: 'margin-top:5px' }, 'Locators are approximate. Read the rule before you set up.'));
+    }).join('<br>') + h('div', { class: 'tiny', style: 'margin-top:5px' }, 'Circles are approximate locators; solid outlines are drawn from the rule. Read the rule before you set up.'));
 }
 function nearbyAccess(lat, lon, skip) {
   var near = D.access.map(function (s) { return { s: s, d: haversine(lat, lon, s.lat, s.lon) }; })
@@ -2718,7 +2781,7 @@ function renderSlip() {
 
   if (sel.kind === 'water') {
     var f = sel.feat, t = f.meta[1], ac = f.meta[2] / 10;
-    sub.push(t === 2 ? 'Marsh / swamp' : t === 1 ? 'Reservoir' : t === 3 ? 'Estuary' : 'Lake or pond');
+    sub.push(t === 4 ? 'River or bay' : t === 2 ? 'Marsh / swamp' : t === 1 ? 'Reservoir' : t === 3 ? 'Estuary' : 'Lake or pond');
     if (town) sub.push(town);
     body += h('dl', { class: 'kv' },
       h('dt', null, 'Surface') + h('dd', null, ac >= 1 ? num(ac, ac < 50 ? 1 : 0) + ' acres' : 'under 1 acre') +
@@ -2739,13 +2802,13 @@ function renderSlip() {
     if (s.note) body += h('div', { class: 'note', style: 'margin-top:10px' }, esc(s.note));
     if (s.inv) body += h('div', { class: 'note alert', style: 'margin-top:8px' }, 'Invasive species present — clean, drain and dry your boat, decoys and waders.');
   } else if (sel.kind === 'closed') {
-    var a = sel.area;
+    var a = sel.area, CM = closedMeta(a);
     sub.push(a.town);
     body += h('div', { class: 'note alert' },
       '<b>' + (a.kind === 'all' ? 'Closed to ALL hunting' : 'Closed to waterfowl hunting') + '</b><br>' + esc(a.d));
-    body += h('div', { class: 'note', style: 'margin-top:9px' }, esc(D.closed.warning));
+    body += h('div', { class: 'note', style: 'margin-top:9px' }, esc(CM.warning || ''));
     body += h('div', { class: 'row', style: 'margin-top:9px' },
-      h('a', { class: 'btn ghost', href: D.closed.sourceUrl, target: '_blank', rel: 'noopener' }, 'Official map PDF'));
+      h('a', { class: 'btn ghost', href: CM.sourceUrl, target: '_blank', rel: 'noopener' }, esc(CM.sourceLabel || 'Official map PDF')));
   } else if (sel.kind === 'tide') {
     sub.push('NOAA station ' + sel.id);
     body += tideBlock(lat, lon);
@@ -2761,10 +2824,12 @@ function renderSlip() {
     body += h('dl', { class: 'kv' },
       h('dt', null, 'Size') + h('dd', null, lf.meta[1].toLocaleString() + ' acres') +
       h('dt', null, 'Held by') + h('dd', null, esc(agency)) +
-      h('dt', null, 'Protection') + h('dd', null, esc(level)) +
+      h('dt', null, esc(SRC.landLevelLabel || 'Protection')) + h('dd', { style: /NO HUNTING/.test(level) ? 'color:var(--closed);font-weight:600' : '' }, esc(level)) +
       h('dt', null, 'Zone') + h('dd', null, zoneBadge(z)));
     body += h('div', { class: 'note', style: 'margin-top:10px' },
-      'Conservation status does not by itself mean hunting is allowed, and this layer records no access rule. Check posting at the parcel and the landowner rules before you hunt.');
+      SRC.landLevelLabel
+        ? 'Public access is as the state records it, and does not by itself mean hunting is allowed. Check posting at the parcel and the landowner rules before you hunt.'
+        : 'Conservation status does not by itself mean hunting is allowed, and this layer records no access rule. Check posting at the parcel and the landowner rules before you hunt.');
   } else if (sel.kind === 'refuge') {
     var SR = srcOf(sel.feat);
     var ri = (SR.refuges || []).indexOf(sel.feat);
@@ -2910,7 +2975,7 @@ function applyTheme() {
 }
 function wire() {
   document.addEventListener('click', function (ev) {
-    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],#slipClose,#hSave') : null;
+    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-regstate],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],#slipClose,#hSave') : null;
     if (!t) return;
     var g = function (k) { return t.getAttribute(k); };
     if (g('data-panel')) { S.panel = g('data-panel'); renderRail(); $('#rail').scrollTop = 0; }
@@ -2923,8 +2988,9 @@ function wire() {
     else if (g('data-acc-lvl')) { S.access.lvl = g('data-acc-lvl'); renderRail(); schedule(); }
     else if (g('data-acc-fee')) { S.access.fee = g('data-acc-fee'); renderRail(); schedule(); }
     else if (g('data-site')) { var s = D.access[+g('data-site')]; if (s) { map.setView([s.lat, s.lon], Math.max(map.getZoom(), 13)); select({ kind: 'access', site: s, lat: s.lat, lon: s.lon }); } }
-    else if (g('data-closed')) { var a = D.closed.areas.filter(function (x) { return x.id === +g('data-closed'); })[0]; if (a) { map.setView([a.lat, a.lon], 13); select({ kind: 'closed', area: a, lat: a.lat, lon: a.lon }); } }
-    else if (g('data-refuge')) { var r = D.closed.refuge; map.setView([r.lat, r.lon], 13); select({ kind: 'point', lat: r.lat, lon: r.lon }); }
+    else if (g('data-closed')) { var a = D.closed.areas.filter(function (x) { return x.uid === g('data-closed'); })[0]; if (a) { map.setView([a.lat, a.lon], 13); select({ kind: 'closed', area: a, lat: a.lat, lon: a.lon }); } }
+    else if (g('data-regstate')) { S.state = g('data-regstate'); REGS = regsOf(S.state); store('state', S.state); renderStrip(); renderRail(); }
+    else if (g('data-refuge')) { var rm = D.closed && D.closed.meta[g('data-refuge')], r = rm && rm.refuge; if (r) { map.setView([r.lat, r.lon], 13); select({ kind: 'point', lat: r.lat, lon: r.lon }); } }
     else if (g('data-base')) { setBase(g('data-base')); }
     else if (g('data-goto-refuge')) {
       var rf = D.refuges[+g('data-goto-refuge')];
@@ -3202,6 +3268,7 @@ function buildState(code, files) {
   d.land = tag(unpack(files.publicland.data, 4), code); d.landNames = files.publicland.names;
   d.landAgency = files.publicland.agency || files.publicland.own;
   d.landLevel = files.publicland.level || files.publicland.acc;
+  d.landLevelLabel = files.publicland.levelLabel || '';
   if (files.publicland.ownKeys) { d.ownKeys = files.publicland.ownKeys; d.accKeys = files.publicland.accKeys; }
   d.access = files.access.map(function (a) { a.src = code; return a; });
   d.tides = files.tides;
@@ -3247,9 +3314,9 @@ function mergeShown() {
       .forEach(function (k) { if (src[k] && src[k].length) d[k] = d[k].concat(src[k]); });
     if (src.tides && src.tides.stations) for (var id in src.tides.stations) d.tides.stations[id] = src.tides.stations[id];
     if (src.closed) {
-      if (!d.closed) d.closed = { warning: src.closed.warning, source: src.closed.source,
-                                  sourceUrl: src.closed.sourceUrl, ruleUrl: src.closed.ruleUrl,
-                                  refuge: src.closed.refuge, areas: [] };
+      if (!d.closed) d.closed = { meta: {}, areas: [] };
+      d.closed.meta[c] = src.closed;
+      (src.closed.areas || []).forEach(function (a) { a.src = c; a.uid = c + ':' + a.id; });
       d.closed.areas = d.closed.areas.concat(src.closed.areas || []);
     }
     if (src.habitat) d.habitat.push(src.habitat);
@@ -3298,12 +3365,15 @@ function setShown(codes, first, refit) {
     setDate(saved && saved >= SEASON_START && saved <= SEASON_END ? saved
       : (t >= SEASON_START && t <= SEASON_END ? t : '2026-10-24'));
     if (map && (first || refit)) {
-      syncSize(); map.fitBounds(shownBounds(), { padding: [8, 8] });
-      setTimeout(function () { if (map) { syncSize(); map.fitBounds(shownBounds(), { padding: [8, 8] }); } }, 120);
+      var hv = first ? S.hashView : null;
+      var fit = function () { syncSize(); if (hv) map.setView([hv.lat, hv.lon], hv.z, { animate: false }); else map.fitBounds(shownBounds(), { padding: [8, 8], animate: false }); };
+      fit(); setTimeout(function () { if (map) fit(); }, 120);
+      /* web fonts can resize the header after this; put a linked view back once they settle */
+      if (hv && document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(function () { if (map) fit(); }, 60); });
     }
+    writeHash();
     var at = $('#attrib');
-    if (at) at.textContent = (S.shown.indexOf('ma') >= 0 ? 'MassGIS · MassWildlife · ' : '') +
-      (S.shown.indexOf('nh') >= 0 ? 'NH GRANIT · NH Fish and Game · USFWS · ' : '') + 'NOAA · OpenStreetMap';
+    if (at) at.textContent = S.shown.map(function (c) { return STATES[c].attrib; }).join(' · ') + ' · USFWS · NOAA · OpenStreetMap';
     renderStateBtn(); renderSlip(); renderKey(); renderRail();
     $('#load').hidden = true;
     schedule();
@@ -3319,20 +3389,34 @@ function toggleShown(code) {
   next.sort(function (x, y) { return Object.keys(STATES).indexOf(x) - Object.keys(STATES).indexOf(y); });
   setShown(next, false, true);
 }
+/* shareable links: #map=zoom/lat/lon&s=nh,me — the view and the states shown */
+function readHash() {
+  var h = location.hash || '';
+  var m = /map=([0-9.]+)[/](-?[0-9.]+)[/](-?[0-9.]+)/.exec(h), st = /[#&]s=([a-z,]+)/.exec(h);
+  return { view: m ? { z: +m[1], lat: +m[2], lon: +m[3] } : null,
+           states: st ? st[1].split(',').filter(function (c) { return STATES[c]; }) : null };
+}
+function writeHash() {
+  if (!map) return;
+  var c = map.getCenter(), z = Math.round(map.getZoom() * 10) / 10;
+  try { history.replaceState(null, '', '#map=' + z + '/' + c.lat.toFixed(5) + '/' + c.lng.toFixed(5) + '&s=' + S.shown.join(',')); } catch (e) {}
+}
 function renderStateBtn() {
   var b = $('#stateBtn'); if (!b) return;
   b.innerHTML = Object.keys(STATES).map(function (c) {
     return h('button', { class: 'sw' + (S.shown.indexOf(c) >= 0 ? ' on' : ''), 'data-state': c,
                          title: (S.shown.indexOf(c) >= 0 ? 'Hide ' : 'Show ') + STATES[c].name }, esc(STATES[c].abbr));
   }).join('');
-  b.setAttribute('title', 'Showing ' + S.shown.map(function (c) { return STATES[c].name; }).join(' and '));
+  b.setAttribute('title', 'Showing ' + listAnd(S.shown.map(function (c) { return STATES[c].name; })));
 }
 function boot() {
   applyTheme();
   S.labels = store('labels') !== '0';
   var saved = store('layers');
   if (saved) { try { var o = JSON.parse(saved); for (var k in o) if (k in S.layers) S.layers[k] = !!o[k]; } catch (e) {} }
-  var want = (store('shown') || store('state') || 'nh').split(',').filter(function (c) { return STATES[c]; });
+  var hh = readHash(); S.hashView = hh.view;
+  var hs = hh.states;
+  var want = hs && hs.length ? hs : (store('shown') || store('state') || 'nh').split(',').filter(function (c) { return STATES[c]; });
   setShown(want.length ? want : ['nh'], true);
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();

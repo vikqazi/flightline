@@ -1,125 +1,574 @@
 {
-  "state": "MA",
-  "stateName": "Massachusetts",
-  "season": "2026–27",
-  "updated": "2026-10-27",
-  "sundayClosed": true,
-  "sources": [
-    {"label": "MassWildlife — Migratory game bird hunting regulations (2026–27)", "url": "https://www.mass.gov/info-details/migratory-game-bird-hunting-regulations"},
-    {"label": "MassWildlife — Special hunts (youth, veterans)", "url": "https://www.mass.gov/info-details/migratory-game-bird-hunting-regulations"},
-    {"label": "321 CMR 3.02(2) — Migratory game bird regulations", "url": "https://www.mass.gov/regulations/321-CMR-300-hunting"},
-    {"label": "MassFishHunt — licences and stamps", "url": "https://www.mass.gov/massfishhunt"},
-    {"label": "MassGIS — 1:25,000 USGS/MassDEP hydrography", "url": "https://www.mass.gov/info-details/massgis-data-massdep-hydrography-125000"},
-    {"label": "MassGIS — Office of Fishing and Boating Access sites", "url": "https://www.mass.gov/info-details/massgis-data-office-of-fishing-and-boating-access-facilities"},
-    {"label": "MassGIS — Protected and Recreational OpenSpace", "url": "https://www.mass.gov/info-details/massgis-data-protected-and-recreational-openspace"},
-    {"label": "NOAA tide predictions", "url": "https://tidesandcurrents.noaa.gov/"}
-  ],
-  "zones": {
-    "berkshire": {
-      "name": "Berkshire Zone", "short": "Berkshire",
-      "bounds": "Westward of a line running from the Vermont boundary, southward along I-91 to Route 9, west on Route 9 to Route 10, south on Route 10 to Route 202, and south on Route 202 to the Connecticut line."
-    },
-    "central": {
-      "name": "Central Zone", "short": "Central",
-      "bounds": "That portion of Massachusetts lying between the Berkshire Zone and the Coastal Zone."
-    },
-    "coastal": {
-      "name": "Coastal Zone", "short": "Coastal",
-      "bounds": "Eastward and southward of a boundary line running south from the New Hampshire border along Route I-95 south to Rte. 1, to Rte. I-93, south along I-93 to Rte. 3, south on Rte. 3 to Rte. 6, west on Rte. 6 to Rte. 28, west on Rte. 28 to Rte. I-195, Rte. I-195 west to Rte. 79, Rte. 79 north to Rte. 24, Rte. 24 north to N. Main St., N. Main St. north to Friend St., Friend St. west to Bayview Ave., Bayview Ave. north to Elm St., Elm St. west to Center St., Center St. west to Rte. 138, Rte. 138 south to Riverside Ave., Riverside Ave. south to Walker St., Walker St. south to Rte. I-195, and west on Rte. I-195 to the Rhode Island border.",
-      "note": "North coastal zone, for the late goose seasons only: the portion of the Coastal Zone lying north of the Cape Cod Canal and east of the Sagamore Bridge / Route 3, extending north to the New Hampshire line. During the late Canada goose season that section is open and the rest of the Coastal Zone is closed."
-    }
+ "state": "MA",
+ "stateName": "Massachusetts",
+ "season": "2026–27",
+ "updated": "2026-10-27",
+ "sundayClosed": true,
+ "sources": [
+  {
+   "label": "MassWildlife — Migratory game bird hunting regulations (2026–27)",
+   "url": "https://www.mass.gov/info-details/migratory-game-bird-hunting-regulations"
   },
-  "seasons": [
-    {"sp": "duck", "label": "Ducks, mergansers, sea ducks", "z": {
-      "berkshire": [["2026-10-12","2026-11-28"],["2026-12-14","2027-01-02"]],
-      "central":   [["2026-10-10","2026-11-28"],["2026-12-15","2027-01-02"]],
-      "coastal":   [["2026-10-10","2026-10-17"],["2026-11-27","2027-01-27"]]}},
-    {"sp": "coot", "label": "American coot", "sameAs": "duck"},
-    {"sp": "snow", "label": "Snow geese", "sameAs": "duck"},
-    {"sp": "canadasept", "label": "Canada geese — early", "statewide": [["2026-09-01","2026-09-25"]]},
-    {"sp": "canada", "label": "Canada geese — regular", "z": {
-      "berkshire": [["2026-10-12","2026-11-28"]],
-      "central":   [["2026-10-10","2026-11-28"],["2026-12-15","2027-01-02"]],
-      "coastal":   [["2026-10-10","2026-10-17"],["2026-11-27","2027-01-27"]]}},
-    {"sp": "canadalate", "label": "Canada geese — late", "z": {
-      "berkshire": [["2026-12-15","2027-02-13"]],
-      "central":   [["2027-01-16","2027-02-13"]],
-      "coastal":   [["2027-01-28","2027-02-13"]]},
-      "note": "In the Coastal Zone the late season is North Coastal only — north of the Cape Cod Canal and east of the Sagamore Bridge / Route 3. The rest of the Coastal Zone is closed."},
-    {"sp": "snowlate", "label": "Snow geese — late", "z": {
-      "central":  [["2027-01-16","2027-02-13"]],
-      "coastal":  [["2027-01-28","2027-02-13"]]},
-      "note": "Coastal Zone: North Coastal only."},
-    {"sp": "brant", "label": "Brant", "z": {
-      "coastal": [["2026-11-27","2026-12-31"]]}},
-    {"sp": "woodcock", "label": "American woodcock", "statewide": [["2026-10-01","2026-11-21"]]},
-    {"sp": "sora", "label": "Sora rail", "statewide": [["2026-09-01","2026-11-06"]]},
-    {"sp": "virginiarail", "label": "Virginia rail", "statewide": [["2026-09-01","2026-11-06"]]},
-    {"sp": "snipe", "label": "Snipe", "statewide": [["2026-09-01","2026-12-15"]]},
-    {"sp": "falconry", "label": "Falconry — ducks and coot", "statewide": [["2026-10-10","2027-02-09"]],
-      "note": "Ducks and American coot only, no geese. Closed Sundays."},
-    {"sp": "youth", "label": "Youth Waterfowl Hunt", "statewide": [["2026-09-26","2026-09-26"],["2026-10-03","2026-10-03"]]},
-    {"sp": "vet", "label": "Active Military and Veterans Hunt", "statewide": [["2026-09-26","2026-09-26"],["2026-10-03","2026-10-03"]]}
-  ],
-  "bags": [
-    {"sp": "duck", "daily": "6", "poss": "18", "detail": "The 6-duck daily bag may include no more than 4 sea ducks and no more than 5 mergansers of any species. Note that mergansers count inside the six here, unlike New Hampshire where they are additional. Possession is three times the daily bag."},
-    {"sp": "coot", "daily": "15", "poss": "45", "detail": ""},
-    {"sp": "canadasept", "daily": "15", "poss": "45", "detail": "Early September season, statewide."},
-    {"sp": "canada", "daily": "3 / 2", "poss": "9 / 6", "detail": "3 a day in the Berkshire Zone (9 in possession); 2 a day in the Central and Coastal Zones (6 in possession). New this year: the Berkshire season went from 30 to 45 days and the bag from 1 to 3."},
-    {"sp": "canadalate", "daily": "5", "poss": "15", "detail": "Late season."},
-    {"sp": "snow", "daily": "15", "poss": "45", "detail": "Ross' and blue (snow) geese count in the snow goose limit."},
-    {"sp": "snowlate", "daily": "15", "poss": "45", "detail": ""},
-    {"sp": "brant", "daily": "1", "poss": "3", "detail": "Coastal Zone only."},
-    {"sp": "woodcock", "daily": "3", "poss": "9", "detail": "Non-toxic shot is not required for woodcock."},
-    {"sp": "sora", "daily": "5", "poss": "15", "detail": ""},
-    {"sp": "virginiarail", "daily": "10", "poss": "30", "detail": ""},
-    {"sp": "snipe", "daily": "8", "poss": "24", "detail": "Non-toxic shot is not required for snipe."},
-    {"sp": "falconry", "daily": "3", "poss": "9", "detail": "Ducks and coot only."}
-  ],
-  "duckSublimits": [
-    {"n": "Mallard", "lim": "4", "note": "no more than 2 females"},
-    {"n": "Wood duck", "lim": "3", "note": ""},
-    {"n": "American black duck", "lim": "2", "note": ""},
-    {"n": "Northern pintail", "lim": "1", "note": ""},
-    {"n": "Canvasback", "lim": "2", "note": ""},
-    {"n": "Redhead", "lim": "2", "note": ""},
-    {"n": "Scaup", "lim": "1", "note": "2 in the Coastal Zone, Jan 7–27 only"},
-    {"n": "Scoter", "lim": "3", "note": "counts in the 4 sea ducks"},
-    {"n": "Eider", "lim": "3", "note": "no more than 1 female — counts in the 4 sea ducks"},
-    {"n": "Long-tailed duck", "lim": "3", "note": "counts in the 4 sea ducks"},
-    {"n": "Mergansers", "lim": "5", "note": "any species — counts inside the 6-duck bag"},
-    {"n": "Fulvous whistling duck", "lim": "1", "note": ""},
-    {"n": "Mottled duck", "lim": "1", "note": ""},
-    {"n": "Harlequin duck", "lim": "0", "note": "none may be taken"},
-    {"n": "Any duck not listed", "lim": "6", "note": "green-winged teal, gadwall, wigeon and the rest — to the 6-bird aggregate"}
-  ],
-  "rules": [
-    {"g": "Hours", "t": "No hunting on Sundays", "d": "Hunting is prohibited on Sundays in Massachusetts, statewide, for every species. This map greys out Sundays."},
-    {"g": "Hours", "t": "Shooting hours", "d": "One-half hour before sunrise to sunset. During the early Canada goose season only, hours run from one-half hour before sunrise to one-half hour after sunset."},
-    {"g": "Gear", "t": "Non-toxic shot", "d": "Non-toxic shot up to and including BBB is required for ducks, geese, sea ducks and coot, and no lead shot may be in your possession while hunting them. Non-toxic shot is not required for woodcock, snipe or rails."},
-    {"g": "Gear", "t": "Shotgun limits", "d": "No shotgun larger than 10 gauge, fired from the shoulder. A gun holding more than 3 shells must be plugged with a one-piece filler limiting it to 3, removable only by disassembling the gun."},
-    {"g": "Gear", "t": "Electronic calls are banned", "d": "No pre-recorded calls, sounds or electronic imitations of calls may be used for any migratory game bird. Massachusetts allows no exception for the September goose season."},
-    {"g": "Gear", "t": "Live decoys", "d": "Hunting with live decoys or domesticated fowl is prohibited. Such birds must be removed for 10 consecutive days beforehand and confined where they cannot be seen or heard."},
-    {"g": "Gear", "t": "Other prohibited devices", "d": "Rifle, pistol, air gun, swivel gun, punt gun, battery gun, machine gun, trap, snare, net, fish hook, sinkbox, poison, drug, explosive or stupefying substance. Archery is legal with expanding broadheads; crossbows by permit only for certain permanently disabled hunters."},
-    {"g": "Boats", "t": "Hunting from a boat", "d": "You may not hunt from a motorboat or sailboat unless the motor is completely shut off, sails furled and all progress has ceased. You may retrieve dead or injured birds from a craft under power, and may shoot injured birds from a powered craft in coastal waters seaward of the first upstream bridge."},
-    {"g": "Boats", "t": "Life jackets", "d": "Anyone in a canoe or kayak from September 15 to May 15 must wear a life jacket or vest."},
-    {"g": "Conduct", "t": "Baiting", "d": "Taking migratory game birds by baiting, or hunting over a baited area, is prohibited. An area stays baited for 10 days after the bait is removed, and you do not have to know an area is baited to be in violation."},
-    {"g": "Conduct", "t": "Driving birds", "d": "No herding or driving of migratory game birds with a motor vehicle, aircraft, motorboat or sailboat."},
-    {"g": "Conduct", "t": "Wanton waste", "d": "A reasonable effort is required to retrieve every bird killed or crippled. Wounded birds must be killed at once and counted in your daily bag."},
-    {"g": "Conduct", "t": "Dogs", "d": "Dogs may be used for migratory game birds, but during the shotgun deer seasons, including the Youth Deer Hunt, only on coastal waters and salt marshes."},
-    {"g": "Conduct", "t": "Blaze orange", "d": "Not generally required for waterfowl, with two exceptions: an orange hat in WMAs stocked with pheasant or quail during that season, and a blaze orange hat and vest in transit to your blind or boat during the Shotgun Deer Season and the Youth Deer Hunt — it may come off once you are in the blind or boat."},
-    {"g": "Conduct", "t": "Tagging and transport", "d": "Birds not in your custody must be tagged with your signature, address, the number of birds by species and the dates taken. The head and one fully-feathered wing must stay attached to each bird while it is transported home. Shipped packages must be marked with sender, recipient and the number of birds by species."},
-    {"g": "Conduct", "t": "Reporting", "d": "Migratory birds do not need to be reported. Banded birds should be reported at reportband.gov."},
-    {"g": "Special", "t": "Youth Waterfowl Hunt", "d": "September 26 and October 3, 2026. Only hunters aged 12–17 may hunt ducks, coots, mergansers and geese on those days. Each youth must be accompanied by a licensed adult holding a valid Massachusetts waterfowl stamp. One firearm only; the adult may not hunt and may carry a firearm only unloaded and cased."},
-    {"g": "Special", "t": "Active Military and Veterans Hunt", "d": "September 26 and October 3, 2026, statewide, for members of the Armed Forces on active duty — including National Guard and Reserve on active duty other than for training — and for veterans as defined in section 101 of title 38, U.S. Code. Proof of eligibility must be carried while hunting."}
-  ],
-  "licences": [
-    {"t": "Hunting or sporting licence", "who": "Residents", "d": "Plus a Massachusetts waterfowl stamp and, at 16 and over, a federal duck stamp. Bought through MassFishHunt."},
-    {"t": "Big game or small game licence", "who": "Non-residents", "d": "Plus a Massachusetts waterfowl stamp and, at 16 and over, a federal duck stamp."},
-    {"t": "Massachusetts waterfowl stamp", "who": "Duck, sea duck, goose and brant hunters", "d": "Buying it registers you with HIP automatically."},
-    {"t": "Federal duck stamp", "who": "Age 16+", "d": "Required for ducks, geese and brant. State licences and stamps run January 1 to December 31, but the federal duck stamp runs July 1 to June 30."},
-    {"t": "HIP registration", "who": "Every migratory bird hunter", "d": "Register every year by taking the HIP survey if you intend to hunt woodcock, snipe, coots, rails, ducks or geese."},
-    {"t": "Youth requirements", "who": "Under 18", "d": "Ages 12–14 need none of the three. Age 15 needs a minor hunting licence and a state waterfowl stamp. Ages 16–17 need the minor licence, the state stamp and a federal duck stamp."},
-    {"t": "Other migratory birds", "who": "Woodcock, snipe, coot, rails", "d": "Residents need only a hunting or sporting licence; non-residents a big game or small game licence. No waterfowl stamp or federal duck stamp."}
-  ]
+  {
+   "label": "MassWildlife — Special hunts (youth, veterans)",
+   "url": "https://www.mass.gov/info-details/migratory-game-bird-hunting-regulations"
+  },
+  {
+   "label": "321 CMR 3.02(2) — Migratory game bird regulations",
+   "url": "https://www.mass.gov/regulations/321-CMR-300-hunting"
+  },
+  {
+   "label": "MassFishHunt — licences and stamps",
+   "url": "https://www.mass.gov/massfishhunt"
+  },
+  {
+   "label": "MassGIS — 1:25,000 USGS/MassDEP hydrography",
+   "url": "https://www.mass.gov/info-details/massgis-data-massdep-hydrography-125000"
+  },
+  {
+   "label": "MassGIS — Office of Fishing and Boating Access sites",
+   "url": "https://www.mass.gov/info-details/massgis-data-office-of-fishing-and-boating-access-facilities"
+  },
+  {
+   "label": "MassGIS — Protected and Recreational OpenSpace",
+   "url": "https://www.mass.gov/info-details/massgis-data-protected-and-recreational-openspace"
+  },
+  {
+   "label": "NOAA tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "berkshire": {
+   "name": "Berkshire Zone",
+   "short": "Berkshire",
+   "bounds": "Westward of a line running from the Vermont boundary, southward along I-91 to Route 9, west on Route 9 to Route 10, south on Route 10 to Route 202, and south on Route 202 to the Connecticut line."
+  },
+  "central": {
+   "name": "Central Zone",
+   "short": "Central",
+   "bounds": "That portion of Massachusetts lying between the Berkshire Zone and the Coastal Zone."
+  },
+  "coastal": {
+   "name": "Coastal Zone",
+   "short": "Coastal",
+   "bounds": "Eastward and southward of a boundary line running south from the New Hampshire border along Route I-95 south to Rte. 1, to Rte. I-93, south along I-93 to Rte. 3, south on Rte. 3 to Rte. 6, west on Rte. 6 to Rte. 28, west on Rte. 28 to Rte. I-195, Rte. I-195 west to Rte. 79, Rte. 79 north to Rte. 24, Rte. 24 north to N. Main St., N. Main St. north to Friend St., Friend St. west to Bayview Ave., Bayview Ave. north to Elm St., Elm St. west to Center St., Center St. west to Rte. 138, Rte. 138 south to Riverside Ave., Riverside Ave. south to Walker St., Walker St. south to Rte. I-195, and west on Rte. I-195 to the Rhode Island border.",
+   "note": "North coastal zone, for the late goose seasons only: the portion of the Coastal Zone lying north of the Cape Cod Canal and east of the Sagamore Bridge / Route 3, extending north to the New Hampshire line. During the late Canada goose season that section is open and the rest of the Coastal Zone is closed."
+  }
+ },
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks, mergansers, sea ducks",
+   "z": {
+    "berkshire": [
+     [
+      "2026-10-12",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-14",
+      "2027-01-02"
+     ]
+    ],
+    "central": [
+     [
+      "2026-10-10",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-02"
+     ]
+    ],
+    "coastal": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-27",
+      "2027-01-27"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "coot",
+   "label": "American coot",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-25"
+    ]
+   ]
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "berkshire": [
+     [
+      "2026-10-12",
+      "2026-11-28"
+     ]
+    ],
+    "central": [
+     [
+      "2026-10-10",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-02"
+     ]
+    ],
+    "coastal": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-27",
+      "2027-01-27"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "canadalate",
+   "label": "Canada geese — late",
+   "z": {
+    "berkshire": [
+     [
+      "2026-12-15",
+      "2027-02-13"
+     ]
+    ],
+    "central": [
+     [
+      "2027-01-16",
+      "2027-02-13"
+     ]
+    ],
+    "coastal": [
+     [
+      "2027-01-28",
+      "2027-02-13"
+     ]
+    ]
+   },
+   "note": "In the Coastal Zone the late season is North Coastal only — north of the Cape Cod Canal and east of the Sagamore Bridge / Route 3. The rest of the Coastal Zone is closed."
+  },
+  {
+   "sp": "snowlate",
+   "label": "Snow geese — late",
+   "z": {
+    "central": [
+     [
+      "2027-01-16",
+      "2027-02-13"
+     ]
+    ],
+    "coastal": [
+     [
+      "2027-01-28",
+      "2027-02-13"
+     ]
+    ]
+   },
+   "note": "Coastal Zone: North Coastal only."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "z": {
+    "coastal": [
+     [
+      "2026-11-27",
+      "2026-12-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-01",
+     "2026-11-21"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora rail",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-06"
+    ]
+   ]
+  },
+  {
+   "sp": "virginiarail",
+   "label": "Virginia rail",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-06"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-15"
+    ]
+   ]
+  },
+  {
+   "sp": "falconry",
+   "label": "Falconry — ducks and coot",
+   "statewide": [
+    [
+     "2026-10-10",
+     "2027-02-09"
+    ]
+   ],
+   "note": "Ducks and American coot only, no geese. Closed Sundays."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth Waterfowl Hunt",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-09-26"
+    ],
+    [
+     "2026-10-03",
+     "2026-10-03"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Active Military and Veterans Hunt",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-09-26"
+    ],
+    [
+     "2026-10-03",
+     "2026-10-03"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "The 6-duck daily bag may include no more than 4 sea ducks and no more than 5 mergansers of any species. Note that mergansers count inside the six here, unlike New Hampshire where they are additional. Possession is three times the daily bag."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Early September season, statewide."
+  },
+  {
+   "sp": "canada",
+   "daily": "3 / 2",
+   "poss": "9 / 6",
+   "detail": "3 a day in the Berkshire Zone (9 in possession); 2 a day in the Central and Coastal Zones (6 in possession). New this year: the Berkshire season went from 30 to 45 days and the bag from 1 to 3."
+  },
+  {
+   "sp": "canadalate",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Late season."
+  },
+  {
+   "sp": "snow",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Ross' and blue (snow) geese count in the snow goose limit."
+  },
+  {
+   "sp": "snowlate",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": "Coastal Zone only."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Non-toxic shot is not required for woodcock."
+  },
+  {
+   "sp": "sora",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "virginiarail",
+   "daily": "10",
+   "poss": "30",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Non-toxic shot is not required for snipe."
+  },
+  {
+   "sp": "falconry",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Ducks and coot only."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 females"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": "2 in the Coastal Zone, Jan 7–27 only"
+  },
+  {
+   "n": "Scoter",
+   "lim": "3",
+   "note": "counts in the 4 sea ducks"
+  },
+  {
+   "n": "Eider",
+   "lim": "3",
+   "note": "no more than 1 female — counts in the 4 sea ducks"
+  },
+  {
+   "n": "Long-tailed duck",
+   "lim": "3",
+   "note": "counts in the 4 sea ducks"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "any species — counts inside the 6-duck bag"
+  },
+  {
+   "n": "Fulvous whistling duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "none may be taken"
+  },
+  {
+   "n": "Any duck not listed",
+   "lim": "6",
+   "note": "green-winged teal, gadwall, wigeon and the rest — to the 6-bird aggregate"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "No hunting on Sundays",
+   "d": "Hunting is prohibited on Sundays in Massachusetts, statewide, for every species. This map greys out Sundays."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset. During the early Canada goose season only, hours run from one-half hour before sunrise to one-half hour after sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Non-toxic shot up to and including BBB is required for ducks, geese, sea ducks and coot, and no lead shot may be in your possession while hunting them. Non-toxic shot is not required for woodcock, snipe or rails."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No shotgun larger than 10 gauge, fired from the shoulder. A gun holding more than 3 shells must be plugged with a one-piece filler limiting it to 3, removable only by disassembling the gun."
+  },
+  {
+   "g": "Gear",
+   "t": "Electronic calls are banned",
+   "d": "No pre-recorded calls, sounds or electronic imitations of calls may be used for any migratory game bird. Massachusetts allows no exception for the September goose season."
+  },
+  {
+   "g": "Gear",
+   "t": "Live decoys",
+   "d": "Hunting with live decoys or domesticated fowl is prohibited. Such birds must be removed for 10 consecutive days beforehand and confined where they cannot be seen or heard."
+  },
+  {
+   "g": "Gear",
+   "t": "Other prohibited devices",
+   "d": "Rifle, pistol, air gun, swivel gun, punt gun, battery gun, machine gun, trap, snare, net, fish hook, sinkbox, poison, drug, explosive or stupefying substance. Archery is legal with expanding broadheads; crossbows by permit only for certain permanently disabled hunters."
+  },
+  {
+   "g": "Boats",
+   "t": "Hunting from a boat",
+   "d": "You may not hunt from a motorboat or sailboat unless the motor is completely shut off, sails furled and all progress has ceased. You may retrieve dead or injured birds from a craft under power, and may shoot injured birds from a powered craft in coastal waters seaward of the first upstream bridge."
+  },
+  {
+   "g": "Boats",
+   "t": "Life jackets",
+   "d": "Anyone in a canoe or kayak from September 15 to May 15 must wear a life jacket or vest."
+  },
+  {
+   "g": "Conduct",
+   "t": "Baiting",
+   "d": "Taking migratory game birds by baiting, or hunting over a baited area, is prohibited. An area stays baited for 10 days after the bait is removed, and you do not have to know an area is baited to be in violation."
+  },
+  {
+   "g": "Conduct",
+   "t": "Driving birds",
+   "d": "No herding or driving of migratory game birds with a motor vehicle, aircraft, motorboat or sailboat."
+  },
+  {
+   "g": "Conduct",
+   "t": "Wanton waste",
+   "d": "A reasonable effort is required to retrieve every bird killed or crippled. Wounded birds must be killed at once and counted in your daily bag."
+  },
+  {
+   "g": "Conduct",
+   "t": "Dogs",
+   "d": "Dogs may be used for migratory game birds, but during the shotgun deer seasons, including the Youth Deer Hunt, only on coastal waters and salt marshes."
+  },
+  {
+   "g": "Conduct",
+   "t": "Blaze orange",
+   "d": "Not generally required for waterfowl, with two exceptions: an orange hat in WMAs stocked with pheasant or quail during that season, and a blaze orange hat and vest in transit to your blind or boat during the Shotgun Deer Season and the Youth Deer Hunt — it may come off once you are in the blind or boat."
+  },
+  {
+   "g": "Conduct",
+   "t": "Tagging and transport",
+   "d": "Birds not in your custody must be tagged with your signature, address, the number of birds by species and the dates taken. The head and one fully-feathered wing must stay attached to each bird while it is transported home. Shipped packages must be marked with sender, recipient and the number of birds by species."
+  },
+  {
+   "g": "Conduct",
+   "t": "Reporting",
+   "d": "Migratory birds do not need to be reported. Banded birds should be reported at reportband.gov."
+  },
+  {
+   "g": "Special",
+   "t": "Youth Waterfowl Hunt",
+   "d": "September 26 and October 3, 2026. Only hunters aged 12–17 may hunt ducks, coots, mergansers and geese on those days. Each youth must be accompanied by a licensed adult holding a valid Massachusetts waterfowl stamp. One firearm only; the adult may not hunt and may carry a firearm only unloaded and cased."
+  },
+  {
+   "g": "Special",
+   "t": "Active Military and Veterans Hunt",
+   "d": "September 26 and October 3, 2026, statewide, for members of the Armed Forces on active duty — including National Guard and Reserve on active duty other than for training — and for veterans as defined in section 101 of title 38, U.S. Code. Proof of eligibility must be carried while hunting."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Hunting or sporting licence",
+   "who": "Residents",
+   "d": "Plus a Massachusetts waterfowl stamp and, at 16 and over, a federal duck stamp. Bought through MassFishHunt."
+  },
+  {
+   "t": "Big game or small game licence",
+   "who": "Non-residents",
+   "d": "Plus a Massachusetts waterfowl stamp and, at 16 and over, a federal duck stamp."
+  },
+  {
+   "t": "Massachusetts waterfowl stamp",
+   "who": "Duck, sea duck, goose and brant hunters",
+   "d": "Buying it registers you with HIP automatically."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Age 16+",
+   "d": "Required for ducks, geese and brant. State licences and stamps run January 1 to December 31, but the federal duck stamp runs July 1 to June 30."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter",
+   "d": "Register every year by taking the HIP survey if you intend to hunt woodcock, snipe, coots, rails, ducks or geese."
+  },
+  {
+   "t": "Youth requirements",
+   "who": "Under 18",
+   "d": "Ages 12–14 need none of the three. Age 15 needs a minor hunting licence and a state waterfowl stamp. Ages 16–17 need the minor licence, the state stamp and a federal duck stamp."
+  },
+  {
+   "t": "Other migratory birds",
+   "who": "Woodcock, snipe, coot, rails",
+   "d": "Residents need only a hunting or sporting licence; non-residents a big game or small game licence. No waterfowl stamp or federal duck stamp."
+  }
+ ],
+ "geometryNote": "Geometry: MassGIS (1:25,000 hydrography, fishing and boating access sites, protected and recreational open space, municipalities), US Census TIGER (state outline), OpenStreetMap (highways and the roads the zone lines follow), NOAA CO-OPS (tides). Zones are routed along the roads named in the MassWildlife boundary descriptions; one exception, the short street-level jog through Taunton and Somerset on the Coastal boundary, is approximated along numbered routes.",
+ "closedNote": "Massachusetts does not publish a single statewide list of waters closed to waterfowl. Closures are set per property — wildlife management areas, refuges, town rules and posted land — so check the property you plan to hunt.",
+ "closedUrl": "https://www.mass.gov/info-details/migratory-game-bird-hunting-regulations",
+ "closedUrlLabel": "MassWildlife regulations"
 }

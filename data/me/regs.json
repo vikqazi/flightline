@@ -1,0 +1,614 @@
+{
+ "state": "ME",
+ "stateName": "Maine",
+ "season": "2026–27",
+ "updated": "2026-10-28",
+ "sundayClosed": true,
+ "sources": [
+  {
+   "label": "MDIFW — Migratory game birds: 2026–27 seasons, limits and rules",
+   "url": "https://www.maine.gov/ifw/hunting-trapping/hunting/laws-rules/migratory-gamebirds.html"
+  },
+  {
+   "label": "Maine rulemaking notice, Chapter 16.11 (2026–27) — the zone line change",
+   "url": "https://www1.maine.gov/ifw/docs/Migratory%20bird%20seasons%2026_27%20NARP.pdf"
+  },
+  {
+   "label": "MDIFW — Maine Waterfowl Hunting Zones GIS (pre-2026 line; Coastal Zone used as published)",
+   "url": "https://mdifw-data-maine.hub.arcgis.com/datasets/maine::maine-waterfowl-hunting-zones"
+  },
+  {
+   "label": "OpenStreetMap — road geometry for the 2026–27 North/South line",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — lakes, marshes, wide rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "Maine GeoLibrary — boat launches",
+   "url": "https://services1.arcgis.com/RbMX0mRVOFNTdLzd/ArcGIS/rest/services/Maine_GeoLibrary_Structure/FeatureServer/1"
+  },
+  {
+   "label": "Maine Coastal Program — public access sites (April 2026)",
+   "url": "https://services1.arcgis.com/RbMX0mRVOFNTdLzd/ArcGIS/rest/services/Maine_Coastal_Public_Access_Sites_April_2026/FeatureServer/74"
+  },
+  {
+   "label": "Maine Conserved Lands",
+   "url": "https://services1.arcgis.com/RbMX0mRVOFNTdLzd/ArcGIS/rest/services/Maine_Conserved_Lands_All/FeatureServer/0"
+  },
+  {
+   "label": "NOAA tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "north": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North of a line starting at the Maine/New Hampshire border in Gilead at the North Road (44.394417° N, 71.016260° W), east along the North Road, north of the Androscoggin River, to Route 2 in Bethel; east on Route 2 to Route 7 in Newport; south on Route 7 to I-95 (Exit 157); northeast on I-95 to I-395 in Bangor; east on I-395 to Route 15B in Brewer; north on Route 15B to Route 178; northeast on Route 178 to Route 9B; east on Route 9B to Route 9 in Eddington; east on Route 9 to Stony Brook in Baileyville; east along Stony Brook to the New Brunswick border.",
+   "note": "New for 2026–27: Maine moved the western North/South line north to Route 2 (Newport to Bethel) and the North Road in Gilead, and re-routed it through the Brewer I-395 bypass. About 6,500 km² of western and central Maine moved from the North Zone to the South Zone, and downtown Bangor moved into the North Zone. Maine’s printable zone map and its GIS layer still show the old line through Augusta, Auburn and Newfield — this map follows the adopted rule text, and draws the old line dotted grey for comparison."
+  },
+  "south": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "Between the North/South line and the Coastal Zone line (Route 1).",
+   "note": "New for 2026–27: Maine moved the western North/South line north to Route 2 (Newport to Bethel) and the North Road in Gilead, and re-routed it through the Brewer I-395 bypass. About 6,500 km² of western and central Maine moved from the North Zone to the South Zone, and downtown Bangor moved into the North Zone. Maine’s printable zone map and its GIS layer still show the old line through Augusta, Auburn and Newfield — this map follows the adopted rule text, and draws the old line dotted grey for comparison."
+  },
+  "coastal": {
+   "name": "Coastal Zone",
+   "short": "Coastal",
+   "bounds": "South of a line beginning at the Maine–New Brunswick border in Calais at the Route 1 bridge, south along Route 1 to the Maine–New Hampshire border in Kittery."
+  }
+ },
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "north": [
+     [
+      "2026-09-28",
+      "2026-12-05"
+     ]
+    ],
+    "south": [
+     [
+      "2026-10-01",
+      "2026-10-10"
+     ],
+     [
+      "2026-10-29",
+      "2026-12-26"
+     ]
+    ],
+    "coastal": [
+     [
+      "2026-10-03",
+      "2026-10-10"
+     ],
+     [
+      "2026-11-05",
+      "2027-01-05"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "Maine has no separate sea duck season — scoters, eiders and long-tailed ducks follow the regular duck season in each zone."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-25"
+    ]
+   ]
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "north": [
+     [
+      "2026-10-01",
+      "2026-12-09"
+     ]
+    ],
+    "south": [
+     [
+      "2026-10-01",
+      "2026-10-10"
+     ],
+     [
+      "2026-10-29",
+      "2026-12-26"
+     ]
+    ],
+    "coastal": [
+     [
+      "2026-10-03",
+      "2026-10-10"
+     ],
+     [
+      "2026-10-24",
+      "2027-01-05"
+     ]
+    ]
+   },
+   "note": "White-fronted geese share this season and limit."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "statewide": [
+    [
+     "2026-10-01",
+     "2027-01-30"
+    ]
+   ],
+   "note": "Blue geese count as snow geese."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "z": {
+    "north": [
+     [
+      "2026-09-28",
+      "2026-10-31"
+     ]
+    ],
+    "south": [
+     [
+      "2026-10-01",
+      "2026-10-10"
+     ],
+     [
+      "2026-10-29",
+      "2026-11-21"
+     ]
+    ],
+    "coastal": [
+     [
+      "2026-10-03",
+      "2026-10-10"
+     ],
+     [
+      "2026-12-10",
+      "2027-01-05"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-11-17"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2027-01-02"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora rail",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ]
+  },
+  {
+   "sp": "virginiarail",
+   "label": "Virginia rail",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ]
+  },
+  {
+   "sp": "crow",
+   "label": "Crows",
+   "statewide": [
+    [
+     "2026-08-01",
+     "2026-09-19"
+    ],
+    [
+     "2027-01-30",
+     "2027-03-31"
+    ]
+   ],
+   "note": "Spring dates differ by Wildlife Management District: WMDs 1–6 run January 30 to April 15, WMDs 7–29 run January 15 to March 31. This map shows only the days open in every district."
+  },
+  {
+   "sp": "falconry",
+   "label": "Falconry — ducks, mergansers, coots",
+   "z": {
+    "north": [
+     [
+      "2026-12-15",
+      "2027-02-04"
+     ]
+    ],
+    "south": [
+     [
+      "2027-01-07",
+      "2027-02-27"
+     ]
+    ],
+    "coastal": [
+     [
+      "2027-01-07",
+      "2027-02-27"
+     ]
+    ]
+   },
+   "note": "In addition to the regular season. Species restrictions apply."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "north": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-12-12",
+      "2026-12-12"
+     ]
+    ],
+    "south": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-10-17",
+      "2026-10-17"
+     ]
+    ],
+    "coastal": [
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ],
+     [
+      "2026-10-17",
+      "2026-10-17"
+     ]
+    ]
+   }
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks a day in the aggregate, inside which the species limits below apply. Mergansers and coots are in addition to the six. Maine’s rule also caps every duck species not listed as an exception at 4 a day (12 in possession)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Common, red-breasted and hooded, in the aggregate — in addition to the 6-duck bag. Unlike Massachusetts, where mergansers count inside the six."
+  },
+  {
+   "sp": "coot",
+   "daily": "5",
+   "poss": "15",
+   "detail": "In addition to the 6-duck bag."
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Scoters, eiders and long-tailed ducks: 4 in total, no more than 3 of any one species (9 in possession), inside the 6-duck bag. Eiders: 2 a day, no more than 1 hen; possession 6 eiders, 3 of them hens."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "8 / 10",
+   "poss": "24 / 30",
+   "detail": "8 a day in the North Zone (24 in possession); 10 a day in the South and Coastal Zones (30 in possession)."
+  },
+  {
+   "sp": "canada",
+   "daily": "2 / 3",
+   "poss": "6 / 9",
+   "detail": "2 a day in the North and South Zones (6 in possession); 3 a day in the Coastal Zone (9 in possession). White-fronted geese share this season and limit."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "—",
+   "detail": "Blue geese count as snow geese. No possession limit is listed."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Lead shot is allowed for woodcock and snipe; a gun holding more than 3 shells is not."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Lead shot is allowed."
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "—",
+   "detail": "Sora and Virginia rails, 25 a day singly or in aggregate. Non-toxic shot required."
+  },
+  {
+   "sp": "virginiarail",
+   "daily": "25",
+   "poss": "—",
+   "detail": "Counts with sora in the 25-bird aggregate."
+  },
+  {
+   "sp": "crow",
+   "daily": "No limit",
+   "poss": "—",
+   "detail": "Crows are not migratory game birds: lead shot, guns holding more than 3 shells and electronic calls are all allowed, and no waterfowl stamp is needed."
+  },
+  {
+   "sp": "falconry",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Singly or in aggregate; species restrictions apply."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens — possession 12, no more than 6 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": "9 in possession"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": "9 in possession"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": "3 in possession"
+  },
+  {
+   "n": "Eider",
+   "lim": "2",
+   "note": "no more than 1 hen — counts in the 4 sea ducks"
+  },
+  {
+   "n": "Scoter",
+   "lim": "3",
+   "note": "counts in the 4 sea ducks"
+  },
+  {
+   "n": "Long-tailed duck",
+   "lim": "3",
+   "note": "counts in the 4 sea ducks"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "any species — in addition to the 6-duck bag"
+  },
+  {
+   "n": "Fulvous whistling duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed season"
+  },
+  {
+   "n": "Barrow’s goldeneye",
+   "lim": "0",
+   "note": "closed — threatened in Maine; report one taken by mistake to a game warden, no penalty"
+  },
+  {
+   "n": "Any duck not listed",
+   "lim": "4",
+   "note": "per species, inside the 6-bird aggregate (12 in possession)"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "No hunting on Sundays",
+   "d": "Hunting is prohibited on Sunday in Maine. Every season date is inclusive except Sundays. This map greys out Sundays."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset, daily, for all migratory game birds."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Using or possessing anything but approved non-toxic shot is prohibited while hunting ducks, geese, brant, rails or coots. Lead is allowed for woodcock, snipe and crows."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No larger than 10 gauge, fired from the shoulder, and incapable of holding more than three shells — plugged with a one-piece filler removable only by disassembling the gun. Archery, crossbow and falconry are also legal."
+  },
+  {
+   "g": "Gear",
+   "t": "Electronic calls are banned",
+   "d": "Only manually or mouth-operated calls. Electronic calling devices are illegal for migratory game birds; crows are the one exception."
+  },
+  {
+   "g": "Gear",
+   "t": "Live decoys",
+   "d": "Live decoys are prohibited. Tame or captive ducks and geese must be removed for 10 consecutive days beforehand and confined where they can be neither seen nor heard."
+  },
+  {
+   "g": "Gear",
+   "t": "Other prohibited devices",
+   "d": "Trap, snare, net, rifle, pistol, swivel gun, punt gun, battery gun, machine gun, fishhook, poison, drug, explosive or stupefying substance, and sinkboxes."
+  },
+  {
+   "g": "Boats",
+   "t": "Hunting from a boat",
+   "d": "Legal from any floating craft except a sinkbox, but only once the motor is completely off and sails furled and the craft has stopped — drifting, beached, moored, anchored, or moved only by paddle, oars or pole. A motor may be used to pick up dead or injured birds."
+  },
+  {
+   "g": "Boats",
+   "t": "Crippled birds under power",
+   "d": "Shooting crippled waterfowl from a motorboat under power is allowed only on coastal waters, and on rivers and streams seaward of the first upstream bridge."
+  },
+  {
+   "g": "Conduct",
+   "t": "Baiting",
+   "d": "No hunting by the aid of bait or over a baited area where you know or reasonably should know it is baited. Standing or flooded crops, natural vegetation and normal agricultural practices are not bait."
+  },
+  {
+   "g": "Conduct",
+   "t": "Driving birds",
+   "d": "No using a motor vehicle, aircraft, motorboat or sailboat to concentrate, drive, rally or stir up migratory birds."
+  },
+  {
+   "g": "Conduct",
+   "t": "Wanton waste",
+   "d": "Make a reasonable effort to retrieve every bird you kill or cripple. A wounded bird reduced to possession must be killed at once and counts in your bag. Maine law also bars leaving a killed or wounded bird without trying to retrieve it."
+  },
+  {
+   "g": "Conduct",
+   "t": "Other hunters’ decoys",
+   "d": "It is unlawful to shoot at, or near, another person’s decoys — anywhere within the set or within 50 yards of its outer edge."
+  },
+  {
+   "g": "Conduct",
+   "t": "Field possession limit",
+   "d": "No more than one daily bag limit in the field, or while returning from it to your car, camp or home."
+  },
+  {
+   "g": "Conduct",
+   "t": "Tagging and transport",
+   "d": "Birds left with anyone else must carry a tag signed with your address, the number and kinds of birds and the date taken. One fully-feathered wing must stay on each bird in transit."
+  },
+  {
+   "g": "Special",
+   "t": "Merrymeeting Bay",
+   "d": "From the high-tension wires at Chops Point to the first dam on the Androscoggin and the first road bridges on the Muddy, Cathance, Abagadasset and Eastern rivers and the Richmond–Dresden bridge: no stationary blinds and no decoys may be left in the water from one hour after to one hour before legal shooting time, and power boats are limited to 10 mph outside the buoyed channels."
+  },
+  {
+   "g": "Special",
+   "t": "Merrymeeting Bay Game Sanctuary",
+   "d": "No hunting inside the sanctuary, marked by orange buoys east of the mouth of the Abagadasset, south of Browns Point in Bowdoinham. Motorboats are allowed only between the Woolwich shore and the line of orange markers along the marsh edge."
+  },
+  {
+   "g": "Special",
+   "t": "Haley Pond",
+   "d": "Closed to waterfowl hunting — Rangeley and Dallas Plantation, Franklin County."
+  },
+  {
+   "g": "Special",
+   "t": "Youth Waterfowl Hunt",
+   "d": "North Zone September 19 and December 12; South Zone September 19 and October 17; Coastal Zone September 26 and October 17, 2026. Special rules apply to the youth and the accompanying adult. A footnote on the state page still names September 27, October 18 and December 13 — Sundays in 2026, when hunting is prohibited — so this map follows the season table."
+  },
+  {
+   "g": "Special",
+   "t": "Barrow’s goldeneye",
+   "d": "Closed season and threatened in Maine. Barrow’s look very like common goldeneyes; report and surrender any taken by mistake to a game warden — there is no penalty for reporting."
+  },
+  {
+   "g": "Special",
+   "t": "Zone line change for 2026–27",
+   "d": "New for 2026–27: Maine moved the western North/South line north to Route 2 (Newport to Bethel) and the North Road in Gilead, and re-routed it through the Brewer I-395 bypass. About 6,500 km² of western and central Maine moved from the North Zone to the South Zone, and downtown Bangor moved into the North Zone. Maine’s printable zone map and its GIS layer still show the old line through Augusta, Auburn and Newfield — this map follows the adopted rule text, and draws the old line dotted grey for comparison."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Maine hunting licence",
+   "who": "Residents and non-residents",
+   "d": "Declare your intent to hunt migratory birds when you buy it (HIP). Plus the permit and stamp below."
+  },
+  {
+   "t": "Maine migratory waterfowl permit",
+   "who": "Age 16+ on an adult licence",
+   "d": "$7.50 from agents, mefishwildlife.com or MDIFW in Augusta. Not needed while you keep hunting on a junior licence for the rest of that calendar year, and not needed for woodcock, snipe, rails or crows."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Age 16+",
+   "d": "Anyone who has turned 16, on an adult or a junior licence, must carry one signed in ink across its face. Post office, USPS.com, or an e-stamp at duckstamp.com."
+  },
+  {
+   "t": "HIP",
+   "who": "Every migratory bird hunter",
+   "d": "Required for woodcock, ducks, geese, snipe, rails and coots — indicated on your licence when you buy it."
+  }
+ ],
+ "geometryNote": "Geometry: MDIFW (the Coastal Zone polygon), OpenStreetMap (the 2026–27 North/South line, rebuilt from the adopted rule), Maine E911 road centerlines (highways), USGS NHD (lakes, marshes, wide rivers and bays, streams), Maine Conserved Lands, Maine GeoLibrary and Maine Coastal Program (boat access), Maine town boundaries, USFWS NWI (marsh, for the habitat surface), NOAA CO-OPS (tides)."
+}

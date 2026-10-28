@@ -1,118 +1,527 @@
 {
-  "season": "2026–27",
-  "updated": "2026-10-24",
-  "sources": [
-    {"label": "NH Fish and Game — 2026–27 seasons announcement (May 8, 2026)", "url": "https://nhfishgame.com/2026/05/08/new-hampshires-2026-2027-migratory-waterfowl-hunting-seasons-are-now-set/"},
-    {"label": "NH Fish and Game — Waterfowl Hunting Zones (boundary descriptions)", "url": "https://www.wildlife.nh.gov/hunting-nh/waterfowl-and-migratory-bird-hunting-new-hampshire/waterfowl-hunting-zones"},
-    {"label": "NH Fish and Game — Waterfowl and Migratory Bird Hunting", "url": "https://www.wildlife.nh.gov/hunting-nh/waterfowl-and-migratory-bird-hunting-new-hampshire"},
-    {"label": "Seasons and bag limits table (eRegulations)", "url": "https://www.eregulations.com/newhampshire/hunting/waterfowl-migratory-bird-hunting-seasons-bag-limits"},
-    {"label": "Migratory bird regulations (eRegulations)", "url": "https://www.eregulations.com/newhampshire/hunting/waterfowl-migratory-bird-hunting-regulations"},
-    {"label": "Areas Closed to Hunting — official PDF", "url": "https://www.wildlife.nh.gov/sites/g/files/ehbemt746/files/documents/closed-to-hunting.pdf"},
-    {"label": "Fis 306.01 Areas Closed to Hunting — rule text", "url": "https://www.law.cornell.edu/regulations/new-hampshire/N-H-Admin-Code-SS-Fis-306.01"},
-    {"label": "Great Bay National Wildlife Refuge — hunting", "url": "https://www.fws.gov/refuge/great-bay/visit-us/activities/hunting"},
-    {"label": "Great Bay NWR — waterfowl hunt map (PDF)", "url": "https://www.fws.gov/sites/default/files/documents/Great%20Bay%20Waterfowl%20Hunt%20Map_0.pdf"},
-    {"label": "Public water access sites — NH GRANIT", "url": "https://www.nhgeodata.unh.edu/datasets/NHGRANIT::nh-access-sites-to-public-waters/explore"},
-    {"label": "NOAA tide predictions", "url": "https://tidesandcurrents.noaa.gov/"},
-    {"label": "NH lake bathymetry maps", "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/nh-bathymetry-maps"},
-    {"label": "NH Fish and Game — Where to Hunt", "url": "https://www.wildlife.nh.gov/hunting-nh/where-hunt"},
-    {"label": "Piscataqua Region Estuaries Partnership", "url": "http://www.greatbaypartnership.org/"}
-  ],
-  "zones": {
-    "northern": {
-      "name": "Northern Zone", "short": "Northern",
-      "bounds": "East of the Connecticut River Zone and north of the Inland Zone, beginning at the junction of Rte. 10 and Rte. 25A in Orford, east on Rte. 25A to Rte. 25 in Wentworth, southeast on Rte. 25 to Exit 26 off I-93 in Plymouth, south on I-93 to Rte. 3 at Exit 24 in Ashland, northeast on Rte. 3 to Rte. 113 in Holderness, north on Rte. 113 to Rte. 113-A in Sandwich, north on Rte. 113-A to Rte. 113 in Tamworth, east on Rte. 113 to Rte. 16 in Chocorua, north on Rte. 16 to Rte. 302 in Conway, east on Rte. 302 to the ME–NH border."
-    },
-    "inland": {
-      "name": "Inland Zone", "short": "Inland",
-      "bounds": "Area of the state east of the Connecticut River Zone, south of the Northern Zone, and west of the Coastal Zone."
-    },
-    "coastal": {
-      "name": "Coastal Zone", "short": "Coastal",
-      "bounds": "Beginning at the Maine–New Hampshire line in Rollinsford, that portion of the state east of a boundary formed by Route 4 west to the city of Dover, south to the intersection of Route 108 through Madbury, Durham and Newmarket to the junction of Route 85 in Newfields, south to Route 101 in Exeter, east to Interstate 95 in Hampton, and south to the Massachusetts line."
-    },
-    "ct": {
-      "name": "Connecticut River Zone", "short": "Conn. River",
-      "bounds": "The New Hampshire portion is the area west of Rte. 63 at the MA border, north on Rte. 63 to Rte. 12, north on Rte. 12 to Rte. 12-A, north on Rte. 12A to Rte. 10, north on Rte. 10 to Rte. 135, north on Rte. 135 to Rte. 3, north on Rte. 3 to the intersection with the Connecticut River. The zone also covers the Vermont side east of I-91, Rte. 2, Rte. 102 and Rte. 253 north to Canada.",
-      "note": "New Hampshire Inland Zone regulations apply to the entire Connecticut River Zone in both New Hampshire and Vermont. The two states have enacted reciprocal migratory waterfowl hunting rights for licensed hunters in this zone."
-    }
+ "season": "2026–27",
+ "updated": "2026-10-24",
+ "sources": [
+  {
+   "label": "NH Fish and Game — 2026–27 seasons announcement (May 8, 2026)",
+   "url": "https://nhfishgame.com/2026/05/08/new-hampshires-2026-2027-migratory-waterfowl-hunting-seasons-are-now-set/"
   },
-  "seasons": [
-    {"sp": "duck", "label": "Ducks", "z": {
-      "northern": [["2026-10-02","2026-11-30"]],
-      "inland":   [["2026-10-13","2026-11-11"],["2026-11-25","2026-12-24"]],
-      "ct":       [["2026-10-13","2026-11-11"],["2026-11-25","2026-12-24"]],
-      "coastal":  [["2026-10-06","2026-10-12"],["2026-11-26","2027-01-17"]]}},
-    {"sp": "merganser", "label": "Mergansers", "sameAs": "duck"},
-    {"sp": "coot", "label": "Coots", "sameAs": "duck"},
-    {"sp": "seaduck", "label": "Sea ducks", "sameAs": "duck"},
-    {"sp": "canada", "label": "Canada geese — regular", "sameAs": "duck"},
-    {"sp": "snow", "label": "Snow geese", "sameAs": "duck"},
-    {"sp": "brant", "label": "Brant", "z": {
-      "northern": [["2026-10-02","2026-10-31"]],
-      "inland":   [["2026-10-13","2026-11-11"]],
-      "ct":       [["2026-10-13","2026-11-11"]],
-      "coastal":  [["2026-10-06","2026-10-12"],["2026-11-26","2026-12-18"]]}},
-    {"sp": "canadasept", "label": "Canada geese — September", "statewide": [["2026-09-01","2026-09-25"]]},
-    {"sp": "woodcock", "label": "Woodcock", "statewide": [["2026-10-01","2026-11-14"]]},
-    {"sp": "snipe", "label": "Common snipe", "statewide": [["2026-09-15","2026-11-14"]]},
-    {"sp": "crow", "label": "Crow", "statewide": [["2026-08-15","2026-11-30"],["2027-03-16","2027-03-31"]]},
-    {"sp": "falconry", "label": "Falconry — ducks, mergansers, coots", "z": {
-      "northern": [["2026-12-01","2027-01-12"]],
-      "inland":   [["2026-11-12","2026-11-24"],["2026-12-25","2027-01-23"]],
-      "ct":       [["2026-11-12","2026-11-24"],["2026-12-25","2027-01-23"]],
-      "coastal":  [["2027-01-27","2027-03-10"]]}},
-    {"sp": "youth", "label": "Youth Waterfowl Weekend", "statewide": [["2026-09-26","2026-09-27"]]},
-    {"sp": "vet", "label": "Veteran and Active Military Weekend", "statewide": [["2027-01-23","2027-01-24"]]}
-  ],
-  "bags": [
-    {"sp": "duck", "daily": "6", "poss": "18", "detail": "Within the 6-duck daily limit: no more than 4 mallards, of which no more than 2 may be hens; 2 black ducks; 3 wood ducks; 3 pintail; 2 canvasbacks; 2 redheads; 1 scaup; and no more than 3 each of scoters, long-tailed ducks or eiders, of which only 1 eider may be a hen. The season on harlequin duck is closed. Possession is three times the daily limit."},
-    {"sp": "merganser", "daily": "5", "poss": "15", "detail": "The 5-merganser daily limit is in addition to the 6-duck daily limit."},
-    {"sp": "coot", "daily": "15", "poss": "45", "detail": ""},
-    {"sp": "seaduck", "daily": "4", "poss": "12", "detail": "Sea ducks count toward the general duck bag limit in all zones. Species: common eider, surf scoter, white-winged scoter, black scoter, long-tailed duck, bufflehead and common goldeneye."},
-    {"sp": "canadasept", "daily": "5", "poss": "15", "detail": "September season only, statewide."},
-    {"sp": "canada", "daily": "2", "poss": "6", "detail": "Regular season, same dates as ducks."},
-    {"sp": "snow", "daily": "25", "poss": "None", "detail": ""},
-    {"sp": "brant", "daily": "1", "poss": "3", "detail": ""},
-    {"sp": "woodcock", "daily": "3", "poss": "9", "detail": "HIP certification required. No state waterfowl licence or federal duck stamp needed."},
-    {"sp": "snipe", "daily": "8", "poss": "24", "detail": "HIP certification required."},
-    {"sp": "crow", "daily": "None", "poss": "None", "detail": "No HIP, state migratory licence or federal duck stamp required."},
-    {"sp": "falconry", "daily": "3", "poss": "9", "detail": "Combined ducks, mergansers and coots."}
-  ],
-  "duckSublimits": [
-    {"n": "Mallard", "lim": "4", "note": "no more than 2 hens"},
-    {"n": "American black duck", "lim": "2", "note": ""},
-    {"n": "Wood duck", "lim": "3", "note": ""},
-    {"n": "Northern pintail", "lim": "3", "note": ""},
-    {"n": "Canvasback", "lim": "2", "note": ""},
-    {"n": "Redhead", "lim": "2", "note": ""},
-    {"n": "Scaup", "lim": "1", "note": "greater or lesser"},
-    {"n": "Scoters", "lim": "3", "note": "black, surf, white-winged — counts toward the 4 sea ducks"},
-    {"n": "Long-tailed duck", "lim": "3", "note": "counts toward the 4 sea ducks"},
-    {"n": "Eiders", "lim": "3", "note": "only 1 may be a hen — counts toward the 4 sea ducks"},
-    {"n": "Harlequin duck", "lim": "0", "note": "season closed"},
-    {"n": "Other ducks", "lim": "6", "note": "teal, gadwall, wigeon, shoveler, ring-necked, goldeneye, bufflehead — to the 6-bird aggregate"}
-  ],
-  "rules": [
-    {"g": "Hours", "t": "Shooting hours", "d": "Waterfowl, woodcock and snipe: one-half hour before sunrise to sunset. Crow: one-half hour before sunrise to one-half hour after sunset."},
-    {"g": "Gear", "t": "Nontoxic shot", "d": "Nontoxic shot is required for all waterfowl. It is illegal to possess any shotgun shell containing lead shot while hunting migratory waterfowl. This does not apply to woodcock or snipe."},
-    {"g": "Gear", "t": "Shotgun limits", "d": "No shotgun larger than 10 gauge. The gun must be plugged so it holds no more than three shells total — two in the magazine plus one in the chamber. Air rifles may not be used for migratory game birds. Bow and arrow is legal."},
-    {"g": "Gear", "t": "Electronic calls", "d": "Electronic calls may be used for crows, and during the special September Canada goose season only."},
-    {"g": "Boats", "t": "Hunting from a boat", "d": "You may not carry a loaded firearm in a motorboat under power, and you may not hunt from a motorboat or sailboat until all forward motion has ceased."},
-    {"g": "Boats", "t": "Crippled birds under power", "d": "RSA 207:7 V allows shooting injured or crippled waterfowl from a motorized watercraft while in the sea duck hunting area. That exception applies nowhere else."},
-    {"g": "Boats", "t": "Sea duck hunting area", "d": "All coastal waters, plus the waters of rivers and streams seaward from the first upstream bridge from the coast."},
-    {"g": "Conduct", "t": "Baiting", "d": "Placing bait, or hunting over a baited area, is prohibited."},
-    {"g": "Conduct", "t": "Sale of mounted birds", "d": "Selling mounted migratory game birds is prohibited under 50 CFR 20.91(b)."},
-    {"g": "Conduct", "t": "Band reporting", "d": "Report banded birds at reportband.gov."},
-    {"g": "Conduct", "t": "Avian influenza", "d": "NH Fish and Game advises caution when field dressing ducks: wear gloves, work in a ventilated area, wash up afterwards, and do not handle birds that appear sick."},
-    {"g": "Zones", "t": "Connecticut River Zone", "d": "New Hampshire Inland Zone regulations apply to the entire Connecticut River Zone in both New Hampshire and Vermont. The two states have reciprocal migratory waterfowl hunting rights for licensed hunters in this zone."},
-    {"g": "Zones", "t": "Veteran and Active Military Weekend", "d": "January 23–24, 2027, for hunters licensed in New Hampshire. Participants may hunt the Connecticut River Zone but must launch from New Hampshire. Carry proof of eligibility: an active, retired or National Guard/Reservist ID, a NH driver licence with veteran status, or a DD214 or DD215."},
-    {"g": "Zones", "t": "Youth Waterfowl Weekend", "d": "September 26–27, 2026, statewide, for hunters 15 and younger. No licence is required under 16, but the youth must be accompanied by an adult 18 or older holding a current hunting licence. The adult may not take waterfowl."}
-  ],
-  "licences": [
-    {"t": "NH hunting licence", "who": "All hunters", "d": "Residents: a current Regular NH Hunting, Combination or Archery licence. Nonresidents: a Regular NH Hunting, Combination, Archery or Small Game licence."},
-    {"t": "NH Migratory Waterfowl Licence", "who": "Age 16+", "d": "Required to hunt ducks and geese."},
-    {"t": "HIP certification number", "who": "Age 16+", "d": "Free. Call 1-800-207-6183 or get it through huntnh.com, then write the number on your hunting licence."},
-    {"t": "Federal Duck Stamp", "who": "Age 16+", "d": "Signed across the face, or the electronic version. Sold at many U.S. Post Offices and at duckstamp.com."},
-    {"t": "Youth under 16", "who": "Under 16", "d": "No licence required, but must be accompanied by a properly licensed adult 18 or older."}
-  ]
+  {
+   "label": "NH Fish and Game — Waterfowl Hunting Zones (boundary descriptions)",
+   "url": "https://www.wildlife.nh.gov/hunting-nh/waterfowl-and-migratory-bird-hunting-new-hampshire/waterfowl-hunting-zones"
+  },
+  {
+   "label": "NH Fish and Game — Waterfowl and Migratory Bird Hunting",
+   "url": "https://www.wildlife.nh.gov/hunting-nh/waterfowl-and-migratory-bird-hunting-new-hampshire"
+  },
+  {
+   "label": "Seasons and bag limits table (eRegulations)",
+   "url": "https://www.eregulations.com/newhampshire/hunting/waterfowl-migratory-bird-hunting-seasons-bag-limits"
+  },
+  {
+   "label": "Migratory bird regulations (eRegulations)",
+   "url": "https://www.eregulations.com/newhampshire/hunting/waterfowl-migratory-bird-hunting-regulations"
+  },
+  {
+   "label": "Areas Closed to Hunting — official PDF",
+   "url": "https://www.wildlife.nh.gov/sites/g/files/ehbemt746/files/documents/closed-to-hunting.pdf"
+  },
+  {
+   "label": "Fis 306.01 Areas Closed to Hunting — rule text",
+   "url": "https://www.law.cornell.edu/regulations/new-hampshire/N-H-Admin-Code-SS-Fis-306.01"
+  },
+  {
+   "label": "Great Bay National Wildlife Refuge — hunting",
+   "url": "https://www.fws.gov/refuge/great-bay/visit-us/activities/hunting"
+  },
+  {
+   "label": "Great Bay NWR — waterfowl hunt map (PDF)",
+   "url": "https://www.fws.gov/sites/default/files/documents/Great%20Bay%20Waterfowl%20Hunt%20Map_0.pdf"
+  },
+  {
+   "label": "Public water access sites — NH GRANIT",
+   "url": "https://www.nhgeodata.unh.edu/datasets/NHGRANIT::nh-access-sites-to-public-waters/explore"
+  },
+  {
+   "label": "NOAA tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  },
+  {
+   "label": "NH lake bathymetry maps",
+   "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/nh-bathymetry-maps"
+  },
+  {
+   "label": "NH Fish and Game — Where to Hunt",
+   "url": "https://www.wildlife.nh.gov/hunting-nh/where-hunt"
+  },
+  {
+   "label": "Piscataqua Region Estuaries Partnership",
+   "url": "http://www.greatbaypartnership.org/"
+  }
+ ],
+ "zones": {
+  "northern": {
+   "name": "Northern Zone",
+   "short": "Northern",
+   "bounds": "East of the Connecticut River Zone and north of the Inland Zone, beginning at the junction of Rte. 10 and Rte. 25A in Orford, east on Rte. 25A to Rte. 25 in Wentworth, southeast on Rte. 25 to Exit 26 off I-93 in Plymouth, south on I-93 to Rte. 3 at Exit 24 in Ashland, northeast on Rte. 3 to Rte. 113 in Holderness, north on Rte. 113 to Rte. 113-A in Sandwich, north on Rte. 113-A to Rte. 113 in Tamworth, east on Rte. 113 to Rte. 16 in Chocorua, north on Rte. 16 to Rte. 302 in Conway, east on Rte. 302 to the ME–NH border."
+  },
+  "inland": {
+   "name": "Inland Zone",
+   "short": "Inland",
+   "bounds": "Area of the state east of the Connecticut River Zone, south of the Northern Zone, and west of the Coastal Zone."
+  },
+  "coastal": {
+   "name": "Coastal Zone",
+   "short": "Coastal",
+   "bounds": "Beginning at the Maine–New Hampshire line in Rollinsford, that portion of the state east of a boundary formed by Route 4 west to the city of Dover, south to the intersection of Route 108 through Madbury, Durham and Newmarket to the junction of Route 85 in Newfields, south to Route 101 in Exeter, east to Interstate 95 in Hampton, and south to the Massachusetts line."
+  },
+  "ct": {
+   "name": "Connecticut River Zone",
+   "short": "Conn. River",
+   "bounds": "The New Hampshire portion is the area west of Rte. 63 at the MA border, north on Rte. 63 to Rte. 12, north on Rte. 12 to Rte. 12-A, north on Rte. 12A to Rte. 10, north on Rte. 10 to Rte. 135, north on Rte. 135 to Rte. 3, north on Rte. 3 to the intersection with the Connecticut River. The zone also covers the Vermont side east of I-91, Rte. 2, Rte. 102 and Rte. 253 north to Canada.",
+   "note": "New Hampshire Inland Zone regulations apply to the entire Connecticut River Zone in both New Hampshire and Vermont. The two states have enacted reciprocal migratory waterfowl hunting rights for licensed hunters in this zone."
+  }
+ },
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "northern": [
+     [
+      "2026-10-02",
+      "2026-11-30"
+     ]
+    ],
+    "inland": [
+     [
+      "2026-10-13",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-25",
+      "2026-12-24"
+     ]
+    ],
+    "ct": [
+     [
+      "2026-10-13",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-25",
+      "2026-12-24"
+     ]
+    ],
+    "coastal": [
+     [
+      "2026-10-06",
+      "2026-10-12"
+     ],
+     [
+      "2026-11-26",
+      "2027-01-17"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "z": {
+    "northern": [
+     [
+      "2026-10-02",
+      "2026-10-31"
+     ]
+    ],
+    "inland": [
+     [
+      "2026-10-13",
+      "2026-11-11"
+     ]
+    ],
+    "ct": [
+     [
+      "2026-10-13",
+      "2026-11-11"
+     ]
+    ],
+    "coastal": [
+     [
+      "2026-10-06",
+      "2026-10-12"
+     ],
+     [
+      "2026-11-26",
+      "2026-12-18"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-25"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "Woodcock",
+   "statewide": [
+    [
+     "2026-10-01",
+     "2026-11-14"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-09-15",
+     "2026-11-14"
+    ]
+   ]
+  },
+  {
+   "sp": "crow",
+   "label": "Crow",
+   "statewide": [
+    [
+     "2026-08-15",
+     "2026-11-30"
+    ],
+    [
+     "2027-03-16",
+     "2027-03-31"
+    ]
+   ]
+  },
+  {
+   "sp": "falconry",
+   "label": "Falconry — ducks, mergansers, coots",
+   "z": {
+    "northern": [
+     [
+      "2026-12-01",
+      "2027-01-12"
+     ]
+    ],
+    "inland": [
+     [
+      "2026-11-12",
+      "2026-11-24"
+     ],
+     [
+      "2026-12-25",
+      "2027-01-23"
+     ]
+    ],
+    "ct": [
+     [
+      "2026-11-12",
+      "2026-11-24"
+     ],
+     [
+      "2026-12-25",
+      "2027-01-23"
+     ]
+    ],
+    "coastal": [
+     [
+      "2027-01-27",
+      "2027-03-10"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "youth",
+   "label": "Youth Waterfowl Weekend",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-09-27"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veteran and Active Military Weekend",
+   "statewide": [
+    [
+     "2027-01-23",
+     "2027-01-24"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Within the 6-duck daily limit: no more than 4 mallards, of which no more than 2 may be hens; 2 black ducks; 3 wood ducks; 3 pintail; 2 canvasbacks; 2 redheads; 1 scaup; and no more than 3 each of scoters, long-tailed ducks or eiders, of which only 1 eider may be a hen. The season on harlequin duck is closed. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "The 5-merganser daily limit is in addition to the 6-duck daily limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Sea ducks count toward the general duck bag limit in all zones. Species: common eider, surf scoter, white-winged scoter, black scoter, long-tailed duck, bufflehead and common goldeneye."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "September season only, statewide."
+  },
+  {
+   "sp": "canada",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Regular season, same dates as ducks."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "None",
+   "detail": ""
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": "HIP certification required. No state waterfowl licence or federal duck stamp needed."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": "HIP certification required."
+  },
+  {
+   "sp": "crow",
+   "daily": "None",
+   "poss": "None",
+   "detail": "No HIP, state migratory licence or federal duck stamp required."
+  },
+  {
+   "sp": "falconry",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Combined ducks, mergansers and coots."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": "greater or lesser"
+  },
+  {
+   "n": "Scoters",
+   "lim": "3",
+   "note": "black, surf, white-winged — counts toward the 4 sea ducks"
+  },
+  {
+   "n": "Long-tailed duck",
+   "lim": "3",
+   "note": "counts toward the 4 sea ducks"
+  },
+  {
+   "n": "Eiders",
+   "lim": "3",
+   "note": "only 1 may be a hen — counts toward the 4 sea ducks"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "season closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "teal, gadwall, wigeon, shoveler, ring-necked, goldeneye, bufflehead — to the 6-bird aggregate"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "Waterfowl, woodcock and snipe: one-half hour before sunrise to sunset. Crow: one-half hour before sunrise to one-half hour after sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Nontoxic shot",
+   "d": "Nontoxic shot is required for all waterfowl. It is illegal to possess any shotgun shell containing lead shot while hunting migratory waterfowl. This does not apply to woodcock or snipe."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No shotgun larger than 10 gauge. The gun must be plugged so it holds no more than three shells total — two in the magazine plus one in the chamber. Air rifles may not be used for migratory game birds. Bow and arrow is legal."
+  },
+  {
+   "g": "Gear",
+   "t": "Electronic calls",
+   "d": "Electronic calls may be used for crows, and during the special September Canada goose season only."
+  },
+  {
+   "g": "Boats",
+   "t": "Hunting from a boat",
+   "d": "You may not carry a loaded firearm in a motorboat under power, and you may not hunt from a motorboat or sailboat until all forward motion has ceased."
+  },
+  {
+   "g": "Boats",
+   "t": "Crippled birds under power",
+   "d": "RSA 207:7 V allows shooting injured or crippled waterfowl from a motorized watercraft while in the sea duck hunting area. That exception applies nowhere else."
+  },
+  {
+   "g": "Boats",
+   "t": "Sea duck hunting area",
+   "d": "All coastal waters, plus the waters of rivers and streams seaward from the first upstream bridge from the coast."
+  },
+  {
+   "g": "Conduct",
+   "t": "Baiting",
+   "d": "Placing bait, or hunting over a baited area, is prohibited."
+  },
+  {
+   "g": "Conduct",
+   "t": "Sale of mounted birds",
+   "d": "Selling mounted migratory game birds is prohibited under 50 CFR 20.91(b)."
+  },
+  {
+   "g": "Conduct",
+   "t": "Band reporting",
+   "d": "Report banded birds at reportband.gov."
+  },
+  {
+   "g": "Conduct",
+   "t": "Avian influenza",
+   "d": "NH Fish and Game advises caution when field dressing ducks: wear gloves, work in a ventilated area, wash up afterwards, and do not handle birds that appear sick."
+  },
+  {
+   "g": "Zones",
+   "t": "Connecticut River Zone",
+   "d": "New Hampshire Inland Zone regulations apply to the entire Connecticut River Zone in both New Hampshire and Vermont. The two states have reciprocal migratory waterfowl hunting rights for licensed hunters in this zone."
+  },
+  {
+   "g": "Zones",
+   "t": "Veteran and Active Military Weekend",
+   "d": "January 23–24, 2027, for hunters licensed in New Hampshire. Participants may hunt the Connecticut River Zone but must launch from New Hampshire. Carry proof of eligibility: an active, retired or National Guard/Reservist ID, a NH driver licence with veteran status, or a DD214 or DD215."
+  },
+  {
+   "g": "Zones",
+   "t": "Youth Waterfowl Weekend",
+   "d": "September 26–27, 2026, statewide, for hunters 15 and younger. No licence is required under 16, but the youth must be accompanied by an adult 18 or older holding a current hunting licence. The adult may not take waterfowl."
+  }
+ ],
+ "licences": [
+  {
+   "t": "NH hunting licence",
+   "who": "All hunters",
+   "d": "Residents: a current Regular NH Hunting, Combination or Archery licence. Nonresidents: a Regular NH Hunting, Combination, Archery or Small Game licence."
+  },
+  {
+   "t": "NH Migratory Waterfowl Licence",
+   "who": "Age 16+",
+   "d": "Required to hunt ducks and geese."
+  },
+  {
+   "t": "HIP certification number",
+   "who": "Age 16+",
+   "d": "Free. Call 1-800-207-6183 or get it through huntnh.com, then write the number on your hunting licence."
+  },
+  {
+   "t": "Federal Duck Stamp",
+   "who": "Age 16+",
+   "d": "Signed across the face, or the electronic version. Sold at many U.S. Post Offices and at duckstamp.com."
+  },
+  {
+   "t": "Youth under 16",
+   "who": "Under 16",
+   "d": "No licence required, but must be accompanied by a properly licensed adult 18 or older."
+  }
+ ],
+ "geometryNote": "Geometry: NH GRANIT (water bodies, streams, conservation land, towns, public access sites), USGS NHD (wide rivers), OpenStreetMap (highways and the roads the zone lines follow), NOAA CO-OPS (tides). Zones are routed along the roads named in the New Hampshire boundary descriptions.",
+ "seasonsNote": "Connecticut River Zone follows Inland Zone dates."
 }
