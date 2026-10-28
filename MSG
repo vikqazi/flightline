@@ -1,17 +1,22 @@
-Weather and a wind overlay
+Habitat density layer; satellite by default
 
-Open-Meteo, no key. Tapping a spot gives wind with gusts, temperature,
-pressure with a three-hour trend, cloud and rain for the hour on the time
-cursor, plus a wind strip across the shooting day. Falling pressure is
-called out, since that is the front that moves birds.
+A derived surface, not a survey: how much duck water sits within about two
+miles of each point, marsh weighted heaviest, then ponds and lakes, then
+rivers. Built on a 500 m grid in Web Mercator so it maps to a screen
+rectangle exactly, blurred to a 2.5 km neighbourhood, and normalised on the
+99.5th percentile inside each state so a few big lakes do not flatten it.
 
-The wind layer draws a grid of arrows over the view, refetched when the map
-settles or the date and hour change. Arrows point the way the wind blows,
-length and colour are speed, and the number under each is mph. Forecast
-reaches about sixteen days, and the app says so rather than drawing stale
-arrows for a date it cannot see.
+It is labelled habitat, not birds, in the layer name and the key. There is
+no open dataset of waterfowl density at a resolution that would mean
+anything here - eBird Status and Trends is the right data and is not open,
+and the USGS layers are 50 km cells. Drawing a bird-density gradient from
+nothing would look authoritative over exactly the marsh where someone makes
+a decision.
 
-Also holds its own reference to Leaflet at startup. A stray global named L
-would otherwise break the map, which is a silly way to lose a map.
+Massachusetts marsh comes from NWI emergent and estuarine wetlands over an
+acre, since the state hydrography has no marsh class. The Atlantic itself
+arrives as a single 2.6 million acre polygon and is excluded.
+
+Satellite with street and place names is now the default view.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>

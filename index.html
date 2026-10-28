@@ -1171,11 +1171,11 @@ var map = null, canvas = null, ctx = null, layer = null;
 var S = {
   date: null, zone: null, panel: 'season', sel: null, ref: null, pinMode: false,
   state: 'nh', shown: ['nh'], loading: false, tideMin: 420, tideTarget: null,
-  base: 'vector', tileState: 'idle', labels: true,
+  base: 'satellite', tileState: 'idle', labels: true,
   geo: { on: false, follow: false, lat: null, lon: null, acc: null, heading: null, ts: 0, err: null, watch: null },
   layers: { zones: true, zoneLines: true, towns: false, roads: true, water: true, marsh: true,
             streams: true, land: true, access: true, closed: true, tides: true, spots: true, minor: true,
-            refuges: true, gbshore: true, seaduck: false, wind: false },
+            refuges: true, gbshore: true, seaduck: false, wind: false, habitat: false },
   access: { lvl: 'all', q: '', fee: 'all' },
   refTab: 'seasons'
 };
@@ -1387,6 +1387,19 @@ function draw() {
   /* the state itself, so in-state reads differently from the surround */
   if (!img) drawPolys(D.zones, V, css('--m-nh'), css('--m-nh'), 1);
 
+  if (S.layers.habitat && D.habitat && D.habitat.length) {
+    ctx.save(); ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    for (var hb = 0; hb < D.habitat.length; hb++) {
+      var H2 = D.habitat[hb], bb2 = H2.bbox;
+      if (!hits(bb2, V)) continue;
+      var hx = bb2[0] * V.sc - V.ox, hy = bb2[1] * V.sc - V.oy;
+      var hw = (bb2[2] - bb2[0]) * V.sc, hh2 = (bb2[3] - bb2[1]) * V.sc;
+      ctx.globalAlpha = img ? 0.8 : 1;
+      ctx.drawImage(H2.canvas, hx, hy, hw, hh2);
+      ctx.globalAlpha = 1;
+    }
+    ctx.restore();
+  }
   if (S.layers.seaduck && D.seaduck && D.seaduck.proj) {
     var sd = D.seaduck.proj;
     if (hits(sd.bb, V)) {
@@ -2133,6 +2146,7 @@ var LAYER_DEFS = [
   ['refuges', 'Federal refuge hunt units', '--open'],
   ['gbshore', 'Great Bay NWR shoreline', '--m-closed'],
   ['seaduck', 'Sea duck area (indicative)', '--info'],
+  ['habitat', 'Habitat density (not birds)', '--m-marsh'],
   ['wind', 'Wind arrows (forecast)', '--warn'],
   ['tides', 'Tide stations', '--info'],
   ['towns', 'Town lines & names', '--m-label'],
@@ -2559,6 +2573,16 @@ function renderKey() {
       krow(sq(css('--m-marsh')), 'Marsh and swamp') +
       krow(bar(css('--m-stream')), 'Stream') +
       krow(tri(css('--info')), 'Tide station', 'NOAA predictions')) +
+    h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Habitat density') +
+      h('div', { class: 'row', style: 'gap:2px' },
+        ['rgba(26,74,92,.45)','rgba(42,110,86,.55)','rgba(150,140,62,.6)','rgba(206,132,56,.65)','rgba(214,80,50,.7)']
+          .map(function (c) { return h('span', { style: 'flex:1 1 0;height:8px;background:' + c + ';border-radius:1px' }, ''); }).join('')) +
+      h('div', { class: 'row', style: 'justify-content:space-between' },
+        h('span', { class: 'tiny muted' }, 'little water') + h('span', { class: 'tiny muted' }, 'lots')) +
+      h('div', { class: 'knote', style: 'margin-top:4px' },
+        'How much duck water sits within about two miles — marsh counted heaviest, then ponds and lakes, then rivers. ' +
+        'This is habitat, NOT birds. No one publishes bird density at a scale that means anything here. ' +
+        'Shaded relative to each state, so compare within a state, not across the line.')) +
     h('div', { class: 'kgrp' }, h('div', { class: 'lab' }, 'Wind') +
       krow('<i style="display:inline-block;color:#86bf86;font-size:14px">&#8593;</i>', 'Wind arrow',
            'Points the way the wind blows, so an arrow pointing south is a north wind. Length and colour are speed.') +
@@ -3118,7 +3142,23 @@ function projLine(coords) {
   return { parts: [a], bb: bb };
 }
 var CORE = ['regs', 'zones', 'zonelines', 'waters-major', 'streams', 'publicland',
-            'access', 'tides', 'towns', 'roads'];
+            'access', 'tides', 'towns', 'roads', 'habitat'];
+var HAB_RAMP = [[0,0,0,0,0],[40,26,74,92,70],[90,42,110,86,120],[150,150,140,62,150],
+                [200,206,132,56,170],[255,214,80,50,185]];
+function prepHabitat(j) {
+  var bin = atob(j.data), n = bin.length, g = new Uint8Array(n);
+  for (var i = 0; i < n; i++) g[i] = bin.charCodeAt(i);
+  var cv = document.createElement('canvas'); cv.width = j.w; cv.height = j.h;
+  var cx = cv.getContext('2d'), img = cx.createImageData(j.w, j.h), px = img.data;
+  for (var k = 0; k < g.length; k++) {
+    var v = g[k], a = HAB_RAMP[0];
+    for (var r = 0; r < HAB_RAMP.length; r++) if (v >= HAB_RAMP[r][0]) a = HAB_RAMP[r];
+    px[k * 4] = a[1]; px[k * 4 + 1] = a[2]; px[k * 4 + 2] = a[3];
+    px[k * 4 + 3] = v < 18 ? 0 : a[4];
+  }
+  cx.putImageData(img, 0, 0);
+  return { canvas: cv, bbox: j.bbox, w: j.w, h: j.h, cellM: j.cellM };
+}
 function tag(arr, code) { for (var i = 0; i < arr.length; i++) arr[i].src = code; return arr; }
 function buildState(code, files) {
   var st = STATES[code], d = {};
@@ -3139,6 +3179,7 @@ function buildState(code, files) {
   d.roads = tag(unpack(files.roads.data, 2), code); d.roadNames = files.roads.names;
   d.watersMinor = [];
   d.code = code;
+  if (files.habitat) d.habitat = prepHabitat(files.habitat);
   if (files.closed) d.closed = files.closed;
   if (files.refuges) {
     d.refuges = tag(unpack(files.refuges.data, 4), code); d.refugeNames = files.refuges.names;
@@ -3167,7 +3208,7 @@ function ensureState(code) {
     });
 }
 function mergeShown() {
-  var d = { tides: { stations: {} }, closed: null };
+  var d = { tides: { stations: {} }, closed: null, habitat: [] };
   ['zones','zonelines','watersMajor','watersMinor','streams','land','towns','roads','access','refuges','gbshore','seaduck']
     .forEach(function (k) { d[k] = []; });
   S.shown.forEach(function (c) {
@@ -3181,6 +3222,7 @@ function mergeShown() {
                                   refuge: src.closed.refuge, areas: [] };
       d.closed.areas = d.closed.areas.concat(src.closed.areas || []);
     }
+    if (src.habitat) d.habitat.push(src.habitat);
     if (src.gbshore) d.gbshore = src.gbshore;
     if (src.seaduck) d.seaduck = src.seaduck;
   });
@@ -3221,7 +3263,7 @@ function setShown(codes, first, refit) {
     store('state', S.state);
     mergeShown();
     S.zone = null; S.sel = null; S.ref = null;
-    if (first) { initMap(); wire(); var sb = store('base'); if (sb && sb !== 'vector') setBase(sb); initDb(); }
+    if (first) { initMap(); wire(); var sb = store('base') || 'satellite'; S.base = sb; if (sb !== 'vector') setBase(sb); initDb(); }
     var saved = store('date'), t = todayISO();
     setDate(saved && saved >= SEASON_START && saved <= SEASON_END ? saved
       : (t >= SEASON_START && t <= SEASON_END ? t : '2026-10-24'));
