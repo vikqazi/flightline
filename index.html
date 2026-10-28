@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Waterfowl hunting map for New Hampshire, Massachusetts, Maine and Rhode Island: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine and Rhode Island: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
-<title>Granite Flyway</title>
+<title>Flightline Waterfowl Maps</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* ---- Granite Flyway -------------------------------------------------------
+/* ---- Flightline (formerly Granite Flyway) ---------------------------------
    Layout: a fixed command bar and zone strip over a full-bleed vector chart,
    with a left instrument rail and a right detail slip. Below 900px the rail
    and slip become overlays and the chart keeps the full width.            */
@@ -916,7 +916,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <path d="M9.5 12.2c2.4-3.1 6-4.6 9.3-3.6 2.2.7 3.4 2.3 4.6 4.3l5.3 1.4-3.6 2.2c.5 3.4-1 6.3-4 8.1-3.6 2.1-8 1.7-11-.9"/>
         <path d="M24.6 12.1h.02"/>
       </svg>
-      <span class="word">Granite Flyway</span>
+      <span class="word">Flightline</span>
       <button id="stateBtn" class="statesw" aria-label="Switch state"></button>
     </div>
     <div class="spacer"></div>
@@ -964,7 +964,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <div class="scalebar" id="scale">&nbsp;<i style="width:60px"></i></div>
         <div class="attrib" id="attrib">NH GRANIT &middot; NH Fish and Game &middot; NOAA &middot; OpenStreetMap</div>
       </div>
-      <div class="loading" id="load"><div><b>Granite Flyway</b>Loading&hellip;</div></div>
+      <div class="loading" id="load"><div><b>Flightline</b>Loading&hellip;</div></div>
     </div>
     <aside class="slip" id="slip" hidden></aside>
   </div>
@@ -977,7 +977,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 'use strict';
 
 /* =========================================================================
-   Granite Flyway — waterfowl zones, seasons, waters and access for every
+   Flightline (formerly Granite Flyway) — waterfowl zones, seasons, waters and access for every
    state shown. State data ship with the site and load per state; weather,
    map tiles and (in an embedded copy) the daily eBird sightings are the
    only things fetched from elsewhere.
@@ -3992,7 +3992,7 @@ function setShown(codes, first, refit, done) {
   var missing = codes.filter(function (c) { return !CACHE[c]; });
   if (missing.length && el) {
     el.hidden = false;
-    el.innerHTML = '<div><b>Granite Flyway</b>Loading ' +
+    el.innerHTML = '<div><b>Flightline</b>Loading ' +
       esc(listAnd(missing.map(function (c) { return STATES[c].name; }))) + '&hellip;</div>';
   }
   Promise.all(codes.map(ensureState)).then(function () {
