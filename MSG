@@ -1,22 +1,19 @@
-Add Massachusetts behind a state switcher
+Hour-by-hour tides, two states at once, calendar picker
 
-The app now carries two states. NH and MA data live under data/<state>/ and
-load on demand, so switching costs one fetch and nothing is downloaded that
-you do not look at.
+Tides now draw a continuous curve. The stored highs and lows are
+interpolated with a cosine, which is what the rule of twelfths
+approximates, so the height at any minute comes out of data already
+shipped. The chart shades legal shooting light, a scrubber reads the height
+at any time, and a target height lists the times the tide passes it.
 
-Massachusetts zones were built the same way as New Hampshire: by routing
-along the actual roads named in the MassWildlife boundary description. The
-three zones add up to the state outline exactly - 4,754 + 12,650 + 9,933 =
-27,337 sq km. One exception, noted in the app: the street-level jog through
-Taunton and Somerset on the Coastal boundary is approximated.
+States are no longer either/or. NH and MA can be shown together, which is
+what you want on the border: zone ids are namespaced per state, every
+feature carries the state it came from, and tapping a spot adopts that
+state for the rules. Season lookups take the state explicitly, so MA Sunday
+closure and the merganser difference stay correct per side of the line.
 
-Data from MassGIS: 27,034 water bodies at 1:25,000, 2,663 river reaches,
-282 Office of Fishing and Boating Access sites, 3,433 open-space parcels
-over 50 acres, 351 municipalities. Twelve NOAA tide stations from
-Newburyport to Nantucket. Season dates, bag limits and the zone text come
-from mass.gov.
+The date face now opens the native calendar; the arrows still step a day.
 
-Massachusetts closes all hunting on Sundays, so the date control and every
-zone read closed on a Sunday.
+Adds LICENSE and README.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>

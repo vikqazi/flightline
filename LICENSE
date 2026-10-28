@@ -1,0 +1,27 @@
+Copyright (c) 2026 Vikram Qazi. All rights reserved.
+
+The Granite Flyway application code and its design are not licensed for
+reuse, redistribution or modification. You may view and use the hosted
+application. You may not copy it, host your own copy, or build a derivative
+work from it without written permission.
+
+This notice does not cover the underlying public data, which remains the
+work of its publishers and carries its own terms:
+
+  NH GRANIT (University of New Hampshire) — water bodies, streams,
+    conservation land, town and state boundaries, public water access sites
+  NH Fish and Game — waterfowl zone descriptions, seasons, bag limits,
+    closed-area rules
+  MassGIS (Commonwealth of Massachusetts) — 1:25,000 hydrography, Office of
+    Fishing and Boating Access sites, Protected and Recreational OpenSpace,
+    municipalities
+  MassWildlife — waterfowl zone descriptions, seasons, bag limits
+  U.S. Fish and Wildlife Service — National Hunt Units, Great Bay NWR
+  U.S. Census Bureau TIGER — state outlines
+  NOAA CO-OPS — tide predictions
+  OpenStreetMap contributors — road geometry, under the Open Database
+    License (openstreetmap.org/copyright)
+
+Nothing here is legal advice and nothing here is an official source. Season
+dates, bag limits and closed areas change. Check the state agency before
+you hunt.
