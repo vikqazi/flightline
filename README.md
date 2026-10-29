@@ -3,7 +3,7 @@
 A waterfowl map for New Hampshire, Massachusetts, Maine and Rhode Island,
 2026–27 season. Formerly Granite Flyway.
 
-**https://vikqazi.github.io/granite-flyway/**
+**https://vikqazi.github.io/flightline/**
 
 Turn on one state or several. Neighbouring states meet on the same Census
 border line, so there are no gaps or overlaps at a state line.

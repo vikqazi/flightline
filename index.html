@@ -2616,7 +2616,7 @@ function panelLog() {
    on the public repo refreshes data/<state>/sightings.json each morning,
    with an API key the page never sees. Birders' reports, not a census.
    ========================================================================= */
-var LIVE_BASE = 'https://vikqazi.github.io/granite-flyway/';
+var LIVE_BASE = 'https://vikqazi.github.io/flightline/';
 var SIGHT_GROUPS = [['all', 'All waterfowl'], ['dabbler', 'Dabbling ducks'], ['diver', 'Diving ducks'], ['seaduck', 'Sea ducks'],
                     ['merganser', 'Mergansers'], ['goose', 'Geese & brant'], ['coot', 'Coots']];
 var SIGHT_DAYS = [3, 7, 14];
@@ -2717,7 +2717,7 @@ function sightPanel() {
       n.toLocaleString() + ' hotspot' + (n === 1 ? '' : 's') + ' with ' + esc(sightWhat()) + ' · updated ' + esc(fmtStamp(upd))) +
     (ageH > 48 ? h('div', { class: 'note alert', style: 'margin-top:7px' },
       'These sightings are ' + Math.floor(ageH / 24) + ' days old, so the newest reports are missing.' +
-      (hostedCopy() ? '' : ' The live map at ' + h('a', { href: LIVE_BASE, target: '_blank', rel: 'noopener' }, 'vikqazi.github.io/granite-flyway') +
+      (hostedCopy() ? '' : ' The live map at ' + h('a', { href: LIVE_BASE, target: '_blank', rel: 'noopener' }, 'vikqazi.github.io/flightline') +
         ' updates every morning.')) : '') +
     h('div', { class: 'tiny muted', style: 'margin-top:7px' },
       'Ducks, geese and coots that birders reported at public eBird hotspots — personal locations are left out. ' +
@@ -3025,7 +3025,7 @@ function searchOnline(t) {
         SQ.busy = false;
         SQ.err = hostedCopy() ? 'Could not reach the address service. Check your connection and try again.'
           : 'Address lookup does not run inside this copy of the map. It works on the full site, ' +
-            h('a', { href: LIVE_BASE, target: '_blank', rel: 'noopener' }, 'vikqazi.github.io/granite-flyway') + '.';
+            h('a', { href: LIVE_BASE, target: '_blank', rel: 'noopener' }, 'vikqazi.github.io/flightline') + '.';
         renderSearchResults();
       });
   }, Math.max(0, _nomAt + 1100 - Date.now()));      // Nominatim allows one request a second

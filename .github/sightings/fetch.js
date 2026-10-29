@@ -26,7 +26,7 @@ async function getJSON(url) {
   for (let attempt = 1; ; attempt++) {
     let res;
     try {
-      res = await fetch(url, { headers: { 'X-eBirdApiToken': KEY, 'User-Agent': 'Flightline/1.0 (+https://vikqazi.github.io/granite-flyway/)' },
+      res = await fetch(url, { headers: { 'X-eBirdApiToken': KEY, 'User-Agent': 'Flightline/1.0 (+https://vikqazi.github.io/flightline/)' },
                                signal: AbortSignal.timeout(30000) });
     } catch (e) {
       if (attempt >= 4) throw new Error('no response (' + ((e.cause && e.cause.code) || e.name) + ')');
