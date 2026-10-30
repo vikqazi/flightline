@@ -1,0 +1,669 @@
+{
+ "state": "NC",
+ "stateName": "North Carolina",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": true,
+ "sources": [
+  {
+   "label": "NCWRC — 2026–2027 Migratory Game Bird Hunting Seasons and Extended Falconry Seasons (proclamation, PDF)",
+   "url": "https://www.ncwildlife.gov/media/5176/download?attachment"
+  },
+  {
+   "label": "NCWRC — 2026–2027 Inland Fishing, Hunting & Trapping Regulations Digest",
+   "url": "https://www.ncwildlife.gov/hunt/fishing-hunting-trapping-regulations"
+  },
+  {
+   "label": "NCWRC — 2026–27 migratory game bird seasons announcement (April 30, 2026)",
+   "url": "https://www.ncwildlife.gov/news/press-releases/2026/04/30/state-wildlife-agency-announces-2026-2027-north-carolina-migratory-game-bird-seasons"
+  },
+  {
+   "label": "USFWS — Final frameworks for migratory bird hunting (Northeast Hunt Zone wording)",
+   "url": "https://www.federalregister.gov/documents/2021/07/16/2021-15084/migratory-bird-hunting-final-2021-22-frameworks-for-migratory-bird-hunting-regulations-and-special"
+  },
+  {
+   "label": "NCWRC GIS — game land tracts (designation, waterfowl impoundments), boating access areas",
+   "url": "https://services1.arcgis.com/YfqBAUM5nWR3yhGP/ArcGIS/rest/services"
+  },
+  {
+   "label": "OpenStreetMap — I-95, U.S. 17, NC 45, U.S. 13 (zone lines) and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines (the Northeast zone, through the sounds), county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, sounds, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "in-rp-w": {
+   "name": "Inland Duck Zone",
+   "short": "Inland",
+   "bounds": "Inland Duck Zone: all counties and parts of counties west of Interstate 95. Resident Population Hunt Zone (Canada geese): the rest of the state.",
+   "note": "Ducks Oct 15–17, Nov 7–28, Dec 18 – Jan 30. RP Canada geese (5 a day). No September teal."
+  },
+  "co-rp-w": {
+   "name": "Coastal · RP geese · west of US 17",
+   "short": "Coastal · RP · W of US 17",
+   "bounds": "Coastal Duck Zone: all counties and parts of counties east of Interstate 95. Resident Population Hunt Zone (Canada geese): the rest of the state. September teal is open only east of U.S. Highway 17 (drawn as the ocean side of U.S. 17); west of U.S. 17 the September Canada goose season allows shooting to ½ hour after sunset, unplugged guns and electronic calls.",
+   "note": "Ducks Oct 23–24, Nov 7–28, Dec 17 – Jan 30. RP Canada geese (5 a day). No September teal."
+  },
+  "co-rp-e": {
+   "name": "Coastal · RP geese · east of US 17",
+   "short": "Coastal · RP · E of US 17",
+   "bounds": "Coastal Duck Zone: all counties and parts of counties east of Interstate 95. Resident Population Hunt Zone (Canada geese): the rest of the state. September teal is open only east of U.S. Highway 17 (drawn as the ocean side of U.S. 17); west of U.S. 17 the September Canada goose season allows shooting to ½ hour after sunset, unplugged guns and electronic calls.",
+   "note": "Ducks Oct 23–24, Nov 7–28, Dec 17 – Jan 30. RP Canada geese (5 a day). September teal Sept 10–19."
+  },
+  "co-ne-w": {
+   "name": "Coastal · Northeast geese · west of US 17",
+   "short": "Coastal · NE · W of US 17",
+   "bounds": "Coastal Duck Zone: all counties and parts of counties east of Interstate 95. Northeast Hunt Zone (Canada geese): Bertie (that portion north and east of a line formed by NC 45 at the Washington County line to U.S. 17 in Midway, U.S. 17 in Midway to U.S. 13 in Windsor, U.S. 13 in Windsor to the Hertford County line), Camden, Chowan, Currituck, Dare, Hyde, Pasquotank, Perquimans, Tyrrell and Washington counties. September teal is open only east of U.S. Highway 17 (drawn as the ocean side of U.S. 17); west of U.S. 17 the September Canada goose season allows shooting to ½ hour after sunset, unplugged guns and electronic calls.",
+   "note": "Ducks Oct 23–24, Nov 7–28, Dec 17 – Jan 30. Northeast Canada geese Dec 28 – Jan 30 (2 a day). No September teal."
+  },
+  "co-ne-e": {
+   "name": "Coastal · Northeast geese · east of US 17",
+   "short": "Coastal · NE · E of US 17",
+   "bounds": "Coastal Duck Zone: all counties and parts of counties east of Interstate 95. Northeast Hunt Zone (Canada geese): Bertie (that portion north and east of a line formed by NC 45 at the Washington County line to U.S. 17 in Midway, U.S. 17 in Midway to U.S. 13 in Windsor, U.S. 13 in Windsor to the Hertford County line), Camden, Chowan, Currituck, Dare, Hyde, Pasquotank, Perquimans, Tyrrell and Washington counties. September teal is open only east of U.S. Highway 17 (drawn as the ocean side of U.S. 17); west of U.S. 17 the September Canada goose season allows shooting to ½ hour after sunset, unplugged guns and electronic calls.",
+   "note": "Ducks Oct 23–24, Nov 7–28, Dec 17 – Jan 30. Northeast Canada geese Dec 28 – Jan 30 (2 a day). September teal Sept 10–19."
+  }
+ },
+ "seasonsNote": "No hunting of migratory game birds on Sundays. Duck seasons differ by duck zone (I-95); Canada goose seasons by goose zone; September teal only east of U.S. 17.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "in-rp-w": [
+     [
+      "2026-10-15",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-18",
+      "2027-01-30"
+     ]
+    ],
+    "co-rp-w": [
+     [
+      "2026-10-23",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-17",
+      "2027-01-30"
+     ]
+    ],
+    "co-rp-e": [
+     [
+      "2026-10-23",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-17",
+      "2027-01-30"
+     ]
+    ],
+    "co-ne-w": [
+     [
+      "2026-10-23",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-17",
+      "2027-01-30"
+     ]
+    ],
+    "co-ne-e": [
+     [
+      "2026-10-23",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-17",
+      "2027-01-30"
+     ]
+    ]
+   },
+   "note": "Black ducks and mottled ducks closed until November 21 in both zones."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "Sea duck dates follow the Coastal Duck Zone; their limit counts inside the 6."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "z": {
+    "co-rp-e": [
+     [
+      "2026-09-10",
+      "2026-09-19"
+     ]
+    ],
+    "co-ne-e": [
+     [
+      "2026-09-10",
+      "2026-09-19"
+     ]
+    ],
+    "in-rp-w": [],
+    "co-rp-w": [],
+    "co-ne-w": []
+   },
+   "note": "Only east of U.S. 17."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ]
+   ],
+   "note": "Statewide (goose zones do not apply in September). West of U.S. 17 only: shooting to ½ hour after sunset, unplugged guns and electronic calls allowed."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "in-rp-w": [
+     [
+      "2026-10-15",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-07",
+      "2026-12-05"
+     ],
+     [
+      "2026-12-17",
+      "2027-02-06"
+     ]
+    ],
+    "co-rp-w": [
+     [
+      "2026-10-15",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-07",
+      "2026-12-05"
+     ],
+     [
+      "2026-12-17",
+      "2027-02-06"
+     ]
+    ],
+    "co-rp-e": [
+     [
+      "2026-10-15",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-07",
+      "2026-12-05"
+     ],
+     [
+      "2026-12-17",
+      "2027-02-06"
+     ]
+    ],
+    "co-ne-w": [
+     [
+      "2026-12-28",
+      "2027-01-30"
+     ]
+    ],
+    "co-ne-e": [
+     [
+      "2026-12-28",
+      "2027-01-30"
+     ]
+    ]
+   },
+   "note": "White-fronted geese with Canada geese. RP zone 5 a day; Northeast Hunt Zone 2 a day (up from 1, subject to final federal approval)."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2027-03-10"
+    ]
+   ],
+   "note": "Snow and Ross’s geese. After Feb 6 (all other waterfowl seasons closed): unplugged guns and electronic calls allowed. A 2027 Conservation Order will be decided in fall 2026."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2026-12-28",
+     "2027-01-30"
+    ]
+   ]
+  },
+  {
+   "sp": "swan",
+   "label": "Tundra swan (permit)",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2027-01-30"
+    ]
+   ],
+   "note": "By permit only (4,853 permits, random drawing)."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-12-10",
+     "2027-01-30"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-10-27",
+     "2027-02-27"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-11-25"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "King and clapper rails",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-11-25"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules and moorhens",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-11-25"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning and white-winged doves",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-10"
+    ],
+    [
+     "2026-11-07",
+     "2026-11-28"
+    ],
+    [
+     "2026-12-16",
+     "2027-01-30"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-12-05",
+     "2026-12-05"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / military waterfowl days",
+   "statewide": [
+    [
+     "2026-12-05",
+     "2026-12-05"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters, 3 eiders (1 hen eider) or 3 long-tailed ducks."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5 / 2",
+   "poss": "15 / 6",
+   "detail": "RP zone 5 (Canada and white-fronted geese, singly or together); Northeast Hunt Zone 2."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Snow and Ross’s geese."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "swan",
+   "daily": "1 a season",
+   "poss": "",
+   "detail": "With the permit."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "15",
+   "poss": "45",
+   "detail": "King and clapper rails."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Mourning and white-winged doves."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Ducks, geese, brant, tundra swans (with a permit), mergansers and coots at the limits above."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "As youth days."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": "closed until Nov 21"
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": "closed until Nov 21"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 before January 8; 2 from January 8"
+  },
+  {
+   "n": "Fulvous whistling-duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 eiders (1 hen), 3 long-tailed ducks"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Sundays",
+   "d": "There is no hunting of migratory game birds by any method on Sundays."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset, except the September Canada goose season west of U.S. 17 (to ½ hour after sunset)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Required for ducks, geese, brant, swans and coots (federal rule). No lead or toxic shot in possession on any posted game land waterfowl impoundment."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "Plugged to three shells, except September Canada geese west of U.S. 17 and light geese after February 6."
+  },
+  {
+   "g": "Special",
+   "t": "Game land waterfowl impoundments",
+   "d": "On impoundments with a posted perimeter: no one inside before 4:00 a.m. on legal hunting days, no hunting after 1:00 p.m., decoys out no earlier than 4:00 a.m. and removed by 3:00 p.m. Youth under 16 may hunt to sunset on youth days. Some impoundments are permit-only (amber on the map)."
+  },
+  {
+   "g": "Special",
+   "t": "Game land hunting days",
+   "d": "Game lands are designated six days a week or three days a week (Mondays, Wednesdays and Saturdays, plus listed holidays) or permit-only; the Public land layer shows each tract’s designation."
+  },
+  {
+   "g": "Special",
+   "t": "Waterfowl management areas",
+   "d": "On areas posted as waterfowl management areas (restoration, resting and feeding), it is unlawful to hunt or harass waterfowl."
+  },
+  {
+   "g": "Special",
+   "t": "Disabled Sportsman blinds",
+   "d": "No hunting in or within 100 yards of a designated Disabled Sportsman’s Waterfowl Blind during the waterfowl season."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans / military days",
+   "d": "December 5, 2026 and February 6, 2027. Youth 15 and under with an adult 18+ (the adult may not hunt unless another season is open). Veterans and active-duty military need their licence, HIP and a federal duck stamp. No permit needed for youth on game lands, permit-only areas included."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "North Carolina hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident licence from NCWRC (gooutdoorsnorthcarolina.com). Sportsman and Unified Sportsman/Coastal licences include the waterfowl privilege; the Combination Hunting and Inland Fishing licence does not."
+  },
+  {
+   "t": "NC Waterfowl Privilege (Migratory Waterfowl Hunting Licence)",
+   "who": "Waterfowl hunters 16+",
+   "d": "$18 resident or non-resident (eRegulations price list; check at gooutdoorsnorthcarolina.com)."
+  },
+  {
+   "t": "HIP certification",
+   "who": "Every migratory bird hunter",
+   "d": "Free, online or from a wildlife service agent."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed in ink, or the e-stamp."
+  },
+  {
+   "t": "Tundra swan permit",
+   "who": "Swan hunters",
+   "d": "Random drawing; 4,853 permits."
+  }
+ ],
+ "geometryNote": "Geometry: I-95, U.S. 17, NC 45 and U.S. 13 routed on OpenStreetMap (U.S. 17 joined through a 40 m untagged link at Leland); the Northeast goose zone from Census TIGER county lines, which run through Albemarle and Pamlico sounds; NCWRC game lands, waterfowl impoundments and boating access areas; USGS NHD (water; streams from the NHD small-scale layer because the high-resolution service was down on 2026-10-30) and GNIS; USFWS (refuge units; NWI marsh); NOAA CO-OPS (tides); Census TIGER (state outline, county subdivisions, borders). \"East of U.S. 17\" is drawn as the ocean side of the road."
+}
