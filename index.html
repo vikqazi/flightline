@@ -84,6 +84,27 @@ button{cursor:pointer;background:none;border:0}
 .statesw .sw{font-family:var(--f-data);font-size:11px;letter-spacing:.06em;padding:3px 8px;color:var(--dim);background:var(--surface2)}
 .statesw .sw.on{background:var(--accent);color:var(--accent-ink);font-weight:600}
 .statesw:hover{border-color:var(--accent)}
+.brand{position:relative}
+.flybtn{display:flex;align-items:center;gap:6px;border:1px solid var(--line2);border-radius:5px;padding:4px 8px;
+  background:var(--surface2);font-family:var(--f-data);font-size:11px;letter-spacing:.06em;color:var(--fg);flex:0 0 auto;white-space:nowrap}
+.flybtn b{color:var(--accent);font-weight:600;text-transform:uppercase}
+.flybtn .fs{color:var(--dim)}
+@media (max-width:420px){.flybtn .fs{display:none}}   /* phones: the flyway name only; the states are in the panel */
+.flybtn svg{color:var(--dim)}
+.flybtn:hover,.flybtn[aria-expanded="true"]{border-color:var(--accent)}
+.flypanel{position:absolute;left:0;top:calc(100% + 9px);z-index:200;width:min(360px,calc(100vw - 24px));background:var(--surface);
+  border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:10px}
+.flypanel[hidden]{display:none}
+.flyseg button{display:flex;align-items:center;justify-content:center;gap:5px}
+.flyseg .fn{font-family:var(--f-data);font-size:9.5px;border-radius:8px;padding:0 5px;background:var(--sunk);color:var(--dim)}
+.flyseg button[aria-pressed="true"] .fn{background:var(--accent);color:var(--accent-ink)}
+.flystates{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px;margin-top:9px}
+.flyst{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:5px;border:1px solid var(--line);background:var(--surface2);font-size:12.5px;text-align:left}
+.flyst i{font-style:normal;font-family:var(--f-data);font-size:10.5px;color:var(--dim);min-width:18px}
+.flyst.on{border-color:var(--accent);background:var(--accent);color:var(--accent-ink)}
+.flyst.on i{color:var(--accent-ink)}
+.flyacts{justify-content:space-between;margin-top:9px}
+.flysoon{margin-top:9px;font-size:11.5px;color:var(--dim);line-height:1.4}
 .spacer{flex:1 1 auto;min-width:0}
 .datebox{display:flex;align-items:center;gap:0;background:var(--surface2);border:1px solid var(--line);
   border-radius:6px;overflow:hidden;flex:0 0 auto}
@@ -926,7 +947,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <path d="M24.6 12.1h.02"/>
       </svg>
       <span class="word">Flightline</span>
-      <button id="stateBtn" class="statesw" aria-label="Switch state"></button>
+      <button id="stateBtn" class="flybtn" aria-label="Pick a flyway and states" aria-haspopup="true" aria-expanded="false"></button>
+      <div class="flypanel" id="flyPanel" hidden></div>
     </div>
     <div class="spacer"></div>
     <div class="datebox">
@@ -1038,6 +1060,15 @@ var STATES = {
         colors: { 'e-ap-se': '#4f9e9a', 'e-ap-sw': '#5b7fb8', 'e-ls-sw': '#c9893c', 'w-ap-sw': '#8a9a4e', 'w-ls-sw': '#ddaa66', 'w-lw-sw': '#b06fa8' },
         extras: ['closed'], attrib: 'Maryland DNR · Maryland iMAP · USGS NHD' }
 };
+/* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
+var FLYWAYS = [
+  ['atlantic', 'Atlantic', ['me', 'nh', 'vt', 'ma', 'ri', 'ct', 'ny', 'nj', 'pa', 'de', 'md', 'wv', 'va', 'nc', 'sc', 'ga', 'fl']],
+  ['mississippi', 'Mississippi', ['mn', 'wi', 'mi', 'ia', 'il', 'in', 'oh', 'mo', 'ky', 'tn', 'ar', 'ms', 'al', 'la']],
+  ['central', 'Central', ['mt', 'wy', 'co', 'nm', 'nd', 'sd', 'ne', 'ks', 'ok', 'tx']],
+  ['pacific', 'Pacific', ['wa', 'or', 'ca', 'id', 'nv', 'ut', 'az', 'ak', 'mt', 'wy', 'co', 'nm']]
+];
+function flywayOf(code) { for (var i = 0; i < FLYWAYS.length; i++) if (FLYWAYS[i][2].indexOf(code) >= 0) return FLYWAYS[i][0]; return 'atlantic'; }
+function flyBuilt(f) { return f[2].filter(function (c) { return STATES[c]; }); }
 var ZONE_IDS = [];            // namespaced, across every shown state
 var ZONE_COLOR = {};
 var CACHE = {};
@@ -1313,8 +1344,8 @@ function initMap() {
   map = LEAF.map('map', {
     zoomControl: false, attributionControl: false,
     zoomAnimation: true, fadeAnimation: false, markerZoomAnimation: false,
-    minZoom: 7, maxZoom: 19, zoomSnap: 0.5, wheelPxPerZoomLevel: 60,
-    maxBounds: allBounds(1), maxBoundsViscosity: 0.6        // every state in the app, plus a margin
+    minZoom: 3, maxZoom: 19, zoomSnap: 0.5, wheelPxPerZoomLevel: 60,
+    maxBounds: [[15, -180], [72, -50]], maxBoundsViscosity: 0.6        // the whole country, Alaska and Hawaii included
   });
   map.fitBounds(NH_BOUNDS);
 
@@ -1816,7 +1847,7 @@ function drawLabels(V) {
     ctx.strokeText(text, x, y); ctx.fillStyle = color; ctx.fillText(text, x, y);
   }
   /* zone names at low zoom */
-  if (S.layers.zones && V.z <= 9.5) {
+  if (S.layers.zones && V.z <= 9.5 && V.z >= 6.5) {
     for (var i = 0; i < D.zones.length; i++) {
       var f = D.zones[i], big = f.parts[0], ba = 0;
       for (var p = 0; p < f.parts.length; p++) { var a = ringArea(f.parts[p]); if (a > ba) { ba = a; big = f.parts[p]; } }
@@ -3795,10 +3826,21 @@ function wire() {
   document.addEventListener('click', function (ev) {
     if (ev.target.closest && ev.target.closest('#keyClose')) { store('key', '0'); renderKey(); }
   });
-  $('#stateBtn').onclick = function (ev) {
-    var t = ev.target.closest && ev.target.closest('[data-state]');
-    if (t) toggleShown(t.getAttribute('data-state'));
+  $('#stateBtn').onclick = function () { flyPanelOpen($('#flyPanel').hidden); };
+  $('#flyPanel').onclick = function (ev) {
+    var t = ev.target.closest && ev.target.closest('[data-fly],[data-state],[data-fly-all]'); if (!t) return;
+    if (t.getAttribute('data-fly')) { S.flyway = t.getAttribute('data-fly'); store('flyway', S.flyway); renderStateBtn(); }
+    else if (t.getAttribute('data-state')) toggleShown(t.getAttribute('data-state'));
+    else if (t.getAttribute('data-fly-all')) {
+      var f = FLYWAYS.filter(function (x) { return x[0] === t.getAttribute('data-fly-all'); })[0];
+      if (f) setShown(flyBuilt(f).sort(function (x, y) { return Object.keys(STATES).indexOf(x) - Object.keys(STATES).indexOf(y); }), false, true);
+    }
   };
+  document.addEventListener('click', function (ev) {      // a tap anywhere else closes the flyway panel
+    var p = $('#flyPanel');
+    if (p && !p.hidden && ev.target.isConnected && ev.target.closest && !ev.target.closest('#flyPanel,#stateBtn')) flyPanelOpen(false);
+  });
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') flyPanelOpen(false); });
   $('#mRail').onclick = function () { $('#rail').classList.add('on'); $('#scrim').classList.add('on'); };
   $('#scrim').onclick = closeRail;
   document.addEventListener('keydown', function (e) {
@@ -4138,15 +4180,46 @@ function writeHash() {
 }
 function renderStateBtn() {
   var b = $('#stateBtn'); if (!b) return;
-  b.innerHTML = Object.keys(STATES).map(function (c) {
-    return h('button', { class: 'sw' + (S.shown.indexOf(c) >= 0 ? ' on' : ''), 'data-state': c,
-                         title: (S.shown.indexOf(c) >= 0 ? 'Hide ' : 'Show ') + STATES[c].name }, esc(STATES[c].abbr));
-  }).join('');
-  b.setAttribute('title', 'Showing ' + listAnd(S.shown.map(function (c) { return STATES[c].name; })));
+  if (!S.flyway) S.flyway = flywayOf(S.shown[0]);
+  var fo = flywayOf(S.shown[0]), f = FLYWAYS.filter(function (x) { return x[0] === fo; })[0] || FLYWAYS[0];   // the flyway on the map
+  var shown = S.shown.map(function (c) { return STATES[c].abbr; });
+  b.innerHTML = h('b', null, esc(f[1])) +
+    h('span', { class: 'fs' }, esc(shown.length <= 3 ? shown.join(' ') : shown.length + ' states')) +
+    '<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  b.setAttribute('title', 'Showing ' + listAnd(S.shown.map(function (c) { return STATES[c].name; })) + '. Pick a flyway and its states');
+  renderFlyPanel();
+}
+function renderFlyPanel() {
+  var p = $('#flyPanel'); if (!p || p.hidden) return;
+  var f = FLYWAYS.filter(function (x) { return x[0] === S.flyway; })[0] || FLYWAYS[0], built = flyBuilt(f);
+  var soon = f[2].filter(function (c) { return !STATES[c]; });
+  p.innerHTML =
+    h('div', { class: 'seg flyseg' }, FLYWAYS.map(function (x) {
+      var n = flyBuilt(x).length;
+      return h('button', { 'data-fly': x[0], 'aria-pressed': x[0] === f[0] }, esc(x[1]) + (n ? h('span', { class: 'fn' }, String(n)) : ''));
+    }).join('')) +
+    (built.length
+      ? h('div', { class: 'flystates' }, built.map(function (c) {
+          var on = S.shown.indexOf(c) >= 0;
+          return h('button', { class: 'flyst' + (on ? ' on' : ''), 'data-state': c, 'aria-pressed': on, title: (on ? 'Hide ' : 'Show ') + STATES[c].name },
+            h('i', null, esc(STATES[c].abbr)) + esc(STATES[c].name));
+        }).join('')) +
+        h('div', { class: 'row flyacts' },
+          h('button', { class: 'btn ghost', 'data-fly-all': f[0] }, 'Show all ' + built.length) +
+          h('span', { class: 'tiny muted' }, S.shown.length + ' shown'))
+      : h('div', { class: 'flysoon' }, '<b>' + esc(f[1]) + ' Flyway: coming soon.</b> States are added one at a time, each bordering one already on the map.')) +
+    (built.length && soon.length ? h('div', { class: 'flysoon' }, 'Coming: ' + esc(soon.map(function (c) { return c.toUpperCase(); }).join(' '))) : '');
+}
+function flyPanelOpen(open) {
+  var p = $('#flyPanel'), b = $('#stateBtn'); if (!p || !b) return;
+  p.hidden = !open; b.setAttribute('aria-expanded', String(open));
+  if (open) S.flyway = flywayOf(S.shown[0]);      // open on the flyway being shown
+  if (open) renderFlyPanel();
 }
 function boot() {
   applyTheme();
   S.labels = store('labels') !== '0';
+  S.flyway = store('flyway') || null;
   var saved = store('layers');
   if (saved) { try { var o = JSON.parse(saved); for (var k in o) if (k in S.layers) S.layers[k] = !!o[k]; } catch (e) {} }
   try { var sg = JSON.parse(store('sight') || 'null');
