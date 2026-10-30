@@ -1,0 +1,784 @@
+{
+ "state": "CT",
+ "stateName": "Connecticut",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": true,
+ "sources": [
+  {
+   "label": "CT DEEP — 2026–2027 Connecticut Migratory Bird Hunting Guide (PDF)",
+   "url": "https://portal.ct.gov/-/media/deep/hunting_trapping/pdf_files/mgbguide2026-2027.pdf"
+  },
+  {
+   "label": "CT DEEP — Migratory bird hunting guide: season dates and bag limits",
+   "url": "https://portal.ct.gov/deep/hunting/connecticut-migratory-bird-hunting-guide/season-dates-and-bag-limits"
+  },
+  {
+   "label": "CT DEEP — Federal, state and local regulations",
+   "url": "https://portal.ct.gov/deep/hunting/connecticut-migratory-bird-hunting-guide/federal-state-and-local-regulations"
+  },
+  {
+   "label": "CT DEEP — State and federal stamps and HIP",
+   "url": "https://portal.ct.gov/deep/hunting/connecticut-migratory-bird-hunting-guide/state-and-federal-stamps-and-hip"
+  },
+  {
+   "label": "CT DEEP — Public hunting areas map (areas open, closed, waterfowl closures)",
+   "url": "https://portal.ct.gov/deep/hunting/public-hunting-areas"
+  },
+  {
+   "label": "CT DEEP GIS — Migrant Goose Zones, Areas Closed to Hunting, Areas Open for Hunting, Boat Launches, Coastal Access Sites",
+   "url": "https://services1.arcgis.com/FjPcSmEFuDYlIdKC/arcgis/rest/services"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS) — Quinnipiac River mouth, Lighthouse Point, Great Island",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, towns and shared state borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — lakes, ponds, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes and Interstate 95",
+   "url": "https://www.openstreetmap.org/copyright"
+  }
+ ],
+ "zones": {
+  "n-ap": {
+   "name": "North Zone · AP goose unit",
+   "short": "North · AP",
+   "bounds": "North Zone: the portion of the state north of Interstate 95. South Zone: the portion of the state south of Interstate 95. AP Unit: Litchfield County and the portion of Hartford County west of a line beginning at the Massachusetts border in Suffield and extending south along Route 159 to its intersection with I-91 in Hartford, and then south along I-91 to the Hartford/Middlesex County line (Wethersfield/Cromwell).",
+   "note": "North Zone duck dates. Canada geese: AP unit — 3 a day in the regular season, then the AP late season (Dec 15 – Feb 13, 5 a day)."
+  },
+  "n-afrp": {
+   "name": "North Zone · AFRP goose unit",
+   "short": "North · AFRP",
+   "bounds": "North Zone: the portion of the state north of Interstate 95. South Zone: the portion of the state south of Interstate 95. AFRP Unit: all of the rest of the state not included in the AP or NAP descriptions.",
+   "note": "North Zone duck dates. Canada geese: AFRP unit, 5 a day."
+  },
+  "n-naph": {
+   "name": "North Zone · NAP-H goose unit",
+   "short": "North · NAP-H",
+   "bounds": "North Zone: the portion of the state north of Interstate 95. South Zone: the portion of the state south of Interstate 95. NAP-H Unit: that part of the state east of a line beginning at the Massachusetts border in Suffield and extending along Route 159 to I-91 in Hartford, then south along I-91 to State Street in New Haven; south along State Street to Route 34; west on Route 34 to Route 8 to Route 110; south along Route 110 to Route 15; north along Route 15 to the Milford Parkway; south along the Milford Parkway to I-95; north along I-95 to the east shore of the Quinnipiac River; south to the mouth of the Quinnipiac River and then south along the eastern shore of New Haven Harbor to Long Island Sound.",
+   "note": "North Zone duck dates. Canada geese: NAP-H unit, 2 a day; no late season north of I-95."
+  },
+  "s-afrp": {
+   "name": "South Zone · AFRP goose unit",
+   "short": "South · AFRP",
+   "bounds": "North Zone: the portion of the state north of Interstate 95. South Zone: the portion of the state south of Interstate 95. AFRP Unit: all of the rest of the state not included in the AP or NAP descriptions. The rule’s line stops at Long Island Sound. Out on the Sound the app continues it due south from Lighthouse Point to the state line (approximate): east of it is NAP-H — the guide calls the late-season area “the South Zone east of the Quinnipiac River” — and west of it AFRP.",
+   "note": "South Zone duck dates. Canada geese: AFRP unit, 5 a day. Includes New Haven Harbor and the lower Quinnipiac River, which lie west of the NAP-H line."
+  },
+  "s-naph": {
+   "name": "South Zone · NAP-H goose unit",
+   "short": "South · NAP-H",
+   "bounds": "North Zone: the portion of the state north of Interstate 95. South Zone: the portion of the state south of Interstate 95. NAP-H Unit: that part of the state east of a line beginning at the Massachusetts border in Suffield and extending along Route 159 to I-91 in Hartford, then south along I-91 to State Street in New Haven; south along State Street to Route 34; west on Route 34 to Route 8 to Route 110; south along Route 110 to Route 15; north along Route 15 to the Milford Parkway; south along the Milford Parkway to I-95; north along I-95 to the east shore of the Quinnipiac River; south to the mouth of the Quinnipiac River and then south along the eastern shore of New Haven Harbor to Long Island Sound. The rule’s line stops at Long Island Sound. Out on the Sound the app continues it due south from Lighthouse Point to the state line (approximate): east of it is NAP-H — the guide calls the late-season area “the South Zone east of the Quinnipiac River” — and west of it AFRP.",
+   "note": "South Zone duck dates. Canada geese: NAP-H unit, 2 a day, then the NAP-H late season (Jan 15 – Feb 13, 5 a day) — this area is “the portion of the South Zone east of the Quinnipiac River”."
+  }
+ },
+ "seasonsNote": "Every Connecticut date excludes Sundays.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n-ap": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-09"
+     ]
+    ],
+    "n-afrp": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-09"
+     ]
+    ],
+    "n-naph": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-09"
+     ]
+    ],
+    "s-afrp": [
+     [
+      "2026-10-10",
+      "2026-10-12"
+     ],
+     [
+      "2026-11-11",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-19"
+     ]
+    ],
+    "s-naph": [
+     [
+      "2026-10-10",
+      "2026-10-12"
+     ],
+     [
+      "2026-11-11",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-19"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "No separate sea duck season — 4 a day inside the 6."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "z": {
+    "n-ap": [
+     [
+      "2026-09-01",
+      "2026-09-30"
+     ]
+    ],
+    "n-afrp": [
+     [
+      "2026-09-01",
+      "2026-09-30"
+     ]
+    ],
+    "n-naph": [
+     [
+      "2026-09-01",
+      "2026-09-30"
+     ]
+    ],
+    "s-afrp": [
+     [
+      "2026-09-15",
+      "2026-09-30"
+     ]
+    ],
+    "s-naph": [
+     [
+      "2026-09-15",
+      "2026-09-30"
+     ]
+    ]
+   },
+   "endAfterSunset": 30,
+   "note": "North Zone from September 1, South Zone from September 15. Shooting to half an hour after sunset. No permit needed."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "n-ap": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-21",
+      "2026-12-14"
+     ]
+    ],
+    "n-afrp": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-21",
+      "2027-02-13"
+     ]
+    ],
+    "s-afrp": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-21",
+      "2027-02-13"
+     ]
+    ],
+    "n-naph": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-10",
+      "2027-01-09"
+     ]
+    ],
+    "s-naph": [
+     [
+      "2026-10-10",
+      "2026-10-12"
+     ],
+     [
+      "2026-11-09",
+      "2027-01-14"
+     ]
+    ]
+   },
+   "note": "By goose unit: AP 3 a day, AFRP 5, NAP-H 2. White-fronted geese count."
+  },
+  {
+   "sp": "canadalate",
+   "label": "Canada geese — late",
+   "z": {
+    "n-ap": [
+     [
+      "2026-12-15",
+      "2027-02-13"
+     ]
+    ],
+    "s-naph": [
+     [
+      "2027-01-15",
+      "2027-02-13"
+     ]
+    ],
+    "n-afrp": [],
+    "n-naph": [],
+    "s-afrp": []
+   },
+   "note": "AP late season (North Zone) and NAP-H late season (South Zone east of the Quinnipiac River). Buy your 2027 licence and stamp first."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "z": {
+    "n-ap": [
+     [
+      "2026-10-01",
+      "2027-01-09"
+     ]
+    ],
+    "n-afrp": [
+     [
+      "2026-10-01",
+      "2027-01-09"
+     ]
+    ],
+    "n-naph": [
+     [
+      "2026-10-01",
+      "2027-01-09"
+     ]
+    ],
+    "s-afrp": [
+     [
+      "2026-10-01",
+      "2027-01-09"
+     ]
+    ],
+    "s-naph": [
+     [
+      "2026-10-01",
+      "2027-01-09"
+     ]
+    ]
+   },
+   "note": "Blue geese count as snow geese. No possession limit."
+  },
+  {
+   "sp": "snowlate",
+   "label": "Snow geese — late",
+   "z": {
+    "n-ap": [
+     [
+      "2027-02-16",
+      "2027-03-10"
+     ]
+    ],
+    "n-afrp": [
+     [
+      "2027-02-16",
+      "2027-03-10"
+     ]
+    ],
+    "n-naph": [
+     [
+      "2027-02-16",
+      "2027-03-10"
+     ]
+    ],
+    "s-afrp": [
+     [
+      "2027-02-16",
+      "2027-03-10"
+     ]
+    ],
+    "s-naph": [
+     [
+      "2027-02-16",
+      "2027-03-10"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "z": {
+    "n-ap": [
+     [
+      "2026-12-07",
+      "2027-01-09"
+     ]
+    ],
+    "n-afrp": [
+     [
+      "2026-12-07",
+      "2027-01-09"
+     ]
+    ],
+    "n-naph": [
+     [
+      "2026-12-07",
+      "2027-01-09"
+     ]
+    ],
+    "s-afrp": [
+     [
+      "2026-12-16",
+      "2027-01-19"
+     ]
+    ],
+    "s-naph": [
+     [
+      "2026-12-16",
+      "2027-01-19"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-22",
+     "2026-12-12"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-10"
+    ],
+    [
+     "2026-10-17",
+     "2027-01-08"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Virginia and sora rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-15"
+    ],
+    [
+     "2026-10-23",
+     "2026-11-27"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "Clapper and king rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-15"
+    ],
+    [
+     "2026-10-23",
+     "2026-11-27"
+    ]
+   ]
+  },
+  {
+   "sp": "crow",
+   "label": "Crows",
+   "statewide": [
+    [
+     "2026-08-08",
+     "2026-10-09",
+     {
+      "dow": [
+       3,
+       5,
+       6
+      ]
+     }
+    ],
+    [
+     "2026-10-17",
+     "2026-11-28",
+     {
+      "dow": [
+       3,
+       5,
+       6
+      ]
+     }
+    ],
+    [
+     "2026-12-21",
+     "2027-03-20",
+     {
+      "dow": [
+       1,
+       2,
+       3,
+       4,
+       5,
+       6
+      ]
+     }
+    ]
+   ],
+   "endAfterSunset": 30,
+   "note": "Wednesdays, Fridays and Saturdays until November 28; Monday to Saturday from December 21."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-03"
+    ],
+    [
+     "2026-10-31",
+     "2026-10-31"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "All ducks, sea ducks and mergansers together, inside which the species limits below apply. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "In the 6",
+   "poss": "",
+   "detail": "All merganser species count in the aggregate duck bag of 6; no merganser limit of their own."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6-duck bag: no more than 3 scoters, 3 long-tailed ducks, 3 eiders (1 hen)."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "15",
+   "poss": "45",
+   "detail": "September season, statewide. White-fronted geese count. Unplugged shotguns are legal in this season."
+  },
+  {
+   "sp": "canada",
+   "daily": "2–5",
+   "poss": "6–15",
+   "detail": "By goose unit: AP 3 (9 in possession); AFRP 5 (15); NAP-H 2 (6). White-fronted geese count."
+  },
+  {
+   "sp": "canadalate",
+   "daily": "5",
+   "poss": "15",
+   "detail": "AP late season (North) and NAP-H late season (South, east of the Quinnipiac River)."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Includes blue geese."
+  },
+  {
+   "sp": "snowlate",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Includes blue geese."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Virginia and sora rails."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "10",
+   "poss": "30",
+   "detail": "Clapper and king rails; only 1 of the 10 may be a king rail."
+  },
+  {
+   "sp": "crow",
+   "daily": "None",
+   "poss": "None",
+   "detail": "No limit. The state migratory bird stamp is required."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular duck and goose limits and shooting hours."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": "hybrids count as black ducks"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "2 a day Nov 14 – Jan 9 in the North Zone and Dec 26 – Jan 19 in the South Zone; 1 a day otherwise"
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 long-tailed ducks, 3 eiders (1 hen)"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "6",
+   "note": "inside the 6-duck bag, no separate limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "No Sunday hunting",
+   "d": "Connecticut’s law allowing Sunday hunting on private land does not cover migratory birds. Every season below excludes Sundays."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset. September Canada geese and crows: to one-half hour after sunset. Woodcock, snipe and rails: to sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Waterfowl, coots and rails: steel shot no larger than BB, or other federally approved non-toxic shot no larger than #2. No lead shot in your possession while waterfowl hunting. Not required for woodcock, snipe or crows."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No larger than 10 gauge, plugged to three shells (unplugged guns are legal in the September goose season, and for crows). No rifles or pistols."
+  },
+  {
+   "g": "Gear",
+   "t": "Calls, decoys and bait",
+   "d": "No recorded or electronically amplified calls. No live decoys (remove tame birds 10 days before hunting). No hunting over bait; an area stays baited for 10 days after the bait is gone."
+  },
+  {
+   "g": "Boats",
+   "t": "Boats and vehicles",
+   "d": "No shooting from a motorboat or sailboat until the motor is off, the sail furled and it has stopped — except that crippled ducks may be taken under power in tidal water seaward of the first upstream bridge. No driving or rallying birds. No sink boxes. Mark any boat left unattended on DEEP land."
+  },
+  {
+   "g": "Boats",
+   "t": "Blinds",
+   "d": "No permanent blind or structure on state-controlled land or water. At Great Island (Old Lyme) and Ragged Rock (Old Saybrook), waterfowl hunting on state-controlled land and water is from temporary blinds only."
+  },
+  {
+   "g": "Safety",
+   "t": "500 feet from buildings (250 on tidal water)",
+   "d": "No hunting, shooting or loaded gun within 500 feet of a building occupied by people or domestic animals or used to store flammables — 250 feet when waterfowl hunting in tidal areas from land, rock or a floating blind anchored next to land — unless you carry the owner’s written permission. Landowners and their families are exempt for their own buildings."
+  },
+  {
+   "g": "Safety",
+   "t": "Shooting toward buildings",
+   "d": "No shooting toward any person, building or domestic animal within range."
+  },
+  {
+   "g": "Safety",
+   "t": "Party size",
+   "d": "No more than six hunters in a party, at least 100 yards between parties."
+  },
+  {
+   "g": "Safety",
+   "t": "Security zones",
+   "d": "Coast Guard and utility security zones: no boat within 25 yards of any bridge; a 700-yard zone around Millstone Power Plant (Niantic); and no boats within 1,500 feet downstream of the Shepaug and Lake Housatonic dams, 700 feet of Stevenson Dam, or 300 feet of Bleachery Dam, nor 300 feet upstream of any of them."
+  },
+  {
+   "g": "Ethics",
+   "t": "Retrieve your birds",
+   "d": "Make a reasonable effort to retrieve every bird you kill or wound; any bird not retrieved still counts in your bag."
+  },
+  {
+   "g": "Special",
+   "t": "Local closures",
+   "d": "DEEP closes 26 named waters and places to waterfowl hunting or adds rules there — Greenwich harbors, Westport, Darien, Milford, the Housatonic, West, Quinnipiac, Branford, Mystic, Niantic, Thames and Black Hall rivers, Bantam Lake and more. They are red on the map with each rule’s wording. A place not on the list is NOT automatically open."
+  },
+  {
+   "g": "Special",
+   "t": "National wildlife refuges",
+   "d": "More restrictive rules may apply at McKinney and Silvio O. Conte refuge units (Refuges layer). USFWS: 413-253-8274."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth training days",
+   "d": "Saturdays October 3 and October 31, 2026, statewide. Ages 12–15 with a junior small-game licence and the state migratory bird stamp; 16–17 with a hunting licence, the state stamp and the federal duck stamp; all with an adult 18 or older, who may not hunt ducks that day. Ducks, geese, mergansers and coots at regular limits and hours."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on every bird until home. Tag birds left with someone else (signature, address, number by species, dates). Mark shipped packages with both addresses and the count by species."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Connecticut hunting licence",
+   "who": "Residents and non-residents",
+   "d": "Calendar-year licence from town clerks, agents or the Online Outdoor Licensing System. Hunting in January–February 2027 needs the 2027 licence and stamp. Non-residents may buy a 3-day bird licence ($35)."
+  },
+  {
+   "t": "Connecticut Migratory Bird Conservation Stamp (with HIP)",
+   "who": "Every migratory bird hunter, crows included",
+   "d": "$17 ($9 for ages 12–17); the $13 stamp and $4 HIP permit in one. Signed in ink or on your licence. The 2026 stamp expires December 31, 2026."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "$25, signed in ink across the face. Not needed for woodcock, snipe, coot or rail."
+  }
+ ],
+ "geometryNote": "Geometry: CT DEEP (goose-unit lines — checked against Route 159, I-91, State Street, Routes 34, 8, 110 and 15 — waterfowl closure areas, areas closed to hunting, hunting areas, boat launches, coastal access sites), OpenStreetMap (Interstate 95 and numbered routes), USGS GNIS (Quinnipiac River mouth, Lighthouse Point), USGS NHD (lakes, ponds, marshes, rivers, streams), USFWS (refuge hunt units; NWI marsh for the habitat surface), NOAA CO-OPS (tides), Census TIGER (state outline, towns, shared borders). The goose line’s run across Long Island Sound, due south of Lighthouse Point, is approximate."
+}
