@@ -1,0 +1,803 @@
+{
+ "state": "PA",
+ "stateName": "Pennsylvania",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": true,
+ "sources": [
+  {
+   "label": "Pennsylvania Game Commission — 2026–27 Hunting & Trapping Digest (PDF): Waterfowl & Migratory, pp. 42–45",
+   "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/pgc/documents/hunttrap/law/pa%20game%20hunttrap%20digest%2026-27.pdf"
+  },
+  {
+   "label": "PGC — 2026–27 Seasons and Bag Limits",
+   "url": "https://www.pa.gov/en/agencies/pgc/huntingandtrapping/regulations/seasons-and-bag-limits.html"
+  },
+  {
+   "label": "PGC — Special hunts (Middle Creek, Pymatuning)",
+   "url": "https://www.pa.gov/agencies/pgc/huntingandtrapping/licenses-and-permits/special-hunt-applications"
+  },
+  {
+   "label": "PGC GIS — Duck Zones, Goose Zones, Controlled Goose Areas, State Game Lands",
+   "url": "https://services1.arcgis.com/k8yxvICm95iIFicb/arcgis/rest/services/PGC_Hunting_Boundaries/FeatureServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (zone lines on I-80, US 220, I-180, SR 198, I-79, SR 358) and boat ramps",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines, townships and shared state borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — lakes, ponds, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions (tidal Delaware River)",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "le": {
+   "name": "Lake Erie Zone",
+   "short": "Lake Erie",
+   "bounds": "Lake Erie Zone: Lake Erie, Presque Isle and the area within 150 yards of the Lake Erie shoreline. Resident Population goose zone: all of Pennsylvania except the Atlantic Population zone.",
+   "note": "Ducks Nov 2 – Jan 9. Resident Population geese. The line 150 yards inland is PGC’s own map (approximate)."
+  },
+  "nw": {
+   "name": "Northwest Zone",
+   "short": "Northwest",
+   "bounds": "Northwest Zone: the area bounded on the north by the Lake Erie Zone and including all of Erie and Crawford counties and all of Mercer and Venango counties north of I-80. Resident Population goose zone: all of Pennsylvania except the Atlantic Population zone.",
+   "note": "Ducks Oct 10 – Nov 27 and Dec 21 – Jan 9. Resident Population geese."
+  },
+  "nw-cm": {
+   "name": "Northwest Zone · western Crawford / NW Mercer",
+   "short": "NW · Crawford/Mercer",
+   "bounds": "Northwest Zone: the area bounded on the north by the Lake Erie Zone and including all of Erie and Crawford counties and all of Mercer and Venango counties north of I-80. Western Crawford / northwestern Mercer: the area south of SR 198 from the Ohio state line to the intersection of I-79, west of I-79 to SR 358, north of SR 358 to the Ohio state line.",
+   "note": "Northwest duck dates. Canada geese: September season only Sept 1–12, 1 a day (3 in possession; closed on SGL 214); regular season 3 a day (9 in possession)."
+  },
+  "n": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North Zone: the area east of the Northwest Zone and north of I-80 to Route 220, north from I-80 to I-180, north and east of I-180 from Route 220 to I-80, north of I-80 from I-180 to the Delaware River. Resident Population goose zone: all of Pennsylvania except the Atlantic Population zone.",
+   "note": "Ducks Oct 10–24 and Nov 17 – Jan 9. Resident Population geese."
+  },
+  "s-rp": {
+   "name": "South Zone · Resident Population geese",
+   "short": "South · RP",
+   "bounds": "South Zone: all of the state not in the Lake Erie, Northwest and North zones. Resident Population goose zone: all of Pennsylvania except the Atlantic Population zone.",
+   "note": "Ducks Oct 10–17 and Nov 18 – Jan 18. Resident Population geese, 5 a day in the regular season."
+  },
+  "s-ap": {
+   "name": "South Zone · Atlantic Population geese",
+   "short": "South · AP",
+   "bounds": "South Zone: all of the state not in the Lake Erie, Northwest and North zones. Atlantic Population goose zone: the area east of SR 97 from the Maryland state line to the intersection of SR 194, east of SR 194 to the intersection of US Route 30, south of US Route 30 to SR 441, east of SR 441 to SR 743, east of SR 743 to the intersection of I-81, east of I-81 to the intersection of I-80, south of I-80 to the New Jersey state line.",
+   "note": "Ducks Oct 10–17 and Nov 18 – Jan 18. Atlantic Population geese: Nov 21–27 and Dec 4 – Jan 18, 3 a day."
+  },
+  "s-ll": {
+   "name": "South Zone · AP geese · Lancaster / Lebanon",
+   "short": "South · Lanc/Leb",
+   "bounds": "South Zone: all of the state not in the Lake Erie, Northwest and North zones. Atlantic Population goose zone: the area east of SR 97 from the Maryland state line to the intersection of SR 194, east of SR 194 to the intersection of US Route 30, south of US Route 30 to SR 441, east of SR 441 to SR 743, east of SR 743 to the intersection of I-81, east of I-81 to the intersection of I-80, south of I-80 to the New Jersey state line. Lancaster / Lebanon: north of the Pennsylvania Turnpike I-76, east of SR 501 to SR 419, south of SR 419 to the Lebanon–Berks county line, west of the Lebanon–Berks and Lancaster–Berks county lines to SR 1053 (Peartown Road and Greenville Road), west of SR 1053 to the Turnpike.",
+   "note": "September Canada geese 1 a day (3 in possession); closed on SGL 46, Middle Creek. Otherwise as the AP zone."
+  }
+ },
+ "seasonsNote": "Migratory bird hunting is closed on Sundays in Pennsylvania.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "le": [
+     [
+      "2026-11-02",
+      "2027-01-09"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-10-10",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-21",
+      "2027-01-09"
+     ]
+    ],
+    "nw-cm": [
+     [
+      "2026-10-10",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-21",
+      "2027-01-09"
+     ]
+    ],
+    "n": [
+     [
+      "2026-10-10",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-17",
+      "2027-01-09"
+     ]
+    ],
+    "s-rp": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-18",
+      "2027-01-18"
+     ]
+    ],
+    "s-ap": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-18",
+      "2027-01-18"
+     ]
+    ],
+    "s-ll": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-18",
+      "2027-01-18"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "No separate sea duck season — 4 a day inside the 6."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "z": {
+    "le": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "nw-cm": [
+     [
+      "2026-09-01",
+      "2026-09-12"
+     ]
+    ],
+    "n": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "s-rp": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "s-ap": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "s-ll": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ]
+   },
+   "endAfterSunset": 30,
+   "note": "Shooting to half an hour after sunset. Western Crawford / NW Mercer: Sept 1–12, 1 a day. Lancaster / Lebanon area: 1 a day. Closed on SGL 46 (Middle Creek) and SGL 214 (Pymatuning)."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "le": [
+     [
+      "2026-10-24",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-18"
+     ],
+     [
+      "2027-01-29",
+      "2027-02-20"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-10-24",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-18"
+     ],
+     [
+      "2027-01-29",
+      "2027-02-20"
+     ]
+    ],
+    "nw-cm": [
+     [
+      "2026-10-24",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-18"
+     ],
+     [
+      "2027-01-29",
+      "2027-02-20"
+     ]
+    ],
+    "n": [
+     [
+      "2026-10-24",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-18"
+     ],
+     [
+      "2027-01-29",
+      "2027-02-20"
+     ]
+    ],
+    "s-rp": [
+     [
+      "2026-10-24",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-18"
+     ],
+     [
+      "2027-01-29",
+      "2027-02-20"
+     ]
+    ],
+    "s-ap": [
+     [
+      "2026-11-21",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-04",
+      "2027-01-18"
+     ]
+    ],
+    "s-ll": [
+     [
+      "2026-11-21",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-04",
+      "2027-01-18"
+     ]
+    ]
+   },
+   "note": "Resident Population zone 5 a day (western Crawford / NW Mercer 3); Atlantic Population zone 3 a day. White-fronted geese count."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "statewide": [
+    [
+     "2026-11-06",
+     "2027-03-10"
+    ]
+   ],
+   "note": "Snow and Ross’s geese. No possession limit."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2026-10-10",
+     "2026-11-13"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2026-12-08"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2026-12-08"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Virginia and sora rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-27"
+    ],
+    [
+     "2026-12-18",
+     "2027-01-02"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "le": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-10-24",
+      "2026-10-24"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ]
+    ],
+    "nw-cm": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ]
+    ],
+    "n": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-10-31",
+      "2026-10-31"
+     ]
+    ],
+    "s-rp": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ]
+    ],
+    "s-ap": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ]
+    ],
+    "s-ll": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ],
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ]
+    ]
+   },
+   "note": "Sept 19 statewide (youth only); the zone’s second day is shared with veterans and active military."
+  },
+  {
+   "sp": "vet",
+   "label": "Veteran and military days",
+   "z": {
+    "le": [
+     [
+      "2026-10-24",
+      "2026-10-24"
+     ],
+     [
+      "2027-01-16",
+      "2027-01-16"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ],
+     [
+      "2027-01-16",
+      "2027-01-16"
+     ]
+    ],
+    "nw-cm": [
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ],
+     [
+      "2027-01-16",
+      "2027-01-16"
+     ]
+    ],
+    "n": [
+     [
+      "2026-10-31",
+      "2026-10-31"
+     ],
+     [
+      "2027-01-16",
+      "2027-01-16"
+     ]
+    ],
+    "s-rp": [
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ],
+     [
+      "2027-01-23",
+      "2027-01-23"
+     ]
+    ],
+    "s-ap": [
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ],
+     [
+      "2027-01-23",
+      "2027-01-23"
+     ]
+    ],
+    "s-ll": [
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ],
+     [
+      "2027-01-23",
+      "2027-01-23"
+     ]
+    ]
+   }
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks or sea ducks a day in the aggregate, inside which the species limits below apply. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Hooded mergansers are now part of the merganser limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 eiders (1 hen), 3 long-tailed ducks, 3 scoters."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Western Crawford / NW Mercer: Sept 1–12, 1 a day, 3 in possession (SGL 214 closed). Lancaster / Lebanon area: 1 a day, 3 in possession (SGL 46 closed). White-fronted geese count."
+  },
+  {
+   "sp": "canada",
+   "daily": "3–5",
+   "poss": "9–15",
+   "detail": "Resident Population zone 5 a day (15); western Crawford / NW Mercer 3 (9); Atlantic Population zone 3 (9). Middle Creek public areas 1 (3); its controlled areas 1 a season."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Snow and Ross’s geese. A spring conservation season is to be decided after spring surveys."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Wilson’s snipe."
+  },
+  {
+   "sp": "sora",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Virginia and sora rails, singly or combined. Clapper and king rails are closed."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular-season limits and restrictions."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular-season limits and restrictions."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "2 a day on 20 days: Lake Erie Nov 25 – Dec 17; Northwest Nov 26–27 and Dec 21 – Jan 9; North Dec 18 – Jan 9; South Dec 26 – Jan 18. 1 a day otherwise"
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 eiders (1 hen), 3 long-tailed ducks, 3 scoters"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit, hooded included"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "no open season"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "No Sunday hunting",
+   "d": "Migratory game bird hunting is closed on Sundays (crows excepted), although most other Pennsylvania seasons now include Sundays."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset. September Canada geese: to one-half hour after sunset — except on youth waterfowl days, when all migratory bird hunting ends at sunset. The digest’s table is for the 75th meridian; add 4 minutes per meridian west."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Only non-toxic shot up to and including size T (.20 inch) is lawful for waterfowl; lead shot is unlawful."
+  },
+  {
+   "g": "Gear",
+   "t": "Guns and bows",
+   "d": "Manual and semi-automatic shotguns no larger than 10 gauge, three shells in chamber and magazine combined. Long, recurve and compound bows and crossbows are also lawful."
+  },
+  {
+   "g": "Gear",
+   "t": "Calls, decoys and bait",
+   "d": "No live decoys and no recorded or electrically amplified calls (except in a snow goose conservation season). Electronic decoys and “ice-eaters” are lawful. No hunting over bait — an area stays baited for 30 days after the bait is removed."
+  },
+  {
+   "g": "Boats",
+   "t": "Boats and vehicles",
+   "d": "No shooting from a motorboat or sailboat unless the motor is off, the sail furled and it has stopped. No driving, rallying or chasing birds with any motorised conveyance or sailboat. No sink boxes. No shooting from a car or aircraft."
+  },
+  {
+   "g": "Boats",
+   "t": "Life jackets Nov 1 – Apr 30",
+   "d": "Everyone, waterfowl hunters included, must wear a life jacket on boats under 16 feet and on any canoe or kayak from November 1 to April 30."
+  },
+  {
+   "g": "Safety",
+   "t": "150-yard safety zones",
+   "d": "No hunting, shooting at or disturbing wildlife within 150 yards of any occupied residence, camp, farm building, barn, school, day-care or playground without the occupants’ permission — and no shooting into a safety zone from outside it."
+  },
+  {
+   "g": "Safety",
+   "t": "Parties and orange",
+   "d": "Waterfowl hunters may hunt in a party of more than six when hunting from a blind or stationary position. Fluorescent orange is not required for waterfowl hunters."
+  },
+  {
+   "g": "Special",
+   "t": "Goose exception areas",
+   "d": "Western Crawford / northwestern Mercer (south of SR 198, west of I-79, north of SR 358) and the Lancaster / Lebanon area north of the Turnpike have their own goose seasons or limits — they are separate zones on this map."
+  },
+  {
+   "g": "Special",
+   "t": "Middle Creek and Pymatuning",
+   "d": "Both wildlife management areas are closed to September goose hunting (public hunting areas open on the September youth day) and run drawn controlled hunts. Middle Creek’s public areas allow 1 goose a day in the regular season; its controlled areas 1 a season. Amber on the map."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veteran and military days",
+   "d": "Youth only: Sept 19, statewide. Youth, veterans and active military: Lake Erie Oct 24, Northwest Sept 26, North Oct 31, South Nov 7. Veterans and active military only: Jan 16 (Lake Erie, Northwest, North), Jan 23 (South). Ducks, mergansers, coots, gallinules, Canada geese and brant at regular limits; hunters 16+ need the federal stamp."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Pennsylvania hunting licence",
+   "who": "Residents and non-residents (or a mentored permit)",
+   "d": "A general hunting licence; non-residents may use the 7-day small game licence for waterfowl. From HuntFish.PA.gov or an issuing agent."
+  },
+  {
+   "t": "Migratory Game Bird Licence",
+   "who": "Every migratory bird hunter",
+   "d": "Required for ducks, geese, brant, coots, doves, woodcock, gallinules, rails and snipe; HIP questions are answered when you buy it. Sign it in ink unless digital."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "Signed across the face if you carry the paper stamp; the E-Stamp is valid all season. HuntFish.PA.gov or an issuing agent."
+  },
+  {
+   "t": "Snow Goose Permit",
+   "who": "Conservation season only",
+   "d": "Only if a spring conservation season is held ($1.97 transaction fee), with a mandatory harvest report."
+  }
+ ],
+ "geometryNote": "Geometry: PGC (Lake Erie Zone line, Atlantic Population goose line — checked against SR 97, SR 194, US 30, SR 441, SR 743 and I-81 — the Lancaster / Lebanon area, State Game Lands), OpenStreetMap (the North / South line on I-80, US 220 and I-180; the western Crawford / Mercer area on SR 198, I-79 and SR 358; numbered routes; boat ramps), Census TIGER (county lines for the Northwest Zone, townships, state outline and borders), USGS NHD (water), USFWS (refuge units; NWI marsh), NOAA CO-OPS (Delaware River tides)."
+}
