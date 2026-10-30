@@ -105,6 +105,18 @@ button{cursor:pointer;background:none;border:0}
 .flyst.on i{color:var(--accent-ink)}
 .flyacts{justify-content:space-between;margin-top:9px}
 .flysoon{margin-top:9px;font-size:11.5px;color:var(--dim);line-height:1.4}
+.flybtns{display:flex;gap:4px;flex:0 0 auto}
+.flyb{display:flex;align-items:center;gap:5px;border:1px solid var(--line2);border-radius:5px;padding:4px 8px;background:var(--surface2);
+  font-family:var(--f-data);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+.flyb .fsh{display:none}
+.flyb.on{color:var(--accent)}
+.flyb:hover{border-color:var(--accent)}
+.flyb[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.flyb .fn{font-size:9.5px;border-radius:8px;padding:0 5px;background:var(--accent);color:var(--accent-ink)}
+.flyb[aria-expanded="true"] .fn{background:var(--accent-ink);color:var(--accent)}
+.flyhead{font-family:var(--f-data);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+@media (max-width:1100px){.flyb .fl{display:none}.flyb .fsh{display:inline}}   /* narrower screens: Pac Cen Miss Atl */
+@media (max-width:420px){.flyb{padding:4px 6px;gap:4px}.flybtns{gap:3px}}
 .spacer{flex:1 1 auto;min-width:0}
 .datebox{display:flex;align-items:center;gap:0;background:var(--surface2);border:1px solid var(--line);
   border-radius:6px;overflow:hidden;flex:0 0 auto}
@@ -947,7 +959,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <path d="M24.6 12.1h.02"/>
       </svg>
       <span class="word">Flightline</span>
-      <button id="stateBtn" class="flybtn" aria-label="Pick a flyway and states" aria-haspopup="true" aria-expanded="false"></button>
+      <div id="stateBtn" class="flybtns" role="group" aria-label="Flyways"></div>
       <div class="flypanel" id="flyPanel" hidden></div>
     </div>
     <div class="spacer"></div>
@@ -1069,13 +1081,16 @@ var STATES = {
         extras: ['closed'], attrib: 'WVDNR · WV GIS Technical Center · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
-var FLYWAYS = [
-  ['atlantic', 'Atlantic', ['me', 'nh', 'vt', 'ma', 'ri', 'ct', 'ny', 'nj', 'pa', 'de', 'md', 'wv', 'va', 'nc', 'sc', 'ga', 'fl']],
-  ['mississippi', 'Mississippi', ['mn', 'wi', 'mi', 'ia', 'il', 'in', 'oh', 'mo', 'ky', 'tn', 'ar', 'ms', 'al', 'la']],
-  ['central', 'Central', ['mt', 'wy', 'co', 'nm', 'nd', 'sd', 'ne', 'ks', 'ok', 'tx']],
-  ['pacific', 'Pacific', ['wa', 'or', 'ca', 'id', 'nv', 'ut', 'az', 'ak', 'mt', 'wy', 'co', 'nm']]
+var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]
+  ['pacific', 'Pacific', ['wa', 'or', 'ca', 'id', 'nv', 'ut', 'az', 'ak', 'mt', 'wy', 'co', 'nm'], 'Pac'],
+  ['central', 'Central', ['mt', 'wy', 'co', 'nm', 'nd', 'sd', 'ne', 'ks', 'ok', 'tx'], 'Cen'],
+  ['mississippi', 'Mississippi', ['mn', 'wi', 'mi', 'ia', 'il', 'in', 'oh', 'mo', 'ky', 'tn', 'ar', 'ms', 'al', 'la'], 'Miss'],
+  ['atlantic', 'Atlantic', ['me', 'nh', 'vt', 'ma', 'ri', 'ct', 'ny', 'nj', 'pa', 'de', 'md', 'wv', 'va', 'nc', 'sc', 'ga', 'fl'], 'Atl']
 ];
-function flywayOf(code) { for (var i = 0; i < FLYWAYS.length; i++) if (FLYWAYS[i][2].indexOf(code) >= 0) return FLYWAYS[i][0]; return 'atlantic'; }
+function flywayOf(code) {     // east to west, so MT, WY, CO and NM count as Central
+  for (var i = FLYWAYS.length - 1; i >= 0; i--) if (FLYWAYS[i][2].indexOf(code) >= 0) return FLYWAYS[i][0];
+  return 'atlantic';
+}
 function flyBuilt(f) { return f[2].filter(function (c) { return STATES[c]; }); }
 var ZONE_IDS = [];            // namespaced, across every shown state
 var ZONE_COLOR = {};
@@ -3834,7 +3849,12 @@ function wire() {
   document.addEventListener('click', function (ev) {
     if (ev.target.closest && ev.target.closest('#keyClose')) { store('key', '0'); renderKey(); }
   });
-  $('#stateBtn').onclick = function () { flyPanelOpen($('#flyPanel').hidden); };
+  $('#stateBtn').onclick = function (ev) {
+    var t = ev.target.closest && ev.target.closest('[data-fly]'); if (!t) return;
+    var fly = t.getAttribute('data-fly'), open = !$('#flyPanel').hidden;
+    if (open && S.flyway === fly) { flyPanelOpen(false); return; }      // same flyway again: close it
+    S.flyway = fly; store('flyway', fly); flyPanelOpen(true);
+  };
   $('#flyPanel').onclick = function (ev) {
     var t = ev.target.closest && ev.target.closest('[data-fly],[data-state],[data-fly-all]'); if (!t) return;
     if (t.getAttribute('data-fly')) { S.flyway = t.getAttribute('data-fly'); store('flyway', S.flyway); renderStateBtn(); }
@@ -4189,12 +4209,15 @@ function writeHash() {
 function renderStateBtn() {
   var b = $('#stateBtn'); if (!b) return;
   if (!S.flyway) S.flyway = flywayOf(S.shown[0]);
-  var fo = flywayOf(S.shown[0]), f = FLYWAYS.filter(function (x) { return x[0] === fo; })[0] || FLYWAYS[0];   // the flyway on the map
-  var shown = S.shown.map(function (c) { return STATES[c].abbr; });
-  b.innerHTML = h('b', null, esc(f[1])) +
-    h('span', { class: 'fs' }, esc(shown.length <= 3 ? shown.join(' ') : shown.length + ' states')) +
-    '<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
-  b.setAttribute('title', 'Showing ' + listAnd(S.shown.map(function (c) { return STATES[c].name; })) + '. Pick a flyway and its states');
+  var open = !$('#flyPanel').hidden;
+  b.innerHTML = FLYWAYS.map(function (f) {
+    var n = S.shown.filter(function (c) { return f[2].indexOf(c) >= 0; }).length;   // states on the map from this flyway
+    var nb = flyBuilt(f).length;
+    return h('button', { class: 'flyb' + (n ? ' on' : ''), 'data-fly': f[0], 'aria-haspopup': 'true',
+                         'aria-expanded': open && S.flyway === f[0],
+                         title: f[1] + ' Flyway: ' + (nb ? nb + ' states built, ' + n + ' on the map' : 'coming soon') },
+      h('span', { class: 'fl' }, esc(f[1])) + h('span', { class: 'fsh' }, esc(f[3])) + (n ? h('span', { class: 'fn' }, String(n)) : ''));
+  }).join('');
   renderFlyPanel();
 }
 function renderFlyPanel() {
@@ -4202,10 +4225,7 @@ function renderFlyPanel() {
   var f = FLYWAYS.filter(function (x) { return x[0] === S.flyway; })[0] || FLYWAYS[0], built = flyBuilt(f);
   var soon = f[2].filter(function (c) { return !STATES[c]; });
   p.innerHTML =
-    h('div', { class: 'seg flyseg' }, FLYWAYS.map(function (x) {
-      var n = flyBuilt(x).length;
-      return h('button', { 'data-fly': x[0], 'aria-pressed': x[0] === f[0] }, esc(x[1]) + (n ? h('span', { class: 'fn' }, String(n)) : ''));
-    }).join('')) +
+    h('div', { class: 'flyhead' }, esc(f[1]) + ' Flyway') +
     (built.length
       ? h('div', { class: 'flystates' }, built.map(function (c) {
           var on = S.shown.indexOf(c) >= 0;
@@ -4219,10 +4239,9 @@ function renderFlyPanel() {
     (built.length && soon.length ? h('div', { class: 'flysoon' }, 'Coming: ' + esc(soon.map(function (c) { return c.toUpperCase(); }).join(' '))) : '');
 }
 function flyPanelOpen(open) {
-  var p = $('#flyPanel'), b = $('#stateBtn'); if (!p || !b) return;
-  p.hidden = !open; b.setAttribute('aria-expanded', String(open));
-  if (open) S.flyway = flywayOf(S.shown[0]);      // open on the flyway being shown
-  if (open) renderFlyPanel();
+  var p = $('#flyPanel'); if (!p) return;
+  p.hidden = !open;
+  renderStateBtn();             // marks the open flyway and draws its states
 }
 function boot() {
   applyTheme();
