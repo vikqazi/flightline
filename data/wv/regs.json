@@ -1,0 +1,451 @@
+{
+ "state": "WV",
+ "stateName": "West Virginia",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "WVDNR — 2026–2027 Migratory Bird Hunting Regulations Summary (PDF)",
+   "url": "https://wvdnr.gov/wp-content/uploads/2026/08/Pub_Regs_MigBird2026_DNR_WILD_Rdr_Sprds_ADA.pdf"
+  },
+  {
+   "label": "WVDNR — Hunting regulations, 2026–2027",
+   "url": "https://wvdnr.gov/hunting/hunting-regulations/"
+  },
+  {
+   "label": "WV DOT GIS — Wildlife Management Areas, National Forests, State Forests (WVDNR / WV GIS Technical Center data)",
+   "url": "https://gis.transportation.wv.gov/arcgis/rest/services/Boundaries/MapServer"
+  },
+  {
+   "label": "OpenStreetMap — boat ramps (WVDNR publishes no open GIS of its access sites) and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline (the zone), county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "wv": {
+   "name": "West Virginia (statewide)",
+   "short": "Statewide",
+   "bounds": "The whole state. West Virginia has no waterfowl zones: every season below is statewide.",
+   "note": "Ducks Oct 3–11, Nov 7–15, Dec 21 – Jan 31. Canada geese Sept 1–13, then Oct 3–18, Nov 7–15, Dec 8 – Jan 31. No September teal season."
+  }
+ },
+ "seasonsNote": "One statewide zone. No September teal season. Sunday waterfowl hunting is allowed on private and public land.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-11"
+    ],
+    [
+     "2026-11-07",
+     "2026-11-15"
+    ],
+    [
+     "2026-12-21",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "No separate season; 4 a day inside the 6."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-13"
+    ]
+   ]
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-18"
+    ],
+    [
+     "2026-11-07",
+     "2026-11-15"
+    ],
+    [
+     "2026-12-08",
+     "2027-01-31"
+    ]
+   ],
+   "note": "White-fronted geese with Canada geese."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow and blue geese",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-18"
+    ],
+    [
+     "2026-11-07",
+     "2026-11-15"
+    ],
+    [
+     "2026-12-08",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2027-01-02",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2026-11-21"
+    ],
+    [
+     "2026-11-30",
+     "2026-12-08"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-11"
+    ],
+    [
+     "2026-12-02",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-11"
+    ],
+    [
+     "2026-11-02",
+     "2026-11-15"
+    ],
+    [
+     "2026-12-07",
+     "2027-01-10"
+    ]
+   ],
+   "note": "Opening day of the first segment: noon to sunset."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-19"
+    ],
+    [
+     "2026-10-31",
+     "2026-10-31"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "In aggregate."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters and 3 long-tailed ducks. Eiders closed."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "The summary’s table prints one 5 / 15 limit beside the Canada goose rows; check with WVDNR for the early season."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada and white-fronted geese in aggregate."
+  },
+  {
+   "sp": "snow",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Snow and blue geese in aggregate."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "10",
+   "poss": "30",
+   "detail": "Sora and Virginia rails in aggregate. King and clapper rails closed."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "The regular duck and goose limits, except 2 scaup may be taken inside the 6."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "the summary lists Jan 12–31 separately (1, then 2); 2 on youth days"
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 long-tailed ducks"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Eiders, harlequin, mottled and whistling ducks",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Sundays",
+   "d": "Waterfowl hunting is permitted on Sundays on private and public land (state or federal land under WVDNR control for wildlife management, all waterways included)."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for waterfowl, rails, snipe and woodcock. Doves: noon to sunset on the opening day of the first segment."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Only USFWS-approved non-toxic shot, size T or smaller, may be used or possessed while hunting waterfowl."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No larger than 10 gauge; plugged to three shells (federal rules)."
+  },
+  {
+   "g": "Special",
+   "t": "Deer season",
+   "d": "Waterfowl hunting on major streams, rivers, lakes, reservoirs and wetlands is legal during the bucks-only deer season when the waterfowl season is open."
+  },
+  {
+   "g": "Special",
+   "t": "McClintic WMA",
+   "d": "Oct 3–11, 2026: the controlled waterfowl hunting area is by permit only (apply at WVhunt.com), hunting ends at noon, and concurrent hunting is prohibited there. No permit needed for the rest of the season."
+  },
+  {
+   "g": "Special",
+   "t": "Green Bottom WMA",
+   "d": "Oct 3–11, 2026: waterfowl hunting ends at noon and concurrent hunting is prohibited."
+  },
+  {
+   "g": "Special",
+   "t": "Warden Lake WMA",
+   "d": "Deed restrictions prohibit all hunting, waterfowl included (red on the map)."
+  },
+  {
+   "g": "Special",
+   "t": "National wildlife refuges",
+   "d": "Ohio River Islands NWR (Williamstown, 304-375-2923) and Canaan Valley NWR (Davis, 304-866-3858) set their own rules."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth waterfowl days",
+   "d": "September 19 and October 31, 2026, for youths under 18 (ducks, geese, coots, gallinules, mergansers). Under 15 must be with a licensed adult 18+ who may not hunt; 15–17 need the usual licences."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "West Virginia hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident licence from WVDNR (WVhunt.com)."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter, lifetime and senior licence holders included",
+   "d": "Required for all migratory game birds."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed in ink across the face, or the e-stamp."
+  }
+ ],
+ "geometryNote": "Geometry: the zone is the Census TIGER state outline (one statewide zone), welded to Pennsylvania, Maryland and Virginia; WVDNR wildlife management areas, national and state forests (WV DOT / WV GIS Technical Center), OpenStreetMap (boat ramps, numbered routes), USGS NHD (water; streams from the NHD small-scale layer because the high-resolution service was down on 2026-10-30) and GNIS, USFWS (refuge units; NWI marsh), Census TIGER (county subdivisions). No tides (inland)."
+}
