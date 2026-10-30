@@ -1,0 +1,561 @@
+{
+ "state": "SC",
+ "stateName": "South Carolina",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "SCDNR — General Migratory Bird Seasons, Shooting Hours & Bag Limits, 2026–27 (eRegulations)",
+   "url": "https://www.eregulations.com/southcarolina/hunting/general-migratory-bird-seasons-shooting-hours-bag-limits"
+  },
+  {
+   "label": "SCDNR — Migratory Bird Licensing & Permits",
+   "url": "https://www.eregulations.com/southcarolina/hunting/migratory-bird-licensing-permits"
+  },
+  {
+   "label": "SCDNR — Waterfowl Hunting & Baiting (shot, blinds, airboats, waters near residences)",
+   "url": "https://www.eregulations.com/southcarolina/hunting/waterfowl-hunting-baiting"
+  },
+  {
+   "label": "SCDNR — WMA Regulations and Waterfowl on Management Areas (Category I and II)",
+   "url": "https://www.eregulations.com/southcarolina/hunting/wma-waterfowl-on-management-areas"
+  },
+  {
+   "label": "SCDNR — General Rules & Regulations (Sunday hunting)",
+   "url": "https://www.eregulations.com/southcarolina/hunting/general-rules-regulations"
+  },
+  {
+   "label": "SCDNR GIS — public properties (WMA, Category I / II waterfowl areas), public water access",
+   "url": "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services"
+  },
+  {
+   "label": "OpenStreetMap — I-95 (the black duck / mottled duck line) and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "e": {
+   "name": "East of I-95",
+   "short": "E of I-95",
+   "bounds": "East and south of Interstate 95: one black duck or one mottled duck in the bag of six.",
+   "note": "Statewide seasons. Black duck / mottled duck: 1 of either."
+  },
+  "w": {
+   "name": "West of I-95",
+   "short": "W of I-95",
+   "bounds": "West and north of Interstate 95: two black ducks, or one black duck and one mottled duck, in the bag of six.",
+   "note": "Statewide seasons. Black ducks: 2 (or 1 black + 1 mottled)."
+  }
+ },
+ "seasonsNote": "Seasons are statewide. Sunday hunting is legal on private land; no hunting on Sundays on WMA lands unless a WMA says otherwise. I-95 only changes the black duck / mottled duck limit.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-28"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Sea ducks included; no open season on harlequin ducks."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "The sea duck area is Atlantic Ocean water at least one mile from any shore, island or emergent vegetation; crippled waterfowl may be shot there from a boat under power."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ]
+   ],
+   "note": "Blue-winged and green-winged teal. Shooting hours sunrise to sunset."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ]
+   ]
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-28"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ],
+    [
+     "2027-02-15",
+     "2027-03-01"
+    ]
+   ],
+   "note": "White-fronted geese with Canada geese. Category II WMAs are closed for the Feb–Mar segment except Parr and Monticello reservoirs."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-28"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ],
+    [
+     "2027-02-15",
+     "2027-03-01"
+    ]
+   ],
+   "note": "Snow (blue) geese."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2027-01-02",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-12-18",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2027-02-28"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-10",
+     "2026-09-15"
+    ],
+    [
+     "2026-09-26",
+     "2026-11-28"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "King and clapper rails (marsh hens)",
+   "statewide": [
+    [
+     "2026-09-10",
+     "2026-09-15"
+    ],
+    [
+     "2026-09-26",
+     "2026-11-28"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Moorhens and purple gallinules",
+   "statewide": [
+    [
+     "2026-09-10",
+     "2026-09-15"
+    ],
+    [
+     "2026-09-26",
+     "2026-11-28"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning doves",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-03"
+    ],
+    [
+     "2026-11-13",
+     "2026-11-28"
+    ],
+    [
+     "2026-12-18",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2026-11-14"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-13"
+    ]
+   ],
+   "note": "Nov 14: state youth day (ducks, mergansers, coots). Feb 6 and 13: federal youth days (ducks, geese, mergansers, coots, gallinules)."
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / military waterfowl days",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-13"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 1 hooded merganser."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters, 3 eiders (1 hen) or 3 long-tailed ducks."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada and white-fronted geese together; no more than 2 white-fronted geese."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": ""
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "15",
+   "poss": "45",
+   "detail": "King and clapper rails."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular limits, but the scaup limit is 2 on all youth days."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular limits, scaup 2."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "1 or 2",
+   "note": "east / south of I-95: 1 black or 1 mottled; west / north: 2 black, or 1 black + 1 mottled"
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": "counts with black ducks (see above)"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "2 or 1",
+   "note": "2 on Nov 14, Nov 21–28, Dec 12–22, Feb 6 and 13; 1 from Dec 23 to Jan 31"
+  },
+  {
+   "n": "Black-bellied whistling-duck",
+   "lim": "5",
+   "note": "new for 2026–27 (was 1)"
+  },
+  {
+   "n": "Fulvous whistling-duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 eiders (1 hen), 3 long-tailed ducks"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 1 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Sundays",
+   "d": "Sunday hunting is legal on private land statewide. There is no Sunday hunting on WMA lands unless a WMA’s rules say otherwise."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset; September teal sunrise to sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Possessing lead shot is prohibited for all waterfowl hunting statewide. On state and federal Category I and II waterfowl areas, 25 non-toxic shells per hunter per hunt."
+  },
+  {
+   "g": "Gear",
+   "t": "Blinds",
+   "d": "No taking waterfowl from a blind or position more than 10 feet above the surface in fresh water, or 5 feet above mean high water in salt water. Blinds on public land or water must be biodegradable and are first come, first served once vacated."
+  },
+  {
+   "g": "Gear",
+   "t": "Airboats",
+   "d": "No airboats seaward of the freshwater-saltwater dividing line; none during waterfowl season on the Waccamaw, Great Pee Dee, Little Pee Dee, Black and Sampit rivers (Georgetown and Horry) or on Lake Marion and Santee Swamp west of the I-95 bridge up to the Congaree–Wateree confluence."
+  },
+  {
+   "g": "Special",
+   "t": "Waters near residences",
+   "d": "No waterfowl hunting within 200 yards of a residence (without the owner and occupant’s written permission) on Bear Creek and Gills Creek (Lancaster), Broadway Lake, Lake Greenwood, Lake Keowee (no exceptions), Lake Murray (350 yards in Lexington and Richland), Lake Wateree, parts of Lake Marion, Lake Moultrie and Lake Wylie; 100 yards on Murrells Inlet Creek. Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Closed waters",
+   "d": "No waterfowl hunting on Lake Wateree in Kershaw County, Taw Caw Creek (Clarendon), the cove southeast of the Indian Bluff recreation site, or Lake Succession."
+  },
+  {
+   "g": "Special",
+   "t": "Swans",
+   "d": "There is no open season for swans in South Carolina."
+  },
+  {
+   "g": "Special",
+   "t": "Category I waterfowl areas",
+   "d": "By lottery permit only. Their impoundments are closed to all public access from November 1 through the season except on scheduled hunts. Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Category II waterfowl areas",
+   "d": "Open only on listed days and times (mostly Wednesday and/or Saturday mornings); many need sign-in. Amber on the map, with each area’s days."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans / military days",
+   "d": "State youth day Nov 14, 2026 (17 and under, with a licensed adult 21+). Federal youth days and veterans / active-duty military days Feb 6 and Feb 13, 2027. Youth 16–17 need the licences and stamps listed below."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "South Carolina hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident, from SCDNR (Go Outdoors South Carolina)."
+  },
+  {
+   "t": "SC Migratory Bird Permit (HIP)",
+   "who": "Migratory bird hunters 16+",
+   "d": "Free endorsement with the HIP survey. Other states’ HIP is not valid in South Carolina."
+  },
+  {
+   "t": "SC Migratory Waterfowl Permit",
+   "who": "Waterfowl hunters 16+",
+   "d": "$15.50 annual (or the lifetime endorsement)."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "$30; signed in ink, or the electronic endorsement."
+  },
+  {
+   "t": "WMA permit",
+   "who": "Hunting on WMAs",
+   "d": "Included in the Junior Sportsman, Resident Annual and 3-Year Sportsman licences."
+  }
+ ],
+ "geometryNote": "Geometry: I-95 routed on OpenStreetMap; SCDNR public properties (WMAs, Category I and II waterfowl areas) and public water access; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); NOAA CO-OPS (tides); Census TIGER (state outline, county subdivisions, borders). Closed waters without an outline in NHD are drawn as approximate circles at their USGS place-name point."
+}
