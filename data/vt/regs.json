@@ -1,0 +1,562 @@
+{
+ "state": "VT",
+ "stateName": "Vermont",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "VTFW — 2026–2027 Syllabus of State and Federal Hunting Regulations for Migratory Birds in Vermont",
+   "url": "https://www.vtfishandwildlife.com/sites/fishandwildlife/files/documents/Hunt/waterfowl/migratory-bird-syllabus-2026-WEB-v2.pdf"
+  },
+  {
+   "label": "VTFW — Vermont’s migratory game bird seasons are announced (July 20, 2026)",
+   "url": "https://vtfishandwildlife.com/press-releases/vermonts-migratory-game-bird-seasons-are-announced-2"
+  },
+  {
+   "label": "VTFW — Waterfowl hunting zones",
+   "url": "https://vtfishandwildlife.com/hunt/hunting-and-trapping-opportunities/waterfowl/waterfowl-hunting-zones"
+  },
+  {
+   "label": "VTFW — Where to hunt waterfowl (Dead Creek and Mud Creek controlled hunts, 2026)",
+   "url": "https://vtfishandwildlife.com/where-to-hunt-waterfowl"
+  },
+  {
+   "label": "VTFW — Spring snow goose hunt (conservation order permit)",
+   "url": "https://vtfishandwildlife.com/hunt/hunting-and-trapping-opportunities/waterfowl/spring-snow-goose-hunt"
+  },
+  {
+   "label": "Vermont Statutes, 10 V.S.A. § 4710 — safety zones; § 4705 — shooting from or near highways",
+   "url": "https://legislature.vermont.gov/statutes/fullchapter/10/113"
+  },
+  {
+   "label": "USFWS — Missisquoi National Wildlife Refuge hunting",
+   "url": "https://www.fws.gov/refuge/missisquoi/visit-us/activities/hunting"
+  },
+  {
+   "label": "Vermont ANR Open Data — Waterfowl Hunting Zones, State Game Refuges and Controlled Hunting Areas, ANR Lands, Fishing Access Areas",
+   "url": "https://anrmaps.vermont.gov/arcgis/rest/services/Open_Data"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared state borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — lakes, ponds, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "No tides: Vermont is inland, so NOAA publishes no tide predictions here",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "lc": {
+   "name": "Lake Champlain Zone",
+   "short": "Lake Champlain",
+   "bounds": "The U.S. portion of Lake Champlain and that area north and west of the line extending from the New York border along U.S. 4 to VT 22A at Fair Haven; VT 22A to U.S. 7 at Vergennes; U.S. 7 to VT 78 at Swanton; VT 78 to VT 36; VT 36 to Maquam Bay on Lake Champlain; along and around the shoreline of Maquam Bay and Hog Island to VT 78 at the West Swanton Bridge; VT 78 to VT 2 in Alburgh; VT 2 to the Richelieu River in Alburgh; along the east shore of the Richelieu River to the Canadian border.",
+   "note": "Split duck season. The rule’s “VT 2” in Alburgh is the road signed U.S. 2. As Vermont ANR’s own zone map draws it, Missisquoi Bay north of the West Swanton Bridge and Alburgh north of VT 78 / U.S. 2 lie in the Interior Zone."
+  },
+  "interior": {
+   "name": "Interior Vermont Zone",
+   "short": "Interior",
+   "bounds": "The portion of Vermont east of the Lake Champlain Zone and west of a line extending from the Massachusetts border at Interstate 91; north along Interstate 91 to U.S. 2; east along U.S. 2 to VT 102; north along VT 102 to VT 253; north along VT 253 to the Canadian border.",
+   "note": "One straight duck season, October 10 – December 8."
+  },
+  "ct": {
+   "name": "Connecticut River Zone",
+   "short": "Conn. River",
+   "bounds": "The remaining portion of Vermont east of the Interior Zone. Migratory bird hunting seasons and rules for this zone are announced by the New Hampshire Fish & Game Department under their “Inland Zone” rules.",
+   "note": "Shared with New Hampshire, whose Fish & Game Department sets the seasons (its Inland Zone rules); the dates here are Vermont’s syllabus, which lists the same ones. Vermont and New Hampshire resident licence holders may hunt the whole zone under the two states’ reciprocal agreement. Woodcock and snipe follow Vermont’s statewide season."
+  }
+ },
+ "seasonsNote": "The Connecticut River Zone follows New Hampshire’s Inland Zone dates.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "lc": [
+     [
+      "2026-10-10",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-21",
+      "2026-12-27"
+     ]
+    ],
+    "interior": [
+     [
+      "2026-10-10",
+      "2026-12-08"
+     ]
+    ],
+    "ct": [
+     [
+      "2026-10-13",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-25",
+      "2026-12-24"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "Vermont has no separate sea duck season — scoters, eiders and long-tailed ducks follow the duck season, 4 a day inside the 6."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-25"
+    ]
+   ],
+   "note": "Statewide. 8 a day, 5 in the Connecticut River Zone."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "lc": [
+     [
+      "2026-10-10",
+      "2026-11-23"
+     ]
+    ],
+    "interior": [
+     [
+      "2026-10-10",
+      "2026-11-23"
+     ]
+    ],
+    "ct": [
+     [
+      "2026-10-13",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-25",
+      "2026-12-24"
+     ]
+    ]
+   },
+   "note": "White-fronted geese count in the Canada goose limits. 3 a day; 2 in the Connecticut River Zone."
+  },
+  {
+   "sp": "canadalate",
+   "label": "Canada geese — late",
+   "z": {
+    "lc": [
+     [
+      "2026-12-01",
+      "2027-01-04"
+     ]
+    ],
+    "interior": [
+     [
+      "2026-12-01",
+      "2027-01-04"
+     ]
+    ],
+    "ct": [
+     [
+      "2026-12-25",
+      "2027-01-04"
+     ]
+    ]
+   },
+   "note": "Connecticut River Zone: Vermont land only, not Connecticut River waters."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "z": {
+    "lc": [
+     [
+      "2026-10-01",
+      "2026-12-31"
+     ]
+    ],
+    "interior": [
+     [
+      "2026-10-01",
+      "2026-12-31"
+     ]
+    ],
+    "ct": [
+     [
+      "2026-10-13",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-25",
+      "2026-12-24"
+     ]
+    ]
+   },
+   "note": "Blue geese count as snow geese. No possession limit."
+  },
+  {
+   "sp": "snowlate",
+   "label": "Snow geese — late",
+   "z": {
+    "lc": [
+     [
+      "2027-02-26",
+      "2027-03-10"
+     ]
+    ],
+    "interior": [
+     [
+      "2027-02-26",
+      "2027-03-10"
+     ]
+    ],
+    "ct": []
+   },
+   "note": "Lake Champlain and Interior zones. The spring conservation order is separate and needs a VTFW permit."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "z": {
+    "lc": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "interior": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "ct": [
+     [
+      "2026-10-13",
+      "2026-11-11"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-09-27"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks a day in the aggregate, inside which the species limits below apply. Mergansers and coots have their own limits. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Scoters, eiders and long-tailed ducks: 4 a day in total, no more than 3 scoters, 3 eiders (1 hen) or 3 long-tailed ducks — inside the 6-duck bag."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Lake Champlain and Interior zones. Connecticut River Zone: 5 a day, 15 in possession."
+  },
+  {
+   "sp": "canada",
+   "daily": "3",
+   "poss": "9",
+   "detail": "October – November season, Lake Champlain and Interior zones. Connecticut River Zone: 2 a day, 6 in possession. White-fronted geese count here."
+  },
+  {
+   "sp": "canadalate",
+   "daily": "5",
+   "poss": "15",
+   "detail": "December – January season, all three zones (Connecticut River Zone: land only)."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Includes blue geese."
+  },
+  {
+   "sp": "snowlate",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Includes blue geese."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "The regular bag limit chart, except Canada geese: 3 a day."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "by date. Lake Champlain: 1 Oct 10 – Nov 1 and Nov 21 – Dec 7, then 2 Dec 8 – 27. Interior: 1 Oct 10 – Nov 18, then 2 Nov 19 – Dec 8. Connecticut River: 1 all season"
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "scoters, eiders, long-tailed ducks — no more than 3 of each, eiders no more than 1 hen"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset. The syllabus prints a day-by-day table for Vermont; the app computes the same rule for the spot you are looking at."
+  },
+  {
+   "g": "Hours",
+   "t": "Sundays",
+   "d": "Vermont’s 2026–27 seasons run without a Sunday closure."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Required for waterfowl and coots: no loose lead shot or lead loads in your possession, and nothing larger than size T. Copper-plated lead is not non-toxic."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No larger than 10 gauge, plugged with a one-piece filler to hold no more than three shells. No rifles, pistols, crossbows, traps, nets, swivel, punt or battery guns."
+  },
+  {
+   "g": "Gear",
+   "t": "Calls, decoys and bait",
+   "d": "No recorded or electrically amplified calls. No live decoys — tame ducks and geese must be removed and penned out of sight and earshot for 10 days before you hunt. No hunting over bait; an area stays baited for 10 days after the bait is gone, whether or not you knew."
+  },
+  {
+   "g": "Boats",
+   "t": "Boats and vehicles",
+   "d": "No shooting from a motorboat or sailboat unless the motor is off, the sail furled and it has stopped moving. No driving or rallying birds with a motor vehicle or boat. No sink boxes. No shooting from a car, except that paraplegics and double leg amputees may shoot from a stationary vehicle."
+  },
+  {
+   "g": "Boats",
+   "t": "Blinds",
+   "d": "Put a blind on the water no earlier than the first Saturday in September, with your name and address permanently on it. Signs claiming a blind spot have no force in law. Remove it with its contents and debris by May 15 — by February 15 on Lake Champlain."
+  },
+  {
+   "g": "Safety",
+   "t": "Posted safety zones",
+   "d": "An owner may post a safety zone up to 500 feet around an occupied house, building or camp. Inside a posted zone, no firearm discharge and no taking a wild animal without the owner’s or occupant’s advance permission (10 V.S.A. § 4710)."
+  },
+  {
+   "g": "Safety",
+   "t": "Roads",
+   "d": "No shooting at a wild animal within 25 feet of the traveled portion of a public highway (10 V.S.A. § 4705)."
+  },
+  {
+   "g": "Ethics",
+   "t": "Retrieve your birds",
+   "d": "Make a reasonable effort to retrieve every bird you kill or cripple and keep it with you. A wounded bird in hand must be killed at once and counted in your bag."
+  },
+  {
+   "g": "Special",
+   "t": "Connecticut River reciprocity",
+   "d": "Vermont and New Hampshire resident licence holders (with the waterfowl stamp) may hunt migratory birds, except woodcock and snipe, anywhere in the Connecticut River Zone of either state. New Hampshire sets that zone’s seasons."
+  },
+  {
+   "g": "Special",
+   "t": "Missisquoi National Wildlife Refuge",
+   "d": "More restrictive rules apply. Six areas are open to waterfowl hunting — three general, three controlled; controlled zones may need a $10 permit for part of the season, and some units require a boat or a retrieving dog. Call the refuge at 802-868-4781. Silvio O. Conte refuge (Nulhegan Basin) follows state rules."
+  },
+  {
+   "g": "Special",
+   "t": "Dead Creek and Mud Creek WMAs",
+   "d": "Controlled waterfowl hunts. Dead Creek: Tuesdays and Thursdays, Oct 13 – Nov 12, 2026, legal time to 11 a.m., by drawn permit; Friday Oct 23 junior day. Mud Creek: lottery days Oct 13 and 15; after them, Tuesdays, Thursdays and Saturdays are self-registration days, to 11 a.m. (out by noon). They are amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Spring snow goose conservation order",
+   "d": "Vermont holds a spring conservation order for snow geese each year. It needs a permit from VTFW; the dates are set with the permit."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth days",
+   "d": "September 26–27. Ages 17 and under in the Lake Champlain and Interior zones (15 and under in the Connecticut River Zone), licensed, with a licensed adult 18 or older who may not hunt or carry a firearm. Ages 16–17 need the state tag and federal stamp. Regular bag limits except Canada geese, 3. Shooting hours: Sept 26, 6:12 a.m. – 6:40 p.m.; Sept 27, 6:14 a.m. – 6:38 p.m."
+  },
+  {
+   "g": "Youth",
+   "t": "Falconry",
+   "d": "Open seasons and shooting hours only; 3 migratory game birds a day in the aggregate, within the species limits; possession three times that."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Do not fully field-dress a bird before you get it home: leave the head or one fully feathered wing on. Tag any birds you leave with someone else: your signature and address, the number by species and the dates taken. Mark shipped packages with both addresses and the count by species."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Vermont hunting licence",
+   "who": "Residents and non-residents",
+   "d": "From vtfishandwildlife.com or a licence agent."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter",
+   "d": "Register with Vermont’s Harvest Information Program at vtfishandwildlife.com or 1-877-306-7091 (Mon–Fri, 7:45 a.m. – 4:30 p.m.), in every state where you hunt."
+  },
+  {
+   "t": "Vermont Migratory Waterfowl Tag",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "Valid for the calendar year. Not needed for woodcock or snipe."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Age 16+",
+   "d": "Signed in ink across the face (or an e-stamp). Post offices, federal refuges or fws.gov."
+  },
+  {
+   "t": "Controlled hunt permits",
+   "who": "Dead Creek, Mud Creek, Missisquoi controlled zones",
+   "d": "Dead Creek and Mud Creek: VTFW drawing (no fee; 2026 applications closed Aug 28). Missisquoi controlled zones: refuge permit, $10 for part of the season."
+  }
+ ],
+ "closedNote": "Vermont does not publish a statewide list of waters closed to waterfowl. The amber areas are controlled-hunt areas and state game refuges — check their rules and postings.",
+ "geometryNote": "Geometry: Vermont ANR (waterfowl zone lines — checked against the roads the syllabus names — controlled hunting areas, state game refuges, ANR lands, fishing access areas), USGS NHD (lakes, ponds, marshes, rivers, streams), USFWS (refuge hunt units; NWI marsh for the habitat surface), OpenStreetMap (numbered routes), Census TIGER (state outline, towns, shared borders). No tides: Vermont is inland."
+}

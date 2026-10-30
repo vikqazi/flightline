@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine and Rhode Island: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island and Vermont: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1011,7 +1011,11 @@ var STATES = {
   ri: { name: 'Rhode Island', abbr: 'RI', bounds: [[41.09, -71.91], [42.03, -71.08]],
         zones: ['nw', 'se'],
         colors: { nw: '#8a9a4e', se: '#c9893c' },
-        extras: ['closed'], attrib: 'RIGIS · RIDEM · CRMC · USGS NHD' }
+        extras: ['closed'], attrib: 'RIGIS · RIDEM · CRMC · USGS NHD' },
+  vt: { name: 'Vermont', abbr: 'VT', bounds: [[42.72, -73.44], [45.02, -71.46]],
+        zones: ['lc', 'interior', 'ct'],
+        colors: { lc: '#5b7fb8', interior: '#8a9a4e', ct: '#b06fa8' },
+        extras: ['closed'], attrib: 'Vermont ANR · VTFW · USGS NHD' }
 };
 var ZONE_IDS = [];            // namespaced, across every shown state
 var ZONE_COLOR = {};
@@ -2603,12 +2607,12 @@ function panelRef() {
          ['Boat and cartop access', function (c) { return !!(CACHE[c] && CACHE[c].access); }],
          ['Conservation and public land', function (c) { return !!(CACHE[c] && CACHE[c].land); }],
          ['Federal refuge hunt units', function (c) { return !!(CACHE[c] && CACHE[c].refuges); }],
-         ['NOAA tide predictions', function (c) { return !!(CACHE[c] && CACHE[c].tides); }],
+         ['NOAA tide predictions', function (c) { return !!(CACHE[c] && CACHE[c].tides && Object.keys(CACHE[c].tides.stations || {}).length); }],
          ['Habitat density', function (c) { return !!(CACHE[c] && CACHE[c].habitat); }],
          ['Waterfowl sightings (eBird)', function (c) { return !!(CACHE[c] && CACHE[c].sight); }],
          ['Place names for search (USGS)', function (c) { return !!CACHE[c]; }],
          ['Satellite, topo, wind, location', function () { return true; }],
-         ['Statewide closed-area list', function (c) { return !!(CACHE[c] && CACHE[c].closed); }],
+         ['Statewide closed-area list', function (c) { return !!(CACHE[c] && CACHE[c].closed && (CACHE[c].closed.areas || []).some(function (a) { return a.kind !== 'rules'; })); }],
          ['Sea duck area drawn', function (c) { return !!(CACHE[c] && CACHE[c].seaduck); }]
         ].map(function (row) {
           return h('tr', null, h('td', null, esc(row[0])) + Object.keys(STATES).map(function (c) {
