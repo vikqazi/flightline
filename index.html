@@ -119,6 +119,15 @@ button{cursor:pointer;background:none;border:0}
 .zchip .zs{font-family:var(--f-data);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;margin-top:1px}
 .zchip .zd{font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .is-open{color:var(--open)} .is-closed{color:var(--closed)} .is-soon{color:var(--warn)}
+.zchip.zstate{position:relative;padding-right:22px}
+.zchip.zstate .zn,.zchip.zstate .zs{white-space:nowrap}
+@media (max-width:900px){.zchip.zstate{flex:0 0 auto;min-width:0}}
+.zdots{display:inline-flex;gap:3px;margin-left:7px}
+.zdots .zsw{width:8px;height:8px;border-radius:50%}
+.zdots .zsw.off{opacity:.3}
+.zmore{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:16px}
+.zchip.zback{flex:0 0 auto;min-width:0}
+.zchip.zback .zn{color:var(--accent)}
 
 /* ---------- body ---------- */
 .body{flex:1 1 auto;display:flex;min-height:0;position:relative}
@@ -1970,18 +1979,44 @@ function renderTabs() {
     return h('button', { 'data-panel': p.id, 'aria-pressed': S.panel === p.id }, esc(p.label));
   }).join('');
 }
+function zoneChip(z) {
+  var on = openOn('duck', z, S.date, zCode(z));
+  var nc = nextChange('duck', z, S.date, zCode(z));
+  var sub = on
+    ? (nc ? 'Last day ' + fmtDate(nc.date) : '')
+    : (nc && nc.kind === 'opens' ? 'Opens ' + fmtDate(nc.date) + ' (' + nc.days + 'd)' : 'Closed for the season');
+  return h('button', { class: 'zchip', 'data-zone': z, 'aria-pressed': S.zone === z },
+    h('div', { class: 'zn' }, '<i class="zsw" style="background:' + ZONE_COLOR[z] + '"></i>' + esc(zMeta(z).name)) +
+    h('div', { class: 'zs ' + (on ? 'is-open' : 'is-closed') }, on ? 'Ducks open' : 'Ducks closed') +
+    h('div', { class: 'zd' }, esc(sub)));
+}
+function zoneShort(z) { var R = regsOf(zCode(z)), m = R && R.zones && R.zones[zId(z)]; return m ? m.short : zId(z); }
+function stateChip(c) {      // one state, summed up: how many zones are open, a dot per zone, the next change
+  var zs = ZONE_IDS.filter(function (z) { return zCode(z) === c; });
+  var open = zs.filter(function (z) { return openOn('duck', z, S.date, c); });
+  var next = null;
+  zs.forEach(function (z) { var nc = nextChange('duck', z, S.date, c); if (nc && (!next || nc.date < next.nc.date)) next = { z: z, nc: nc }; });
+  var status = open.length === zs.length ? (zs.length > 1 ? 'All open' : 'Ducks open')
+    : open.length ? open.length + ' of ' + zs.length + ' open' : 'Ducks closed';
+  var sub = next ? (zs.length > 1 ? zoneShort(next.z) + ' ' : '') + (next.nc.kind === 'opens' ? 'opens ' : 'closes after ') + fmtDate(next.nc.date)
+    : 'No change this season';
+  return h('button', { class: 'zchip zstate', 'data-strip-state': c, title: 'Show the ' + STATES[c].name + ' zones' },
+    h('div', { class: 'zn' }, esc(STATES[c].name) + h('span', { class: 'zdots' }, zs.map(function (z) {
+      var on = open.indexOf(z) >= 0;
+      return '<i class="zsw' + (on ? '' : ' off') + '" style="background:' + ZONE_COLOR[z] + '" title="' + esc(zoneShort(z) + (on ? ': open' : ': closed')) + '"></i>';
+    }).join(''))) +
+    h('div', { class: 'zs ' + (open.length ? 'is-open' : 'is-closed') }, status) +
+    h('div', { class: 'zd' }, esc(sub)) +
+    h('span', { class: 'zmore', 'aria-hidden': 'true' }, '&rsaquo;'));
+}
 function renderStrip() {
-  var html = ZONE_IDS.map(function (z) {
-    var on = openOn('duck', z, S.date, zCode(z));
-    var nc = nextChange('duck', z, S.date, zCode(z));
-    var sub = on
-      ? (nc ? 'Last day ' + fmtDate(nc.date) : '')
-      : (nc && nc.kind === 'opens' ? 'Opens ' + fmtDate(nc.date) + ' (' + nc.days + 'd)' : 'Closed for the season');
-    return h('button', { class: 'zchip', 'data-zone': z, 'aria-pressed': S.zone === z },
-      h('div', { class: 'zn' }, '<i class="zsw" style="background:' + ZONE_COLOR[z] + '"></i>' + esc(zMeta(z).name)) +
-      h('div', { class: 'zs ' + (on ? 'is-open' : 'is-closed') }, on ? 'Ducks open' : 'Ducks closed') +
-      h('div', { class: 'zd' }, esc(sub)));
-  }).join('');
+  if (S.stripState && S.shown.indexOf(S.stripState) < 0) S.stripState = null;
+  var html;
+  if (S.shown.length < 2) html = ZONE_IDS.map(zoneChip).join('');
+  else if (S.stripState) html = h('button', { class: 'zchip zback', 'data-strip-state': '' },
+      h('div', { class: 'zn' }, '&lsaquo; All states') + h('div', { class: 'zd' }, esc(STATES[S.stripState].name + ' zones'))) +
+    ZONE_IDS.filter(function (z) { return zCode(z) === S.stripState; }).map(zoneChip).join('');
+  else html = S.shown.map(stateChip).join('');
   $('#strip').innerHTML = html;
 }
 
@@ -3583,7 +3618,7 @@ function applyTheme() {
 }
 function wire() {
   document.addEventListener('click', function (ev) {
-    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-regstate],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],[data-sight-days],[data-sx],#sClose,#slipClose,#hSave') : null;
+    var t = ev.target.closest ? ev.target.closest('#railClose,#geoStart,#geoCentre,#geoSpot,#geoStop,[data-panel],[data-zone],[data-sec],[data-theme-set],[data-ref],[data-acc-lvl],[data-acc-fee],[data-site],[data-closed],[data-refuge],[data-regstate],[data-base],[data-goto-refuge],[data-goto-spot],[data-del-spot],[data-del-hunt],[data-add-spot-here],[data-zoom-here],[data-sight-days],[data-strip-state],[data-sx],#sClose,#slipClose,#hSave') : null;
     if (!t) return;
     var g = function (k) { return t.getAttribute(k); };
     if (g('data-panel')) { S.panel = g('data-panel'); renderRail(); $('#rail').scrollTop = 0; }
@@ -3610,6 +3645,7 @@ function wire() {
     else if (g('data-del-hunt')) { delHunt(g('data-del-hunt')); }
     else if (g('data-add-spot-here')) { addSpotAt(S.sel.lat, S.sel.lon); }
     else if (g('data-zoom-here')) { map.setView([S.sel.lat, S.sel.lon], Math.max(map.getZoom(), 14)); }
+    else if (g('data-strip-state') != null) { S.stripState = g('data-strip-state') || null; renderStrip(); }
     else if (g('data-sight-days')) { setSight({ days: +g('data-sight-days') }); }
     else if (g('data-sx') != null) { chooseResult(+g('data-sx')); }
     else if (t.id === 'sClose') { closeSearch(); }
