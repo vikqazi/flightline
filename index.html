@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island and Vermont: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont and New York: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1015,7 +1015,12 @@ var STATES = {
   vt: { name: 'Vermont', abbr: 'VT', bounds: [[42.72, -73.44], [45.02, -71.46]],
         zones: ['lc', 'interior', 'ct'],
         colors: { lc: '#5b7fb8', interior: '#8a9a4e', ct: '#b06fa8' },
-        extras: ['closed'], attrib: 'Vermont ANR · VTFW · USGS NHD' }
+        extras: ['closed'], attrib: 'Vermont ANR · VTFW · USGS NHD' },
+  ny: { name: 'New York', abbr: 'NY', bounds: [[40.48, -79.77], [45.02, -71.77]],
+        zones: ['w-wc', 'w-s', 'ne', 'lc', 'se-ec', 'se-hv', 'se-s', 'li-w', 'li-c', 'li-e', 'nyc'],
+        colors: { 'w-wc': '#8a9a4e', 'w-s': '#a7b06a', ne: '#3f9a96', lc: '#5b7fb8', 'se-ec': '#b06fa8', 'se-hv': '#c993c1', 'se-s': '#8e5a88',
+                  'li-w': '#c9893c', 'li-c': '#ddaa66', 'li-e': '#a86c25', nyc: '#8c8c8c' },
+        extras: ['closed'], attrib: 'NYSDEC · NY State Parks · Census TIGER · USGS NHD' }
 };
 var ZONE_IDS = [];            // namespaced, across every shown state
 var ZONE_COLOR = {};
@@ -2279,6 +2284,7 @@ function panelSeason() {
     var sps = ['duck', 'canada', 'canadalate', 'brant', 'merganser', 'coot', 'seaduck', 'snow', 'snowlate', 'falconry'];
     var ye = entry('youth', zCode(z));
     if (ye && ye.z) sps = sps.concat(['youth']);
+    ['canadasept', 'vet'].forEach(function (x) { var ex = entry(x, zCode(z)); if (ex && ex.z) sps.push(x); });
     var openSps = sps.filter(function (s) { return openOn(s, z, S.date, zCode(z)); });
     var on = openOn('duck', z, S.date, zCode(z));
     return h('button', { class: 'item', 'data-zone': z },
@@ -3402,13 +3408,14 @@ function zoneBadge(z) {
 function zoneSeasonBlock(z) {
   if (!z) return '';
   var sps = ['duck', 'canada', 'canadalate', 'brant', 'seaduck', 'merganser', 'coot', 'snow', 'snowlate'];
+  ['canadasept', 'youth', 'vet'].forEach(function (x) { var ex = entry(x, zCode(z)); if (ex && ex.z) sps.push(x); });
   var rows = sps.map(function (sp) {
     var zc = zCode(z), en = entry(sp, zc); if (!en) return '';
     var on = openOn(sp, z, S.date, zc), b = bag(sp, zc), nc = nextChange(sp, z, S.date, zc);
     return h('tr', null,
       h('td', { style: 'font-weight:600' }, esc(spLabel(en))) +
       h('td', { style: 'color:' + (on ? 'var(--open)' : 'var(--closed)') + ';font-weight:600' }, on ? 'Open' : 'Closed') +
-      h('td', { class: 'num' }, b ? esc(b.daily) : '—') +
+      h('td', { class: 'num' }, b ? esc((b.z && b.z[zId(z)]) || b.daily) : '—') +
       h('td', { class: 'tiny muted' }, nc ? esc((nc.kind === 'opens' ? 'opens ' : 'thru ') + fmtDate(nc.date)) : '—'));
   }).join('');
   return h('div', { class: 'lab', style: 'margin:12px 0 5px' }, 'On ' + esc(fmtDate(S.date)) + ' in the ' + esc(zMeta(z).short) + ' zone') +

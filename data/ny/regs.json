@@ -1,0 +1,1045 @@
+{
+ "state": "NY",
+ "stateName": "New York",
+ "season": "2026–27",
+ "updated": "2026-10-28",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "NYSDEC — Migratory game bird hunting regulations",
+   "url": "https://dec.ny.gov/things-to-do/hunting/migratory-game-bird/regulations"
+  },
+  {
+   "label": "NYSDEC — Zone and goose hunting area boundary descriptions",
+   "url": "https://dec.ny.gov/things-to-do/hunting/migratory-game-bird/zone-boundary-descriptions"
+  },
+  {
+   "label": "NYSDEC — Waterfowl season-setting (2026–27 Canada goose season lengths)",
+   "url": "https://dec.ny.gov/things-to-do/hunting/migratory-game-bird/waterfowl-season-setting-places-to-hunt"
+  },
+  {
+   "label": "NYS Hunting and Trapping Regulations Guide 2026–27 — Migratory game bird seasons and bag limits",
+   "url": "https://www.eregulations.com/newyork/hunting/migratory-game-bird-hunting-seasons-bag-limits"
+  },
+  {
+   "label": "NYS Hunting and Trapping Regulations Guide 2026–27 — Migratory game birds (general rules)",
+   "url": "https://www.eregulations.com/newyork/hunting/migratory-game-birds"
+  },
+  {
+   "label": "NYS Hunting and Trapping Regulations Guide 2026–27 — Waterfowl zone and goose area descriptions",
+   "url": "https://www.eregulations.com/newyork/hunting/waterfowl-hunting-zone-descriptions"
+  },
+  {
+   "label": "NYSDEC Hunt Planner 2026–27 — waterfowl zones, Canada goose areas and webless seasons (GIS)",
+   "url": "https://experience.arcgis.com/experience/f0b2adb04cf644cead87497ab9b5bf28"
+  },
+  {
+   "label": "NYSDEC — Waterfowl Hunting in New York: Places to Hunt map",
+   "url": "https://experience.arcgis.com/experience/093e1e48913b41dab0313ed9b76629e1"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines and shared state borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  }
+ ],
+ "zones": {
+  "w-wc": {
+   "name": "Western · West Central geese",
+   "short": "Western / W. Central",
+   "bounds": "Western Zone — west of a line from Lake Ontario east along the north shore of the Salmon River to Interstate 81, then south along I-81 to the Pennsylvania line. West Central goose area — from the Niagara–Orleans county line (Route 269 and its extension into Lake Ontario) east by Routes 104, 271, 31E, 31, Griswold St, Ditch Rd, Foot Rd, Tonawanda Creek, Routes 93 and 5, Crittenden–Murrays Corners Rd, the Thruway to Exit 48, Routes 98, 20, 19, 63, 246, 39, 20A, 20 and 364, Yates and Steuben county roads, Routes 53 and 54A, Schuyler county roads, Routes 409, 14, 224, 228, 79, 366 and 13 to I-81 in Cortland; north on I-81 to the Salmon River; then a straight line from the river mouth northwest to the nearest point of the Canadian border.",
+   "note": "New York sets duck dates by zone and Canada goose dates by goose hunting area. This piece of the map is in the Western duck zone and the West Central goose area."
+  },
+  "w-s": {
+   "name": "Western · South geese",
+   "short": "Western / South",
+   "bounds": "Western Zone — west of a line from Lake Ontario east along the north shore of the Salmon River to Interstate 81, then south along I-81 to the Pennsylvania line. South goose area — the rest of New York outside every other goose area, except New York City.",
+   "note": "New York sets duck dates by zone and Canada goose dates by goose hunting area. This piece of the map is in the Western duck zone and the South goose area."
+  },
+  "ne": {
+   "name": "Northeastern",
+   "short": "Northeastern",
+   "bounds": "Northeastern Zone — north of a line from Lake Ontario east along the north shore of the Salmon River to I-81, south on I-81 to Route 31, east on Route 31 to Route 13, north on Route 13 to Route 49, east on Route 49 to Route 365, east on Route 365 to Route 28, east on Route 28 to Route 29, east on Route 29 to Route 22, north on Route 22 to Route 153, east on Route 153 to the Vermont line — except the Lake Champlain Zone.",
+   "note": "Here the duck zone and the Canada goose area are the same."
+  },
+  "lc": {
+   "name": "Lake Champlain",
+   "short": "Lake Champlain",
+   "bounds": "Lake Champlain Zone — east and north of a line along Route 11 from the Canadian border south to Route 9B, south on Route 9B to Route 9, south on Route 9 to Route 22 south of Keeseville, south on Route 22 to the west shore of South Bay, around the shoreline of South Bay to Route 22 on its east shore, southeast on Route 22 to Route 4, northeast on Route 4 to the Vermont line.",
+   "note": "Here the duck zone and the Canada goose area are the same."
+  },
+  "se-ec": {
+   "name": "Southeastern · East Central geese",
+   "short": "Southeastern / E. Central",
+   "bounds": "Southeastern Zone — east of I-81 and south of the Northeastern Zone line (Routes 31, 13, 49, 365, 28, 29, 22 and 153 to the Vermont line), plus Westchester County northwest of Interstate 95. East Central goose area — inside a line from I-81 in Cicero east on Routes 31, 13, 49, 365, 28 and 29 to Route 147 at Kimball Corners; south through Schenectady and Albany county roads, Routes 5, 5S, the Thruway, 7, 406 and 397 to Route 146 at Altamont; west on Route 146 and county roads to Route 7, on to Route 10 at Richmondville, Route 23 at Stamford, Route 7 at Oneonta, southwest on Route 7 to Route 79, south on Route 79 to I-88 near Harpursville, west on I-88 to I-81 at Binghamton, and north on I-81 back to Cicero.",
+   "note": "New York sets duck dates by zone and Canada goose dates by goose hunting area. This piece of the map is in the Southeastern duck zone and the East Central goose area."
+  },
+  "se-hv": {
+   "name": "Southeastern · Hudson Valley geese",
+   "short": "Southeastern / Hudson V.",
+   "bounds": "Southeastern Zone — east of I-81 and south of the Northeastern Zone line (Routes 31, 13, 49, 365, 28, 29, 22 and 153 to the Vermont line), plus Westchester County northwest of Interstate 95. Hudson Valley goose area — from Route 153 at the Vermont line by Routes 153, 22 and 29 to Kimball Corners; south by the East Central line to Altamont; then Routes 146, 156, 307, 85A, 85, 443, 301, 32 and 23, Greene county roads, the Thruway to Exit 19 at Kingston, Route 28 and Route 209 to the Pennsylvania line; along the Pennsylvania and New Jersey lines to Route 210 at Greenwood Lake; Orange county roads, Routes 105, 32, Quaker Ave and 9W to Moodna Creek, the New Windsor–Cornwall town line to the middle of the Hudson, north along the Orange–Dutchess county line to I-84, east on I-84 and the Dutchess–Putnam county line to Connecticut; then north along the Connecticut and Massachusetts lines to Vermont.",
+   "note": "New York sets duck dates by zone and Canada goose dates by goose hunting area. This piece of the map is in the Southeastern duck zone and the Hudson Valley goose area."
+  },
+  "se-s": {
+   "name": "Southeastern · South geese",
+   "short": "Southeastern / South",
+   "bounds": "Southeastern Zone — east of I-81 and south of the Northeastern Zone line (Routes 31, 13, 49, 365, 28, 29, 22 and 153 to the Vermont line), plus Westchester County northwest of Interstate 95. South goose area — the rest of New York outside every other goose area, except New York City.",
+   "note": "New York sets duck dates by zone and Canada goose dates by goose hunting area. This piece of the map is in the Southeastern duck zone and the South goose area."
+  },
+  "li-w": {
+   "name": "Long Island · Western geese",
+   "short": "Long Island / West",
+   "bounds": "Long Island Zone — Nassau and Suffolk counties and their tidal waters, and Westchester County and its tidal waters southeast of Interstate 95. Western Long Island goose area — Westchester County and its tidal waters southeast of I-95, and Nassau and Suffolk west of a line due south from the Connecticut line to the north end of Sound Road (Wading River), then Sound Rd, North Country Rd, Randall Rd, Route 25A, the Sunken Meadow and Sagtikos parkways, and the Robert Moses Parkway to its southern end, then due south to the ocean limit.",
+   "note": "New York sets duck dates by zone and Canada goose dates by goose hunting area. This piece of the map is in the Long Island duck zone and the Western Long Island goose area."
+  },
+  "li-c": {
+   "name": "Long Island · Central geese",
+   "short": "Long Island / Central",
+   "bounds": "Long Island Zone — Nassau and Suffolk counties and their tidal waters, and Westchester County and its tidal waters southeast of Interstate 95. Central Long Island goose area — Suffolk County between the Western and Eastern Long Island goose areas.",
+   "note": "New York sets duck dates by zone and Canada goose dates by goose hunting area. This piece of the map is in the Long Island duck zone and the Central Long Island goose area."
+  },
+  "li-e": {
+   "name": "Long Island · Eastern geese",
+   "short": "Long Island / East",
+   "bounds": "Long Island Zone — Nassau and Suffolk counties and their tidal waters, and Westchester County and its tidal waters southeast of Interstate 95. Eastern Long Island goose area — Suffolk County east of a line due south from the Connecticut line to the north end of Roanoke Ave (Riverhead), then Roanoke Ave (CR 73), Route 25, Peconic Ave, Riverleigh Ave (CR 104), Old Riverhead Rd (CR 31), Oak St, Potunk Lane, Stevens Lane and Jessup Ave to Dune Road (CR 89) in Westhampton Beach, then due south to the ocean limit.",
+   "note": "New York sets duck dates by zone and Canada goose dates by goose hunting area. This piece of the map is in the Long Island duck zone and the Eastern Long Island goose area."
+  },
+  "nyc": {
+   "name": "New York City (closed)",
+   "short": "NYC (closed)",
+   "bounds": "New York City — the Bronx, Kings, New York, Queens and Richmond counties, and their waters.",
+   "note": "Closed: New York City is in no waterfowl zone or goose hunting area, and woodcock, snipe, rail and crow seasons are closed there too."
+  }
+ },
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "w-wc": [
+     [
+      "2026-10-10",
+      "2026-11-01"
+     ],
+     [
+      "2026-12-05",
+      "2027-01-10"
+     ]
+    ],
+    "w-s": [
+     [
+      "2026-10-10",
+      "2026-11-01"
+     ],
+     [
+      "2026-12-05",
+      "2027-01-10"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-10-10",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2026-12-20"
+     ]
+    ],
+    "lc": [
+     [
+      "2026-10-10",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-21",
+      "2026-12-27"
+     ]
+    ],
+    "se-ec": [
+     [
+      "2026-10-10",
+      "2026-10-18"
+     ],
+     [
+      "2026-11-07",
+      "2026-12-27"
+     ]
+    ],
+    "se-hv": [
+     [
+      "2026-10-10",
+      "2026-10-18"
+     ],
+     [
+      "2026-11-07",
+      "2026-12-27"
+     ]
+    ],
+    "se-s": [
+     [
+      "2026-10-10",
+      "2026-10-18"
+     ],
+     [
+      "2026-11-07",
+      "2026-12-27"
+     ]
+    ],
+    "li-w": [
+     [
+      "2026-11-21",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ],
+    "li-c": [
+     [
+      "2026-11-21",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ],
+    "li-e": [
+     [
+      "2026-11-21",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ],
+    "nyc": []
+   },
+   "note": "Includes mergansers and sea ducks. Scaup: 2 a day for 20 days in each zone — Western Dec 22 – Jan 10, Northeastern Nov 19 – 29 and Dec 12 – 20, Lake Champlain Dec 8 – 27, Southeastern Dec 8 – 27, Long Island Jan 12 – 31; 1 a day otherwise."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "Scoters, eiders and long-tailed ducks follow the duck season, 4 a day inside the 6. In the Special Sea Duck Area — all coastal waters, and rivers and streams seaward of the first upstream bridge — crippled sea ducks may be shot from a boat under power."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "z": {
+    "w-wc": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "w-s": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "lc": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "se-ec": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "se-hv": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "se-s": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "li-w": [],
+    "li-c": [
+     [
+      "2026-09-08",
+      "2026-09-30"
+     ]
+    ],
+    "li-e": [
+     [
+      "2026-09-08",
+      "2026-09-30"
+     ]
+    ],
+    "nyc": []
+   },
+   "endAfterSunset": 30,
+   "note": "Shooting hours run to half an hour after sunset while every other waterfowl season is closed — not on youth days. Unplugged shotguns (up to 6 shells in a semi-automatic) and electronic calls are allowed then too. No September season in the Western Long Island area."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "w-wc": [
+     [
+      "2026-11-07",
+      "2026-12-21"
+     ]
+    ],
+    "w-s": [
+     [
+      "2026-10-24",
+      "2027-01-11"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-10-24",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2026-12-19"
+     ]
+    ],
+    "lc": [
+     [
+      "2026-10-10",
+      "2026-11-23"
+     ]
+    ],
+    "se-ec": [
+     [
+      "2026-10-24",
+      "2026-11-20"
+     ],
+     [
+      "2026-12-05",
+      "2026-12-21"
+     ]
+    ],
+    "se-hv": [
+     [
+      "2026-11-07",
+      "2026-12-21"
+     ]
+    ],
+    "se-s": [
+     [
+      "2026-10-24",
+      "2027-01-11"
+     ]
+    ],
+    "li-w": [
+     [
+      "2026-11-07",
+      "2027-02-21"
+     ]
+    ],
+    "li-c": [
+     [
+      "2026-11-21",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-05",
+      "2027-02-03"
+     ]
+    ],
+    "li-e": [
+     [
+      "2026-11-21",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-05",
+      "2027-01-24"
+     ]
+    ],
+    "nyc": []
+   },
+   "note": "Daily limit by goose area: South 5; West Central, East Central, Hudson Valley, Northeast, Lake Champlain and Central Long Island 3; Eastern Long Island 2; Western Long Island 8. Cackling and white-fronted geese count in the Canada goose limit. Lake Champlain dates are set with Vermont."
+  },
+  {
+   "sp": "canadalate",
+   "label": "Canada geese — late",
+   "z": {
+    "w-wc": [],
+    "w-s": [],
+    "ne": [],
+    "lc": [
+     [
+      "2026-12-01",
+      "2027-01-04"
+     ]
+    ],
+    "se-ec": [],
+    "se-hv": [],
+    "se-s": [],
+    "li-w": [],
+    "li-c": [],
+    "li-e": [],
+    "nyc": []
+   },
+   "note": "Lake Champlain goose area only, 5 a day."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "z": {
+    "w-wc": [
+     [
+      "2026-11-24",
+      "2027-03-10"
+     ]
+    ],
+    "w-s": [
+     [
+      "2026-11-24",
+      "2027-03-10"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-10-01",
+      "2026-12-31"
+     ],
+     [
+      "2027-02-26",
+      "2027-03-10"
+     ]
+    ],
+    "lc": [
+     [
+      "2026-10-01",
+      "2026-12-31"
+     ],
+     [
+      "2027-02-26",
+      "2027-03-10"
+     ]
+    ],
+    "se-ec": [
+     [
+      "2026-11-24",
+      "2027-03-10"
+     ]
+    ],
+    "se-hv": [
+     [
+      "2026-11-24",
+      "2027-03-10"
+     ]
+    ],
+    "se-s": [
+     [
+      "2026-11-24",
+      "2027-03-10"
+     ]
+    ],
+    "li-w": [
+     [
+      "2026-11-24",
+      "2027-03-10"
+     ]
+    ],
+    "li-c": [
+     [
+      "2026-11-24",
+      "2027-03-10"
+     ]
+    ],
+    "li-e": [
+     [
+      "2026-11-24",
+      "2027-03-10"
+     ]
+    ],
+    "nyc": []
+   },
+   "note": "Ross’s geese count as snow geese. No possession limit; unplugged shotguns and electronic calls allowed. Spring Conservation Order: pending a regulation change for 2027 — check DEC before going afield."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "z": {
+    "w-wc": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "w-s": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "lc": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "se-ec": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "se-hv": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "se-s": [
+     [
+      "2026-10-10",
+      "2026-11-08"
+     ]
+    ],
+    "li-w": [
+     [
+      "2027-01-02",
+      "2027-01-31"
+     ]
+    ],
+    "li-c": [
+     [
+      "2027-01-02",
+      "2027-01-31"
+     ]
+    ],
+    "li-e": [
+     [
+      "2027-01-02",
+      "2027-01-31"
+     ]
+    ],
+    "nyc": []
+   }
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-01",
+     "2026-11-14"
+    ]
+   ],
+   "note": "Sunrise to sunset. Closed in New York City."
+  },
+  {
+   "sp": "snipe",
+   "label": "Snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ],
+   "note": "Upstate only — closed on Long Island (Nassau and Suffolk) and in New York City."
+  },
+  {
+   "sp": "sora",
+   "label": "Sora rail",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ],
+   "note": "Upstate only — closed on Long Island (Nassau and Suffolk) and in New York City. Gallinules have the same season."
+  },
+  {
+   "sp": "virginiarail",
+   "label": "Virginia rail",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ],
+   "note": "Upstate only — closed on Long Island (Nassau and Suffolk) and in New York City. King and clapper rails are closed statewide."
+  },
+  {
+   "sp": "crow",
+   "label": "Crows",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2027-03-31",
+     {
+      "dow": [
+       5,
+       6,
+       0,
+       1
+      ]
+     }
+    ]
+   ],
+   "note": "Fridays, Saturdays, Sundays and Mondays only; sunrise to sunset. Rifles and electronic calls are allowed. Closed in New York City."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "w-wc": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "w-s": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "lc": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "se-ec": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "se-hv": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "se-s": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "li-w": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "li-c": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "li-e": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "nyc": []
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Active military and veteran days",
+   "z": {
+    "w-wc": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "w-s": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "lc": [],
+    "se-ec": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "se-hv": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "se-s": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "li-w": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "li-c": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "li-e": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "nyc": []
+   },
+   "note": "None in the Lake Champlain Zone: its dates must match Vermont’s, and Vermont has no military days."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks a day in total, mergansers and sea ducks included, inside which the species limits below apply."
+  },
+  {
+   "sp": "merganser",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Count in the 6-duck bag."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Scoters, eiders and long-tailed ducks: 4 a day in total, no more than 3 of each, and no more than 1 hen eider — inside the 6-duck bag."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "8–15",
+   "poss": "3× daily",
+   "z": {
+    "w-wc": "15",
+    "w-s": "15",
+    "ne": "15",
+    "lc": "8",
+    "se-ec": "15",
+    "se-hv": "15",
+    "se-s": "15",
+    "li-w": "—",
+    "li-c": "15",
+    "li-e": "15"
+   },
+   "detail": "15 a day; 8 in the Lake Champlain area. No September season in Western Long Island."
+  },
+  {
+   "sp": "canada",
+   "daily": "2–8",
+   "poss": "3× daily",
+   "z": {
+    "w-wc": "3",
+    "w-s": "5",
+    "ne": "3",
+    "lc": "3",
+    "se-ec": "3",
+    "se-hv": "3",
+    "se-s": "5",
+    "li-w": "8",
+    "li-c": "3",
+    "li-e": "2"
+   },
+   "detail": "By goose area: South 5; West Central, East Central, Hudson Valley, Northeast, Lake Champlain and Central Long Island 3; Eastern Long Island 2; Western Long Island 8."
+  },
+  {
+   "sp": "canadalate",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Lake Champlain goose area only."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Includes Ross’s geese."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Sora and Virginia rails and gallinules: 8 a day each."
+  },
+  {
+   "sp": "virginiarail",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Sora and Virginia rails and gallinules: 8 a day each."
+  },
+  {
+   "sp": "crow",
+   "daily": "None",
+   "poss": "None",
+   "detail": "No limit. No HIP needed for crows."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular-season limits for ducks, coots, mergansers, Canada geese and brant (not the September goose limits)."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular-season limits (not the September goose limits)."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": "2 a day during each zone’s 20 scaup days"
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "scoters, eiders, long-tailed ducks — no more than 3 of each, eiders no more than 1 hen"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "6",
+   "note": "inside the 6-duck bag"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Sundays are open",
+   "d": "New York has no Sunday closure for migratory birds."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset. September Canada geese: to one-half hour after sunset while every other waterfowl season is closed. Woodcock and crows: sunrise to sunset. Snow geese may get extended hours from mid-January while other seasons are closed — check DEC, as this is tied to the pending Conservation Order change."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Required for ducks, geese, brant, coots, snipe, rails and gallinules; you may not even possess lead shot while hunting them. Not required for woodcock or crows."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No larger than 10 gauge; plugged to three shells — except for snow geese, and for Canada geese in September while all other waterfowl seasons are closed. A semi-automatic may never hold more than six shells in total. No rifles or handguns (crows excepted)."
+  },
+  {
+   "g": "Gear",
+   "t": "Calls, decoys and bait",
+   "d": "No recorded or electronically amplified calls (snow geese, September Canada geese and crows excepted). No live decoys — captive birds must be removed and confined out of sight and hearing 10 days before you hunt. No hunting over bait; an area stays baited for 10 days after the bait is gone."
+  },
+  {
+   "g": "Boats",
+   "t": "Boats",
+   "d": "No shooting from a motorboat or sailboat unless the motor is off or the sail furled and it has stopped moving. You may retrieve birds under power, but may not shoot cripples under power — except in the Special Sea Duck Area (coastal waters, and rivers and streams seaward of the first upstream bridge). No sink boxes. No driving or rallying birds with a boat or vehicle."
+  },
+  {
+   "g": "Boats",
+   "t": "Blinds on lakes",
+   "d": "A blind placed in a lake must carry the owner’s full name and address, and must be removed by March 15 (Navigation Law §33-b)."
+  },
+  {
+   "g": "Safety",
+   "t": "500 feet",
+   "d": "No firearm discharge within 500 feet of a dwelling, farm building, school, playground, or occupied factory or church without permission. Waterfowl hunters over water may shoot within 500 feet of a dwelling or public structure as long as none is within 500 feet in the direction they shoot."
+  },
+  {
+   "g": "Places",
+   "t": "State land and refuges",
+   "d": "Many WMAs, state parks and refuges add their own rules — permits, lotteries, closed units, set days. The amber outlines on this map are DEC’s own list of places to hunt waterfowl that carry special rules; Montezuma and Iroquois refuges require proof of the NYS Waterfowl ID course and pre-registration."
+  },
+  {
+   "g": "Special",
+   "t": "New York City",
+   "d": "Closed to waterfowl and to woodcock, snipe, rail and crow hunting: the Bronx, Brooklyn, Manhattan, Queens and Staten Island."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth days",
+   "d": "Two days per zone (September 26–27 upstate; November 7–8 on Long Island) for junior hunters 12–15 with a junior licence, accompanied by a licensed adult (with HIP and a duck stamp) who may not carry a firearm, bow or crossbow. Ducks, coots, mergansers, Canada geese and brant at regular limits."
+  },
+  {
+   "g": "Youth",
+   "t": "Military and veterans",
+   "d": "Two days per zone — Western and Long Island November 7–8, Northeastern and Southeastern September 26–27, none in the Lake Champlain Zone. Carry military or veteran ID (active, Guard/Reserve, retired, veteran-status driver licence, DD214 or DD215). Regular limits."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on every bird until you get it home or to a processor. Tag any birds you leave with someone else: your name, address and signature, the number by species and the dates taken."
+  },
+  {
+   "g": "Health",
+   "t": "Eating waterfowl",
+   "d": "The state Health Department advises skinning and removing fat, at most two waterfowl meals a month, and not eating mergansers. Birds from the Hudson between Hudson Falls and Troy carry more PCBs."
+  }
+ ],
+ "licences": [
+  {
+   "t": "New York hunting licence",
+   "who": "Residents and non-residents",
+   "d": "Through DECALS (DEC’s licensing system), licence issuing agents, or by phone."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter except crow hunters",
+   "d": "Free, every year, through DECALS online or (866) 933-2257. Carry your HIP number."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "Signed in ink across the face, or an e-stamp from duckstamp.com. Not needed for coots, rails, gallinules, woodcock or snipe, or for junior hunters 12–15."
+  },
+  {
+   "t": "Refuge and WMA permits",
+   "who": "Some places",
+   "d": "Montezuma and Iroquois refuges, Oak Orchard and Tonawanda WMAs (lottery days), Bashakill WMA, Beaver Island State Park blinds, Long Island cooperative areas and DEC-managed tidal wetlands each need their own permit or registration."
+  }
+ ],
+ "geometryNote": "Geometry: NYSDEC (2026–27 waterfowl zones and Canada goose hunting areas, places to hunt waterfowl), Census TIGER (state outline, New York City and Niagara–Orleans county lines), OpenStreetMap (numbered routes; a few zone-line stretches where DEC’s polygons break apart), USGS NHD (ponds, marshes, rivers and bays, streams), USFWS (refuge hunt units; NWI marsh for the habitat surface), NOAA CO-OPS (tides)."
+}

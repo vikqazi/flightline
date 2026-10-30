@@ -1,6 +1,6 @@
 # Flightline
 
-A waterfowl map for New Hampshire, Massachusetts, Maine and Rhode Island,
+A waterfowl map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont and New York,
 2026–27 season. Formerly Granite Flyway.
 
 **https://vikqazi.github.io/flightline/**
