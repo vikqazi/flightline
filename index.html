@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut and Pennsylvania: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware and Maryland: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1028,7 +1028,15 @@ var STATES = {
   pa: { name: 'Pennsylvania', abbr: 'PA', bounds: [[39.71, -80.53], [42.28, -74.68]],
         zones: ['le', 'nw', 'nw-cm', 'n', 's-rp', 's-ap', 's-ll'],
         colors: { le: '#5b7fb8', nw: '#3f9a96', 'nw-cm': '#7cc2bd', n: '#8a9a4e', 's-rp': '#c9893c', 's-ap': '#b06fa8', 's-ll': '#d9a6d2' },
-        extras: ['closed'], attrib: 'PA Game Commission · USGS NHD' }
+        extras: ['closed'], attrib: 'PA Game Commission · USGS NHD' },
+  de: { name: 'Delaware', abbr: 'DE', bounds: [[38.44, -75.80], [39.85, -74.98]],
+        zones: ['te', 'st'],
+        colors: { te: '#4f9e9a', st: '#8a9a4e' },
+        extras: ['closed'], attrib: 'DNREC · Delaware FirstMap · USGS NHD' },
+  md: { name: 'Maryland', abbr: 'MD', bounds: [[37.88, -79.49], [39.73, -75.04]],
+        zones: ['e-ap-se', 'e-ap-sw', 'e-ls-sw', 'w-ap-sw', 'w-ls-sw', 'w-lw-sw'],
+        colors: { 'e-ap-se': '#4f9e9a', 'e-ap-sw': '#5b7fb8', 'e-ls-sw': '#c9893c', 'w-ap-sw': '#8a9a4e', 'w-ls-sw': '#ddaa66', 'w-lw-sw': '#b06fa8' },
+        extras: ['closed'], attrib: 'Maryland DNR · Maryland iMAP · USGS NHD' }
 };
 var ZONE_IDS = [];            // namespaced, across every shown state
 var ZONE_COLOR = {};
@@ -2289,7 +2297,7 @@ function panelSeason() {
   var maxIdx = Math.round((dnum(SEASON_END) - dnum(SEASON_START)) / 86400000);
   var sw = statewideToday();
   var zoneRows = ZONE_IDS.map(function (z) {
-    var sps = ['duck', 'canada', 'canadalate', 'brant', 'merganser', 'coot', 'seaduck', 'snow', 'snowlate', 'falconry'];
+    var sps = ['duck', 'teal', 'canada', 'canadalate', 'brant', 'merganser', 'coot', 'seaduck', 'snow', 'snowlate', 'falconry'];
     var ye = entry('youth', zCode(z));
     if (ye && ye.z) sps = sps.concat(['youth']);
     ['canadasept', 'vet'].forEach(function (x) { var ex = entry(x, zCode(z)); if (ex && ex.z) sps.push(x); });
@@ -3415,7 +3423,7 @@ function zoneBadge(z) {
 }
 function zoneSeasonBlock(z) {
   if (!z) return '';
-  var sps = ['duck', 'canada', 'canadalate', 'brant', 'seaduck', 'merganser', 'coot', 'snow', 'snowlate'];
+  var sps = ['duck', 'teal', 'canada', 'canadalate', 'brant', 'seaduck', 'merganser', 'coot', 'snow', 'snowlate'];
   ['canadasept', 'youth', 'vet'].forEach(function (x) { var ex = entry(x, zCode(z)); if (ex && ex.z) sps.push(x); });
   var rows = sps.map(function (sp) {
     var zc = zCode(z), en = entry(sp, zc); if (!en) return '';

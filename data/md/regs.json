@@ -1,0 +1,753 @@
+{
+ "state": "MD",
+ "stateName": "Maryland",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": true,
+ "sources": [
+  {
+   "label": "Maryland Guide to Hunting & Trapping 2026–27 — Migratory game bird seasons and limits",
+   "url": "https://www.eregulations.com/maryland/hunting/migratory-game-bird-seasons-limits"
+  },
+  {
+   "label": "Maryland Guide to Hunting & Trapping 2026–27 — Migratory game bird hunting",
+   "url": "https://www.eregulations.com/maryland/hunting/migratory-game-bird-hunting"
+  },
+  {
+   "label": "Maryland Guide to Hunting & Trapping 2026–27 — Licences and stamps",
+   "url": "https://www.eregulations.com/maryland/hunting/hunting-licenses"
+  },
+  {
+   "label": "Maryland DNR — Waterfowl hunting (2026–27 seasons final)",
+   "url": "https://dnr.maryland.gov/wildlife/Pages/hunt_trap/waterfowl.aspx"
+  },
+  {
+   "label": "Maryland DNR — Duck and goose zone map (zone layers)",
+   "url": "https://maryland.maps.arcgis.com/apps/webappviewer/index.html?id=caf337498c1b4da2b2081f542be6d6bc"
+  },
+  {
+   "label": "Maryland iMAP — DNR Protected Lands; DNR Public Water Access",
+   "url": "https://mdgeodata.md.gov/imap/rest/services/Environment/MD_ProtectedLands/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — I-83, I-695, I-95, I-495 (duck zone line) and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared state borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, bays, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "e-ap-se": {
+   "name": "Eastern ducks · AP geese · Sept. East",
+   "short": "East · AP · Sept E",
+   "bounds": "Duck zones: Eastern — Anne Arundel, Calvert, Caroline, Cecil, Charles, Dorchester, Harford, Kent, Queen Anne’s, St. Mary’s, Somerset, Talbot, Wicomico and Worcester counties and the parts of Baltimore, Howard, Prince George’s and Montgomery counties east of the line; Western — Allegany, Carroll, Garrett, Frederick and Washington counties and the parts of those four counties west of it. The line: I-83 south from the Pennsylvania line to I-695 (Outer Loop), I-695 south to I-95, I-95 south to I-495 (Outer Loop), I-495 to the Virginia shore of the Potomac. Atlantic Population goose zone: Anne Arundel, Baltimore, Calvert, Caroline, Cecil, Dorchester, Harford, Howard, Kent, Queen Anne’s, Somerset, St. Mary’s, Talbot, Wicomico and Worcester counties; Carroll east of Route 31 to Route 97 and east of Route 97 to the Pennsylvania line; Prince George’s east of Routes 3 and 301; Charles east of Route 301. September resident goose (and teal) zones: DNR’s Eastern and Western early zones — Eastern takes the Eastern Shore and southern counties and the parts of Anne Arundel, Prince George’s and Charles east of the listed routes; Western takes Allegany, Baltimore, Carroll, Frederick, Garrett, Howard, Montgomery and Washington and the rest of those three.",
+   "note": "Eastern duck dates; Atlantic Population geese (2 a day); September geese Sept 1–15 and September teal Sept 17–26."
+  },
+  "e-ap-sw": {
+   "name": "Eastern ducks · AP geese · Sept. West",
+   "short": "East · AP · Sept W",
+   "bounds": "Duck zones: Eastern — Anne Arundel, Calvert, Caroline, Cecil, Charles, Dorchester, Harford, Kent, Queen Anne’s, St. Mary’s, Somerset, Talbot, Wicomico and Worcester counties and the parts of Baltimore, Howard, Prince George’s and Montgomery counties east of the line; Western — Allegany, Carroll, Garrett, Frederick and Washington counties and the parts of those four counties west of it. The line: I-83 south from the Pennsylvania line to I-695 (Outer Loop), I-695 south to I-95, I-95 south to I-495 (Outer Loop), I-495 to the Virginia shore of the Potomac. Atlantic Population goose zone: Anne Arundel, Baltimore, Calvert, Caroline, Cecil, Dorchester, Harford, Howard, Kent, Queen Anne’s, Somerset, St. Mary’s, Talbot, Wicomico and Worcester counties; Carroll east of Route 31 to Route 97 and east of Route 97 to the Pennsylvania line; Prince George’s east of Routes 3 and 301; Charles east of Route 301. September resident goose (and teal) zones: DNR’s Eastern and Western early zones — Eastern takes the Eastern Shore and southern counties and the parts of Anne Arundel, Prince George’s and Charles east of the listed routes; Western takes Allegany, Baltimore, Carroll, Frederick, Garrett, Howard, Montgomery and Washington and the rest of those three.",
+   "note": "Eastern duck dates; Atlantic Population geese (2 a day); September geese Sept 1–25 (Western early zone)."
+  },
+  "e-ls-sw": {
+   "name": "Eastern ducks · Late Southern geese",
+   "short": "East · Late South",
+   "bounds": "Duck zones: Eastern — Anne Arundel, Calvert, Caroline, Cecil, Charles, Dorchester, Harford, Kent, Queen Anne’s, St. Mary’s, Somerset, Talbot, Wicomico and Worcester counties and the parts of Baltimore, Howard, Prince George’s and Montgomery counties east of the line; Western — Allegany, Carroll, Garrett, Frederick and Washington counties and the parts of those four counties west of it. The line: I-83 south from the Pennsylvania line to I-695 (Outer Loop), I-695 south to I-95, I-95 south to I-495 (Outer Loop), I-495 to the Virginia shore of the Potomac. Late Southern Maryland resident goose zone: Montgomery County; Prince George’s west of Routes 3 and 301; Charles west of Route 301. September resident goose (and teal) zones: DNR’s Eastern and Western early zones — Eastern takes the Eastern Shore and southern counties and the parts of Anne Arundel, Prince George’s and Charles east of the listed routes; Western takes Allegany, Baltimore, Carroll, Frederick, Garrett, Howard, Montgomery and Washington and the rest of those three.",
+   "note": "Eastern duck dates; Late Southern resident geese — 5 a day Nov 21–23 and Feb 1 – Mar 10, otherwise 2."
+  },
+  "w-ap-sw": {
+   "name": "Western ducks · AP geese",
+   "short": "West · AP",
+   "bounds": "Duck zones: Eastern — Anne Arundel, Calvert, Caroline, Cecil, Charles, Dorchester, Harford, Kent, Queen Anne’s, St. Mary’s, Somerset, Talbot, Wicomico and Worcester counties and the parts of Baltimore, Howard, Prince George’s and Montgomery counties east of the line; Western — Allegany, Carroll, Garrett, Frederick and Washington counties and the parts of those four counties west of it. The line: I-83 south from the Pennsylvania line to I-695 (Outer Loop), I-695 south to I-95, I-95 south to I-495 (Outer Loop), I-495 to the Virginia shore of the Potomac. Atlantic Population goose zone: Anne Arundel, Baltimore, Calvert, Caroline, Cecil, Dorchester, Harford, Howard, Kent, Queen Anne’s, Somerset, St. Mary’s, Talbot, Wicomico and Worcester counties; Carroll east of Route 31 to Route 97 and east of Route 97 to the Pennsylvania line; Prince George’s east of Routes 3 and 301; Charles east of Route 301. September resident goose (and teal) zones: DNR’s Eastern and Western early zones — Eastern takes the Eastern Shore and southern counties and the parts of Anne Arundel, Prince George’s and Charles east of the listed routes; Western takes Allegany, Baltimore, Carroll, Frederick, Garrett, Howard, Montgomery and Washington and the rest of those three.",
+   "note": "Western duck dates (opens Oct 3); Atlantic Population geese (2 a day)."
+  },
+  "w-ls-sw": {
+   "name": "Western ducks · Late Southern geese",
+   "short": "West · Late South",
+   "bounds": "Duck zones: Eastern — Anne Arundel, Calvert, Caroline, Cecil, Charles, Dorchester, Harford, Kent, Queen Anne’s, St. Mary’s, Somerset, Talbot, Wicomico and Worcester counties and the parts of Baltimore, Howard, Prince George’s and Montgomery counties east of the line; Western — Allegany, Carroll, Garrett, Frederick and Washington counties and the parts of those four counties west of it. The line: I-83 south from the Pennsylvania line to I-695 (Outer Loop), I-695 south to I-95, I-95 south to I-495 (Outer Loop), I-495 to the Virginia shore of the Potomac. Late Southern Maryland resident goose zone: Montgomery County; Prince George’s west of Routes 3 and 301; Charles west of Route 301. September resident goose (and teal) zones: DNR’s Eastern and Western early zones — Eastern takes the Eastern Shore and southern counties and the parts of Anne Arundel, Prince George’s and Charles east of the listed routes; Western takes Allegany, Baltimore, Carroll, Frederick, Garrett, Howard, Montgomery and Washington and the rest of those three.",
+   "note": "Western duck dates; Late Southern resident geese — 5 a day Nov 21–23 and Feb 1 – Mar 10, otherwise 2."
+  },
+  "w-lw-sw": {
+   "name": "Western ducks · Late Western geese",
+   "short": "West · Late West",
+   "bounds": "Duck zones: Eastern — Anne Arundel, Calvert, Caroline, Cecil, Charles, Dorchester, Harford, Kent, Queen Anne’s, St. Mary’s, Somerset, Talbot, Wicomico and Worcester counties and the parts of Baltimore, Howard, Prince George’s and Montgomery counties east of the line; Western — Allegany, Carroll, Garrett, Frederick and Washington counties and the parts of those four counties west of it. The line: I-83 south from the Pennsylvania line to I-695 (Outer Loop), I-695 south to I-95, I-95 south to I-495 (Outer Loop), I-495 to the Virginia shore of the Potomac. Late Western Maryland resident goose zone: Allegany, Frederick, Garrett and Washington counties; Carroll west of Route 31 to Route 97 and west of Route 97 to the Pennsylvania line. September resident goose (and teal) zones: DNR’s Eastern and Western early zones — Eastern takes the Eastern Shore and southern counties and the parts of Anne Arundel, Prince George’s and Charles east of the listed routes; Western takes Allegany, Baltimore, Carroll, Frederick, Garrett, Howard, Montgomery and Washington and the rest of those three.",
+   "note": "Western duck dates; Late Western resident geese, 5 a day, through March 10."
+  }
+ },
+ "seasonsNote": "No Sunday hunting for migratory game birds in Maryland. The guide still marks 2026–27 dates “contingent upon USFWS approval”; DNR says they are final.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "e-ap-se": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-14",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "e-ap-sw": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-14",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "e-ls-sw": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-14",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "w-ap-sw": [
+     [
+      "2026-10-03",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-21",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "w-ls-sw": [
+     [
+      "2026-10-03",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-21",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "w-lw-sw": [
+     [
+      "2026-10-03",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-21",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ]
+   },
+   "note": "Black ducks only Nov 14–27 (Western Nov 21–27) and Dec 15 – Jan 30."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "No separate sea duck season; DNR keeps the Sea Duck Zone on its map (it matters for the late light goose segment)."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "z": {
+    "e-ap-se": [
+     [
+      "2026-09-17",
+      "2026-09-26"
+     ]
+    ],
+    "e-ap-sw": [],
+    "e-ls-sw": [],
+    "w-ap-sw": [],
+    "w-ls-sw": [],
+    "w-lw-sw": []
+   },
+   "note": "September teal zone (DNR’s map; the app uses the Eastern early goose zone, which DNR draws almost identically)."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "z": {
+    "e-ap-se": [
+     [
+      "2026-09-01",
+      "2026-09-15"
+     ]
+    ],
+    "e-ap-sw": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "e-ls-sw": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "w-ap-sw": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "w-ls-sw": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ],
+    "w-lw-sw": [
+     [
+      "2026-09-01",
+      "2026-09-25"
+     ]
+    ]
+   },
+   "note": "Resident geese: Eastern early zone Sept 1–15, Western Sept 1–25."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "e-ap-se": [
+     [
+      "2026-11-24",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "e-ap-sw": [
+     [
+      "2026-11-24",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "e-ls-sw": [
+     [
+      "2026-11-21",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "w-ap-sw": [
+     [
+      "2026-11-24",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "w-ls-sw": [
+     [
+      "2026-11-21",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-30"
+     ]
+    ],
+    "w-lw-sw": [
+     [
+      "2026-11-21",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-15",
+      "2027-03-10"
+     ]
+    ]
+   },
+   "note": "AP zone 2 a day. Late Southern: 5 a day Nov 21–23, then 2. Late Western: 5 a day. Late zones include cackling and white-fronted geese."
+  },
+  {
+   "sp": "canadalate",
+   "label": "Canada geese — late",
+   "z": {
+    "e-ap-se": [],
+    "e-ap-sw": [],
+    "e-ls-sw": [
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "w-ap-sw": [],
+    "w-ls-sw": [
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "w-lw-sw": []
+   },
+   "note": "Late Southern Maryland resident zone, 5 a day."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2026-11-27"
+    ],
+    [
+     "2026-11-30",
+     "2027-02-06"
+    ]
+   ],
+   "note": "Light geese. No 2026–27 conservation order."
+  },
+  {
+   "sp": "snowlate",
+   "label": "Snow geese — late",
+   "z": {
+    "e-ap-se": [
+     [
+      "2027-02-08",
+      "2027-03-10"
+     ]
+    ],
+    "e-ap-sw": [
+     [
+      "2027-02-08",
+      "2027-03-10"
+     ]
+    ],
+    "e-ls-sw": [],
+    "w-ap-sw": [
+     [
+      "2027-02-08",
+      "2027-03-10"
+     ]
+    ],
+    "w-ls-sw": [],
+    "w-lw-sw": []
+   },
+   "note": "Light Goose Eastern Zone only (the AP zone, Charles east of Route 301), and not in the Sea Duck Zone."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2026-12-28",
+     "2027-01-30"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-24",
+     "2026-11-27"
+    ],
+    [
+     "2027-01-11",
+     "2027-01-27"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2027-01-28"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "Clapper and king rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-17"
+    ],
+    [
+     "2026-10-24",
+     "2026-11-27"
+    ],
+    [
+     "2026-12-19",
+     "2027-01-09"
+    ]
+   ],
+   "note": "Sept 1 – Oct 17: noon to sunset."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2026-11-07"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veteran and military days",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2026-11-07"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks a day, mergansers and sea ducks included, inside which the species limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "In the 6",
+   "poss": "",
+   "detail": "Mergansers count in the 6-duck bag; no separate limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": "In addition to the 6."
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters, 3 long-tailed ducks or 3 eiders (1 hen)."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "September teal season."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Early resident Canada geese."
+  },
+  {
+   "sp": "canada",
+   "daily": "2–5",
+   "poss": "6–15",
+   "detail": "AP zone 2 (6). Late Southern 5 (15) Nov 21–23, then 2 (6). Late Western 5 (15)."
+  },
+  {
+   "sp": "canadalate",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Late Southern, Feb 1 – Mar 10."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Snow, blue and Ross’s geese."
+  },
+  {
+   "sp": "snowlate",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": ""
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "10",
+   "poss": "30",
+   "detail": "Clapper and king rails; no more than 1 king a day (3 in possession)."
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "6 ducks with the sub-limits, 1 brant, 2 AP or 5 resident geese, 15 coots, 25 light geese."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "As youth days."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": "only in the black duck season (Nov 14–27 Eastern / Nov 21–27 Western, and Dec 15 – Jan 30)"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "2 a day Jan 8–30; 1 otherwise"
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Fulvous tree duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 long-tailed ducks or 3 eiders (1 hen)"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "6",
+   "note": "inside the 6-duck bag"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "in addition to the 6"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "no open season"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "No Sunday hunting",
+   "d": "It is unlawful to hunt migratory game birds on Sunday in Maryland."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for ducks, coots, geese and brant. Doves Sept 1 – Oct 17: noon to sunset. The guide’s two pages differ on whether the late light goose segment runs to half an hour after sunset — check DNR."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Required for waterfowl and coots. No lead shot, and nothing larger than size T (0.20 inch)."
+  },
+  {
+   "g": "Boats",
+   "t": "Offshore blinds",
+   "d": "An offshore (stationary) blind or blind site in public waters needs a $20 Stationary Blind and Blind Site licence, issued by lottery and online appointment."
+  },
+  {
+   "g": "Boats",
+   "t": "DNR land",
+   "d": "No permanent blinds or tree stands, and no decoys left out overnight, on land DNR owns or controls, without DNR’s written permission."
+  },
+  {
+   "g": "Special",
+   "t": "Sea Duck Zone",
+   "d": "Maryland keeps its Sea Duck Zone on the map but no longer has a separate sea duck season: sea ducks count in the 6-duck bag statewide. The late light goose segment (Feb 8 – Mar 10) is closed inside the Sea Duck Zone."
+  },
+  {
+   "g": "Special",
+   "t": "Dates pending",
+   "d": "The guide marks 2026–27 dates “contingent upon approval from the U.S. Fish and Wildlife Service”; DNR’s waterfowl page says they have been finalised in the Federal Register."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veteran and military days",
+   "d": "November 7, 2026 and February 6, 2027, statewide, with the bag limits above."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Maryland hunting licence",
+   "who": "Residents and non-residents",
+   "d": "$35 resident; $160 non-resident; $65 non-resident 3-day waterfowl and small game."
+  },
+  {
+   "t": "Maryland Migratory Game Bird Stamp (with HIP)",
+   "who": "Every migratory bird hunter",
+   "d": "$15 — a printed validation that includes HIP certification."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "$25 from refuges, post offices or online; $29 through MD Outdoors, a DNR service centre or a sport agent."
+  },
+  {
+   "t": "Stationary Blind and Blind Site licence",
+   "who": "Offshore blinds",
+   "d": "$20, by lottery and online appointment."
+  }
+ ],
+ "closedNote": "Maryland does not publish a statewide list of waters closed to waterfowl. Check the area you plan to hunt.",
+ "geometryNote": "Geometry: Maryland DNR zone layers (late goose zones on US 301, MD 3, MD 97, MD 31 and county lines; the September Eastern/Western line including DNR’s line across the upper bay), OpenStreetMap (the Eastern/Western duck line on I-83, I-695, I-95 and I-495; numbered routes), Maryland iMAP (DNR lands, public water access), USGS NHD (water; streams from NHDPlus V2 small-scale because the high-resolution service was down on 2026-10-30), USFWS (refuge units; NWI marsh), NOAA CO-OPS (tides), Census TIGER (state outline, county subdivisions, shared borders). The September teal zone is drawn as DNR’s Eastern early goose zone, which DNR maps almost identically."
+}

@@ -1,0 +1,567 @@
+{
+ "state": "DE",
+ "stateName": "Delaware",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "Delaware Hunting & Trapping Guide 2026–27 — Migratory bird seasons and bag limits",
+   "url": "https://www.eregulations.com/delaware/hunting/migratory-bird-seasons-bag-limits"
+  },
+  {
+   "label": "Delaware Hunting & Trapping Guide 2026–27 — Migratory bird hunting rules",
+   "url": "https://www.eregulations.com/delaware/hunting/migratory-bird-hunting"
+  },
+  {
+   "label": "DNREC — Migratory birds (2026–27 seasons)",
+   "url": "https://dnrec.delaware.gov/fish-wildlife/hunting/migratory-birds/"
+  },
+  {
+   "label": "DNREC — Snow Goose Conservation Order (none held in 2027)",
+   "url": "https://dnrec.delaware.gov/fish-wildlife/hunting/snow-goose-conservation-order/"
+  },
+  {
+   "label": "DNREC — Hunting seasons (Sunday hunting)",
+   "url": "https://dnrec.delaware.gov/fish-wildlife/hunting/seasons/"
+  },
+  {
+   "label": "Delaware FirstMap — Teal Season Hunting Zone, wildlife-area boat ramps, safety zones and refuges, DNREC managed lands",
+   "url": "https://enterprise.firstmap.delaware.gov/arcgis/rest/services/Society/DE_Wildlife/FeatureServer"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared state borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, bays, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units (Bombay Hook, Prime Hook)",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes and boat ramps",
+   "url": "https://www.openstreetmap.org/copyright"
+  }
+ ],
+ "zones": {
+  "te": {
+   "name": "Special September Teal Zone",
+   "short": "Teal Zone",
+   "bounds": "The Special September Teal Zone is the area south of the C&D Canal to north of Route 9 in Lewes and east of Routes 13, 113/113A and 1. The line is DNREC’s own Teal Zone map, which runs on Route 1 (not Route 113) south of Dover; across the bay the app carries it due east from the C&D Canal mouth and from Lewes to the state line (approximate).",
+   "note": "September teal Sept 5–13 here only. Resident Canada geese Sept 1–25, with special methods (unplugged guns, electronic calls, to half an hour after sunset) allowed only Sept 1–4 and Sept 14–25. Every other season is statewide."
+  },
+  "st": {
+   "name": "Rest of Delaware",
+   "short": "Rest of DE",
+   "bounds": "All of Delaware outside the Special September Teal Zone.",
+   "note": "No September teal season. Every other season is statewide."
+  }
+ },
+ "seasonsNote": "Delaware allows Sunday waterfowl hunting during the seasons on private land (with permission) and on designated public land.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-10-31",
+     "2026-11-07"
+    ],
+    [
+     "2026-11-25",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-16",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "Delaware no longer has a special sea duck zone — sea ducks follow the duck season, 4 a day inside the 6."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "z": {
+    "te": [
+     [
+      "2026-09-05",
+      "2026-09-13"
+     ]
+    ],
+    "st": []
+   },
+   "note": "Special September Teal Zone only."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-25"
+    ]
+   ],
+   "endAfterSunset": 30,
+   "note": "Resident Canada geese. In the Teal Zone special methods are not allowed Sept 5–13. Shooting to half an hour after sunset only with special methods."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-11-25",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-23",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Migratory Canada geese, white-fronted geese included."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "statewide": [
+    [
+     "2026-11-25",
+     "2027-03-10"
+    ]
+   ],
+   "note": "Snow and Ross’s geese. DNREC lists Feb 1–5 and Feb 6 – Mar 10 after Jan 31; the eRegulations guide lists Feb 1–6 and Feb 8 – Mar 10 — check DNREC about Feb 7. No conservation order in 2027 (DNREC)."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2026-12-19",
+     "2027-01-02"
+    ],
+    [
+     "2027-01-16",
+     "2027-01-30"
+    ]
+   ]
+  },
+  {
+   "sp": "swan",
+   "label": "Tundra swan (permit)",
+   "statewide": [
+    [
+     "2026-11-08",
+     "2027-01-31"
+    ]
+   ],
+   "note": "By lottery permit only (up to 272 permits; applications closed Sept 15). Mute swans may be taken in any open waterfowl season."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-11-23",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-25",
+     "2027-01-24"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-09-29",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-25",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "King and clapper rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Moorhens and gallinules",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-27"
+    ],
+    [
+     "2026-11-23",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-07",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "crow",
+   "label": "Crows",
+   "statewide": [
+    [
+     "2026-08-15",
+     "2027-03-26",
+     {
+      "dow": [
+       5,
+       6,
+       0
+      ]
+     }
+    ]
+   ],
+   "note": "Fridays, Saturdays and Sundays only (the season opened July 3, 2026; a June 24–27, 2027 segment follows)."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-10-24",
+     "2026-10-24"
+    ],
+    [
+     "2027-02-07",
+     "2027-02-07"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veteran and military days",
+   "statewide": [
+    [
+     "2026-10-24",
+     "2026-10-24"
+    ],
+    [
+     "2027-02-07",
+     "2027-02-07"
+    ]
+   ],
+   "note": "Private land only."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks a day (mergansers and coots apart), inside which the species limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Any species in the aggregate; no separate hooded merganser limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters, 3 eiders (1 hen), 3 long-tailed ducks."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Blue-winged and green-winged teal, together."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Resident Canada geese."
+  },
+  {
+   "sp": "canada",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Migratory Canada geese, white-fronted geese included."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Snow and Ross’s geese."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "swan",
+   "daily": "1 a season",
+   "poss": "",
+   "detail": "Tundra swan, by permit. Mute swans: no limit."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails, singly or in the aggregate."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "10",
+   "poss": "30",
+   "detail": "King and clapper rails, singly or in the aggregate."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "crow",
+   "daily": "None",
+   "poss": "None",
+   "detail": "No limit."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular-season limits."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular-season limits."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "2 a day Jan 12–31; 1 otherwise"
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Fulvous whistling-duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 eiders (1 hen), 3 long-tailed ducks"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "teal, shoveler, gadwall, wigeon, goldeneye, ring-necked, bufflehead, ruddy — up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Sundays",
+   "d": "State law allows Sunday hunting for waterfowl during the seasons on private land (with the landowner’s permission) and on designated public land."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for all migratory birds and mute swans. September resident Canada geese with special methods: to one-half hour after sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Non-toxic shot approved by the U.S. Fish and Wildlife Service is required for all waterfowl hunting in Delaware — no exceptions."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "No larger than 10 gauge, plugged to three shells — except with special methods in the September resident goose season."
+  },
+  {
+   "g": "Boats",
+   "t": "Boats near blinds and shores",
+   "d": "No hunting from a boat within 1,500 feet of an established blind without the blind owner’s permission. No hunting from a boat within 900 feet of the Delaware River and Bay shore between the Appoquinimink and Smyrna rivers, or within 1,500 feet between the Smyrna and Murderkill rivers, without the landowner’s written permission."
+  },
+  {
+   "g": "Boats",
+   "t": "Little River",
+   "d": "No hunting from a boat, and no floating or fixed blinds, in the Little River where Division of Fish & Wildlife land lies on both sides."
+  },
+  {
+   "g": "Special",
+   "t": "State blind lotteries",
+   "d": "Augustine (Port Penn), Woodland Beach (Route 9 check station) and Little Creek / Ted Harvey blinds are drawn by lottery before shooting time — 2 hours before sunrise, 2½ at Little Creek. Assawoman resident-goose blinds: Mondays and Thursdays in the early season."
+  },
+  {
+   "g": "Special",
+   "t": "National wildlife refuges",
+   "d": "Bombay Hook: snow geese Mon, Wed and Fri with the refuge manager’s permission. Prime Hook: September teal blinds by drawing at the refuge check station. Refuges are open to youth only on the Oct 24 and Feb 7 youth days."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veteran and military days",
+   "d": "October 24, 2026 and February 7, 2027. Youth statewide; veterans and active military on private land only. Hunters under 16 must be supervised by a licensed adult 21 or older."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Delaware hunting licence (or License Exempt Number)",
+   "who": "Residents and non-residents",
+   "d": "Hunter education is required for anyone born after January 1, 1967."
+  },
+  {
+   "t": "HIP number",
+   "who": "Every migratory bird hunter (not for crows only)",
+   "d": "Free; a new number each year (valid July 1 – June 30) from de.gov/DigitalDNREC, epermitting.dnrec.delaware.gov or 1-855-335-4868."
+  },
+  {
+   "t": "Delaware waterfowl stamp",
+   "who": "Most waterfowl hunters",
+   "d": "Sold from July 1, 2026; de.gov/waterfowlstamp."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "Signed in ink across the face, or an e-stamp."
+  },
+  {
+   "t": "Tundra swan permit",
+   "who": "Swan hunters",
+   "d": "Lottery; applications closed September 15, 2026."
+  }
+ ],
+ "closedNote": "Delaware does not publish a statewide list of waters closed to waterfowl. Red areas are DNREC’s closed tracts and safety zones on its wildlife areas.",
+ "geometryNote": "Geometry: DNREC / Delaware FirstMap (the Teal Zone line — within ~50 m of US 13, DE 1 and US 9 — wildlife-area closures, refuges, boat ramps, DNREC managed lands), USGS NHD (water), USFWS (refuge hunt units; NWI marsh), NOAA CO-OPS (tides), OpenStreetMap (numbered routes, other boat ramps), Census TIGER (state outline, county subdivisions, shared borders). The Teal Zone line across the bay is approximate."
+}
