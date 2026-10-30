@@ -1,0 +1,636 @@
+{
+ "state": "VA",
+ "stateName": "Virginia",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "Virginia DWR — Migratory Game Birds, 2026–2027 seasons",
+   "url": "https://dwr.virginia.gov/hunting/regulations/migratory-gamebirds/"
+  },
+  {
+   "label": "Virginia DWR — Waterfowl blind laws and areas closed to waterfowl hunting",
+   "url": "https://dwr.virginia.gov/hunting/regulations/waterfowl-blind-laws/"
+  },
+  {
+   "label": "Virginia DWR — Licences and fees",
+   "url": "https://dwr.virginia.gov/hunting/regulations/licenses/"
+  },
+  {
+   "label": "Virginia DWR — 2026–2027 Hunting, Trapping and Migratory Game Bird Seasons guide (PDF)",
+   "url": "https://dwr.virginia.gov/wp-content/uploads/media/2026-2027-Virginia-Hunting-Trapping-and-Migratory-Game-Bird-Seasons-Guide.pdf"
+  },
+  {
+   "label": "Virginia DWR GIS — public huntable lands, WMA boundaries, boating access sites",
+   "url": "https://services.dwr.virginia.gov/arcgis/rest/services/HUB_Layers"
+  },
+  {
+   "label": "OpenStreetMap — I-64, I-95, US 460, VA 32 (zone lines) and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines (the Blue Ridge line), county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS) — closed-area locators",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, bays, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "ap-e": {
+   "name": "AP geese · east of I-95",
+   "short": "AP · E of I-95",
+   "bounds": "Atlantic Population (AP) Hunt Zone: the area east of the “Blue Ridge” (Loudoun County–Clarke County border) at the West Virginia–Virginia border, south to Interstate 64 (the Blue Ridge line follows county borders along the western edge of Loudoun–Fauquier–Rappahannock–Madison–Greene–Albemarle and into Nelson counties), then east along I-64 to I-95 in Richmond, then south along I-95 to Route 460 in Petersburg, then southeast along Route 460 to Route 32 in the City of Suffolk, then south to the North Carolina border. September teal and September Canada goose hours are set east and west of Interstate 95.",
+   "note": "Atlantic Population Canada geese (Nov 24–29, Dec 24 – Jan 31; 2 a day). September teal Sept 19–27. Tundra swans by permit south of the Prince William / Stafford line."
+  },
+  "ap-w": {
+   "name": "AP geese · west of I-95",
+   "short": "AP · W of I-95",
+   "bounds": "Atlantic Population (AP) Hunt Zone: the area east of the “Blue Ridge” (Loudoun County–Clarke County border) at the West Virginia–Virginia border, south to Interstate 64 (the Blue Ridge line follows county borders along the western edge of Loudoun–Fauquier–Rappahannock–Madison–Greene–Albemarle and into Nelson counties), then east along I-64 to I-95 in Richmond, then south along I-95 to Route 460 in Petersburg, then southeast along Route 460 to Route 32 in the City of Suffolk, then south to the North Carolina border. September teal and September Canada goose hours are set east and west of Interstate 95.",
+   "note": "Atlantic Population Canada geese (Nov 24–29, Dec 24 – Jan 31; 2 a day). September teal Sept 22–27."
+  },
+  "rp-e": {
+   "name": "RP geese · east of I-95",
+   "short": "RP · E of I-95",
+   "bounds": "Resident Population (RP) Hunt Zone: the portion of the state west of the AP Zone boundary. September teal and September Canada goose hours are set east and west of Interstate 95.",
+   "note": "Resident Population Canada geese (Nov 18–29, Dec 19 – Feb 21; 5 a day). September teal Sept 19–27. Tundra swans by permit."
+  },
+  "rp-w": {
+   "name": "RP geese · west of I-95",
+   "short": "RP · W of I-95",
+   "bounds": "Resident Population (RP) Hunt Zone: the portion of the state west of the AP Zone boundary. September teal and September Canada goose hours are set east and west of Interstate 95.",
+   "note": "Resident Population Canada geese (Nov 18–29, Dec 19 – Feb 21; 5 a day). September teal Sept 22–27."
+  }
+ },
+ "seasonsNote": "Ducks, coots, mergansers, brant and light geese are statewide. Sunday hunting is allowed, except within 200 yards of a house of worship.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-10-09",
+     "2026-10-12"
+    ],
+    [
+     "2026-11-18",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-19",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Black ducks closed Oct 9–12."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "No separate sea duck season; 4 a day inside the 6. In the Special Sea Duck Area crippled waterfowl may be pursued under power."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "z": {
+    "ap-e": [
+     [
+      "2026-09-19",
+      "2026-09-27"
+     ]
+    ],
+    "rp-e": [
+     [
+      "2026-09-19",
+      "2026-09-27"
+     ]
+    ],
+    "ap-w": [
+     [
+      "2026-09-22",
+      "2026-09-27"
+     ]
+    ],
+    "rp-w": [
+     [
+      "2026-09-22",
+      "2026-09-27"
+     ]
+    ]
+   },
+   "note": "East of I-95 Sept 19–27; west of I-95 Sept 22–27."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-25"
+    ]
+   ],
+   "endAfterSunset": 30,
+   "note": "Shooting to half an hour after sunset (and more than three shells allowed) Sept 1–18 east of I-95 and Sept 1–21 west of it; to sunset, three shells, after that. Not on Amelia or Dick Cross WMAs."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "ap-e": [
+     [
+      "2026-11-24",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-24",
+      "2027-01-31"
+     ]
+    ],
+    "ap-w": [
+     [
+      "2026-11-24",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-24",
+      "2027-01-31"
+     ]
+    ],
+    "rp-e": [
+     [
+      "2026-11-18",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-19",
+      "2027-02-21"
+     ]
+    ],
+    "rp-w": [
+     [
+      "2026-11-18",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-19",
+      "2027-02-21"
+     ]
+    ]
+   },
+   "note": "AP zone 2 a day; RP zone 5 a day."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow geese",
+   "statewide": [
+    [
+     "2026-11-25",
+     "2027-03-10"
+    ]
+   ],
+   "note": "Light geese. No 2026–27 conservation order."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2026-12-19",
+     "2026-12-31"
+    ],
+    [
+     "2027-01-15",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "swan",
+   "label": "Tundra swan (permit)",
+   "z": {
+    "ap-e": [
+     [
+      "2026-11-15",
+      "2027-01-31"
+     ]
+    ],
+    "rp-e": [
+     [
+      "2026-11-15",
+      "2027-01-31"
+     ]
+    ],
+    "ap-w": [],
+    "rp-w": []
+   },
+   "note": "By permit (up to 475; applications closed Sept 25). Only east of I-95 and south of the Prince William / Stafford line (Chopawamsic Creek)."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-11-11",
+     "2026-12-01"
+    ],
+    [
+     "2026-12-26",
+     "2027-01-18"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-09-28",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-19",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-24"
+    ],
+    [
+     "2026-11-10",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "Clapper and king rails",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-24"
+    ],
+    [
+     "2026-11-10",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-24"
+    ],
+    [
+     "2026-11-10",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-24"
+    ],
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-19",
+     "2027-01-18"
+    ]
+   ],
+   "note": "Sept 5: noon to sunset."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-10-24",
+     "2026-10-24"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veteran and military days",
+   "statewide": [
+    [
+     "2026-10-24",
+     "2026-10-24"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks of any species, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Hooded, red-breasted and common, any combination."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters, 3 eiders (1 hen), 3 long-tailed ducks."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Blue-winged and green-winged together."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "10",
+   "poss": "30",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "2 / 5",
+   "poss": "6 / 15",
+   "detail": "AP zone 2 a day (6); RP zone 5 a day (15)."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": "Light geese."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "swan",
+   "daily": "1 a season",
+   "poss": "",
+   "detail": "Per permittee."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "10",
+   "poss": "30",
+   "detail": "Clapper and king rails; no more than 1 king a day (3 in possession)."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Mourning and white-winged doves."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular limits. DWR’s page lists AP-zone Canada geese as both 2 and 1 a day for these days — check with DWR."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "As youth days."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": "closed Oct 9–12"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "2 a day Jan 12–31; 1 otherwise"
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Fulvous whistling-duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 eiders (1 hen), 3 long-tailed ducks"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Sundays",
+   "d": "Sunday hunting is allowed — public land included — except within 200 yards of a house of worship or its accessory buildings."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset, except the early September Canada goose segments (to half an hour after sunset) shown above. Doves on Sept 5: noon to sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Required for all waterfowl, rail and snipe hunting; no lead shot in possession for them, and nothing larger than size T."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotgun limits",
+   "d": "Plugged to three shells, except early September Canada goose days (and light goose days when no other season is open)."
+  },
+  {
+   "g": "Boats",
+   "t": "Blinds and distances",
+   "d": "No waterfowl hunting on public waters within 150 yards of a residence without the landowner’s consent, or within 500 yards of a licensed blind without the licensee’s consent (jump-shooting from boats included). Licensed stationary blinds at least 500 yards apart. Blind laws apply east of I-95 (not in Accomack or Northampton)."
+  },
+  {
+   "g": "Boats",
+   "t": "Blind licences",
+   "d": "Stationary blind in public waters $28.50; floating blind $46 (two a season per applicant). Riparian owners get first right; offshore stake sites by application in November."
+  },
+  {
+   "g": "Special",
+   "t": "Areas closed to waterfowl hunting",
+   "d": "Crystal Lake, Linkhorn and Broad bays and Long Creek (Virginia Beach); Hog Island Refuge and the James within 1,000 yards of it (except DWR blinds); the James around Presquile NWR; Gaston Reservoir; waters within 1,000 yards of Lands End WMA (Rappahannock); Great Hunting Creek and the Potomac near Dyke Marsh, Mason Neck and Accotink Creek; Kane Creek refuge; the New River in Radford Army Ammunition Plant; Kittewan Creek refuge; the James from Bosher’s Dam to the I-95 bridge; Dutch Gap. Most are red circles on the map (approximate)."
+  },
+  {
+   "g": "Special",
+   "t": "Special Sea Duck Area",
+   "d": "The ocean waters, the tidal waters of Northampton and Accomack up to the first highway bridge, and the Chesapeake Bay and its tributaries up to the first highway bridge (not Back Bay): crippled waterfowl may be pursued under power. No separate season this year."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veteran and military days",
+   "d": "October 24, 2026 and February 6, 2027. Youth 15 and under, veterans and active-duty military."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Virginia hunting licence",
+   "who": "Residents and non-residents",
+   "d": "$28 resident (1 year), $17 resident 3-day; $136 non-resident, $75 non-resident 3-day."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter",
+   "d": "New each July 1, at GoOutdoorsVirginia.com or 844-802-4193."
+  },
+  {
+   "t": "Virginia Migratory Waterfowl Conservation Stamp",
+   "who": "Waterfowl hunters (unless licence-exempt)",
+   "d": "$15, valid July 1 – June 30."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Age 16+",
+   "d": "Signed in ink, or the e-stamp."
+  },
+  {
+   "t": "Tundra swan permit",
+   "who": "Swan hunters",
+   "d": "Lottery; applications closed Sept 25, 2026."
+  }
+ ],
+ "geometryNote": "Geometry: the AP/RP goose line routed on Census county lines (the Blue Ridge counties) and OpenStreetMap’s I-64, I-95, US 460 and VA 32; I-95 (OSM) for the east/west seasons; Virginia DWR (public huntable lands, boating access), USGS GNIS and NHD (closed-area locators, water; streams from the NHD small-scale layer because the high-resolution service was down on 2026-10-30), USFWS (refuge units; NWI marsh), NOAA CO-OPS (tides), Census TIGER (state outline, county subdivisions, borders). Closed areas are mostly approximate circles."
+}

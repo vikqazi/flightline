@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware and Maryland: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland and Virginia: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1058,7 +1058,11 @@ var STATES = {
   md: { name: 'Maryland', abbr: 'MD', bounds: [[37.88, -79.49], [39.73, -75.04]],
         zones: ['e-ap-se', 'e-ap-sw', 'e-ls-sw', 'w-ap-sw', 'w-ls-sw', 'w-lw-sw'],
         colors: { 'e-ap-se': '#4f9e9a', 'e-ap-sw': '#5b7fb8', 'e-ls-sw': '#c9893c', 'w-ap-sw': '#8a9a4e', 'w-ls-sw': '#ddaa66', 'w-lw-sw': '#b06fa8' },
-        extras: ['closed'], attrib: 'Maryland DNR · Maryland iMAP · USGS NHD' }
+        extras: ['closed'], attrib: 'Maryland DNR · Maryland iMAP · USGS NHD' },
+  va: { name: 'Virginia', abbr: 'VA', bounds: [[36.54, -83.68], [39.47, -75.24]],
+        zones: ['ap-e', 'ap-w', 'rp-e', 'rp-w'],
+        colors: { 'ap-e': '#4f9e9a', 'ap-w': '#5b7fb8', 'rp-e': '#c9893c', 'rp-w': '#8a9a4e' },
+        extras: ['closed'], attrib: 'Virginia DWR · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [
