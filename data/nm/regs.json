@@ -1,0 +1,594 @@
+{
+ "state": "NM",
+ "stateName": "New Mexico",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "NMDGF — 2026-27 New Mexico Migratory Game Bird Supplement",
+   "url": "https://wildlife.dgf.nm.gov/download/2026-2027-new-mexico-migratory-game-bird-hunting-rules-and-info/"
+  },
+  {
+   "label": "NMDGF — migratory bird hunting information",
+   "url": "https://wildlife.dgf.nm.gov/hunting/information-by-animal/migratory-bird/"
+  },
+  {
+   "label": "NMDGF GIS — State Game Commission lands",
+   "url": "https://services2.arcgis.com/CjbW1bVhK4dB3WOa/arcgis/rest/services/State_Game_Commission_Lands_view/FeatureServer"
+  },
+  {
+   "label": "USGS National Atlas — Continental Divide (condivl020)",
+   "url": "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/Continental_Divide/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes, boat ramps",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — lakes, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "cn": {
+   "name": "Central North Zone",
+   "short": "C North",
+   "bounds": "North Zone (Central Flyway): east of the Continental Divide and north of I-40 and U.S. Hwy 54 at Tucumcari.",
+   "note": "Central Flyway. Ducks and coots Oct 10 – Jan 13. Dark geese Oct 17 – Jan 31. Light geese Oct 17 – Jan 31; Conservation Order Feb 1 – Mar 10."
+  },
+  "cs": {
+   "name": "Central South Zone",
+   "short": "C South",
+   "bounds": "South Zone (Central Flyway): east of the Continental Divide and south of I-40 and U.S. Hwy 54 at Tucumcari (outside the Middle Rio Grande Valley).",
+   "note": "Central Flyway. Ducks and coots Oct 28 – Jan 31. Dark geese Oct 17 – Jan 31. Light geese Oct 17 – Jan 31; Conservation Order Feb 1 – Mar 10."
+  },
+  "mrgv": {
+   "name": "Central South Zone — Middle Rio Grande Valley",
+   "short": "C South · MRGV",
+   "bounds": "Valencia, Socorro and Sierra counties, in the Central Flyway South Zone.",
+   "note": "Central Flyway. Ducks and coots Oct 28 – Jan 31. Regular dark goose season closed; MRGV dark goose season Dec 19 – Jan 31 (2 a day, 2 a season). Bernardo and La Joya WMAs have set days."
+  },
+  "pn": {
+   "name": "Pacific North Zone",
+   "short": "P North",
+   "bounds": "North Zone (Pacific Flyway): west of the Continental Divide and north of I-40.",
+   "note": "Pacific Flyway. Ducks Oct 19 – Jan 31 (scaup to Jan 12). Geese Sept 26 – Oct 11 and Nov 2 – Jan 31."
+  },
+  "ps": {
+   "name": "Pacific South Zone",
+   "short": "P South",
+   "bounds": "South Zone (Pacific Flyway): west of the Continental Divide and south of I-40.",
+   "note": "Pacific Flyway. Ducks Oct 19 – Jan 31 (scaup to Jan 12). Geese Oct 17 – Jan 31."
+  }
+ },
+ "seasonsNote": "New Mexico is split between flyways at the Continental Divide: Central Flyway east (North, South and the Middle Rio Grande Valley), Pacific Flyway west (North, South). Each zone is tagged with its flyway.",
+ "seasons": [
+  {
+   "sp": "teal",
+   "label": "September teal (Central Flyway)",
+   "z": {
+    "cn": [
+     [
+      "2026-09-12",
+      "2026-09-20"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-09-12",
+      "2026-09-20"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-09-12",
+      "2026-09-20"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "cn": [
+     [
+      "2026-10-10",
+      "2027-01-13"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ],
+    "pn": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "ps": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "scaup",
+   "label": "Scaup",
+   "z": {
+    "cn": [
+     [
+      "2026-10-10",
+      "2027-01-13"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ],
+    "pn": [
+     [
+      "2026-10-19",
+      "2027-01-12"
+     ]
+    ],
+    "ps": [
+     [
+      "2026-10-19",
+      "2027-01-12"
+     ]
+    ]
+   },
+   "note": "Central Flyway: scaup are open with ducks (1 a day)."
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese (Canada, cackling, white-fronted, brant)",
+   "z": {
+    "cn": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-12-19",
+      "2027-01-31"
+     ]
+    ],
+    "pn": [
+     [
+      "2026-09-26",
+      "2026-10-11"
+     ],
+     [
+      "2026-11-02",
+      "2027-01-31"
+     ]
+    ],
+    "ps": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Middle Rio Grande Valley: regular season closed; MRGV season Dec 19 – Jan 31, 2 a day and 2 a season."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese (snow, Ross’s)",
+   "z": {
+    "cn": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "pn": [
+     [
+      "2026-09-26",
+      "2026-10-11"
+     ],
+     [
+      "2026-11-02",
+      "2027-01-31"
+     ]
+    ],
+    "ps": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Central Flyway Light Goose Conservation Order Feb 1 – Mar 10 (free permit; electronic calls and unplugged shotguns; shooting to ½ hour after sunset except on WMAs)."
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "z": {
+    "cn": [
+     [
+      "2026-10-10",
+      "2027-01-24"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-10-10",
+      "2027-01-24"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-10-10",
+      "2027-01-24"
+     ]
+    ],
+    "pn": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ]
+    ],
+    "ps": [
+     [
+      "2026-10-17",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "z": {
+    "cn": [
+     [
+      "2026-09-12",
+      "2026-11-20"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-09-12",
+      "2026-11-20"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-09-12",
+      "2026-11-20"
+     ]
+    ],
+    "pn": [
+     [
+      "2026-09-12",
+      "2026-11-20"
+     ]
+    ],
+    "ps": [
+     [
+      "2026-09-12",
+      "2026-11-20"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules",
+   "z": {
+    "cn": [
+     [
+      "2026-09-12",
+      "2026-11-20"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-09-12",
+      "2026-11-20"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-09-12",
+      "2026-11-20"
+     ]
+    ],
+    "pn": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "ps": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "cn": [
+     [
+      "2026-10-03",
+      "2026-10-03"
+     ],
+     [
+      "2026-10-04",
+      "2026-10-04"
+     ]
+    ],
+    "cs": [
+     [
+      "2026-10-24",
+      "2026-10-24"
+     ],
+     [
+      "2026-10-25",
+      "2026-10-25"
+     ]
+    ],
+    "mrgv": [
+     [
+      "2026-10-24",
+      "2026-10-24"
+     ],
+     [
+      "2026-10-25",
+      "2026-10-25"
+     ]
+    ],
+    "pn": [
+     [
+      "2026-10-10",
+      "2026-10-10"
+     ],
+     [
+      "2026-10-11",
+      "2026-10-11"
+     ]
+    ],
+    "ps": [
+     [
+      "2026-10-10",
+      "2026-10-10"
+     ],
+     [
+      "2026-10-11",
+      "2026-10-11"
+     ]
+    ]
+   },
+   "note": "17 and under with an adult 18+. Central Flyway: ducks and coots only; Pacific Flyway: ducks, coots and gallinules."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Blue-winged, cinnamon and green-winged teal."
+  },
+  {
+   "sp": "duck",
+   "daily": "6 / 7",
+   "poss": "18 / 21",
+   "detail": "Central Flyway 6 (no more than 5 mallards, 2 hens; 1 scaup; 3 wood ducks; 2 redheads; 2 hooded mergansers; 3 pintails; 2 canvasbacks). Pacific Flyway 7 (no more than 2 hen mallards, 2 redheads, 3 pintails, 2 canvasbacks, 2 scaup)."
+  },
+  {
+   "sp": "scaup",
+   "daily": "1 / 2",
+   "poss": "3 / 6",
+   "detail": "Central 1; Pacific 2. Inside the duck bag."
+  },
+  {
+   "sp": "coot",
+   "daily": "15 / 25",
+   "poss": "45 / 75",
+   "detail": "Central 15; Pacific 25 (coots and gallinules together)."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Central: 5 dark geese. Pacific: 5 Canada and brant plus 10 white-fronted (30 possession). MRGV: 2 a day, 2 a season."
+  },
+  {
+   "sp": "snow",
+   "daily": "50 / 20",
+   "poss": "None / 60",
+   "detail": "Central 50 a day, no possession limit (Conservation Order: no limits). Pacific 20 (60)."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "10 / 25",
+   "poss": "20 / 75",
+   "detail": "Central 10; Pacific 25."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "1 / 25",
+   "poss": "3 / 75",
+   "detail": "Central 1; Pacific with coots, 25."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Daily bag",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5 / 7",
+   "note": "Central 5 (2 hens; Mexican ducks count as mallards); Pacific 2 hens"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 / 2",
+   "note": "Central 1; Pacific 2"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": "Central"
+  },
+  {
+   "n": "Hooded merganser",
+   "lim": "2",
+   "note": "Central"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6 / 7",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset; Bernardo, La Joya and other WMAs set their own hours and days (page 3–5)."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot",
+   "d": "Nontoxic shot for waterfowl, coots and gallinules; shotguns limited to 3 shells, except during the Light Goose Conservation Order."
+  },
+  {
+   "g": "Special",
+   "t": "WMAs",
+   "d": "Bernardo, La Joya and Jackson Lake have set days and species groups; Bernardo Ponds and Unit D open Mon, Wed and Sat during the Conservation Order. Not drawn."
+  },
+  {
+   "g": "Special",
+   "t": "Flyways",
+   "d": "East of the Continental Divide is the Central Flyway; west is the Pacific Flyway, with different dates and limits."
+  }
+ ],
+ "licences": [
+  {
+   "t": "New Mexico game-hunting licence",
+   "who": "Hunters",
+   "d": ""
+  },
+  {
+   "t": "Migratory Bird Permit (HIP)",
+   "who": "Migratory bird hunters",
+   "d": ""
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": ""
+  },
+  {
+   "t": "Light Goose Conservation Order permit",
+   "who": "Conservation Order hunters",
+   "d": "Free."
+  }
+ ],
+ "geometryNote": "Geometry: the Continental Divide (USGS National Atlas), I-40 and US 54 (OpenStreetMap) and the Valencia, Socorro and Sierra county lines (Census TIGER), split against the Census TIGER outline and welded to Arizona, Utah, Texas and Oklahoma; State Game Commission lands; OpenStreetMap boat ramps; USGS NHD and GNIS; USFWS (refuge units; NWI marsh)."
+}
