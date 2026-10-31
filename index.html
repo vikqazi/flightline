@@ -1192,6 +1192,10 @@ var STATES = {
         zones: ['pan', 'nc', 'sw', 'cam', 'bl', 'mv', 'se', 'e4', 'e1', 'g4'],
         colors: { pan: '#4f9e9a', nc: '#5b7fb8', sw: '#8a9a4e', cam: '#9a8a4e', bl: '#7a8fc4', mv: '#b08a4e', se: '#a0705a', e4: '#8c6fa8', e1: '#6f9a6f', g4: '#c47a7a' },
         extras: ['closed'], attrib: 'IDFG · USGS NHD' },
+  co: { name: 'Colorado', abbr: 'CO', bounds: [[36.99, -109.06], [41.01, -102.04]],
+        zones: ['ne-bal', 'se-bal', 'mf-bal', 'mf-np', 'mf-sp', 'mf-sl', 'pw', 'pe'],
+        colors: { 'ne-bal': '#5b7fb8', 'se-bal': '#8a9a4e', 'mf-bal': '#c9893c', 'mf-np': '#d9a25a', 'mf-sp': '#b87a3c', 'mf-sl': '#a45b8f', pw: '#4f9e9a', pe: '#6aa5c9' },
+        extras: ['closed'], attrib: 'CPW · USGS NHD' },
   ut: { name: 'Utah', abbr: 'UT', bounds: [[36.99, -114.06], [42.00, -109.04]],
         zones: ['n', 'wf', 'eb', 's'],
         colors: { n: '#5b7fb8', wf: '#8a9a4e', eb: '#c47a7a', s: '#b08a4e' },
@@ -2017,8 +2021,7 @@ function drawLabels(V) {
       var nm = zMeta(f.props.ns).short.toUpperCase();
       label(nm, x, y, 12, '700', ZONE_COLOR[f.props.ns]);
       var zopen = openOn('duck', f.props.ns, S.date, f.src);
-      if (rulesPending(f.src)) label('RULES PENDING', x, y + 13, 9.5, '600', css('--dim'));
-      else label(zopen ? 'DUCKS OPEN' : 'DUCKS CLOSED', x, y + 13, 9.5, '600', zopen ? css('--open') : css('--closed'));
+      label(zopen ? 'DUCKS OPEN' : 'DUCKS CLOSED', x, y + 13, 9.5, '600', zopen ? css('--open') : css('--closed'));
     }
   }
   /* town names */
@@ -2226,15 +2229,7 @@ function renderTabs() {
     return h('button', { 'data-panel': p.id, 'aria-pressed': S.panel === p.id }, esc(p.label));
   }).join('');
 }
-function rulesPending(code) { var R = regsOf(code); return !!(R && R.rulesPending); }   // current-year rules not read yet
-function pendingChip(z) {
-  return h('button', { class: 'zchip', 'data-zone': z, 'aria-pressed': S.zone === z },
-    h('div', { class: 'zn' }, '<i class="zsw" style="background:' + ZONE_COLOR[z] + '"></i>' + esc(zMeta(z).name)) +
-    h('div', { class: 'zs is-pending' }, 'Rules pending') +
-    h('div', { class: 'zd' }, 'Dates not confirmed yet'));
-}
 function zoneChip(z) {
-  if (rulesPending(zCode(z))) return pendingChip(z);
   var on = openOn('duck', z, S.date, zCode(z));
   var nc = nextChange('duck', z, S.date, zCode(z));
   var sub = on
@@ -2248,9 +2243,6 @@ function zoneChip(z) {
 function zoneShort(z) { var R = regsOf(zCode(z)), m = R && R.zones && R.zones[zId(z)]; return m ? m.short : zId(z); }
 function stateChip(c) {      // one state, summed up: how many zones are open, a dot per zone, the next change
   var zs = ZONE_IDS.filter(function (z) { return zCode(z) === c; });
-  if (rulesPending(c)) return h('button', { class: 'zchip zstate', 'data-strip-state': c, title: 'Show the ' + STATES[c].name + ' zones' },
-    h('div', { class: 'zn' }, esc(STATES[c].name)) + h('div', { class: 'zs is-pending' }, 'Rules pending') +
-    h('div', { class: 'zd' }, 'Dates not confirmed yet') + h('span', { class: 'zmore', 'aria-hidden': 'true' }, '&rsaquo;'));
   var open = zs.filter(function (z) { return openOn('duck', z, S.date, c); });
   var next = null;
   zs.forEach(function (z) { var nc = nextChange('duck', z, S.date, c); if (nc && (!next || nc.date < next.nc.date)) next = { z: z, nc: nc }; });
@@ -2505,12 +2497,7 @@ function panelSeason() {
     if (ye && ye.z) sps = sps.concat(['youth']);
     ['canadasept', 'vet'].forEach(function (x) { var ex = entry(x, zCode(z)); if (ex && ex.z) sps.push(x); });
     var openSps = sps.filter(function (s) { return openOn(s, z, S.date, zCode(z)); });
-    var on = openOn('duck', z, S.date, zCode(z)), pend = rulesPending(zCode(z));
-    if (pend) return h('button', { class: 'item', 'data-zone': z },
-      h('div', { class: 'between' },
-        h('span', { class: 't1' }, '<i class="zsw" style="display:inline-block;background:' + ZONE_COLOR[z] + ';margin-right:6px"></i>' + esc(zMeta(z).name)) +
-        h('span', { class: 'pill' }, 'Pending')) +
-      h('div', { class: 't2' }, 'Current-year dates not confirmed yet. Check the state agency before you hunt.'));
+    var on = openOn('duck', z, S.date, zCode(z));
     return h('button', { class: 'item', 'data-zone': z },
       h('div', { class: 'between' },
         h('span', { class: 't1' }, '<i class="zsw" style="display:inline-block;background:' + ZONE_COLOR[z] + ';margin-right:6px"></i>' + esc(zMeta(z).name)) +

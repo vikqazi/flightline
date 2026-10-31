@@ -1,0 +1,597 @@
+{
+ "state": "CO",
+ "stateName": "Colorado",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "CPW — Chapter W-05, Small Game - Migratory Birds (zones, seasons, limits)",
+   "url": "https://cpw.widen.net/s/dlkb8mwlm6/ch05"
+  },
+  {
+   "label": "CPW — 2026 Small Game and Waterfowl Brochure (over 10 MB, not read)",
+   "url": "https://cpw.widen.net/s/bklvf2bjmw/colorado-small-game--waterfowl-brochure"
+  },
+  {
+   "label": "CPW — Rules and regulations",
+   "url": "https://cpw.state.co.us/rules-and-regulations"
+  },
+  {
+   "label": "CPW GIS — managed properties, Walk-In Access, GMU boundaries, facilities",
+   "url": "https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/arcgis/rest/services/CPWAdminData/FeatureServer"
+  },
+  {
+   "label": "USGS National Atlas — Continental Divide (condivl020)",
+   "url": "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/Continental_Divide/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — Interstates 25 and 70 (the Central zone lines are routed on them)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "pw": {
+   "name": "Pacific Western (Pacific Flyway)",
+   "short": "PW",
+   "bounds": "Pacific Flyway Western Zone: all areas west of the Continental Divide not included in the Eastern Zone. Goose zone: the same Pacific Western zone.",
+   "note": "Pacific Flyway. Ducks Oct 3–20, Nov 6 – Jan 31; dark and light geese Oct 3–11, Nov 6 – Jan 31."
+  },
+  "ne-bal": {
+   "name": "Northeast · Central Flyway balance",
+   "short": "NE-BAL",
+   "bounds": "Central Flyway Northeast Zone: all areas east of Interstate 25 and north of Interstate 70. Goose: Balance of the Central Flyway: all areas east of the Continental Divide except North Park, South Park and the San Luis Valley.",
+   "note": "Central Flyway. Ducks Oct 17 – Nov 29, Dec 11 – Jan 31; dark geese Nov 2 – Feb 14, light geese Oct 31 – Feb 14."
+  },
+  "se-bal": {
+   "name": "Southeast · Central Flyway balance",
+   "short": "SE-BAL",
+   "bounds": "Central Flyway Southeast Zone: all areas east of Interstate 25 and south of Interstate 70, and all of El Paso, Pueblo, Huerfano and Las Animas counties. Goose: Balance of the Central Flyway: all areas east of the Continental Divide except North Park, South Park and the San Luis Valley.",
+   "note": "Central Flyway. Ducks Oct 28 – Jan 31; dark geese Nov 2 – Feb 14, light geese Oct 31 – Feb 14."
+  },
+  "mf-bal": {
+   "name": "Mountain/Foothills · Central Flyway balance",
+   "short": "MF-BAL",
+   "bounds": "Central Flyway Mountain/Foothills Zone: all areas west of Interstate 25 and east of the Continental Divide, except El Paso, Pueblo, Huerfano and Las Animas counties. Goose: Balance of the Central Flyway: all areas east of the Continental Divide except North Park, South Park and the San Luis Valley.",
+   "note": "Central Flyway. Ducks Oct 3 – Nov 29, Dec 25 – Jan 31; dark geese Nov 2 – Feb 14, light geese Oct 31 – Feb 14."
+  },
+  "pe": {
+   "name": "Pacific Eastern (Pacific Flyway)",
+   "short": "PE",
+   "bounds": "Pacific Flyway Eastern Zone: all of Routt, Grand, Summit, Eagle and Pitkin counties; those portions of Saguache, San Juan, Hinsdale and Mineral counties west of the Continental Divide; Gunnison County except the North Fork of the Gunnison River Valley (GMUs 521, 53 and 63); and the part of Moffat County at Elkhead Reservoir State Park along Moffat County Road 29 (not drawn). Goose zone: the same Pacific Eastern zone.",
+   "note": "Pacific Flyway. Ducks Oct 3 – Jan 15; dark and light geese Oct 3 – Jan 6."
+  },
+  "mf-sl": {
+   "name": "Mountain/Foothills · San Luis Valley",
+   "short": "MF-SL",
+   "bounds": "Central Flyway Mountain/Foothills Zone: all areas west of Interstate 25 and east of the Continental Divide, except El Paso, Pueblo, Huerfano and Las Animas counties. Goose: San Luis Valley goose zone: all of Alamosa, Conejos, Costilla and Rio Grande counties, and the portions of Archuleta, San Juan, Saguache, Mineral and Hinsdale counties east of the Continental Divide.",
+   "note": "Central Flyway. Ducks Oct 3 – Nov 29, Dec 25 – Jan 31; dark geese Oct 3–21, Nov 21 – Feb 14; light geese Oct 31 – Feb 14."
+  },
+  "mf-sp": {
+   "name": "Mountain/Foothills · South Park",
+   "short": "MF-SP",
+   "bounds": "Central Flyway Mountain/Foothills Zone: all areas west of Interstate 25 and east of the Continental Divide, except El Paso, Pueblo, Huerfano and Las Animas counties. Goose: South Park goose zone: all of Chaffee, Custer, Fremont, Lake, Park and Teller counties.",
+   "note": "Central Flyway. Ducks Oct 3 – Nov 29, Dec 25 – Jan 31; dark geese Oct 3 – Jan 15, light geese Oct 31 – Feb 14."
+  },
+  "mf-np": {
+   "name": "Mountain/Foothills · North Park",
+   "short": "MF-NP",
+   "bounds": "Central Flyway Mountain/Foothills Zone: all areas west of Interstate 25 and east of the Continental Divide, except El Paso, Pueblo, Huerfano and Las Animas counties. Goose: North Park goose zone: Jackson County.",
+   "note": "Central Flyway. Ducks Oct 3 – Nov 29, Dec 25 – Jan 31; dark geese Oct 3 – Jan 15, light geese Oct 31 – Feb 14."
+  }
+ },
+ "seasonsNote": "Colorado is split between the Central Flyway (west of the Continental Divide is the Pacific Flyway). Each Central map zone is a duck zone (Northeast, Southeast, Mountain/Foothills) with a goose zone (North Park, South Park, San Luis Valley, balance); the Pacific zones (Western, Eastern) use one set of dates for ducks and geese. Teal, cranes, rails, snipe and doves are listed below.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks and mergansers",
+   "z": {
+    "pw": [
+     [
+      "2026-10-03",
+      "2026-10-20"
+     ],
+     [
+      "2026-11-06",
+      "2027-01-31"
+     ]
+    ],
+    "ne-bal": [
+     [
+      "2026-10-17",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-11",
+      "2027-01-31"
+     ]
+    ],
+    "se-bal": [
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ],
+    "mf-bal": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-25",
+      "2027-01-31"
+     ]
+    ],
+    "pe": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "mf-sl": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-25",
+      "2027-01-31"
+     ]
+    ],
+    "mf-sp": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-25",
+      "2027-01-31"
+     ]
+    ],
+    "mf-np": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-25",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September (Lake and Chaffee counties and all areas east of I-25)",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-20"
+    ]
+   ],
+   "note": "Daily 6."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Early Canada geese — Pacific Flyway (west of the Divide)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-09"
+    ]
+   ],
+   "note": "Daily 5; Pacific Flyway only."
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese",
+   "z": {
+    "pw": [
+     [
+      "2026-10-03",
+      "2026-10-11"
+     ],
+     [
+      "2026-11-06",
+      "2027-01-31"
+     ]
+    ],
+    "ne-bal": [
+     [
+      "2026-11-02",
+      "2027-02-14"
+     ]
+    ],
+    "se-bal": [
+     [
+      "2026-11-02",
+      "2027-02-14"
+     ]
+    ],
+    "mf-bal": [
+     [
+      "2026-11-02",
+      "2027-02-14"
+     ]
+    ],
+    "pe": [
+     [
+      "2026-10-03",
+      "2027-01-06"
+     ]
+    ],
+    "mf-sl": [
+     [
+      "2026-10-03",
+      "2026-10-21"
+     ],
+     [
+      "2026-11-21",
+      "2027-02-14"
+     ]
+    ],
+    "mf-sp": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "mf-np": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "z": {
+    "pw": [
+     [
+      "2026-10-03",
+      "2026-10-11"
+     ],
+     [
+      "2026-11-06",
+      "2027-01-31"
+     ]
+    ],
+    "ne-bal": [
+     [
+      "2026-10-31",
+      "2027-02-14"
+     ]
+    ],
+    "se-bal": [
+     [
+      "2026-10-31",
+      "2027-02-14"
+     ]
+    ],
+    "mf-bal": [
+     [
+      "2026-10-31",
+      "2027-02-14"
+     ]
+    ],
+    "pe": [
+     [
+      "2026-10-03",
+      "2027-01-06"
+     ]
+    ],
+    "mf-sl": [
+     [
+      "2026-10-31",
+      "2027-02-14"
+     ]
+    ],
+    "mf-sp": [
+     [
+      "2026-10-31",
+      "2027-02-14"
+     ]
+    ],
+    "mf-np": [
+     [
+      "2026-10-31",
+      "2027-02-14"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "crane",
+   "label": "Sandhill cranes (east of the Divide except North Park and the San Luis Valley)",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-11-29"
+    ]
+   ],
+   "note": "Daily 3."
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (sora and Virginia)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning and white-winged doves",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth, veteran and active military waterfowl days",
+   "z": {
+    "pw": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ]
+    ],
+    "ne-bal": [
+     [
+      "2026-10-10",
+      "2026-10-11"
+     ]
+    ],
+    "se-bal": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "mf-bal": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "pe": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "mf-sl": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "mf-sp": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "mf-np": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Youth, veteran and active military waterfowl days",
+   "sameAs": "youth"
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6 (Central) / 7 (Pacific)",
+   "poss": "3× daily",
+   "detail": "Central: 6 ducks and mergansers with no more than 5 mallards (2 hens), 3 pintails, 2 canvasbacks, 2 redheads, 3 wood ducks, 1 scaup. Pacific: 7 with no more than 2 hen mallards, 3 pintails, 2 canvasbacks, 2 redheads, 2 scaup (none after Jan 12, 2027 in the Western zone, Dec 27, 2026 in the Eastern zone)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "(in the limit)",
+   "poss": "",
+   "detail": ""
+  },
+  {
+   "sp": "coot",
+   "daily": "15 (Central) / 25 (Pacific)",
+   "poss": "3× daily",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "3× daily",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "3× daily",
+   "detail": "Dark geese."
+  },
+  {
+   "sp": "snow",
+   "daily": "50 (Central) / 10 (Pacific)",
+   "poss": "Unlimited (Central) / 3× daily",
+   "detail": ""
+  },
+  {
+   "sp": "crane",
+   "daily": "3",
+   "poss": "3× daily",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "3× daily",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "3× daily",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "3× daily",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Youth 17 or younger with a mentor 18+ (hunter education certificate or born before Jan 1, 1949) who may not hunt ducks, geese, mergansers or coots. Veterans and active military with documentation. Dark goose limit 5."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5 (Central)",
+   "note": "no more than 2 hens; Pacific: 2 hen mallards, no other mallard limit"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3 (Central)",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 (Central) / 2 (Pacific)",
+   "note": "Pacific: none after Jan 12 (Western) or Dec 27 (Eastern)"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "rest of bag",
+   "note": ""
+  }
+ ],
+ "rules": [
+  {
+   "g": "Special",
+   "t": "Reservation-only waterfowl properties",
+   "d": "Chapter W-05 #504 limits waterfowl hunting on named state wildlife and park properties to designated hunt zones (up to six hunters per zone) by reservation; unoccupied reserved zones open first-come after 7:00 a.m. Read the property page. Not drawn."
+  },
+  {
+   "g": "Special",
+   "t": "Sandhill cranes",
+   "d": "East of the Continental Divide except North Park (Jackson County) and the San Luis Valley: Oct 3 – Nov 29, 2026, daily 3."
+  },
+  {
+   "g": "Special",
+   "t": "Light goose conservation order",
+   "d": "CPW’s proposal listed Feb 15 – Apr 30, 2027; the adopted Chapter W-05 text read for this build does not list it. Check CPW."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veteran and military days",
+   "d": "Northeast Oct 10–11; Southeast Oct 17–18; Mountain/Foothills and Pacific Eastern Sept 26–27; Pacific Western Oct 24–25, 2026."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Colorado small game licence and HIP",
+   "who": "Hunters",
+   "d": "Not read from CPW’s pages."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Federal rule; not read from CPW’s pages."
+  },
+  {
+   "t": "Colorado habitat stamp",
+   "who": "Hunters 18–64",
+   "d": "Not read from CPW’s pages."
+  }
+ ],
+ "geometryNote": "Geometry: the Central zones are routed on OpenStreetMap’s Interstate 25 and 70; the Pacific / Central line and the county-and-Divide splits use the USGS Continental Divide line; Census county lines; CPW’s GMU polygons for the Gunnison River valley exception. The Elkhead Reservoir piece of the Pacific Eastern zone (Moffat County Road 29) is not drawn. CPW managed properties, Walk-In Access tracts and boat ramps; USGS NHD (water; streams from NHDPlus HR) and GNIS; USFWS (refuge units; NWI marsh); OpenStreetMap (roads). No tides."
+}
