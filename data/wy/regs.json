@@ -1,0 +1,476 @@
+{
+ "state": "WY",
+ "stateName": "Wyoming",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "WGFD — Chapter 14, Migratory Game Bird Hunting Seasons (Final April 2026)",
+   "url": "https://wgfd.wyo.gov/media/33699/download?inline"
+  },
+  {
+   "label": "WGFD — 2026 Migratory Game Bird Hunt Area Map",
+   "url": "https://wgfd.wyo.gov/media/33722/download?inline"
+  },
+  {
+   "label": "WGFD GIS — Waterfowl Zones (official zone polygons)",
+   "url": "https://services6.arcgis.com/cWzdqIyxbijuhPLw/arcgis/rest/services/Waterfowl_Zones/FeatureServer/0"
+  },
+  {
+   "label": "WGFD GIS — wildlife habitat management areas, public access areas, walk-in hunting areas, boat ramps",
+   "url": "https://services6.arcgis.com/cWzdqIyxbijuhPLw/arcgis/rest/services"
+  },
+  {
+   "label": "USGS National Atlas — Continental Divide (condivl020), used to check the Carbon County line",
+   "url": "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/Continental_Divide/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "c1": {
+   "name": "Central Zone C1",
+   "short": "C1",
+   "bounds": "Zone C1 (Central Flyway): Big Horn, Converse, Hot Springs, Natrona, Park and Washakie counties, and Fremont County excluding those portions south or west of the Continental Divide (Chapter 14, Section 2(i)(ii)(A)).",
+   "note": "Central Flyway. Ducks Oct 3–20, Nov 14 – Jan 31. Youth, veteran and military days Sept 26–27."
+  },
+  "c1a": {
+   "name": "Central Zone C1A",
+   "short": "C1A",
+   "bounds": "Zone C1A (Central Flyway): Goshen and Platte counties.",
+   "note": "Central Flyway. Ducks Oct 3–20, Nov 14 – Jan 31. Youth, veteran and military days Sept 26–27."
+  },
+  "c2": {
+   "name": "Central Zone C2",
+   "short": "C2",
+   "bounds": "Zone C2 (Central Flyway): Albany, Campbell, Crook, Johnson, Laramie, Niobrara, Sheridan and Weston counties, and that portion of Carbon County east of the Continental Divide.",
+   "note": "Central Flyway. Ducks Sept 26 – Nov 29, Dec 12 – Jan 12. Youth, veteran and military days Sept 19–20."
+  },
+  "pac": {
+   "name": "Pacific Flyway",
+   "short": "PAC",
+   "bounds": "Pacific Flyway: the rest of Wyoming, west of the Continental Divide (Carbon County west of the Divide, Sweetwater, Sublette, Teton, Lincoln, Uinta, Sweetwater and the southwest and western parts of Fremont).",
+   "note": "Pacific Flyway. Ducks Sept 26 – Jan 8. Youth, veteran and military days Sept 19–20."
+  }
+ },
+ "seasonsNote": "Wyoming is split between the Central Flyway (zones C1, C1A and C2) and the Pacific Flyway. Doves, rails and snipe are statewide. Sandhill cranes are by permit in eight hunt areas (see Rules).",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks and mergansers",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2026-10-20"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-31"
+     ]
+    ],
+    "c1a": [
+     [
+      "2026-10-03",
+      "2026-10-20"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-31"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-09-26",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-12"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-09-26",
+      "2027-01-08"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots (Central zones)",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2026-10-20"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-31"
+     ]
+    ],
+    "c1a": [
+     [
+      "2026-10-03",
+      "2026-10-20"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-31"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-09-26",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-12"
+     ]
+    ],
+    "pac": []
+   },
+   "note": "Pacific Flyway coot dates did not read cleanly; see Chapter 14."
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2026-10-20"
+     ],
+     [
+      "2026-11-20",
+      "2027-02-14"
+     ]
+    ],
+    "c1a": [
+     [
+      "2026-10-03",
+      "2026-10-14"
+     ],
+     [
+      "2026-11-14",
+      "2027-02-14"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-09-26",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-12"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-09-26",
+      "2027-01-08"
+     ]
+    ]
+   },
+   "note": "Pacific row: the table text is garbled; check Chapter 14 before hunting."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2026-12-30"
+     ],
+     [
+      "2027-01-30",
+      "2027-02-14"
+     ]
+    ],
+    "c1a": [
+     [
+      "2026-10-03",
+      "2026-12-30"
+     ],
+     [
+      "2027-01-30",
+      "2027-02-14"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-10-03",
+      "2026-12-30"
+     ],
+     [
+      "2027-01-30",
+      "2027-02-14"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-09-26",
+      "2026-12-31"
+     ]
+    ]
+   },
+   "note": "Central: 20 daily; Pacific: 10 daily."
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (sora and Virginia)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning doves",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth, veteran and active military days",
+   "z": {
+    "c1": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "c1a": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-09-19",
+      "2026-09-20"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-09-19",
+      "2026-09-20"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Youth, veteran and active military days",
+   "sameAs": "youth"
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6 (Central) / 7 (Pacific)",
+   "poss": "18 / 21",
+   "detail": "Central zones: 6 ducks and mergansers with no more than 5 mallards (2 hens), 3 pintails, 3 wood ducks, 2 canvasbacks, 2 redheads, 1 scaup; plus 2 blue-winged teal in addition on Oct 3–11 (C1, C1A) or Sept 26 – Oct 4 (C2). Pacific: 7 with no more than 2 hen mallards, 3 pintails, 2 canvasbacks, 2 redheads, 2 scaup (none after Dec 20)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "(in the limit)",
+   "poss": "",
+   "detail": ""
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Central zones."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Zone C1A: 2 (possession 6) in the first segment, 5 in the second; on the youth days 4. Pacific limits did not read cleanly; check Chapter 14."
+  },
+  {
+   "sp": "snow",
+   "daily": "20 / 10",
+   "poss": "60 / 30",
+   "detail": "Central zones 20 daily; Pacific 10."
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Youth 17 or younger with an adult 18+ (up to four youths per adult); the adult may not take ducks, coots, mergansers or geese unless also a veteran or active military."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5 (Central) / —",
+   "note": "no more than 2 hens in either flyway"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3 (Central)",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 (Central) / 2 (Pacific)",
+   "note": "Pacific: none after Dec 20"
+  },
+  {
+   "n": "Bonus blue-winged teal",
+   "lim": "2",
+   "note": "Central only, in addition to the 6, on the dates in the bag note"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "rest of bag",
+   "note": ""
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset. From Nov 14 to the end of the dark goose season, dark goose hours end at 1:00 p.m. on Mondays, Tuesdays, Thursdays and Fridays in Goshen County north of Wyoming Highway 313 on the west side of U.S. 85 and north of County Road 32 on the east side (Chapter 14, Section 4)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Required for ducks, geese, mergansers and coots, and for any game bird on the Table Mountain and Springer/Bump-Sullivan wildlife habitat management areas. Shotguns hold no more than three shells, except during the light goose conservation order."
+  },
+  {
+   "g": "Special",
+   "t": "Closed areas (Section 3)",
+   "d": "Parts of ten waters are closed to migratory bird hunting by legal description: Hawk Springs Reservoir, Springer Reservoir, Pond No. 1 at Table Mountain WHMA, Miller Lake, the North Platte River at Highway 157 (300 yards each bank) in Goshen County; Festo Lake and Wheatland Reservoir No. 1 (Platte); Ocean Lake’s north side Nov 15 – Mar 10 (Fremont); Eden Reservoir (Sweetwater); Palisades Reservoir (Lincoln); South Park WHMA northwest reservoirs (Teton). They are closed on the youth, veteran and military days too. Not drawn."
+  },
+  {
+   "g": "Special",
+   "t": "Sandhill cranes",
+   "d": "Permit required, regardless of age. Limited-quota hunts in Areas 1–6 and 8 (Sept 1 – Oct 18 windows, quotas 62–249) and a general permit hunt in Area 7 (Campbell, Converse, Crook, Goshen, Laramie, Niobrara, Platte and Weston counties) Sept 12 – Nov 8, 3 daily, 9 possession."
+  },
+  {
+   "g": "Special",
+   "t": "Light goose conservation order",
+   "d": "Part of Chapter 14 (Section 7); electronic calls and larger magazines are allowed during it. Dates not read cleanly."
+  },
+  {
+   "g": "Gear",
+   "t": "Methods",
+   "d": "No live decoys, no recorded or amplified calls (except during the light goose conservation order), no sink boxes, no motorboats or sailboats under way, no shotgun larger than 10 gauge."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "One fully feathered wing or the feathered head stays attached in the field and while transporting (not doves)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Not needed for coots, cranes, crows, doves, rails or snipe; electronic stamp allowed."
+  },
+  {
+   "t": "Wyoming HIP permit",
+   "who": "Every licensed migratory bird hunter",
+   "d": "From WGFD’s website; separate permit in each state; expires June 30. Youths under 14 without a game bird licence are exempt."
+  },
+  {
+   "t": "Wyoming hunting licence and stamps",
+   "who": "Hunters",
+   "d": "Not read from WGFD’s pages."
+  }
+ ],
+ "geometryNote": "Geometry: zones from WGFD’s official Waterfowl Zones layer (polygons digitised separately, so shared edges are matched within 60 m), split against the Census TIGER outline; the layer leaves out Yellowstone National Park, so the C1 / Pacific line is carried across it on the Park / Teton county line. WGFD wildlife habitat management areas, public access areas, Walk-in Hunting areas that list waterfowl, and fishing-guide boat ramps; USGS NHD (water; streams from NHDPlus HR) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER; OpenStreetMap (roads). No tides."
+}
