@@ -1,0 +1,497 @@
+{
+ "state": "MT",
+ "stateName": "Montana",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "Montana FWP — 2026 Migratory Birds regulations: waterfowl, sandhill crane, mourning dove, snipe (adopted by the Fish and Wildlife Commission April 17, 2026)",
+   "url": "https://fwp.mt.gov/binaries/content/assets/fwp/hunt/regulations/2026/2026-mig-bird--webless-final-for-web.pdf"
+  },
+  {
+   "label": "Montana FWP — 2026 Light Goose Conservation Order regulations (Central Flyway, Mar. 1 – May 15, 2026)",
+   "url": "https://fwp.mt.gov/binaries/content/assets/fwp/hunt/regulations/2026/2026-light-goose-regulations-final-for-web.pdf"
+  },
+  {
+   "label": "Montana FWP — migratory bird regulations page",
+   "url": "https://fwp.mt.gov/hunt/regulations/migratory-bird"
+  },
+  {
+   "label": "Montana FWP open data — Migratory Bird Flyways (cross-check), Wildlife Management Areas, Fishing Access Sites, State Parks, Block Management Areas, access programs, reference dams",
+   "url": "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/ArcGIS/rest/services"
+  },
+  {
+   "label": "BLM Surface Management Agency — BLM, Forest Service, Reclamation, state and National Park Service land",
+   "url": "https://gis.blm.gov/arcgis/rest/services/lands/BLM_Natl_SMA_LimitedScale/MapServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions, American Indian reservations",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "c1": {
+   "name": "Central Flyway · Zone 1",
+   "short": "C1",
+   "bounds": "Central Flyway Zone 1: Blaine, Carter, Daniels, Dawson, Fallon, Fergus, Garfield, Golden Valley, Judith Basin, McCone, Musselshell, Petroleum, Phillips, Powder River, Richland, Roosevelt, Sheridan, Valley, Wheatland and Wibaux counties (FWP regs p. 10). The Central Flyway is Blaine, Fergus, Judith Basin, Wheatland, Sweet Grass, Stillwater and Carbon counties and all counties east of these.",
+   "note": "Central Flyway. Ducks and coots Oct 3 – Jan 7; geese Oct 3 – Jan 15. Youth days Sept 26–27."
+  },
+  "c2": {
+   "name": "Central Flyway · Zone 2",
+   "short": "C2",
+   "bounds": "Central Flyway Zone 2: Big Horn, Carbon, Custer, Prairie, Rosebud, Stillwater, Sweet Grass, Treasure and Yellowstone counties (FWP regs p. 10). The only split season in Montana.",
+   "note": "Central Flyway. Ducks and coots Oct 3–11 and Oct 24 – Jan 19; geese Oct 3–11 and Oct 24 – Jan 27. Youth days Sept 26–27."
+  },
+  "pac": {
+   "name": "Pacific Flyway",
+   "short": "PAC",
+   "bounds": "Pacific Flyway: Hill, Chouteau, Cascade, Meagher and Park counties and all counties lying west of these: Glacier, Toole, Liberty, Pondera, Teton, Lewis and Clark, Broadwater, Jefferson, Gallatin, Madison, Beaverhead, Silver Bow, Deer Lodge, Powell, Granite, Ravalli, Missoula, Mineral, Sanders, Lake, Flathead and Lincoln (FWP regs p. 8). One season, no zones.",
+   "note": "Pacific Flyway. Ducks Oct 3 – Jan 15 (no scaup after Dec 27); coots and geese Oct 3 – Jan 15. Youth days Sept 26–27."
+  }
+ },
+ "seasonsNote": "Montana is split between the Central Flyway (Zones 1 and 2, eastern counties) and the Pacific Flyway (Hill, Chouteau, Cascade, Meagher and Park counties and every county west of them). Youth days Sept 26–27 are statewide for licensed youth ages 15 and under (p. 7). Falconry has its own dates (see Rules). Sandhill cranes in the Pacific Flyway and in Wheatland, Meagher, Carbon and Golden Valley counties and the parts of Sweet Grass and Stillwater counties north of I-90 are by drawing-only special licence; swans are by drawing only in both flyways.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks and mergansers",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2027-01-07"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-10-03",
+      "2026-10-11"
+     ],
+     [
+      "2026-10-24",
+      "2027-01-19"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ]
+   },
+   "note": "Pacific: scaup season closes Dec 27 (Dec 28 – Jan 15 is \"standard bag excluding scaup\"). Central: extra 2 blue-winged teal Oct 3–11 in both zones."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese (Canada and all other geese except snow, blue and Ross’s)",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-10-03",
+      "2026-10-11"
+     ],
+     [
+      "2026-10-24",
+      "2027-01-27"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ]
+   },
+   "note": "Daily 5 dark geese (Pacific Flyway Exceptions: Canyon Ferry hours end at noon Oct 3–9)."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese (snow, blue and Ross’s) — regular season",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-10-03",
+      "2026-10-11"
+     ],
+     [
+      "2026-10-24",
+      "2027-01-27"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ]
+   },
+   "note": "Daily 20 white geese. A separate spring light goose conservation order runs in the Central Flyway only (Mar 1 – May 15, 2026; 2027 dates not yet published)."
+  },
+  {
+   "sp": "swan",
+   "label": "Tundra swan (special licence, drawing only)",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2027-01-07"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-10-03",
+      "2027-01-07"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-10-10",
+      "2026-12-01"
+     ]
+    ]
+   },
+   "note": "Central licence 684-20 (499): Oct 3 – Jan 7. Pacific licence 481-20 (499): Oct 10 – Dec 1, only in Cascade, Chouteau, Liberty, Hill, Toole and parts of Teton and Pondera counties; the rest of the Pacific Flyway is closed to swans. Apply in only one flyway; deadline June 1."
+  },
+  {
+   "sp": "crane",
+   "label": "Sandhill crane (permit or special licence)",
+   "z": {
+    "c1": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ]
+    ],
+    "c2": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ]
+    ],
+    "pac": [
+     [
+      "2026-09-01",
+      "2026-10-30"
+     ]
+    ]
+   },
+   "note": "Central Flyway outside the drawing areas: free over-the-counter permit, Oct 3 – Nov 29, daily 3. Pacific Flyway and the Central drawing areas (Wheatland, Meagher, Carbon, Golden Valley and the parts of Sweet Grass and Stillwater north of I-90): special licence by drawing, Sept 1 – Oct 30, daily 2. Several areas have their own licence number (see Rules)."
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-30"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days (ages 15 and under)",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-09-27"
+    ]
+   ],
+   "note": "Licensed youth ages 15 and under may hunt ducks, mergansers, geese and coots statewide; regular bag and hours apply (Canyon Ferry hours end at noon)."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6 (Central) / 7 (Pacific)",
+   "poss": "18 / 21",
+   "detail": "Central Flyway: daily 6 ducks or mergansers, no more than 5 mallards (of which only 2 hens), 3 wood ducks, 2 redheads, 2 hooded mergansers, 3 pintail, 2 canvasbacks and 1 scaup; during the first 9 days of the regular season in both zones (Oct 3–11) the bag may include 2 additional blue-winged teal. Pacific Flyway: daily 7 ducks or mergansers, no more than 2 hen mallards, 3 pintail, 2 redheads, 2 canvasbacks and 2 scaup; scaup season closes Dec 27. Possession is three times the daily limit of any species and sex."
+  },
+  {
+   "sp": "merganser",
+   "daily": "(in the limit)",
+   "poss": "",
+   "detail": "Mergansers count in the duck limit; Central: no more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15 (Central) / 25 (Pacific)",
+   "poss": "45 (Central) / 25 (Pacific)",
+   "detail": "Central: daily 15, possession three times the daily limit. Pacific: 25 daily and in possession (as printed)."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Daily 5 dark geese (all geese other than snow, blue and Ross’s); possession three times the daily limit."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": "Daily 20 white geese (snow, blue and Ross’s); possession three times the daily limit. The spring conservation order (Central Flyway only) has no daily or possession limits."
+  },
+  {
+   "sp": "swan",
+   "daily": "1",
+   "poss": "1",
+   "detail": "One swan per licence; a Swan Bill Measurement Card must be returned within 72 hours of harvest."
+  },
+  {
+   "sp": "crane",
+   "daily": "3 (Central permit) / 2 (licence)",
+   "poss": "9 (permit)",
+   "detail": "Central Flyway permit hunters: daily 3, possession 9. Special-licence areas: 2 sandhill cranes per licence (successful applicants receive two licences)."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": "It is unlawful to shoot mourning doves resting on utility lines or fixtures adjacent to those lines. Eurasian collared doves are unprotected and do not count."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "The bag limit, shooting hours and all other rules of the regular waterfowl season apply."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5 (Central) / 7 (Pacific)",
+   "note": "no more than 2 hens in either flyway"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": "both flyways"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3 (Central)",
+   "note": "no separate limit printed for the Pacific Flyway"
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": "both flyways"
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": "both flyways"
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 (Central) / 2 (Pacific)",
+   "note": "Pacific scaup season closes Dec 27"
+  },
+  {
+   "n": "Hooded merganser",
+   "lim": "2 (Central)",
+   "note": "no separate limit printed for the Pacific Flyway"
+  },
+  {
+   "n": "Bonus blue-winged teal",
+   "lim": "2 (Central)",
+   "note": "Oct 3–11 only, in addition to the 6"
+  },
+  {
+   "n": "Other ducks and mergansers",
+   "lim": "6 (Central) / 7 (Pacific)",
+   "note": "up to the full daily bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset every day of the season, using FWP’s official sunrise-sunset tables (printed p. 15; do not use other sources). Exceptions: Canyon Ferry (Pacific Flyway) hours are one-half hour before sunrise to NOON on Sept 26–27 and Oct 3–9, then regular hours from Oct 10 (p. 2, 7, 9)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Only federally approved non-toxic shot may be possessed while taking ducks, geese, swans or coots. It is not required for sandhill cranes, mourning doves and snipe except on national wildlife refuges and waterfowl production areas (p. 4, 13)."
+  },
+  {
+   "g": "Gear",
+   "t": "Guns, bows and methods",
+   "d": "Long, recurve or compound bow, or a shotgun no larger than 10 gauge plugged to three shells and fired from the shoulder, or falconry. No sink boxes or other low floating devices, no live decoys (unless confined 10 days), no recorded or electronically amplified calls (p. 4)."
+  },
+  {
+   "g": "Gear",
+   "t": "Motorboats, vehicles and roads",
+   "d": "No taking from a motor vehicle, aircraft, or a motorboat or sailboat unless the motor is off or sails furled and progress has ceased; no driving or rallying birds with a motor craft. It is unlawful to hunt on, from or across a public highway or its shoulder, berm, borrow pit or right-of-way (p. 4)."
+  },
+  {
+   "g": "Gear",
+   "t": "Baiting",
+   "d": "No hunting over bait; a baited area stays off limits for 10 days after the bait is completely removed. Hunting over standing or flooded crops, natural vegetation or normal agricultural practice is allowed (p. 3-4)."
+  },
+  {
+   "g": "Special",
+   "t": "Flyway line",
+   "d": "Pacific Flyway: Hill, Chouteau, Cascade, Meagher and Park counties and every county west of them. Central Flyway: Blaine, Fergus, Judith Basin, Wheatland, Sweet Grass, Stillwater and Carbon counties and every county east of them (p. 8, 10). The line follows county lines; it agrees with FWP’s Migratory Bird Flyways layer to within about 1 km."
+  },
+  {
+   "g": "Special",
+   "t": "Central Flyway zones",
+   "d": "Zone 1: Blaine, Carter, Daniels, Dawson, Fallon, Fergus, Garfield, Golden Valley, Judith Basin, McCone, Musselshell, Petroleum, Phillips, Powder River, Richland, Roosevelt, Sheridan, Valley, Wheatland and Wibaux counties. Zone 2: Big Horn, Carbon, Custer, Prairie, Rosebud, Stillwater, Sweet Grass, Treasure and Yellowstone counties (p. 10). Zone 2 is the only split season in Montana."
+  },
+  {
+   "g": "Special",
+   "t": "Statewide closures (p. 6)",
+   "d": "Warm Springs Pond No. 3 (Deer Lodge County); Helena Valley Regulating Reservoir (open until the waterfowl opener, then closed to all hunting); the south half of Lake Helena (closed to waterfowl and sandhill crane hunting); a portion of the Manhattan Game Closure; the Gates of the Mountains Game Preserve; Freezout WMA (no hunting or access from the waterfowl opener through Nov 19, open from Nov 20); the Missouri River at Great Falls (Sand Coulee Creek to Black Eagle Dam); McLean Reservoir and Sands Lake (Hill County); Nelson Reservoir and 300 yards of shore (Phillips County); the Yellowstone River from the Bighorn River to the Rosebud-Custer county line (Treasure and Rosebud counties). All are drawn, most as approximate locators (the regulation gives legal descriptions)."
+  },
+  {
+   "g": "Special",
+   "t": "Pacific Flyway exceptions",
+   "d": "Cochrane, Morony and Ryan reservoirs in Cascade County are closed to waterfowl hunting. Canyon Ferry hunting hours end at noon on Sept 26–27 and Oct 3–9 (p. 9). Both are drawn (approximate)."
+  },
+  {
+   "g": "Special",
+   "t": "Sandhill crane special licences",
+   "d": "Drawing-only licences (apply by June 1): 280-01 Warm Springs portion of Deer Lodge County; 284-01 Ovando-Helmville area (Powell County); 380-01 Beaverhead, Gallatin, Jefferson and Madison counties; 390-01 Broadwater County and Lewis and Clark County east of I-15; 480-01 Cascade and Teton counties; 586-01 Golden Valley, Wheatland and Meagher counties and the parts of Sweet Grass and Stillwater north of I-90; 599-00 Carbon County. Season Sept 1 – Oct 30, 2 cranes. Central Flyway elsewhere: free permit, Oct 3 – Nov 29, daily 3; the area south and west of I-90 is closed to cranes except Carbon County with the 599-00 licence (p. 7). Not mapped."
+  },
+  {
+   "g": "Special",
+   "t": "Swan areas (Pacific Flyway)",
+   "d": "Swan hunting in the Pacific Flyway is by special permit only in Cascade, Chouteau, Liberty, Hill and Toole counties and parts of Teton and Pondera counties; the parts of Teton and Pondera west of US 287 (Augusta to Choteau) and US 89 (Choteau to the Blackfeet Reservation) and the rest of the Pacific Flyway are closed to swans (p. 8). Not mapped."
+  },
+  {
+   "g": "Special",
+   "t": "Stream access and landowner permission",
+   "d": "Hunting waterfowl and upland birds is lawful between the ordinary high-water marks of rivers and streams; you need landowner permission to retrieve birds that fall above the mark. On private land you need the owner’s, lessee’s or agent’s permission whether or not it is posted, including to enter to retrieve game or reach public land (p. 4-5)."
+  },
+  {
+   "g": "Special",
+   "t": "Federal and tribal land",
+   "d": "National parks are closed to hunting. National wildlife refuges and waterfowl production areas may have more restrictive rules. On Indian reservations check the reservation’s regulations; state regulations apply to deeded land and the Bighorn River within the Crow Reservation, and the State and the Confederated Salish and Kootenai Tribes have a cooperative agreement on the Flathead Reservation (FWP 406-752-5501) (p. 5). Reservations are drawn as amber special-rules areas."
+  },
+  {
+   "g": "Special",
+   "t": "State land, WMAs and access sites",
+   "d": "A Conservation License gives access to state school trust land (overnight limits, motorized travel only on public or designated roads, no firearms within 1/4 mile of inhabited buildings without permission). WMAs that are winter range are closed from the day after the general deer/elk season (or Dec 1) to noon May 15, as posted; Blackfoot Clearwater WMA keeps Cottonwood Creek and the DU pond open for ducks and geese. Many fishing access sites and state parks allow hunting with restrictions (p. 5)."
+  },
+  {
+   "g": "Special",
+   "t": "Spring light goose conservation order",
+   "d": "Central Flyway only: Mar 1 – May 15, 2026, snow and Ross’s geese, no daily or possession limits (FWP 2026 Light Goose regulations). That order has ended; the 2027 order was not yet published. The Pacific Flyway has no conservation order."
+  },
+  {
+   "g": "Special",
+   "t": "Boats and aquatic invasive species",
+   "d": "Stop at all open watercraft inspection stations. Boats must be inspected before launching when coming into Montana or when traveling west across the Continental Divide; nonresident boats need an AIS Prevention Pass ($30 motorized, $10 non-motorized); inspections are required for all watercraft coming off Tiber Reservoir (p. 3)."
+  },
+  {
+   "g": "Special",
+   "t": "Falconry",
+   "d": "Daily 2, possession 6, singly or in the aggregate. Pacific Flyway Oct 3 – Jan 15. Central Zone 1 ducks and coots Sept 23 – Jan 7, geese Oct 3 – Jan 15; Zone 2 ducks and coots Sept 23 – Oct 11 and Oct 24 – Jan 19, geese Oct 3–11 and Oct 24 – Jan 27 (p. 9, 11)."
+  },
+  {
+   "g": "Transport",
+   "t": "Tagging, wings and shipping",
+   "d": "The head or one fully feathered wing must stay attached to each bird until it reaches your home (not doves). Birds left with another person must be tagged with your signature, address, the number by species and the kill dates. Swan hunters must return a Swan Bill Measurement Card within 72 hours. Wanton waste (the breast meat) is unlawful (p. 4-5)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Federal Migratory Bird Stamp (duck stamp)",
+   "who": "Hunters 16 and older (ducks, geese, swans, coots)",
+   "d": "$25; valid July 1, 2026 – June 30, 2027; sign it in ink or buy an e-stamp (p. 2-3)."
+  },
+  {
+   "t": "Montana Migratory Bird License",
+   "who": "All ages 12 and older (all migratory game birds)",
+   "d": "Residents $5 (12–17) or $10 (18 and older); nonresidents $75 (12–17) or $150 (18 and older) (p. 3 table)."
+  },
+  {
+   "t": "Conservation License",
+   "who": "Everyone 12 and older",
+   "d": "Residents $4 (12–17 and 62+) or $8 (18–61); nonresidents $10, as read from the printed table (p. 3). It also gives access to lawfully accessible state school trust land."
+  },
+  {
+   "t": "Base Hunting License",
+   "who": "Everyone 12 and older",
+   "d": "Residents $10; nonresidents $50 (p. 3 table)."
+  },
+  {
+   "t": "Swan hunting licence",
+   "who": "Drawing",
+   "d": "Application $10 (resident) / $50 (nonresident) plus licence fee $10 / $75; apply May 1 – June 1; Conservation, Base Hunting and Migratory Bird licences needed to apply; apply in only one flyway (p. 2-3, 8, 10)."
+  },
+  {
+   "t": "Sandhill crane special licence",
+   "who": "Drawing (Pacific Flyway and Central drawing areas)",
+   "d": "Application $10 / $50 plus licence fee $10 / $75; apply May 1 – June 1. Free over-the-counter permit for the rest of the Central Flyway (p. 2-3, 7)."
+  },
+  {
+   "t": "Hunter education",
+   "who": "Born after Jan 1, 1985",
+   "d": "Proof of a hunter safety course required to buy a licence. Youth 10–15 may take part in the Sept 26–27 youth days as apprentice hunters with a non-hunting adult mentor 21 or older, or hunter-education-certified youth 12–15 with a non-hunting adult 18 or older (p. 2)."
+  },
+  {
+   "t": "HIP",
+   "who": "All migratory bird hunters",
+   "d": "Complete the Harvest Information Program survey before buying the Montana Migratory Bird License (p. 2)."
+  }
+ ],
+ "geometryNote": "Geometry: Montana’s rules are written in counties, so the zones are the Census TIGER county lines (every county checked against the 56 counties and the three lists in FWP’s regulations); the Pacific / Central line agrees with FWP’s own Migratory Bird Flyways layer on all but 21 of 310,400 grid points (about 1 km). FWP Wildlife Management Areas, fishing access sites (boat ramps and hand launches), state parks, Block Management Areas and access-program lands; BLM, Forest Service, Reclamation and state land from the BLM Surface Management Agency layer (generalised to about 30 m); USGS NHD (water; streams from NHDPlus HR) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER (towns, reservations); OpenStreetMap (roads). Closed areas given in the regulations by legal description are drawn as the named water body or a labelled locator circle (approximate). Sandhill crane and swan permit areas are not mapped. No tides."
+}

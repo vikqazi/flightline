@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California, Nevada, Minnesota, Idaho, Utah, Missouri, Arizona, North Dakota, Texas and New Mexico: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California, Nevada, Minnesota, Idaho, Utah, Missouri, Arizona, North Dakota, Texas, Montana and New Mexico: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1124,6 +1124,18 @@ var STATES = {
         zones: ['n', 'c', 's'],
         colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
         extras: ['closed'], attrib: 'Illinois DNR · USGS NHD' },
+  wi: { name: 'Wisconsin', abbr: 'WI', bounds: [[42.49, -92.89], [47.31, -86.25]],
+        zones: ['n', 's'],
+        colors: { n: '#5b7fb8', s: '#c9893c' },
+        extras: ['closed'], attrib: 'Wisconsin DNR · USGS NHD' },
+  ia: { name: 'Iowa', abbr: 'IA', bounds: [[40.37, -96.64], [43.50, -90.14]],
+        zones: ['n', 'c', 's'],
+        colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
+        extras: ['closed'], attrib: 'Iowa DNR · USGS NHD' },
+  mn: { name: 'Minnesota', abbr: 'MN', bounds: [[43.49, -97.25], [49.39, -89.48]],
+        zones: ['n', 'c', 's'],
+        colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
+        extras: ['closed'], attrib: 'Minnesota DNR · USGS NHD' },
   ks: { name: 'Kansas', abbr: 'KS', bounds: [[36.99, -102.06], [40.01, -94.58]],
         zones: ['hp', 'e', 'l', 'se'],
         colors: { hp: '#c9893c', e: '#5b7fb8', l: '#8a9a4e', se: '#a45b8f' },
@@ -1132,18 +1144,14 @@ var STATES = {
         zones: ['w', 'e'],
         colors: { w: '#c9893c', e: '#5b7fb8' },
         extras: ['closed'], attrib: 'LDWF · USGS NHD' },
-  ok: { name: 'Oklahoma', abbr: 'OK', bounds: [[33.62, -103.00], [37.00, -94.43]],
-        zones: ['p', 'z'],
-        colors: { p: '#c9893c', z: '#5b7fb8' },
-        extras: ['closed'], attrib: 'ODWC · USGS NHD' },
-  ne: { name: 'Nebraska', abbr: 'NE', bounds: [[39.99, -104.06], [43.01, -95.30]],
-        zones: ['z1p', 'z3p', 'l2p', 'l2n', 'l2b', 'h2p', 'h2n', 'h2b'],
-        colors: { z1p: '#5b7fb8', z3p: '#8a9a4e', l2p: '#4f9e9a', l2n: '#7a8fc4', l2b: '#6aa5c9', h2p: '#c9893c', h2n: '#d9a25a', h2b: '#b87a3c' },
-        extras: ['closed'], attrib: 'NGPC · USGS NHD' },
   ar: { name: 'Arkansas', abbr: 'AR', bounds: [[33.00, -94.62], [36.50, -89.64]],
         zones: ['ar'],
         colors: { ar: '#8a9a4e' },
         extras: ['closed'], attrib: 'AGFC · USGS NHD' },
+  ok: { name: 'Oklahoma', abbr: 'OK', bounds: [[33.62, -103.00], [37.00, -94.43]],
+        zones: ['p', 'z'],
+        colors: { p: '#c9893c', z: '#5b7fb8' },
+        extras: ['closed'], attrib: 'ODWC · USGS NHD' },
   nj: { name: 'New Jersey', abbr: 'NJ', bounds: [[38.93, -75.56], [41.36, -73.89]],
         zones: ['n', 's', 'c'],
         colors: { n: '#5b7fb8', s: '#8a9a4e', c: '#4f9e9a' },
@@ -1156,30 +1164,18 @@ var STATES = {
         zones: ['g1', 'g2c', 'g2i', 'g3', 'g4', 'g5'],
         colors: { g1: '#5b7fb8', g2c: '#4f9e9a', g2i: '#7a8fc4', g3: '#8a9a4e', g4: '#b08a4e', g5: '#a0705a' },
         extras: ['closed'], attrib: 'WDFW · USGS NHD' },
-  sd: { name: 'South Dakota', abbr: 'SD', bounds: [[42.47, -104.07], [45.95, -96.43]],
-        zones: ['hp', 'ln', 'lm', 'ls'],
-        colors: { hp: '#c9893c', ln: '#5b7fb8', lm: '#8a9a4e', ls: '#a45b8f' },
-        extras: ['closed'], attrib: 'GFP · USGS NHD' },
-  wi: { name: 'Wisconsin', abbr: 'WI', bounds: [[42.49, -92.89], [47.31, -86.25]],
-        zones: ['n', 's'],
-        colors: { n: '#5b7fb8', s: '#c9893c' },
-        extras: ['closed'], attrib: 'Wisconsin DNR · USGS NHD' },
   or: { name: 'Oregon', abbr: 'OR', bounds: [[41.99, -124.70], [46.30, -116.46]],
         zones: ['nw', 'sw', 'sc', 'mc', 'hd'],
         colors: { nw: '#5b7fb8', sw: '#8a9a4e', sc: '#4f9e9a', mc: '#b08a4e', hd: '#a0705a' },
         extras: ['closed'], attrib: 'ODFW · USGS NHD' },
-  wy: { name: 'Wyoming', abbr: 'WY', bounds: [[40.99, -111.06], [45.01, -104.05]],
-        zones: ['c1', 'c1a', 'c2', 'pac'],
-        colors: { c1: '#c9893c', c1a: '#d9a25a', c2: '#5b7fb8', pac: '#4f9e9a' },
-        extras: ['closed'], attrib: 'WGFD · USGS NHD' },
-  ia: { name: 'Iowa', abbr: 'IA', bounds: [[40.37, -96.64], [43.50, -90.14]],
-        zones: ['n', 'c', 's'],
-        colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
-        extras: ['closed'], attrib: 'Iowa DNR · USGS NHD' },
-  mn: { name: 'Minnesota', abbr: 'MN', bounds: [[43.49, -97.25], [49.39, -89.48]],
-        zones: ['n', 'c', 's'],
-        colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
-        extras: ['closed'], attrib: 'Minnesota DNR · USGS NHD' },
+  ne: { name: 'Nebraska', abbr: 'NE', bounds: [[39.99, -104.06], [43.01, -95.30]],
+        zones: ['z1p', 'z3p', 'l2p', 'l2n', 'l2b', 'h2p', 'h2n', 'h2b'],
+        colors: { z1p: '#5b7fb8', z3p: '#8a9a4e', l2p: '#4f9e9a', l2n: '#7a8fc4', l2b: '#6aa5c9', h2p: '#c9893c', h2n: '#d9a25a', h2b: '#b87a3c' },
+        extras: ['closed'], attrib: 'NGPC · USGS NHD' },
+  sd: { name: 'South Dakota', abbr: 'SD', bounds: [[42.47, -104.07], [45.95, -96.43]],
+        zones: ['hp', 'ln', 'lm', 'ls'],
+        colors: { hp: '#c9893c', ln: '#5b7fb8', lm: '#8a9a4e', ls: '#a45b8f' },
+        extras: ['closed'], attrib: 'GFP · USGS NHD' },
   ca: { name: 'California', abbr: 'CA', bounds: [[32.53, -124.48], [42.01, -114.13]],
         zones: ['ne', 'bos', 'ssjv', 'so', 'cr'],
         colors: { ne: '#5b7fb8', bos: '#8a9a4e', ssjv: '#b08a4e', so: '#4f9e9a', cr: '#a0705a' },
@@ -1192,10 +1188,6 @@ var STATES = {
         zones: ['pan', 'nc', 'sw', 'cam', 'bl', 'mv', 'se', 'e4', 'e1', 'g4'],
         colors: { pan: '#4f9e9a', nc: '#5b7fb8', sw: '#8a9a4e', cam: '#9a8a4e', bl: '#7a8fc4', mv: '#b08a4e', se: '#a0705a', e4: '#8c6fa8', e1: '#6f9a6f', g4: '#c47a7a' },
         extras: ['closed'], attrib: 'IDFG · USGS NHD' },
-  co: { name: 'Colorado', abbr: 'CO', bounds: [[36.99, -109.06], [41.01, -102.04]],
-        zones: ['ne-bal', 'se-bal', 'mf-bal', 'mf-np', 'mf-sp', 'mf-sl', 'pw', 'pe'],
-        colors: { 'ne-bal': '#5b7fb8', 'se-bal': '#8a9a4e', 'mf-bal': '#c9893c', 'mf-np': '#d9a25a', 'mf-sp': '#b87a3c', 'mf-sl': '#a45b8f', pw: '#4f9e9a', pe: '#6aa5c9' },
-        extras: ['closed'], attrib: 'CPW · USGS NHD' },
   ut: { name: 'Utah', abbr: 'UT', bounds: [[36.99, -114.06], [42.00, -109.04]],
         zones: ['n', 'wf', 'eb', 's'],
         colors: { n: '#5b7fb8', wf: '#8a9a4e', eb: '#c47a7a', s: '#b08a4e' },
@@ -1216,6 +1208,18 @@ var STATES = {
         zones: ['hp', 'nw', 'ne', 'sw', 'se'],
         colors: { hp: '#b08a4e', nw: '#8a9a4e', ne: '#5b7fb8', sw: '#a0705a', se: '#4f9e9a' },
         extras: [], attrib: 'TPWD · USGS NHD' },
+  mt: { name: 'Montana', abbr: 'MT', bounds: [[44.35, -116.06], [49.01, -104.03]],
+        zones: ['c1', 'c2', 'pac'],
+        colors: { c1: '#c9893c', c2: '#5b7fb8', pac: '#4f9e9a' },
+        extras: ['closed'], attrib: 'Montana FWP · USGS NHD' },
+  wy: { name: 'Wyoming', abbr: 'WY', bounds: [[40.99, -111.06], [45.01, -104.05]],
+        zones: ['c1', 'c1a', 'c2', 'pac'],
+        colors: { c1: '#c9893c', c1a: '#d9a25a', c2: '#5b7fb8', pac: '#4f9e9a' },
+        extras: ['closed'], attrib: 'WGFD · USGS NHD' },
+  co: { name: 'Colorado', abbr: 'CO', bounds: [[36.99, -109.06], [41.01, -102.04]],
+        zones: ['ne-bal', 'se-bal', 'mf-bal', 'mf-np', 'mf-sp', 'mf-sl', 'pw', 'pe'],
+        colors: { 'ne-bal': '#5b7fb8', 'se-bal': '#8a9a4e', 'mf-bal': '#c9893c', 'mf-np': '#d9a25a', 'mf-sp': '#b87a3c', 'mf-sl': '#a45b8f', pw: '#4f9e9a', pe: '#6aa5c9' },
+        extras: ['closed'], attrib: 'CPW · USGS NHD' },
   nm: { name: 'New Mexico', abbr: 'NM', bounds: [[31.33, -109.05], [37.00, -103.00]],
         zones: ['cn', 'cs', 'mrgv', 'pn', 'ps'],
         colors: { cn: '#c9893c', cs: '#d9a25a', mrgv: '#b07a4e', pn: '#4f9e9a', ps: '#5b7fb8' },
@@ -2021,7 +2025,8 @@ function drawLabels(V) {
       var nm = zMeta(f.props.ns).short.toUpperCase();
       label(nm, x, y, 12, '700', ZONE_COLOR[f.props.ns]);
       var zopen = openOn('duck', f.props.ns, S.date, f.src);
-      label(zopen ? 'DUCKS OPEN' : 'DUCKS CLOSED', x, y + 13, 9.5, '600', zopen ? css('--open') : css('--closed'));
+      if (rulesPending(f.src)) label('RULES PENDING', x, y + 13, 9.5, '600', css('--dim'));
+      else label(zopen ? 'DUCKS OPEN' : 'DUCKS CLOSED', x, y + 13, 9.5, '600', zopen ? css('--open') : css('--closed'));
     }
   }
   /* town names */
@@ -2229,7 +2234,15 @@ function renderTabs() {
     return h('button', { 'data-panel': p.id, 'aria-pressed': S.panel === p.id }, esc(p.label));
   }).join('');
 }
+function rulesPending(code) { var R = regsOf(code); return !!(R && R.rulesPending); }   // current-year rules not read yet
+function pendingChip(z) {
+  return h('button', { class: 'zchip', 'data-zone': z, 'aria-pressed': S.zone === z },
+    h('div', { class: 'zn' }, '<i class="zsw" style="background:' + ZONE_COLOR[z] + '"></i>' + esc(zMeta(z).name)) +
+    h('div', { class: 'zs is-pending' }, 'Rules pending') +
+    h('div', { class: 'zd' }, 'Dates not confirmed yet'));
+}
 function zoneChip(z) {
+  if (rulesPending(zCode(z))) return pendingChip(z);
   var on = openOn('duck', z, S.date, zCode(z));
   var nc = nextChange('duck', z, S.date, zCode(z));
   var sub = on
@@ -2243,6 +2256,9 @@ function zoneChip(z) {
 function zoneShort(z) { var R = regsOf(zCode(z)), m = R && R.zones && R.zones[zId(z)]; return m ? m.short : zId(z); }
 function stateChip(c) {      // one state, summed up: how many zones are open, a dot per zone, the next change
   var zs = ZONE_IDS.filter(function (z) { return zCode(z) === c; });
+  if (rulesPending(c)) return h('button', { class: 'zchip zstate', 'data-strip-state': c, title: 'Show the ' + STATES[c].name + ' zones' },
+    h('div', { class: 'zn' }, esc(STATES[c].name)) + h('div', { class: 'zs is-pending' }, 'Rules pending') +
+    h('div', { class: 'zd' }, 'Dates not confirmed yet') + h('span', { class: 'zmore', 'aria-hidden': 'true' }, '&rsaquo;'));
   var open = zs.filter(function (z) { return openOn('duck', z, S.date, c); });
   var next = null;
   zs.forEach(function (z) { var nc = nextChange('duck', z, S.date, c); if (nc && (!next || nc.date < next.nc.date)) next = { z: z, nc: nc }; });
@@ -2497,7 +2513,12 @@ function panelSeason() {
     if (ye && ye.z) sps = sps.concat(['youth']);
     ['canadasept', 'vet'].forEach(function (x) { var ex = entry(x, zCode(z)); if (ex && ex.z) sps.push(x); });
     var openSps = sps.filter(function (s) { return openOn(s, z, S.date, zCode(z)); });
-    var on = openOn('duck', z, S.date, zCode(z));
+    var on = openOn('duck', z, S.date, zCode(z)), pend = rulesPending(zCode(z));
+    if (pend) return h('button', { class: 'item', 'data-zone': z },
+      h('div', { class: 'between' },
+        h('span', { class: 't1' }, '<i class="zsw" style="display:inline-block;background:' + ZONE_COLOR[z] + ';margin-right:6px"></i>' + esc(zMeta(z).name)) +
+        h('span', { class: 'pill' }, 'Pending')) +
+      h('div', { class: 't2' }, 'Current-year dates not confirmed yet. Check the state agency before you hunt.'));
     return h('button', { class: 'item', 'data-zone': z },
       h('div', { class: 'between' },
         h('span', { class: 't1' }, '<i class="zsw" style="display:inline-block;background:' + ZONE_COLOR[z] + ';margin-right:6px"></i>' + esc(zMeta(z).name)) +
