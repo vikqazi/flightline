@@ -1,0 +1,452 @@
+{
+ "state": "LA",
+ "stateName": "Louisiana",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "LDWF — 2026–2027 Louisiana Hunting Regulations (PDF, updated Oct 16, 2026)",
+   "url": "https://www.wlf.louisiana.gov/assets/Resources/Publications/Regulations/26LAHD.pdf"
+  },
+  {
+   "label": "LDWF — LWFC adopts two-zone East/West boundary for 2026–30 waterfowl seasons",
+   "url": "https://www.wlf.louisiana.gov/news/lwfc-adopts-twozone-eastwest-boundary-for-202630-waterfowl-hunting-seasons"
+  },
+  {
+   "label": "LDWF GIS — WMAs and refuges; LDWF boat launches (GOHSEP-hosted copy)",
+   "url": "https://services1.arcgis.com/6euNCaGPCgCzgAVF/arcgis/rest/services/LDWF_WMA_Refuge/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — US 79, LA 9, LA 147, US 167, US 90 (zone line) and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "w": {
+   "name": "West Zone",
+   "short": "West",
+   "bounds": "West Zone: between the Texas line and the line south on LA Hwy 79 (US 79 on the ground) from the Arkansas border to Homer, LA 9 to Arcadia, LA 147 to Hodge, US 167 to Lafayette, then south and east on US 90 to the Mississippi line — so the coast south of US 90 is West.",
+   "note": "Ducks Nov 14 – Dec 6, Dec 19 – Jan 24. Youth / veterans Nov 7 and Jan 30."
+  },
+  "e": {
+   "name": "East Zone",
+   "short": "East",
+   "bounds": "East Zone: the remainder of the state.",
+   "note": "Ducks Nov 21 – Dec 6, Dec 19 – Jan 31. Youth / veterans Nov 14 and Feb 6."
+  }
+ },
+ "seasonsNote": "Duck dates differ by zone (West / East). Teal, black-bellied whistling ducks, geese, rails and snipe are statewide. WMAs set their own days, hours and closed areas.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "w": [
+     [
+      "2026-11-14",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-24"
+     ]
+    ],
+    "e": [
+     [
+      "2026-11-21",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ]
+   ],
+   "note": "Blue-winged, green-winged and cinnamon teal."
+  },
+  {
+   "sp": "bbwd",
+   "label": "Black-bellied whistling ducks",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-11"
+    ]
+   ],
+   "note": "Free permit and mandatory reporting (Oct 12–26); only black-bellied whistling ducks may be taken."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-19",
+     "2027-02-07"
+    ]
+   ]
+  },
+  {
+   "sp": "snow",
+   "label": "Light and white-fronted geese",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-19",
+     "2027-02-07"
+    ]
+   ],
+   "note": "Conservation Order for light geese Dec 7–18 and Feb 8 – Mar 7 (no limit)."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-12-18",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-10-31",
+     "2027-01-10"
+    ],
+    [
+     "2027-01-25",
+     "2027-02-28"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ],
+    [
+     "2026-11-07",
+     "2027-01-06"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "King and clapper rails",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ],
+    [
+     "2026-11-07",
+     "2027-01-06"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ],
+    [
+     "2026-11-07",
+     "2027-01-06"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth and veterans waterfowl days",
+   "z": {
+    "w": [
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ],
+     [
+      "2027-01-30",
+      "2027-01-30"
+     ]
+    ],
+    "e": [
+     [
+      "2026-11-14",
+      "2026-11-14"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans waterfowl days",
+   "sameAs": "youth"
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "bbwd",
+   "daily": "4",
+   "poss": "12",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "snow",
+   "daily": "20 / 3",
+   "poss": "None / 9",
+   "detail": "Light geese 20 (no possession limit); white-fronted geese 3 (9)."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "In the aggregate."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "15",
+   "poss": "45",
+   "detail": "In the aggregate."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular limits, but 0 mottled ducks and 1 scaup before the regular season, 1 mottled duck and 2 scaup after it."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "As youth days."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": "no more than 1 hen"
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 for the first 15 days of the season, then 2 (2 from Nov 29 in the West, Dec 6 in the East)"
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "0 or 1",
+   "note": "none for the first 15 days, then 1"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset (federal rule); many WMAs end at noon on opening weekends or have their own hours."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot and plugged guns",
+   "d": "Federal rules: approved non-toxic shot for waterfowl; shotguns plugged to 3 shells (except the light goose Conservation Order)."
+  },
+  {
+   "g": "Special",
+   "t": "Waterfowl sanctuaries",
+   "d": "The waterfowl sanctuaries on Biloxi, Boeuf and Russell Sage WMAs are closed to all access from Nov 1 through the end of the light goose Conservation Order; the Bodcau sanctuary Nov 1 – Mar 7. Not drawn (inside the WMA outlines)."
+  },
+  {
+   "g": "Special",
+   "t": "WMA boats",
+   "d": "Internal combustion engine boats are prohibited from noon to 4 a.m., Nov 1 – Jan 31, on certain WMAs (see the pamphlet)."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans days",
+   "d": "West: Nov 7, 2026 and Jan 30, 2027. East: Nov 14, 2026 and Feb 6, 2027. The adult may not hunt ducks on youth days."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Louisiana Basic Season hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident, from LDWF."
+  },
+  {
+   "t": "Louisiana Waterfowl Hunting licence",
+   "who": "Waterfowl hunters",
+   "d": "Required in addition to the Basic Season licence."
+  },
+  {
+   "t": "HIP certification",
+   "who": "Migratory bird hunters 18+",
+   "d": "Free."
+  },
+  {
+   "t": "Black-bellied Whistling Duck Permit",
+   "who": "BBWD season hunters",
+   "d": "Free; mandatory reporting."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed, or the E-stamp."
+  }
+ ],
+ "geometryNote": "Geometry: the West / East line routed on OpenStreetMap’s US 79, LA 9, LA 147, US 167 and US 90 (US 90 in legs: OSM’s US 90 is not one connected path across the Mississippi at New Orleans); LDWF WMAs and refuges; LDWF boat launches; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); NOAA CO-OPS (tides); Census TIGER (outline, county subdivisions, borders)."
+}

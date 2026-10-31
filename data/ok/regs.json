@@ -1,0 +1,542 @@
+{
+ "state": "OK",
+ "stateName": "Oklahoma",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "ODWC — 2026–27 hunting seasons",
+   "url": "https://www.wildlifedepartment.com/hunting/seasons"
+  },
+  {
+   "label": "ODWC — ducks, mergansers and coots (zones, dates, limits)",
+   "url": "https://www.wildlifedepartment.com/hunting/regs/ducks-mergansers-coots"
+  },
+  {
+   "label": "ODWC — September teal, geese and sandhill cranes",
+   "url": "https://www.wildlifedepartment.com/hunting/regs/september-teal-geese-sandhill-cranes"
+  },
+  {
+   "label": "ODWC — migratory game bird regulations (licences, hours, shot)",
+   "url": "https://www.wildlifedepartment.com/hunting/regs/migratory-game-bird-regulations"
+  },
+  {
+   "label": "ODWC — waterfowl blinds on reservoirs",
+   "url": "https://www.wildlifedepartment.com/hunting/regs/waterfowl-hunting-blinds"
+  },
+  {
+   "label": "ODWC — duck hunting zones map (image)",
+   "url": "https://www.wildlifedepartment.com/sites/default/files/2021-09/Duck_Zones_Regs.jpg"
+  },
+  {
+   "label": "ODWC GIS — public WMA boundaries",
+   "url": "https://services1.arcgis.com/jRf8jjFwxedITdFe/arcgis/rest/services/Public_WMA_Boundaries/FeatureServer/1"
+  },
+  {
+   "label": "ODWC GIS — Oklahoma Land Access Program (walk-in) areas",
+   "url": "https://services1.arcgis.com/jRf8jjFwxedITdFe/arcgis/rest/services/OLAP_UpdatedLayers_062626_PublicView/FeatureServer/7"
+  },
+  {
+   "label": "ODWC GIS — WMA boat ramps and special-use areas (waterfowl refuges)",
+   "url": "https://www.wildlifedepartment.com/server/rest/services/PublicWILMA/WILMAFeatures/MapServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "p": {
+   "name": "Panhandle",
+   "short": "PH",
+   "bounds": "Panhandle (High Plains Mallard Management Unit): Cimarron, Texas and Beaver counties (ODWC spells it “Cimmaron”).",
+   "note": "Ducks Oct 10 – Jan 13. Youth, veteran and military days Oct 3 and Jan 30. Central Flyway; the High Plains Mallard Management Unit."
+  },
+  "z": {
+   "name": "Zones 1 & 2",
+   "short": "1&2",
+   "bounds": "Zones 1 & 2: all Oklahoma counties excluding Cimarron, Texas and Beaver. ODWC lists the two zones together with identical dates and its map draws no line between them.",
+   "note": "Ducks Nov 14 – Dec 6, Dec 12 – Jan 31. Youth, veteran and military days Nov 7 and Feb 6. Central Flyway."
+  }
+ },
+ "seasonsNote": "Duck dates differ between the Panhandle and Zones 1 & 2. Teal, geese, cranes, the light goose conservation order and the other migratory birds are statewide (sandhill cranes: east of I-35 closed).",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "p": [
+     [
+      "2026-10-10",
+      "2027-01-13"
+     ]
+    ],
+    "z": [
+     [
+      "2026-11-14",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-20"
+    ]
+   ]
+  },
+  {
+   "sp": "canadasept",
+   "label": "Special resident Canada goose — September",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-21"
+    ]
+   ],
+   "note": "Statewide."
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-12",
+     "2027-02-14"
+    ]
+   ],
+   "note": "ODWC’s dark goose season, statewide."
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-12",
+     "2027-02-07"
+    ]
+   ],
+   "note": "Daily bag 2."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-12",
+     "2027-02-14"
+    ]
+   ],
+   "note": "Snow, blue and Ross’s geese."
+  },
+  {
+   "sp": "snowlate",
+   "label": "Light goose conservation order",
+   "statewide": [
+    [
+     "2027-02-15",
+     "2027-03-30"
+    ]
+   ],
+   "note": "No daily bag or possession limit; electronic calls, unplugged shotguns and shooting to one-half hour after sunset allowed. Register with ODWC (name, address, phone)."
+  },
+  {
+   "sp": "crane",
+   "label": "Sandhill cranes",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2027-01-17"
+    ]
+   ],
+   "note": "East of I-35 closed. Federal sandhill crane permit required."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2026-12-21"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2027-01-10"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning doves",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-31"
+    ],
+    [
+     "2026-12-01",
+     "2026-12-29"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days (also veterans and active military)",
+   "z": {
+    "p": [
+     [
+      "2026-10-03",
+      "2026-10-03"
+     ],
+     [
+      "2027-01-30",
+      "2027-01-30"
+     ]
+    ],
+    "z": [
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans and active military waterfowl days",
+   "z": {
+    "p": [
+     [
+      "2026-10-03",
+      "2026-10-03"
+     ],
+     [
+      "2027-01-30",
+      "2027-01-30"
+     ]
+    ],
+    "z": [
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ]
+   }
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks of any species combined, mergansers included. Possession: one daily bag after day one, two after day two, three after day three, never more than three."
+  },
+  {
+   "sp": "merganser",
+   "daily": "(in the 6)",
+   "poss": "",
+   "detail": "Mergansers count toward the duck daily limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "12 in possession after the first day, 18 after the second day."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "8",
+   "poss": "24",
+   "detail": "16 in possession after the first day, 24 after the second day. No special provisions."
+  },
+  {
+   "sp": "canada",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Dark geese. Possession three times the daily bag."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Possession three times the daily bag."
+  },
+  {
+   "sp": "snow",
+   "daily": "50",
+   "poss": "None",
+   "detail": "Snow, blue and Ross’s geese; no possession limit."
+  },
+  {
+   "sp": "snowlate",
+   "daily": "None",
+   "poss": "None",
+   "detail": "No daily bag or possession limit during the conservation order."
+  },
+  {
+   "sp": "crane",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Possession three times the daily bag. Federal sandhill crane permit required."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read: ODWC lists it on its crow, woodcock, rail, snipe and gallinule page. Check ODWC."
+  },
+  {
+   "sp": "snipe",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check ODWC."
+  },
+  {
+   "sp": "sora",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check ODWC."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check ODWC."
+  },
+  {
+   "sp": "dove",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check ODWC."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same as the regular duck limits. Youth must be 15 or younger with an adult at least 18 who cannot hunt waterfowl."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same as the regular duck limits."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Mergansers",
+   "lim": "in the 6",
+   "note": "count toward the duck limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before official sunrise to official sunset, unless otherwise provided (ODWC)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Federally approved non-toxic shot is required for ducks, mergansers, geese and coots statewide."
+  },
+  {
+   "g": "Gear",
+   "t": "Blinds on reservoirs",
+   "d": "Public-land waterfowl blinds are daily blinds only: temporary blinds or stands removed at the end of each day’s hunt; a camouflage boat counts as a temporary blind; no cutting living vegetation (OAC 800:25-1-2)."
+  },
+  {
+   "g": "Special",
+   "t": "Waterfowl refuge portions of WMAs",
+   "d": "Ten ODWC refuge portions (Keystone, Canton, Fort Gibson, Lyndol Fry at Hugo, Wister, Vann’s Lake at McClellan-Kerr, Red Slough, Hackberry Flat, Lake Ellsworth, Harold Stuart at Deep Fork) are closed to all access Oct 15 – Jan 31 (no entry). They are the red areas on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Wildlife management area rules",
+   "d": "Each WMA has its own rules (OAC Title 800:25-7); check the area before you hunt. Some WMA boat ramps close for the refuge season."
+  },
+  {
+   "g": "Special",
+   "t": "Sandhill cranes",
+   "d": "East of I-35 is closed. ODWC also posts WMAs and Land Access areas closed to crane hunting after whooping crane sightings."
+  },
+  {
+   "g": "Special",
+   "t": "Light goose conservation order",
+   "d": "Feb 15 – Mar 30, 2027, statewide: no daily bag or possession limit, electronic calls and unplugged shotguns allowed, shooting to one-half hour after sunset. All other waterfowl rules apply (non-toxic shot, licences, stamps, HIP)."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veteran and military days",
+   "d": "Panhandle Oct 3, 2026 and Jan 30, 2027; Zones 1 & 2 Nov 7, 2026 and Feb 6, 2027. Youth hunters must be 15 or younger; the accompanying adult (18+) cannot hunt waterfowl."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Oklahoma hunting licence",
+   "who": "Hunters",
+   "d": "ODWC licence chart: hunting licence, HIP, State Waterfowl Stamp and federal stamp for ducks and geese. Nonresidents need a Nonresident Annual Hunting License; the 5-day licence is not valid for waterfowl."
+  },
+  {
+   "t": "HIP permit",
+   "who": "Migratory bird hunters 63 or younger",
+   "d": "Valid July 1 – June 30."
+  },
+  {
+   "t": "Oklahoma Waterfowl Hunting License / State Waterfowl Stamp",
+   "who": "Residents 18–64 and nonresidents 18+",
+   "d": "Exempt: residents 65+, resident landowners on their own land, lifetime duck stamp holders. Not required for coots or sandhill cranes."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "$25 at post offices or $29 at Oklahoma licence dealers; signed in ink. Not required for coots or sandhill cranes."
+  },
+  {
+   "t": "Federal sandhill crane permit",
+   "who": "Crane hunters",
+   "d": "ODWC’s pages give the permit as $3 and also as free at GoOutdoorsOklahoma.com; check which applies."
+  },
+  {
+   "t": "Game bird permit (nonresidents on WMAs)",
+   "who": "Nonresidents of any age hunting game birds on a WMA",
+   "d": "Required unless exempt."
+  }
+ ],
+ "geometryNote": "Geometry: the Panhandle line is the Census county line of Cimarron, Texas and Beaver counties (ODWC’s duck zones map shows only the Panhandle and a combined Zones 1 & 2, with no county list beyond the three); ODWC public WMA boundaries, Land Access Program walk-in areas, WMA boat ramps and waterfowl refuge portions; USGS NHD (water; streams from NHDPlus HR) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER (outline, county subdivisions); OpenStreetMap (roads). No tides."
+}
