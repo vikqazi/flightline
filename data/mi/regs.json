@@ -1,0 +1,524 @@
+{
+ "state": "MI",
+ "stateName": "Michigan",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "Michigan DNR — 2026 Waterfowl Hunting Regulations Summary (dates, limits, zones, managed areas, closed areas, rules)",
+   "url": "https://www.michigan.gov/dnr/managing-resources/laws/regulations/waterfowl"
+  },
+  {
+   "label": "Michigan DNR — Wildlife Conservation Order (Ch. I zones, Ch. III Table 10 seasons and limits, Ch. VIII closures, Ch. XII goose management units, Ch. XIII managed areas)",
+   "url": "https://www.michigan.gov/dnr/managing-resources/laws/orders/wildlife-conservation-order"
+  },
+  {
+   "label": "Michigan DNR news release, 30 Jul 2026 — adjusted hours at four managed waterfowl areas",
+   "url": "https://www.michigan.gov/dnr/about/newsroom/releases/2026/07/30/dnr-announces-adjusted-hours-at-four-managed-waterfowl-areas"
+  },
+  {
+   "label": "Michigan DNR — Waterfowl Management Units 2026 (GIS; used to check the zone lines)",
+   "url": "https://services3.arcgis.com/Jdnp1TjADvSDxMAX/arcgis/rest/services/WILDGameSpeciesManagementUnitsAndZonesOPENDATA/FeatureServer/13"
+  },
+  {
+   "label": "Michigan DNR — Wildlife Property Boundary (state game areas, wildlife areas, wildlife management areas)",
+   "url": "https://services3.arcgis.com/Jdnp1TjADvSDxMAX/arcgis/rest/services/DNRWILDLandsOPENDATA/FeatureServer/2"
+  },
+  {
+   "label": "Michigan DNR — Parks Hunting Land Boundary (state parks and recreation areas with hunting status)",
+   "url": "https://services3.arcgis.com/Jdnp1TjADvSDxMAX/arcgis/rest/services/DNRBoundariesParksHuntableLandsOPENDATA/FeatureServer/2"
+  },
+  {
+   "label": "Michigan DNR — Boat Launches (boating access sites)",
+   "url": "https://services3.arcgis.com/Jdnp1TjADvSDxMAX/arcgis/rest/services/Boat_Launches/FeatureServer/0"
+  },
+  {
+   "label": "Michigan DNR — Public Land Survey System sections (the sections the Order uses for the Muskegon unit, Au Train basin and Huron County closures)",
+   "url": "https://services3.arcgis.com/Jdnp1TjADvSDxMAX/arcgis/rest/services/DNRPublicLandSurveySystemOPENDATA/FeatureServer/1"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes and local roads (the zone line and the Allegan unit run on them)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline (with the Great Lakes waters), counties, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh of 5 acres and up, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North Zone: all of the Upper Peninsula (WCO 1.2(18)). Michigan’s Great Lakes waters off the Upper Peninsula follow the Upper Peninsula’s counties (Census county boundaries in the lakes).",
+   "note": "Ducks Sept 26 – Nov 22, Nov 28–29. Geese Sept 1 – Dec 16."
+  },
+  "m": {
+   "name": "Middle Zone",
+   "short": "Middle",
+   "bounds": "Middle Zone: the part of the Lower Peninsula north of a line beginning at the Michigan–Wisconsin boundary line in Lake Michigan, due west of the mouth of Stoney Creek in section 31, T14N R18W, Oceana County; easterly and southerly along the centerline of Stoney Creek to Scenic Drive; south on Scenic Drive to Stoney Lake Road in section 5, T13N R18W; east on Stoney Lake Road and then West and East Garfield Roads (a name change only), crossing US-31, to M-20 (north of New Era, also locally named Hayes Road) in section 33, T14N R17W; east on M-20 through Oceana, Newaygo, Mecosta, Isabella and Midland counties to US-10 Business Route in the city of Midland; east on US-10 BR to US-10 at the Bay County line; east on US-10, crossing US-75, to M-25 (west of Bay City); east along M-25 into Tuscola County, then northeast and east on M-25 through Tuscola County into Huron County, turning southeast on M-25 (near Huron City; also North Shore Road) to the centerline of Willow Creek in section 4, T18N R14E; north along the centerline of Willow Creek to its mouth in Lake Huron; then due east in Lake Huron to the Michigan / Canada border (WCO 1.2(19)).",
+   "note": "Ducks Oct 3 – Nov 29, Dec 12–13. Geese Sept 1–30, Oct 3 – Dec 18."
+  },
+  "s": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "South Zone: all of the Lower Peninsula south of the Middle Zone line (WCO 1.2(20)). The Allegan County and Muskegon County Wastewater goose management units are inside it and have their own goose dates.",
+   "note": "Ducks Oct 17 – Dec 13, Dec 26–27. Geese Sept 1–30, Oct 17 – Dec 13, Dec 26 – Jan 3, Feb 6–15 (Allegan and Muskegon units differ)."
+  }
+ },
+ "seasonsNote": "Michigan has three duck and goose zones (North = the Upper Peninsula, Middle, South). Early teal, the youth weekend, veterans and active-duty days and rails, snipe and gallinules are statewide. The Allegan County goose unit and the Muskegon County Wastewater goose unit (both inside the South Zone) have their own goose dates (amber on the map). The Natural Resources Commission sets the dates; 2027 openers (North Sept 25, Middle Oct 2, South Oct 16) are only proposed and valid only if the federal framework does not change.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n": [
+     [
+      "2026-09-26",
+      "2026-11-22"
+     ],
+     [
+      "2026-11-28",
+      "2026-11-29"
+     ]
+    ],
+    "m": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2026-12-13"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-17",
+      "2026-12-13"
+     ],
+     [
+      "2026-12-26",
+      "2026-12-27"
+     ]
+    ]
+   },
+   "note": "Hours ½ hour before sunrise to sunset (Eastern Time; the Zone A table plus 6, 12 or 18 minutes by the hunting-hours map; Gogebic, Iron, Dickinson and Menominee counties are on Central Time)."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-09"
+    ]
+   ],
+   "note": "Blue-winged and green-winged teal only. Hours sunrise to sunset."
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese — Canada, white-fronted, brant",
+   "z": {
+    "n": [
+     [
+      "2026-09-01",
+      "2026-12-16"
+     ]
+    ],
+    "m": [
+     [
+      "2026-09-01",
+      "2026-09-30"
+     ],
+     [
+      "2026-10-03",
+      "2026-12-18"
+     ]
+    ],
+    "s": [
+     [
+      "2026-09-01",
+      "2026-09-30"
+     ],
+     [
+      "2026-10-17",
+      "2026-12-13"
+     ],
+     [
+      "2026-12-26",
+      "2027-01-03"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-15"
+     ]
+    ]
+   },
+   "note": "Dark geese are brant, Canada geese and white-fronted geese. The South Zone dates exclude the Allegan County GMU (Sept 1–30, Oct 17 – Nov 4, Dec 19 – Feb 14) and the Muskegon County Wastewater GMU (Oct 20 – Dec 19), both amber on the map. The September segment in the South and Middle zones is part of the same season."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese — snow, blue, Ross’s",
+   "sameAs": "canada",
+   "note": "Light geese have the same dates as dark geese in each zone and unit. The Michigan summary lists no separate light-goose conservation order for 2027."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "sameAs": "canada",
+   "note": "Part of the dark goose season; only 1 brant in the daily limit of 5 dark geese."
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "sameAs": "canada",
+   "note": "Part of the dark goose season."
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (sora and Virginia)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Common gallinules",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl hunting weekend",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-20"
+    ]
+   ],
+   "note": "Licensed hunter 16 or younger, with an adult 18+ (21+ for mentored hunters under 10); ducks, mergansers, geese, coots and gallinules; the adult may not take them unless it is the September Canada goose season."
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans and active-duty military waterfowl days",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-20"
+    ]
+   ],
+   "note": "Carry proof (military ID, leave or duty papers, orders, DD-214, enhanced driver’s licence or VA disability letter). Base licence, waterfowl licence and federal duck stamp required."
+  },
+  {
+   "sp": "falconry",
+   "label": "Falconry — ducks, mergansers, coots, gallinules (statewide extra seasons)",
+   "statewide": [
+    [
+     "2026-12-28",
+     "2027-01-10"
+    ],
+    [
+     "2027-02-20",
+     "2027-03-10"
+    ]
+   ],
+   "note": "Falconers may also hunt every regular season in its zone. Daily limit 3 birds, possession 9."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Part of the duck limit; same limits as the regular season."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada, white-fronted geese and brant in any combination, only 1 brant."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": "Snow, blue and Ross’s geese in any combination."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": "Inside the dark goose limit of 5."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Inside the dark goose limit of 5."
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Virginia and sora rails combined."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "gallinule",
+   "daily": "1",
+   "poss": "3",
+   "detail": "Common gallinule."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same limits as the regular duck, goose, coot and gallinule seasons."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same limits as the regular seasons."
+  },
+  {
+   "sp": "falconry",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Three birds of a single or combined species."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "North: 2 a day Sept 26 – Nov 9, then 1 a day (Nov 10–22 and Nov 28–29). Middle: 1 a day Oct 3–18, then 2 a day (Oct 19 – Nov 29 and Dec 12–13). South: 1 a day Oct 17 – Nov 1, then 2 a day (Nov 2 – Dec 13 and Dec 26–27)."
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset; early teal sunrise to sunset. The DNR prints the times for Zone A (the eastern edge of the state); add 6 minutes in Zone B, 12 in Zone C and 18 in Zone D, west across the state (the DNR hunting-hours map is a picture; check it). In Gogebic, Iron, Dickinson and Menominee counties (Central Time) subtract one hour from the printed time."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotguns",
+   "d": "A shotgun no larger than 10 gauge that holds no more than three shells (plug it with a one-piece filler), or a bow or crossbow. One firearm per person; no single-projectile shotshells. Pneumatic guns are legal if they meet the firearm rules."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Lead-free shot is required statewide for all waterfowl, rails, snipe, coots and gallinules, muzzleloaders included. At the permit-only managed areas the shot size is limited: no larger than BBB at Nayanquing Point, Fish Point, Shiawassee River and Allegan, and no larger than No. 1 at St. Clair Flats and Pointe Mouillee (WCO 3.414)."
+  },
+  {
+   "g": "Gear",
+   "t": "Decoys and calls",
+   "d": "Mechanical and electronic decoys are allowed, but not ones that make bird sounds. No electronic or recorded calls, no live decoys. On the Great Lakes, connecting waters and lakes entirely surrounded by public land, decoys may be anchored or left only from 3 a.m. to 9 p.m. (the DNR summary: not between 9 p.m. and 3 a.m.)."
+  },
+  {
+   "g": "Gear",
+   "t": "Blinds and platforms",
+   "d": "Elevated platforms only over submerged bottomlands. A blind on public waters must carry your name and address in 3-inch letters, may not be placed before Aug 15 and must come out by Jan 16 (WCO 3.401: removed within 16 days after the end of the year). An unoccupied blind on the Great Lakes or Lake St. Clair may be used by the first person to occupy it each day. No sinkboxes. In the Kalamazoo River watershed (Allegan County) blinds on public land are not permitted except under the Ottawa Marsh rules."
+  },
+  {
+   "g": "Gear",
+   "t": "Boats",
+   "d": "No hunting from a boat or any floating craft under power or sail: the motor must be off or the sails furled and all progress stopped. A boat under power may retrieve birds, but crippled birds may not be shot from it until it has stopped. No driving or chasing birds with a boat. Firearms must be unloaded in the barrel and magazine while a boat is moving under power."
+  },
+  {
+   "g": "Special",
+   "t": "Great Lakes and open water",
+   "d": "The Middle / South line and the North Zone boundary continue into the lakes (Lake Michigan from the Wisconsin boundary, Lake Huron to the Canadian border; the Upper Peninsula’s lake waters are North Zone). The summary gives no separate open-water or distance-from-shore rule beyond the blind and decoy rules above. Federal and Canadian boundary waters follow the state outline on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Wetland Wonders (managed waterfowl areas)",
+   "d": "Seven premier areas hunt by free daily drawing: Fennville Farm (Allegan SGA), Fish Point, Muskegon County Resource Recovery Center, Nayanquing Point, Pointe Mouillee, Shiawassee River and St. Clair Flats (Harsens Island). Opening-weekend hunts at several are reserved by an Aug 1–28 application ($5, results Sept 14). Shell limits, shot-size limits and party-size limits apply."
+  },
+  {
+   "g": "Special",
+   "t": "Fall 2026 changes at four areas",
+   "d": "After the opening weekends, Fish Point, Nayanquing Point, Shiawassee River and Harsens Island are closed to waterfowl hunting on Sundays and Mondays, and draws are one a day, 5:30 a.m. Tuesday to Saturday, with permits valid to the close of shooting hours and leftover zones until 8 a.m. (DNR release, 30 Jul 2026). The regulations summary still lists daily morning and afternoon draws for these areas; the release is the later source."
+  },
+  {
+   "g": "Special",
+   "t": "Allegan County goose unit",
+   "d": "The area of Allegan County from I-196 and 136th Avenue east to M-40, south on M-40 through Allegan to 108th Avenue, west to 46th Street, north ½ mile, west on 109th Avenue to I-196 and north on I-196 (WCO 12.702). Geese Sept 1–30, Oct 17 – Nov 4 and Dec 19 – Feb 14. The Fennville Farm unit is closed to goose hunting Mon, Tue, Thu and Fri Dec 19 – Feb 14, and WCO 3.415b closes the Highbanks, Fennville Farm and Bravo units of the Allegan SGA to geese Sept 1–7, while the DNR summary lists Fennville Farm self-registration for geese Sept 1–30 (the two disagree: ask the area office, 269-561-2258)."
+  },
+  {
+   "g": "Special",
+   "t": "Muskegon County Wastewater goose unit",
+   "d": "About 5,700 acres of dry agricultural fields at the Muskegon County Resource Recovery Center (the Order describes about 11,000 acres inside the wastewater system, as posted); no open water. Geese Oct 20 – Dec 19 by drawing (Tue and Sat 5:30 a.m., Thu and Sat 11 a.m.); closed to the September goose season and on Thanksgiving Day."
+  },
+  {
+   "g": "Special",
+   "t": "Closed waters and refuges",
+   "d": "Boardman Lake and the Boardman River between the Airport Road bridge and the Eighth Street bridge (Grand Traverse County) are closed to ducks, geese and mergansers Sept 1 – Dec 15 (WCO 8.13). The Au Train basin waterfowl refuge (Alger County) is closed to entry and hunting Sept 1 – Nov 10 (WCO 8.14). In Roscommon County, Mud Lake, Lake St. Helen and the South Branch of the Au Sable River between them are closed to public waterfowl hunting. Other closed areas are in Chapter 8 of the Order."
+  },
+  {
+   "g": "Special",
+   "t": "State parks and recreation areas",
+   "d": "State parks are closed to hunting unless the Order opens them; recreation areas are open unless closed. Portions of 26 parks and scenic sites are open to waterfowl in season; 16 are closed Sept 1–7 and others Sept 1–15, and some recreation areas close portions. The red areas on the map are park lands the DNR shows as closed to hunting."
+  },
+  {
+   "g": "Special",
+   "t": "Safety zones",
+   "d": "No hunting with a firearm within 150 yards of an occupied building, dwelling, cabin or farm building without the owner’s or occupant’s written permission. Float hunting needs landowner permission where the waterway is protected by the recreational trespass law; road rights of way are huntable only where the adjoining land is public."
+  },
+  {
+   "g": "Special",
+   "t": "Sunday and other restrictions",
+   "d": "The DNR summary lists no statewide Sunday ban. Hunting is exclusive to the landowners on waterways with private banks; rights of way of railroads and utilities on private land are closed. Hunter orange is not required for waterfowl."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans days",
+   "d": "Sept 19–20, 2026, statewide, at each species’ regular limits (see the season table)."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave one fully feathered wing on every migratory game bird while carrying it. Birds left with another person must be tagged with your signature, address, licence or Sportcard number, the number of birds by species and the dates killed."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Michigan base licence",
+   "who": "Everyone who hunts (valid to Mar 31, 2027)",
+   "d": "Resident $11 (age 16–64), senior $5, youth 10–15 $6; non-resident $151 (non-residents may instead buy a 3-day $50 or 7-day $80 small game licence). DNR Sportcard $1 if you have no Michigan ID. Hunter education required if born on or after Jan 1, 1960."
+  },
+  {
+   "t": "Michigan waterfowl licence",
+   "who": "Waterfowl hunters 16+ (not for coots, rails, snipe, woodcock)",
+   "d": "$12, resident or non-resident; includes the HIP endorsement."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+ (not for coots, rails, snipe, woodcock)",
+   "d": "$25 plus a $5 service fee when bought at an agent or online; the electronic stamp is valid July 1, 2026 – June 30, 2027 and is shown on your phone."
+  },
+  {
+   "t": "HIP endorsement",
+   "who": "Every migratory bird hunter",
+   "d": "Free; printed on the licence when you buy it. Youth 9 and under need the mentored youth licence and migratory bird youth endorsement; youth 10–15 need a base licence and the endorsement."
+  },
+  {
+   "t": "Reserved waterfowl hunt application",
+   "who": "Optional, Aug 1–28",
+   "d": "$5; one application a year with a first and second hunt choice. 2026 results were available Sept 14."
+  }
+ ],
+ "geometryNote": "Geometry: the Middle / South line is routed on OpenStreetMap exactly as the Order names it (Stony Creek, Scenic Drive, Stony Lake and Garfield Roads, M-20, US-10 Business Route, US-10, M-25, Willow Creek), with the two ends drawn due west and due east on the Census outline, and compared with the DNR 2026 Waterfowl Management Units layer. The North Zone is the 15 Upper Peninsula counties as the Census draws them in the Great Lakes (their boundary with the Lower Peninsula counties in the Straits of Mackinac and Lake Michigan is the North / Middle line). The Allegan County goose unit is routed on the roads in WCO 12.702; the Muskegon County Wastewater unit is the DNR’s wastewater management area outline; the Au Train basin refuge and other closures are built from the Order’s section descriptions on the DNR PLSS section layer. Public land: DNR wildlife property boundaries and park hunting lands (state forest land is not drawn). Boat ramps: DNR boating access sites. USGS NHD (water; streams), GNIS, USFWS refuge units and NWI marsh, Census TIGER (outline, county subdivisions, borders). No tides."
+}

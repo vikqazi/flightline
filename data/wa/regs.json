@@ -1,0 +1,841 @@
+{
+ "state": "WA",
+ "stateName": "Washington",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "WDFW — 2026 Washington State Game Bird and Small Game Hunting Regulations (2026–27 migratory seasons)",
+   "url": "https://www.eregulations.com/assets/docs/resources/WA/26WAGB-LR2_2026-09-09-205915_glxw.pdf"
+  },
+  {
+   "label": "WDFW GIS — wildlife area units, water access sites",
+   "url": "https://geodataservices.wdfw.wa.gov/arcgis/rest/services/WP_RealEstate"
+  },
+  {
+   "label": "WDFW GIS — waterfowl, coot and snipe closure areas; game reserves",
+   "url": "https://geodataservices.wdfw.wa.gov/arcgis/rest/services/MapServices/SharedReferenceLayers/MapServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes, the Pacific Crest Trail and the White Salmon River",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, bays, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "g1": {
+   "name": "Goose Management Area 1",
+   "short": "GMA 1",
+   "bounds": "Skagit and Whatcom counties, and that portion of Snohomish County west of Interstate 5 (western Washington part).",
+   "note": "Geese Oct 17 – Nov 29 and Dec 12 – Jan 31; late white goose season Feb 13–21. Snow goose authorization and harvest card required."
+  },
+  "g2c": {
+   "name": "Goose Management Area 2 — Coast",
+   "short": "GMA 2 Coast",
+   "bounds": "Pacific County and that portion of Grays Harbor County west of Highway 101.",
+   "note": "Geese Saturdays, Sundays and Wednesdays, Oct 17 – Nov 29 and Dec 12 – Jan 10. Dusky Canada geese closed. Goose ID test, authorization and SW Canada goose harvest card required."
+  },
+  "g2i": {
+   "name": "Goose Management Area 2 — Inland",
+   "short": "GMA 2 Inland",
+   "bounds": "Clark, Cowlitz and Wahkiakum counties and that portion of Grays Harbor County east of Highway 101.",
+   "note": "Geese Saturdays, Sundays and Wednesdays, Oct 17 – Nov 1, Nov 25 – Jan 10 and Feb 7–15 (Ridgefield NWR: Tue, Thu, Sat, not in February). Dusky Canada geese closed."
+  },
+  "g3": {
+   "name": "Goose Management Area 3",
+   "short": "GMA 3",
+   "bounds": "All other parts of western Washington not in Goose Management Areas 1 and 2.",
+   "note": "Geese Oct 17–25 and Nov 7 – Jan 31."
+  },
+  "g4": {
+   "name": "Goose Management Area 4",
+   "short": "GMA 4",
+   "bounds": "Adams, Benton, Chelan, Douglas, Franklin, Grant, Kittitas, Lincoln, Okanogan, Spokane and Walla Walla counties (eastern Washington part).",
+   "note": "Geese Saturdays, Sundays and Wednesdays Oct 17 – Jan 24 plus listed extra days, every day Jan 25–31; white geese closed Nov 30 – Dec 22; late white goose season Feb 20 – Mar 10."
+  },
+  "g5": {
+   "name": "Goose Management Area 5",
+   "short": "GMA 5",
+   "bounds": "All other parts of eastern Washington not in Goose Management Area 4.",
+   "note": "Geese Oct 17 – Nov 2 and Nov 7 – Jan 31."
+  }
+ },
+ "seasonsNote": "Ducks, coots and snipe are statewide. Geese run by Goose Management Area. Eastern Washington is everything east of the Pacific Crest Trail and, in Klickitat and Skamania counties, east of the Big White Salmon River; western Washington is the rest.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2026-10-25"
+    ],
+    [
+     "2026-10-28",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Scaup closed Oct 17 – Nov 6. Harlequin duck by permit only (52 permits)."
+  },
+  {
+   "sp": "scaup",
+   "label": "Scaup",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "z": {
+    "g1": [
+     [
+      "2026-09-05",
+      "2026-09-13"
+     ]
+    ],
+    "g2c": [
+     [
+      "2026-09-05",
+      "2026-09-13"
+     ]
+    ],
+    "g2i": [
+     [
+      "2026-09-05",
+      "2026-09-13"
+     ]
+    ],
+    "g3": [
+     [
+      "2026-09-05",
+      "2026-09-13"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-09-05",
+      "2026-09-06"
+     ]
+    ],
+    "g5": [
+     [
+      "2026-09-05",
+      "2026-09-06"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "canada",
+   "label": "Canada and white-fronted geese",
+   "z": {
+    "g1": [
+     [
+      "2026-10-17",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ],
+    "g2c": [
+     [
+      "2026-10-17",
+      "2026-11-29",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2026-12-12",
+      "2027-01-10",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ]
+    ],
+    "g2i": [
+     [
+      "2026-10-17",
+      "2026-11-01",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2026-11-25",
+      "2027-01-10",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2027-02-07",
+      "2027-02-15",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ]
+    ],
+    "g3": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-10-17",
+      "2026-11-29",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2026-12-23",
+      "2027-01-24",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2027-01-25",
+      "2027-01-31"
+     ],
+     [
+      "2026-11-26",
+      "2026-11-26"
+     ],
+     [
+      "2026-11-27",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-24",
+      "2026-12-24"
+     ],
+     [
+      "2026-12-25",
+      "2026-12-25"
+     ],
+     [
+      "2026-12-28",
+      "2026-12-28"
+     ],
+     [
+      "2026-12-29",
+      "2026-12-29"
+     ],
+     [
+      "2027-01-01",
+      "2027-01-01"
+     ],
+     [
+      "2027-01-18",
+      "2027-01-18"
+     ],
+     [
+      "2026-11-30",
+      "2026-12-22",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ]
+    ],
+    "g5": [
+     [
+      "2026-10-17",
+      "2026-11-02"
+     ],
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Canada geese include cackling geese. Dusky Canada geese closed in GMA 2. GMA 2 Inland, Ridgefield NWR: Tuesdays, Thursdays and Saturdays only, Oct 17 – Nov 1 and Nov 25 – Jan 10. GMA 2 goose hours start 30 minutes after and end 30 minutes before the waterfowl hours. The GMA 2 page also says the first two weeks are open every day; the season table lists Sat/Sun/Wed only — check WDFW."
+  },
+  {
+   "sp": "snow",
+   "label": "White geese (snow, Ross’s, blue)",
+   "z": {
+    "g1": [
+     [
+      "2026-10-17",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ],
+     [
+      "2027-02-13",
+      "2027-02-21"
+     ]
+    ],
+    "g2c": [
+     [
+      "2026-10-17",
+      "2026-11-29",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2026-12-12",
+      "2027-01-10",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ]
+    ],
+    "g2i": [
+     [
+      "2026-10-17",
+      "2026-11-01",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2026-11-25",
+      "2027-01-10",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2027-02-07",
+      "2027-02-15",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ]
+    ],
+    "g3": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-10-17",
+      "2026-11-29",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2026-12-23",
+      "2027-01-24",
+      {
+       "dow": [
+        6,
+        0,
+        3
+       ]
+      }
+     ],
+     [
+      "2027-01-25",
+      "2027-01-31"
+     ],
+     [
+      "2026-11-26",
+      "2026-11-26"
+     ],
+     [
+      "2026-11-27",
+      "2026-11-27"
+     ],
+     [
+      "2026-12-24",
+      "2026-12-24"
+     ],
+     [
+      "2026-12-25",
+      "2026-12-25"
+     ],
+     [
+      "2026-12-28",
+      "2026-12-28"
+     ],
+     [
+      "2026-12-29",
+      "2026-12-29"
+     ],
+     [
+      "2027-01-01",
+      "2027-01-01"
+     ],
+     [
+      "2027-01-18",
+      "2027-01-18"
+     ],
+     [
+      "2027-02-20",
+      "2027-03-10"
+     ]
+    ],
+    "g5": [
+     [
+      "2026-10-17",
+      "2026-11-02"
+     ],
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "GMA 1 late season Feb 13–21 and GMA 4 late season Feb 20 – Mar 10 are white geese only. GMA 4 white geese closed Nov 30 – Dec 22."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "z": {
+    "g1": [
+     [
+      "2027-01-23",
+      "2027-01-23"
+     ],
+     [
+      "2027-01-27",
+      "2027-01-27"
+     ],
+     [
+      "2027-01-30",
+      "2027-01-30"
+     ]
+    ],
+    "g3": [
+     [
+      "2027-01-23",
+      "2027-01-23"
+     ],
+     [
+      "2027-01-27",
+      "2027-01-27"
+     ],
+     [
+      "2027-01-30",
+      "2027-01-30"
+     ]
+    ],
+    "g2c": [
+     [
+      "2027-01-16",
+      "2027-01-16"
+     ],
+     [
+      "2027-01-17",
+      "2027-01-17"
+     ],
+     [
+      "2027-01-19",
+      "2027-01-19"
+     ],
+     [
+      "2027-01-21",
+      "2027-01-21"
+     ],
+     [
+      "2027-01-23",
+      "2027-01-23"
+     ],
+     [
+      "2027-01-24",
+      "2027-01-24"
+     ],
+     [
+      "2027-01-26",
+      "2027-01-26"
+     ],
+     [
+      "2027-01-28",
+      "2027-01-28"
+     ],
+     [
+      "2027-01-30",
+      "2027-01-30"
+     ],
+     [
+      "2027-01-31",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "By county, not goose area: Clallam and Whatcom Jan 23, 27 and 30; Pacific County Jan 16, 17, 19, 21, 23, 24, 26, 28, 30 and 31; Skagit County starts closed (dates set by aerial survey, by WDFW news release). Other counties closed. Youth / veterans day Feb 6 in Clallam, Pacific and Whatcom. Brant harvest card required."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth hunting days",
+   "z": {
+    "g1": [
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ],
+    "g2c": [
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ],
+    "g2i": [
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ],
+    "g3": [
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-10-03",
+      "2026-10-03"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ],
+    "g5": [
+     [
+      "2026-10-03",
+      "2026-10-03"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ]
+   },
+   "note": "Hunters 15 and under with a non-hunting adult 18+. Sept 26 western Washington, Oct 3 eastern Washington (ducks, coots, Canada and white-fronted geese); Feb 6 youth, veterans and active military statewide."
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / active military day",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "7",
+   "poss": "21",
+   "detail": "Seven ducks, inside which the limits below apply. Youth and veterans days: possession equals the daily bag."
+  },
+  {
+   "sp": "scaup",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Inside the 7."
+  },
+  {
+   "sp": "coot",
+   "daily": "25",
+   "poss": "75",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15 / 10",
+   "detail": "Canada geese only. Western Washington 5 / 15 (Pacific County 15 / 45); eastern Washington 5 / 10."
+  },
+  {
+   "sp": "canada",
+   "daily": "3 / 2",
+   "poss": "9 / 6",
+   "detail": "Canada geese 3 a day (GMA 2: 2), plus 6 white-fronted geese (18 possession) statewide."
+  },
+  {
+   "sp": "snow",
+   "daily": "10 / 6",
+   "poss": "30 / 18",
+   "detail": "GMA 1 regular season 6 (18); GMA 1 late season 10 (30); GMA 4 late season 20 (60); elsewhere 10 (30)."
+  },
+  {
+   "sp": "brant",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Youth / veterans day 2 (2)."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Daily bag",
+   "detail": "Ducks 7, coots 25, Canada geese 3 (GMA 2: 2), white-fronted 6; white geese 10 on Feb 6 only."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Daily bag",
+   "detail": "As youth days."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "7",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "2",
+   "note": "closed Oct 17 – Nov 6"
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scoters",
+   "lim": "3",
+   "note": "western Washington; sea duck harvest card"
+  },
+  {
+   "n": "Long-tailed duck",
+   "lim": "2",
+   "note": "western Washington; sea duck harvest card"
+  },
+  {
+   "n": "Goldeneyes",
+   "lim": "3",
+   "note": "western Washington; sea duck harvest card"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed except 52 permits"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "7",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Hunting hours",
+   "d": "Waterfowl from one-half hour before sunrise to sunset (WDFW’s hours table, inside back cover). GMA 2 geese: from 30 minutes after the start to 30 minutes before the end of those hours."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot",
+   "d": "Nontoxic shot for waterfowl, coots and snipe; nontoxic shot only on the WDFW areas listed in the pamphlet and on National Wildlife Refuges. Shotguns plugged to 3 shells."
+  },
+  {
+   "g": "Special",
+   "t": "Closed areas",
+   "d": "Game reserves are closed to hunting all wild animals and wild birds. Waterfowl, coot and snipe closures on the Columbia, Snake and Yakima rivers (WAC 220-416-070) and Swinomish Spit (no waterfowl, coot or snipe Nov 15 – Mar 31; no brant at any time). Both in red."
+  },
+  {
+   "g": "Special",
+   "t": "Special closures",
+   "d": "Closed to all hunting (not drawn): McNeil Island; GMU 485 Green River and GMU 522 Loo-wit except by permit; Mill Creek Watershed (GMU 157); the Hanford reach of the Columbia (waterfowl allowed below the high-water mark between the old Hanford townsite power line and Richland)."
+  },
+  {
+   "g": "Special",
+   "t": "February goose closures",
+   "d": "GMA 1: listed Skagit and Whatcom WDFW units closed to geese in the February dates. GMA 2: National Wildlife Refuges and WDFW wildlife areas closed to geese in February–March dates (except the Feb 6 youth / veterans day)."
+  },
+  {
+   "g": "Special",
+   "t": "Regulated access areas",
+   "d": "Dungeness, Elk River, Frenchman, Lynch Cove and Union River, Mesa Lake, North Potholes, North Willapa, Samish River and others: waterfowl only on the posted days and rules (WAC 220-416-080)."
+  },
+  {
+   "g": "Boats",
+   "t": "Northern Puget Sound",
+   "d": "No waterfowl, coot or snipe hunting from a moving boat or free-floating device in Port Susan, Skagit, Padilla and Samish bays — anchored or secured to shore only."
+  },
+  {
+   "g": "Gear",
+   "t": "Shell limits",
+   "d": "No more than 15 shells a day on the Skagit Island, Samish, Samish River, Johnson/DeBay’s, South Padilla Bay, Spencer Island and Dungeness units; 25 on the Nisqually unit."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans days",
+   "d": "Youth only: Sept 26 (western Washington), Oct 3 (eastern Washington). Youth, veterans and active military: Feb 6 statewide."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Washington small game licence",
+   "who": "Hunters",
+   "d": "Resident, non-resident or youth, from WDFW."
+  },
+  {
+   "t": "Washington Migratory Bird Permit",
+   "who": "Every migratory bird hunter 16+",
+   "d": "Also your federal HIP registration."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed in ink, or the E-Stamp certificate in hard copy."
+  },
+  {
+   "t": "Migratory Bird Authorization and harvest cards",
+   "who": "Brant, sea ducks (western WA), harlequin, GMA 1 snow geese, all GMA 2 geese",
+   "d": "Record each bird in ink or the MyWDFW app. Reports due Feb 15 (brant, sea duck, harlequin) and Mar 20 (GMA 1 snow goose, GMA 2)."
+  },
+  {
+   "t": "Goose identification test",
+   "who": "GMA 2 goose hunters",
+   "d": "Pass WDFW’s online test (80%) before buying the GMA 2 authorization."
+  }
+ ],
+ "geometryNote": "Geometry: the eastern / western Washington line follows the Pacific Crest Trail (OpenStreetMap) and, in Klickitat and Skamania counties, the White Salmon River; goose area lines follow Census TIGER county lines, Interstate 5 in Snohomish County and US 101 in Grays Harbor County (OpenStreetMap); split against the Census TIGER outline; WDFW closures, game reserves, wildlife areas and water access sites; USGS NHD and GNIS; USFWS (refuge units; NWI marsh); NOAA tides."
+}
