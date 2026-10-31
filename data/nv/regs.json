@@ -1,0 +1,449 @@
+{
+ "state": "NV",
+ "stateName": "Nevada",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "NDOW — 2026-2027 Nevada Small Game Hunting regulations (migratory game birds)",
+   "url": "https://www.eregulations.com/assets/docs/guides/26NVSG_LR.pdf"
+  },
+  {
+   "label": "NDOW — Small Game book, migratory game bird seasons (eRegulations)",
+   "url": "https://www.eregulations.com/nevada/hunting/small-game/migratory-game-bird-seasons"
+  },
+  {
+   "label": "NDOW GIS — wildlife management areas and WMA features",
+   "url": "https://services.arcgis.com/RyxlXSfFi87rAosq/arcgis/rest/services/NDOWWMAs/FeatureServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes, boat ramps",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "ne": {
+   "name": "Northeast Zone",
+   "short": "Northeast",
+   "bounds": "Elko, Eureka, Lander and White Pine counties.",
+   "note": "Ducks and geese Sept 26 – Dec 1 and Dec 12 – Jan 18 (closed Dec 2–11). Snow and Ross’s geese from Oct 10, plus Feb 22 – Mar 7. Ruby Valley closed to snow and Ross’s geese."
+  },
+  "nw": {
+   "name": "Northwest Zone",
+   "short": "Northwest",
+   "bounds": "Carson City, Churchill, Douglas, Humboldt, Lyon, Mineral, Pershing, Storey and Washoe counties.",
+   "note": "Ducks and geese Oct 17 – Jan 3 and Jan 6–31 (closed Jan 4–5). Snow and Ross’s geese from Oct 31, plus Feb 22 – Mar 7. Swans by permit in Churchill, Lyon and Pershing."
+  },
+  "so": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "Esmeralda, Lincoln, Nye and Clark counties.",
+   "note": "Ducks and geese Oct 17–25 and Oct 28 – Jan 31 (closed Oct 26–27). Moapa Valley (to the Muddy / Virgin confluence) opens Oct 31."
+  }
+ },
+ "seasonsNote": "Three zones by county. Each zone has a short mid-season closure. The Moapa Valley part of the South Zone opens later (Oct 31) and is not drawn separately.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks and mergansers",
+   "z": {
+    "ne": [
+     [
+      "2026-09-26",
+      "2026-12-01"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-18"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-10-17",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-31"
+     ]
+    ],
+    "so": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Moapa Valley: Oct 31 – Jan 31."
+  },
+  {
+   "sp": "scaup",
+   "label": "Scaup",
+   "z": {
+    "ne": [
+     [
+      "2026-09-26",
+      "2026-12-01"
+     ],
+     [
+      "2026-12-12",
+      "2026-12-30"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-11-05",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-31"
+     ]
+    ],
+    "so": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "coot",
+   "label": "Coots and gallinules",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canada",
+   "label": "Canada and cackling geese, brant",
+   "z": {
+    "ne": [
+     [
+      "2026-09-26",
+      "2026-12-01"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-18"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-10-17",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-31"
+     ]
+    ],
+    "so": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Singly or in the aggregate. Moapa Valley: Oct 31 – Jan 31."
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "z": {
+    "ne": [
+     [
+      "2026-09-26",
+      "2026-12-01"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-18"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-10-17",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-31"
+     ]
+    ],
+    "so": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "snow",
+   "label": "Snow and Ross’s geese",
+   "z": {
+    "ne": [
+     [
+      "2026-10-10",
+      "2026-12-01"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-18"
+     ],
+     [
+      "2027-02-22",
+      "2027-03-07"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-10-31",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-31"
+     ],
+     [
+      "2027-02-22",
+      "2027-03-07"
+     ]
+    ],
+    "so": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-10-28",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Ruby Valley (Elko and White Pine) closed. Mason Valley and Scripps / Washoe Lake WMAs closed Feb 22 – Mar 7, when the three-shell limit and the call ban do not apply."
+  },
+  {
+   "sp": "swan",
+   "label": "Swans (by permit)",
+   "z": {
+    "nw": [
+     [
+      "2026-10-17",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Churchill, Lyon and Pershing counties only; one swan per permit, two permits a season; mandatory check-in within 3 days; closes if 10 trumpeter swans are taken."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "ne": [
+     [
+      "2026-09-19",
+      "2026-09-20"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-10-03",
+      "2026-10-03"
+     ],
+     [
+      "2027-02-13",
+      "2027-02-13"
+     ]
+    ],
+    "so": [
+     [
+      "2027-02-13",
+      "2027-02-14"
+     ]
+    ]
+   },
+   "note": "Hunters 17 and under with an adult 18+ who may not hunt. Moapa Valley portion of Overton WMA: Oct 24."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "7",
+   "poss": "21",
+   "detail": "Seven ducks and mergansers, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "scaup",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Inside the 7."
+  },
+  {
+   "sp": "coot",
+   "daily": "25",
+   "poss": "75",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada and cackling geese and brant together."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": "Snow and Ross’s geese together."
+  },
+  {
+   "sp": "swan",
+   "daily": "1",
+   "poss": "1 per permit",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "7",
+   "note": "no more than 2 hens or Mexican ducks"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "2",
+   "note": "during the scaup season"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "7",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot and shells",
+   "d": "Nontoxic shot for ducks, mergansers, geese, swans, coots, gallinules and snipe. Shotguns plugged to 3 shells (not during the Feb 22 – Mar 7 light goose season)."
+  },
+  {
+   "g": "Special",
+   "t": "Mid-season closures",
+   "d": "All waterfowl seasons closed Dec 2–11 (Northeast), Jan 4–5 (Northwest) and Oct 26–27 (South)."
+  },
+  {
+   "g": "Special",
+   "t": "Areas and WMAs",
+   "d": "Ruby Valley (Elko and White Pine) closed to snow and Ross’s geese. WMA rules vary (e.g. Mason Valley Sat/Sun/Wed hunting, Overton by reservation, Key Pittman no motorized boats, Carson Lake permit) — see NDOW’s WMA and areas-closed pages. Not drawn."
+  },
+  {
+   "g": "Transport",
+   "t": "Identification",
+   "d": "A head or fully feathered wing must stay attached while birds are transported home."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Nevada hunting or combination licence",
+   "who": "Hunters",
+   "d": "Non-residents hunting swans need a combination licence."
+  },
+  {
+   "t": "HIP validation number",
+   "who": "Every migratory bird hunter (except residents under 12)",
+   "d": "Free, July 1 – March 10; record it on your licence."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": ""
+  },
+  {
+   "t": "Swan hunt permit",
+   "who": "Swan hunters",
+   "d": "Drawing (apply Aug 17 – Sept 9); leftovers first come, first served."
+  }
+ ],
+ "geometryNote": "Geometry: zone lines are Census TIGER county lines, split against the Census TIGER outline; NDOW wildlife management areas and WMA boat launches; OpenStreetMap boat ramps; USGS NHD and GNIS; USFWS (refuge units; NWI marsh)."
+}

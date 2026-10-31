@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon and California: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California and Nevada: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1174,7 +1174,11 @@ var STATES = {
   ca: { name: 'California', abbr: 'CA', bounds: [[32.53, -124.48], [42.01, -114.13]],
         zones: ['ne', 'bos', 'ssjv', 'so', 'cr'],
         colors: { ne: '#5b7fb8', bos: '#8a9a4e', ssjv: '#b08a4e', so: '#4f9e9a', cr: '#a0705a' },
-        extras: ['closed'], attrib: 'CDFW · USGS NHD' }
+        extras: ['closed'], attrib: 'CDFW · USGS NHD' },
+  nv: { name: 'Nevada', abbr: 'NV', bounds: [[35.00, -120.01], [42.00, -114.04]],
+        zones: ['ne', 'nw', 'so'],
+        colors: { ne: '#5b7fb8', nw: '#8a9a4e', so: '#b08a4e' },
+        extras: [], attrib: 'NDOW · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]
