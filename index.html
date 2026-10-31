@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California and Nevada: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California, Nevada, Minnesota and Idaho: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1131,6 +1131,10 @@ var STATES = {
         zones: ['n', 'c', 's'],
         colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
         extras: ['closed'], attrib: 'Iowa DNR · USGS NHD' },
+  mn: { name: 'Minnesota', abbr: 'MN', bounds: [[43.49, -97.25], [49.39, -89.48]],
+        zones: ['n', 'c', 's'],
+        colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
+        extras: ['closed'], attrib: 'Minnesota DNR · USGS NHD' },
   ks: { name: 'Kansas', abbr: 'KS', bounds: [[36.99, -102.06], [40.01, -94.58]],
         zones: ['hp', 'e', 'l', 'se'],
         colors: { hp: '#c9893c', e: '#5b7fb8', l: '#8a9a4e', se: '#a45b8f' },
@@ -1178,7 +1182,11 @@ var STATES = {
   nv: { name: 'Nevada', abbr: 'NV', bounds: [[35.00, -120.01], [42.00, -114.04]],
         zones: ['ne', 'nw', 'so'],
         colors: { ne: '#5b7fb8', nw: '#8a9a4e', so: '#b08a4e' },
-        extras: [], attrib: 'NDOW · USGS NHD' }
+        extras: [], attrib: 'NDOW · USGS NHD' },
+  id: { name: 'Idaho', abbr: 'ID', bounds: [[41.99, -117.24], [49.00, -111.04]],
+        zones: ['pan', 'nc', 'sw', 'cam', 'bl', 'mv', 'se', 'e4', 'e1', 'g4'],
+        colors: { pan: '#4f9e9a', nc: '#5b7fb8', sw: '#8a9a4e', cam: '#9a8a4e', bl: '#7a8fc4', mv: '#b08a4e', se: '#a0705a', e4: '#8c6fa8', e1: '#6f9a6f', g4: '#c47a7a' },
+        extras: ['closed'], attrib: 'IDFG · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]

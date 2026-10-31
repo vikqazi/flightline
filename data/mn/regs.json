@@ -1,0 +1,492 @@
+{
+ "state": "MN",
+ "stateName": "Minnesota",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "Minnesota DNR — Waterfowl hunting (seasons, zone map)",
+   "url": "https://www.dnr.state.mn.us/hunting/waterfowl/index.html"
+  },
+  {
+   "label": "Minnesota DNR — 2026 Minnesota Hunting & Trapping Regulations (updated 9.14.26: waterfowl pp. 40-51, licences pp. 16-25, refuges pp. 113-117, tribal lands p. 127)",
+   "url": "https://files.dnr.state.mn.us/rlp/regulations/hunting/full_regs.pdf"
+  },
+  {
+   "label": "Minnesota Rules 6240.0620 — Waterfowl Zones",
+   "url": "https://www.revisor.mn.gov/rules/6240.0620/"
+  },
+  {
+   "label": "Minnesota DNR — waterfowl hunting zones map",
+   "url": "https://images.dnr.state.mn.us/recreation/hunting/waterfowl/waterfowl_zones.png"
+  },
+  {
+   "label": "Minnesota DNR open data — Wildlife Management Area boundaries, State Parks open to hunting, State Forests, Walk-In Access, Public Water Access Sites, Migratory Waterfowl Feeding and Resting Areas (Minnesota Geospatial Commons)",
+   "url": "https://gis.data.mn.gov/"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (the zone lines run on MN-210, MN-23, MN-39, US-212, I-494 and I-94)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions, reservations and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh of 5 acres and up, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North Zone: that part of Minnesota north of a line that begins on Minnesota Highway 210 at the North Dakota border (Breckenridge), runs along MN-210 to Minnesota Highway 23, along MN-23 to Minnesota Highway 39, and along MN-39 to the Wisconsin border (Duluth, Fond du Lac). Applies to ducks and geese (Minn. R. 6240.0620 subp. 2).",
+   "note": "Ducks Sept 26 – Nov 24. Geese Sept 26 – Dec 25."
+  },
+  "c": {
+   "name": "Central Zone",
+   "short": "Central",
+   "bounds": "Central Zone: the remainder of the state, between the North Zone line (MN-210 / MN-23 / MN-39) and the South Zone line (US-212 / I-494 / I-94). The Twin Cities metro lies on the south side of I-494 and I-94 and is in the South Zone; areas north and east of I-94 (Anoka, Stillwater side) are in the Central Zone (Minn. R. 6240.0620 subp. 4).",
+   "note": "Ducks Sept 26 – Oct 4, Oct 10 – Nov 29. Geese Sept 26 – Oct 4, Oct 10 – Dec 30."
+  },
+  "s": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "South Zone: that part of Minnesota south of a line that begins at the South Dakota border on U.S. Highway 212, runs along US-212 to Interstate 494, along I-494 to Interstate 94, and along I-94 to the Wisconsin border (the St. Croix River at Hudson). The DNR zone map draws I-494 on the north and west side of the metro up to I-94 at Maple Grove, then I-94 east through Minneapolis-St. Paul, so the whole metro lies south of the line (Minn. R. 6240.0620 subp. 3).",
+   "note": "Ducks Sept 26 – Oct 4, Oct 17 – Dec 6. Geese Sept 26 – Oct 4, Oct 17 – Jan 6."
+  }
+ },
+ "seasonsNote": "Minnesota has three zones for ducks, coots, mergansers and geese (North, Central, South) with the same boundaries for both, set in rule. The early goose season (Sept 5–20), the September teal season (Sept 5–9) and the youth hunt (Sept 12–13) are statewide. Shooting hours are one-half hour before sunrise to sunset (teal season: sunrise to sunset). The possession limit is three times the daily limit; on opening day you may not possess more than the daily limit. Minnesota has no Sunday restriction in the 2026 waterfowl pages. The Light Goose Conservation Action runs February to April 2027 (dates were not printed in the booklet).",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n": [
+     [
+      "2026-09-26",
+      "2026-11-24"
+     ]
+    ],
+    "c": [
+     [
+      "2026-09-26",
+      "2026-10-04"
+     ],
+     [
+      "2026-10-10",
+      "2026-11-29"
+     ]
+    ],
+    "s": [
+     [
+      "2026-09-26",
+      "2026-10-04"
+     ],
+     [
+      "2026-10-17",
+      "2026-12-06"
+     ]
+    ]
+   },
+   "note": "Shooting hours: one-half hour before sunrise to sunset. Scaup (bluebill): 1 a day through Oct 10 in the North Zone, through Oct 15 in the Central Zone and through Oct 22 in the South Zone; 2 a day after that."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck",
+   "note": "Same dates as the duck zone you are hunting. No more than 2 hooded mergansers in the daily limit of 5."
+  },
+  {
+   "sp": "coot",
+   "label": "Coots and moorhens (gallinules)",
+   "sameAs": "duck",
+   "note": "Same dates as the duck zone you are hunting."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-09"
+    ]
+   ],
+   "note": "Blue-winged, green-winged and cinnamon teal only, 6 a day combined. Shooting hours sunrise to sunset. Restrictions on wild-rice waters within the Mille Lacs, Leech Lake and White Earth reservations (tribal authorities)."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Early goose season",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-20"
+    ]
+   ],
+   "note": "Canada geese, white-fronted geese and brant: 5 a day combined. Snow, blue and Ross’s geese: 20 a day. Hunting over water is legal statewide in September. No special permit is required. Most state game refuges are closed except where the booklet lists them open (p. 117)."
+  },
+  {
+   "sp": "canada",
+   "label": "Geese — Canada, white-fronted, brant",
+   "z": {
+    "n": [
+     [
+      "2026-09-26",
+      "2026-12-25"
+     ]
+    ],
+    "c": [
+     [
+      "2026-09-26",
+      "2026-10-04"
+     ],
+     [
+      "2026-10-10",
+      "2026-12-30"
+     ]
+    ],
+    "s": [
+     [
+      "2026-09-26",
+      "2026-10-04"
+     ],
+     [
+      "2026-10-17",
+      "2027-01-06"
+     ]
+    ]
+   },
+   "note": "5 a day combined (Canada, white-fronted geese and brant). Snow, blue and Ross’s geese: 20 a day."
+  },
+  {
+   "sp": "snow",
+   "label": "White geese — snow, blue, Ross’s",
+   "sameAs": "canada",
+   "note": "Same dates as the goose season in each zone. 20 a day. A Light Goose Conservation Action runs in February, March and April 2027; a Light Goose Conservation Permit ($2.50) is needed to take light geese in it."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "sameAs": "canada",
+   "note": "Counted in the 5-a-day Canada / white-fronted / brant limit."
+  },
+  {
+   "sp": "whitefront",
+   "label": "Greater white-fronted geese",
+   "sameAs": "canada",
+   "note": "Counted in the 5-a-day Canada / white-fronted / brant limit."
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (Virginia and sora)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "Woodcock",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-11-02"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-13"
+    ]
+   ],
+   "note": "Hunters 17 and younger accompanied by a non-hunting adult 18 or older may take ducks, geese, mergansers, coots and moorhens, one-half hour before sunrise to sunset, same limits as the regular seasons. Ages 13 to 17 need a firearms safety certificate or apprentice hunter validation. No hunting licence or state waterfowl stamp is needed, but youths 16 and older need the federal duck stamp."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks including no more than 4 mallards (no more than 2 hens), 3 wood ducks, 3 pintails, 2 redheads, 2 canvasbacks and 2 black ducks. Scaup: 1 a day until Oct 10 (North), Oct 15 (Central) or Oct 22 (South), then 2 a day. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Coots and moorhens (gallinules) share the limit of 15."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Blue-winged, green-winged and cinnamon teal combined."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Early season: Canada, white-fronted and brant 5 a day combined; snow, blue and Ross’s geese 20 a day."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada geese, white-fronted geese and brant: 5 a day combined."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": "Snow, blue and Ross’s geese: 20 a day."
+  },
+  {
+   "sp": "brant",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Part of the 5-a-day combined limit."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Part of the 5-a-day combined limit."
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails, 25 combined (the table lines were matched to rows from the PDF text order)."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same daily and possession limits as the regular seasons."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hen mallards"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup (bluebill)",
+   "lim": "1 or 2",
+   "note": "1 a day through Oct 10 (North), Oct 15 (Central) or Oct 22 (South); 2 a day after that."
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots and moorhens",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag (teal, ring-necks and other species have no separate limit)"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for the entire season for ducks, geese, mergansers, coots, moorhens, rails, snipe and sandhill cranes; teal hours in the September teal season begin at sunrise. Falconry hunting hours are the same."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "It is unlawful to take geese, ducks, mergansers, coots, moorhens or sandhill cranes with lead shot or while having any lead shot in possession; only shot approved by the U.S. Fish and Wildlife Service may be used. Lead is also not allowed for other small game in federal wildlife refuges and Waterfowl Production Areas."
+  },
+  {
+   "g": "Gear",
+   "t": "Decoys, motorized decoys and electronic devices",
+   "d": "Motorized (including remote-controlled) decoys are legal statewide during the waterfowl seasons. Radios, cell phones and drones may not be used to take game, and unattended electronic devices may not be used to take wild animals. Aeration systems may not be used to create open water to attract or delay migrating waterfowl on public waters."
+  },
+  {
+   "g": "Gear",
+   "t": "Blinds and sink boxes",
+   "d": "You cannot set up a blind in public waters or on public land more than one hour before waterfowl season starts. It is illegal to take migratory waterfowl, coots or rails from a sink box or from a permanent blind in public waters (layout boats are not sink boxes). Any blind left unused on public land or in public waters belongs to the public. Cattails and bulrushes cut above the waterline may be used for blinds."
+  },
+  {
+   "g": "Gear",
+   "t": "Decoys on the water",
+   "d": "No decoys in public waters more than one hour before the open season. Decoys may not be placed on public lands or in public waters more than two hours before legal shooting hours, cannot be left on public waters between sunset and two hours before shooting time, and cannot be unattended for more than three hours (exceptions near private land you control where there is too little vegetation to hide a hunter)."
+  },
+  {
+   "g": "Special",
+   "t": "Taking in open water",
+   "d": "You may not take migratory waterfowl, coots or rails in open water unless you are within a natural growth of vegetation sufficient to partly conceal you (and your boat), pursuing or shooting wounded birds, on a river or stream not more than 100 yards wide, or hunting on one of these waters: the Mississippi River from the U.S. 61 bridge at Hastings to the Iowa border (from anchored boats not more than 100 feet from any shoreline, including islands); Lake Pepin, Lake of the Woods and Lake Mille Lacs (from anchored boats); Lake Superior (from an anchored boat in Minnesota waters north and east of the Minnesota Point / Park Point peninsula)."
+  },
+  {
+   "g": "Special",
+   "t": "Boats",
+   "d": "You can take migratory waterfowl from a boat that is drifting, anchored, beached, moored or moved by paddle, oars or pole. From a motorboat or sailboat only if the motor is off, the sails are rolled up and the boat is not moving. Firearms must be unloaded when travelling by a boat with a motor or sail, and unloaded and cased within Anoka, Hennepin and Ramsey counties and within a city of 2,500 or more. You cannot leave a hunting boat unattended on public waters between sunset and one hour before sunrise unless it is next to private land you control and there is not enough natural vegetation to hide it. Clean, drain and dry boats and gear (aquatic invasive species law); remove drain plugs before transporting."
+  },
+  {
+   "g": "Special",
+   "t": "Migratory waterfowl feeding and resting areas",
+   "d": "On 46 designated lake units motorized boats are limited to trolling motors of 12 volts or less (e.g. Puposky, Tiger, Bear, Heron, Wakanda, Turtle, Nelson) or are banned (e.g. Cottonwood, Big Rice, Upper Rice, Goose, Mud, Lake Henry, Scotch, Pleasant, Washington, Lake Johanna) during the waterfowl seasons. Drawn as amber areas from the DNR delineations. Airboats are banned at all times on about 70 listed lakes (booklet p. 45; not drawn)."
+  },
+  {
+   "g": "Special",
+   "t": "Controlled hunting zones and game refuges",
+   "d": "Designated hunting stations only, first come first served, no occupying or parking in a station from 10 p.m. to 5 a.m., no alcohol, nothing left behind: Roseau River, Thief Lake, Orwell, Lac qui Parle and Talcot Lake. Lac qui Parle Game Refuge: waterfowl hunting at stations from October 17 (page 46) / October 19 (page 113) through the end of the goose season (the booklet prints both; confirm with the DNR); portions posted \"State Wildlife Sanctuary\" are closed. Talcot Lake Game Refuge: open at stations during the regular goose season only; the Talcot Lake Waterfowl Refuge is closed except for persons with disabilities hunting geese at stations, and all waterfowl hunting is prohibited upon or from 1.5 miles of MN-62 along its south side."
+  },
+  {
+   "g": "Special",
+   "t": "Duck refuges and sanctuaries",
+   "d": "From September 1 through the final day of the duck season, or as otherwise posted, you may not hunt, trap, fish or trespass on portions of state wildlife management areas or federal waterfowl production areas posted to prohibit trespass. State goose or waterfowl refuges are closed to goose or waterfowl hunting (as posted) except where the booklet lists them open (p. 117: e.g. Clay County, Evansville, Moscow, Ocheda Lake, Rochester, Harstad Slough and Rickert Waterfowl refuge for the early goose season). Other state game refuges (booklet table, p. 114-117) have their own rules for ducks; they are not drawn. The map shows the DNR-flagged sanctuary WMAs as approximate outlines."
+  },
+  {
+   "g": "Special",
+   "t": "Tribal lands",
+   "d": "Lands of the Red Lake Band of Ojibwe (Beltrami, Koochiching, Lake of the Woods and Roseau counties) are closed to non-band members except by authorization of the tribal council. Nett Lake is closed to hunting by non-band members, except for duck hunting with a band-member guide. Other reservations may be open to non-members by authorization of the tribe (Leech Lake, Fond du Lac, Mille Lacs, White Earth contacts are listed on p. 127); state laws and licences still apply. Early teal season: no taking of teal on wild-rice waters identified by the tribes within the Mille Lacs, Leech Lake and White Earth reservations (half a mile of posted rice beds at Leech Lake)."
+  },
+  {
+   "g": "Special",
+   "t": "National wildlife refuges and public land",
+   "d": "Parts of the federal refuges in Minnesota are closed to hunting, and others limit species, dates or methods: contact the refuge. Motor use (including trolling motors) is prohibited on most state WMAs, federal waterfowl production areas and national wildlife refuges (booklet p. 109-126). Walk-In Access land needs the Walk-In Access validation."
+  },
+  {
+   "g": "Special",
+   "t": "Sunday",
+   "d": "The 2026 waterfowl pages list no Sunday restriction on waterfowl hunting."
+  },
+  {
+   "g": "Special",
+   "t": "Swans",
+   "d": "Tundra and trumpeter swans are not legal game birds. Do not shoot a swan."
+  },
+  {
+   "g": "Special",
+   "t": "Falconry",
+   "d": "Special falconry season (3 a day, 9 in possession, combined for all migratory game birds): North Zone Sept 26 – Nov 24 and Dec 12 – Jan 20; Central Sept 26 – Oct 4, Oct 10 – Nov 29 and Dec 12 – Jan 20; South Sept 26 – Oct 4, Oct 17 – Dec 6 and Dec 12 – Jan 20."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Ducks and all other migratory game birds (except doves) must be transported with one fully feathered wing attached. Retrieval: you may not kill or injure a migratory game bird without a reasonable effort to find it and include it in the daily limit. On opening day you may not possess more than the daily limit."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Minnesota small game licence",
+   "who": "Hunters 16 and older (youth 15 and younger need none)",
+   "d": "Resident adult 18–64 $22; senior 65+ $13.50; resident youth 16–17 $5. Adult 72-hour licence $19 (72-hour state waterfowl and pheasant stamp validations included). The nonresident small game licence fee was not read reliably from the booklet table; see mndnr.gov/buyalicense."
+  },
+  {
+   "t": "State waterfowl stamp validation",
+   "who": "Residents 18–64 and nonresidents 16+ (residents 16–17 not required)",
+   "d": "Required to take ducks and geese; not required with a super sports licence, a 72-hour licence, on military leave or on your own property. The fee is on the licence page of the DNR (the booklet table extracts with scrambled columns)."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "Required. The electronic validation is valid for the whole season (post offices, licence vendors, online, MN DNR licensing app); the pictorial stamp is mailed after March 10."
+  },
+  {
+   "t": "HIP certification",
+   "who": "Every migratory bird or waterfowl hunter (not sandhill cranes)",
+   "d": "Say yes when you buy your licence, or get a HIP receipt online or in the MN DNR licensing app. Free."
+  },
+  {
+   "t": "Light Goose Conservation Permit and Sandhill Crane Permit",
+   "who": "Spring light-goose action; sandhill crane hunters",
+   "d": "Light Goose Conservation Permit $2.50 (for the February to April 2027 action). Sandhill Crane Permit $3 for all crane hunters (zone only, Sept 12 – Oct 18)."
+  }
+ ],
+ "geometryNote": "Geometry: the North / Central line is routed on OpenStreetMap along MN-210 (North Dakota line at Breckenridge to MN-23 at Fond du Lac), MN-23 and MN-39 to the Wisconsin line at Duluth; the Central / South line is routed along US-212 from the South Dakota line to I-494, I-494 north and west around the metro to I-94 at Maple Grove, and I-94 to the St. Croix: the roads Minn. R. 6240.0620 names, read with the DNR zone map. OSM breaks on MN-210 at Brainerd (MN-25 concurrency) and a few ways were bridged; the I-494 / I-94 interchange joins two ways about 0.3 km apart. Ends are clipped to the Census outline. Zone edges at Wisconsin, Iowa and Lake Superior (Michigan) are the shared Census border welded into both states; the borders with North Dakota and South Dakota are the plain Census outline (those states are not yet in the app). Refuge and closed-area outlines are whole DNR areas or reservations, not the posted parts."
+}

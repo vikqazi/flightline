@@ -1,0 +1,622 @@
+{
+ "state": "ID",
+ "stateName": "Idaho",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "IDFG — 2026-2027 Idaho Migratory Game Bird Seasons & Rules (PDF; read from the Internet Archive copy while idfg.idaho.gov returned 503)",
+   "url": "https://idfg.idaho.gov/sites/default/files/migratorygame2026-2027_web.pdf"
+  },
+  {
+   "label": "Internet Archive copy of the IDFG booklet",
+   "url": "http://web.archive.org/web/2026/https://idfg.idaho.gov/sites/default/files/migratorygame2026-2027_web.pdf"
+  },
+  {
+   "label": "USGS Watershed Boundary Dataset — Blackfoot Reservoir drainage (HUC10 1704020701–03)",
+   "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer"
+  },
+  {
+   "label": "USDA Forest Service — Caribou-Targhee National Forest boundary",
+   "url": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_ForestSystemBoundaries_01/MapServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes, Power Plant Road, boat ramps",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "pan": {
+   "name": "Panhandle",
+   "short": "Panhandle",
+   "bounds": "Benewah, Bonner, Boundary, Kootenai and Shoshone counties.",
+   "note": "Duck Area 3 · Canada goose Area 3 · white-fronted Area 4 · light goose Area 5."
+  },
+  "sw": {
+   "name": "Southwest",
+   "short": "Southwest",
+   "bounds": "Ada, Boise, Canyon, Elmore, Gem, Owyhee, Payette and Washington counties.",
+   "note": "Duck Area 1 · Canada goose Area 1 · white-fronted Area 3 · light goose Area 3."
+  },
+  "cam": {
+   "name": "Camas County",
+   "short": "Camas County",
+   "bounds": "Camas County.",
+   "note": "Duck Area 1 · Canada goose Area 1 · white-fronted Area 2 · light goose Area 3."
+  },
+  "nc": {
+   "name": "North Central",
+   "short": "North Central",
+   "bounds": "Adams, Clearwater, Custer, Idaho, Latah, Lemhi, Lewis and Nez Perce counties.",
+   "note": "Duck Area 1 · Canada goose Area 1 · white-fronted Area 2 · light goose Area 2."
+  },
+  "e1": {
+   "name": "Upper Snake (east of I-15)",
+   "short": "Upper Snake (east of I-15)",
+   "bounds": "Fremont, Madison, Teton and Valley counties, and Bonneville, Clark and Jefferson counties east of I-15.",
+   "note": "Duck Area 2 · Canada goose Area 2 · white-fronted Area 1 · light goose Area 1."
+  },
+  "e4": {
+   "name": "Upper Snake (west of I-15)",
+   "short": "Upper Snake (west of I-15)",
+   "bounds": "Butte County, and Bonneville, Clark and Jefferson counties west of I-15.",
+   "note": "Duck Area 2 · Canada goose Area 2 · white-fronted Area 1 · light goose Area 4."
+  },
+  "g4": {
+   "name": "Bear Lake / Blackfoot Reservoir",
+   "short": "Bear Lake / Blackfoot Reservoir",
+   "bounds": "Bear Lake County; Bingham County within the Blackfoot Reservoir drainage; Caribou County north and east of the Hwy 30 – Power Plant Road – Alexander Dam – Caribou-Targhee NF line.",
+   "note": "Duck Area 2 · Canada goose Area 4 · white-fronted Area 1 · light goose Area 1."
+  },
+  "mv": {
+   "name": "Magic Valley",
+   "short": "Magic Valley",
+   "bounds": "Cassia, Gooding, Jerome, Lincoln, Minidoka and Twin Falls counties.",
+   "note": "Duck Area 1 · Canada goose Area 3 · white-fronted Area 3 · light goose Area 3."
+  },
+  "bl": {
+   "name": "Blaine County",
+   "short": "Blaine County",
+   "bounds": "Blaine County.",
+   "note": "Duck Area 1 · Canada goose Area 3 · white-fronted Area 2 · light goose Area 3."
+  },
+  "se": {
+   "name": "Southeast",
+   "short": "Southeast",
+   "bounds": "Bannock, Franklin, Oneida and Power counties; Bingham County outside the Blackfoot Reservoir drainage; Caribou County south and west of the Hwy 30 – Alexander Dam – Caribou-Targhee NF line.",
+   "note": "Duck Area 1 · Canada goose Area 3 · white-fronted Area 2 · light goose Area 4."
+  }
+ },
+ "seasonsNote": "Idaho sets separate hunt areas for ducks (3), Canada geese (4), white-fronted geese (4) and light geese (5). Each map piece shows the area numbers it falls in.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks and mergansers",
+   "z": {
+    "pan": [
+     [
+      "2026-10-10",
+      "2027-01-22"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "cam": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "nc": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "e1": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "e4": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "mv": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "bl": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "se": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "scaup",
+   "label": "Scaup",
+   "z": {
+    "pan": [
+     [
+      "2026-10-29",
+      "2027-01-22"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "cam": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "nc": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "e1": [
+     [
+      "2026-10-03",
+      "2026-12-27"
+     ]
+    ],
+    "e4": [
+     [
+      "2026-10-03",
+      "2026-12-27"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-10-03",
+      "2026-12-27"
+     ]
+    ],
+    "mv": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "bl": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "se": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese",
+   "z": {
+    "pan": [
+     [
+      "2026-11-03",
+      "2027-02-15"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "cam": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "nc": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "e1": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "e4": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-09-01",
+      "2026-09-15"
+     ],
+     [
+      "2026-10-03",
+      "2026-12-31"
+     ]
+    ],
+    "mv": [
+     [
+      "2026-11-03",
+      "2027-02-15"
+     ]
+    ],
+    "bl": [
+     [
+      "2026-11-03",
+      "2027-02-15"
+     ]
+    ],
+    "se": [
+     [
+      "2026-11-03",
+      "2027-02-15"
+     ]
+    ]
+   },
+   "note": "Canada goose Area 4 (Bear Lake / Blackfoot Reservoir) also opens Sept 1–15."
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "z": {
+    "pan": [
+     [
+      "2026-10-10",
+      "2027-01-22"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-11-03",
+      "2027-02-15"
+     ]
+    ],
+    "cam": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "nc": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "e1": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "e4": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "mv": [
+     [
+      "2026-11-03",
+      "2027-02-15"
+     ]
+    ],
+    "bl": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "se": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese (snow, blue, Ross’s)",
+   "z": {
+    "pan": [
+     [
+      "2026-10-10",
+      "2027-01-22"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-10-19",
+      "2026-12-24"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "cam": [
+     [
+      "2026-10-19",
+      "2026-12-24"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "nc": [
+     [
+      "2026-10-19",
+      "2027-01-31"
+     ]
+    ],
+    "e1": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "e4": [
+     [
+      "2026-10-03",
+      "2026-12-23"
+     ],
+     [
+      "2027-02-16",
+      "2027-03-10"
+     ]
+    ],
+    "g4": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "mv": [
+     [
+      "2026-10-19",
+      "2026-12-24"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "bl": [
+     [
+      "2026-10-19",
+      "2026-12-24"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "se": [
+     [
+      "2026-10-03",
+      "2026-12-23"
+     ],
+     [
+      "2027-02-16",
+      "2027-03-10"
+     ]
+    ]
+   },
+   "note": "Light goose Areas 3 and 4, Feb 16 – Mar 10: electronic calls and unplugged shotguns allowed. Fort Boise and Payette River WMAs, Roswell Marsh south of SH 18 and Deer Flat NWR Snake River Islands closed Feb 1 – Mar 10."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth and veterans / military weekend",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-09-27"
+    ]
+   ],
+   "note": "Ducks, geese and coots at regular limits. Adults may not hunt, except veterans and active military."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "7",
+   "poss": "21",
+   "detail": "Seven ducks including mergansers, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "scaup",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Inside the 7."
+  },
+  {
+   "sp": "coot",
+   "daily": "25",
+   "poss": "75",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "whitefront",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Cut from 10 for 2026-27."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "7",
+   "note": "no more than 2 females"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "2",
+   "note": "during the scaup season"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "7",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset; IDFG prints tables by county group (Pacific and Mountain time)."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot and shells",
+   "d": "Nontoxic shot for waterfowl, coots and snipe. Shotguns limited to 3 shells, except light goose Areas 3 and 4 from Feb 16 to Mar 10."
+  },
+  {
+   "g": "Special",
+   "t": "Closed and restricted areas",
+   "d": "Red: IDFG areas closed to waterfowl or goose hunting (state parks, preserves, Hubbard and Mormon reservoirs, the Spokane River below Post Falls Dam, the Hagerman Valley and the Snake River below Milner Dam for geese, and others). Amber: refuges and areas with designated-area, day or distance rules (Fort Boise, Roswell Marsh, Fort Hall, Mann’s Lake). IDFG booklet pages 27–28."
+  },
+  {
+   "g": "Special",
+   "t": "Swans",
+   "d": "Controlled swan hunt in Benewah, Bonner, Boundary and Kootenai counties only (permit)."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans weekend",
+   "d": "Sept 26–27 statewide. Federal duck stamp not required for hunters 15 and under."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Idaho hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident."
+  },
+  {
+   "t": "Migratory Bird (HIP) Permit",
+   "who": "Every migratory bird hunter",
+   "d": ""
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed in ink."
+  }
+ ],
+ "geometryNote": "Geometry: Census TIGER county lines; I-15 through Bonneville, Clark and Jefferson counties and US 30 / Power Plant Road (OpenStreetMap); the Blackfoot Reservoir drainage (USGS WBD HUC10s 1704020701–03); the Caribou-Targhee National Forest boundary (USFS); split against the Census TIGER outline and welded to Washington, Oregon and Nevada; USGS NHD and GNIS; USFWS (refuge units; NWI marsh)."
+}
