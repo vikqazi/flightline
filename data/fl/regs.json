@@ -1,0 +1,477 @@
+{
+ "state": "FL",
+ "stateName": "Florida",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "FWC — 2026–2027 Migratory Bird Hunting Regulations (eRegulations)",
+   "url": "https://www.eregulations.com/florida/hunting/migratory-bird-hunting-regulations"
+  },
+  {
+   "label": "FWC — Licenses & Permits",
+   "url": "https://www.eregulations.com/florida/hunting/licenses-permits"
+  },
+  {
+   "label": "FWC GIS — Wildlife Management Areas, Florida Boat Ramp Inventory",
+   "url": "https://gis.myfwc.com/mapping/rest/services/Open_Data"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines (Leon County), county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "fl": {
+   "name": "Florida (statewide)",
+   "short": "Statewide",
+   "bounds": "Every Florida migratory bird season is statewide. Seasons and dates may not apply on wildlife management areas.",
+   "note": "One zone. Leon County, Lake Miccosukee and part of the Hernando County Gulf limit waterfowl to Wednesdays, Saturdays and Sundays (amber)."
+  }
+ },
+ "seasonsNote": "Every season is statewide; WMAs set their own. In Leon County and on Lake Miccosukee waterfowl hunting is Wednesdays, Saturdays and Sundays (plus listed holidays) during the regular duck season.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Harlequin ducks closed."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal and wood ducks — September",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-23"
+    ]
+   ],
+   "note": "Teal and wood ducks only; no more than 2 wood ducks in the 6."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-27"
+    ]
+   ]
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-01",
+     "2027-01-30"
+    ]
+   ]
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Snow, blue and Ross’s geese."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-12-18",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-11-01",
+     "2027-02-15"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "King and clapper rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Common gallinules (moorhens)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ],
+   "note": "Purple gallinules may not be taken."
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning and white-winged doves",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-10-18"
+    ],
+    [
+     "2026-11-14",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-19",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2026-11-14"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-13"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / military waterfowl days",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-07"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily bag."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Common, red-breasted and hooded."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters, long-tailed ducks or eiders, and no more than 1 hen eider."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "No more than 2 wood ducks."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "snow",
+   "daily": "15",
+   "poss": "No limit",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "15",
+   "poss": "45",
+   "detail": "King and clapper rails."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Common gallinules (moorhens)."
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Ducks, light geese, Canada geese, mergansers, coots and common gallinules at the regular limits; scaup 2."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "As youth days; scaup 2."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck (Florida duck)",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": "2 in the September season"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 Nov 21–29 and Dec 12 – Jan 11; 2 from Jan 12 and on youth and veterans days"
+  },
+  {
+   "n": "Fulvous whistling-duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, long-tailed ducks or eiders; 1 hen eider"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise until sunset."
+  },
+  {
+   "g": "Hours",
+   "t": "Leon County and Lake Miccosukee",
+   "d": "Waterfowl hunting only on Wednesdays, Saturdays and Sundays during the regular duck season (Nov 21–29, Dec 12 – Jan 31), plus Nov 26–27, Dec 24–25 and 31, and Jan 1 and 18. Lake Talquin and the Ochlockonee River are open every day of the regular duck season. Amber on the map."
+  },
+  {
+   "g": "Hours",
+   "t": "Hernando County Gulf waters",
+   "d": "Ducks, geese and coots only on Wednesdays, Saturdays and Sundays in the state waters of the Gulf in Hernando County north of Raccoon Point and east of Saddle Key, as posted. Not drawn."
+  },
+  {
+   "g": "Gear",
+   "t": "Leon County lakes",
+   "d": "During the regular duck season: no internal combustion engines on Lake Iamonia (except by permit) or Carr Lake, and none over 10 hp on Lake Miccosukee (motors and airboats allowed in September and on youth and veterans days). No hunting from or within 30 yards of a permanent duck blind on Lake Miccosukee and lakes Iamonia, Jackson and Carr."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "No taking ducks, geese or coots while possessing any shot other than approved non-toxic shot."
+  },
+  {
+   "g": "Gear",
+   "t": "Recorded calls",
+   "d": "Recorded or electronic calls are prohibited for migratory birds (and for all game in Florida)."
+  },
+  {
+   "g": "Special",
+   "t": "Closed species",
+   "d": "No taking of harlequin ducks, brant or purple gallinules."
+  },
+  {
+   "g": "Special",
+   "t": "Wildlife management areas",
+   "d": "Statewide seasons and dates may not apply on WMAs; each area’s regulations brochure sets its waterfowl days."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans / military days",
+   "d": "Youth days Nov 14, 2026 and Feb 13, 2027 (15 and under, with a non-hunting adult 18+). Veterans and active-duty military, National Guard and Reserves: Feb 6–7, 2027."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on; tag birds left with others",
+   "d": "Head or one fully feathered wing stays on (except doves) until home or a processor; birds left with anyone else need a signed tag."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Florida hunting licence",
+   "who": "Hunters",
+   "d": "Annual hunting licence $17 resident, $79 non-resident (or a Sportsman’s licence)."
+  },
+  {
+   "t": "Migratory bird permit",
+   "who": "Migratory bird hunters",
+   "d": "No cost; valid Sept 1 – Mar 31."
+  },
+  {
+   "t": "Florida waterfowl permit",
+   "who": "Waterfowl hunters",
+   "d": "$5 resident, $25 non-resident (included in Sportsman’s licences)."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Or the E-Stamp; valid July 1 – June 30."
+  }
+ ],
+ "geometryNote": "Geometry: FWC Wildlife Management Areas and Boat Ramp Inventory; Census TIGER (state outline, Leon County, county subdivisions, borders); USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); NOAA CO-OPS (tides); OpenStreetMap (roads). One statewide zone."
+}
