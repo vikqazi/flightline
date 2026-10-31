@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Tennessee, Alabama, Mississippi, Louisiana, Indiana, Illinois, Arkansas, New Jersey, Michigan, Washington, Wisconsin and Oregon: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon and California: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1123,6 +1123,14 @@ var STATES = {
         zones: ['n', 'c', 's'],
         colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
         extras: ['closed'], attrib: 'Illinois DNR · USGS NHD' },
+  wi: { name: 'Wisconsin', abbr: 'WI', bounds: [[42.49, -92.89], [47.31, -86.25]],
+        zones: ['n', 's'],
+        colors: { n: '#5b7fb8', s: '#c9893c' },
+        extras: ['closed'], attrib: 'Wisconsin DNR · USGS NHD' },
+  ia: { name: 'Iowa', abbr: 'IA', bounds: [[40.37, -96.64], [43.50, -90.14]],
+        zones: ['n', 'c', 's'],
+        colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
+        extras: ['closed'], attrib: 'Iowa DNR · USGS NHD' },
   ks: { name: 'Kansas', abbr: 'KS', bounds: [[36.99, -102.06], [40.01, -94.58]],
         zones: ['hp', 'e', 'l', 'se'],
         colors: { hp: '#c9893c', e: '#5b7fb8', l: '#8a9a4e', se: '#a45b8f' },
@@ -1151,14 +1159,22 @@ var STATES = {
         zones: ['g1', 'g2c', 'g2i', 'g3', 'g4', 'g5'],
         colors: { g1: '#5b7fb8', g2c: '#4f9e9a', g2i: '#7a8fc4', g3: '#8a9a4e', g4: '#b08a4e', g5: '#a0705a' },
         extras: ['closed'], attrib: 'WDFW · USGS NHD' },
-  wi: { name: 'Wisconsin', abbr: 'WI', bounds: [[42.49, -92.89], [47.31, -86.25]],
-        zones: ['n', 's'],
-        colors: { n: '#5b7fb8', s: '#c9893c' },
-        extras: ['closed'], attrib: 'Wisconsin DNR · USGS NHD' },
   or: { name: 'Oregon', abbr: 'OR', bounds: [[41.99, -124.70], [46.30, -116.46]],
         zones: ['nw', 'sw', 'sc', 'mc', 'hd'],
         colors: { nw: '#5b7fb8', sw: '#8a9a4e', sc: '#4f9e9a', mc: '#b08a4e', hd: '#a0705a' },
-        extras: ['closed'], attrib: 'ODFW · USGS NHD' }
+        extras: ['closed'], attrib: 'ODFW · USGS NHD' },
+  ne: { name: 'Nebraska', abbr: 'NE', bounds: [[39.99, -104.06], [43.01, -95.30]],
+        zones: ['z1p', 'z3p', 'l2p', 'l2n', 'l2b', 'h2p', 'h2n', 'h2b'],
+        colors: { z1p: '#5b7fb8', z3p: '#8a9a4e', l2p: '#4f9e9a', l2n: '#7a8fc4', l2b: '#6aa5c9', h2p: '#c9893c', h2n: '#d9a25a', h2b: '#b87a3c' },
+        extras: ['closed'], attrib: 'NGPC · USGS NHD' },
+  sd: { name: 'South Dakota', abbr: 'SD', bounds: [[42.47, -104.07], [45.95, -96.43]],
+        zones: ['hp', 'ln', 'lm', 'ls'],
+        colors: { hp: '#c9893c', ln: '#5b7fb8', lm: '#8a9a4e', ls: '#a45b8f' },
+        extras: ['closed'], attrib: 'GFP · USGS NHD' },
+  ca: { name: 'California', abbr: 'CA', bounds: [[32.53, -124.48], [42.01, -114.13]],
+        zones: ['ne', 'bos', 'ssjv', 'so', 'cr'],
+        colors: { ne: '#5b7fb8', bos: '#8a9a4e', ssjv: '#b08a4e', so: '#4f9e9a', cr: '#a0705a' },
+        extras: ['closed'], attrib: 'CDFW · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]

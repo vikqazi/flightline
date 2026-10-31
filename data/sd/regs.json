@@ -1,0 +1,328 @@
+{
+ "state": "SD",
+ "stateName": "South Dakota",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "GFP — 2026 Nonresident Waterfowl (season dates, units, licences)",
+   "url": "https://gfp.sd.gov/userdocs/docs/nonresidentwaterfowl_.pdf"
+  },
+  {
+   "label": "GFP — Ducks (zones, limits)",
+   "url": "https://gfp.sd.gov/ducks/"
+  },
+  {
+   "label": "GFP — Goose (units, limits, licences)",
+   "url": "https://gfp.sd.gov/goose/"
+  },
+  {
+   "label": "GFP managed lands — open data layer",
+   "url": "https://utility.arcgis.com/usrsvcs/servers/0a01764b6c3b4d13b9af23df1610214b/rest/services/OpenData/SouthDakota_GFPManagedLands/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (the zone lines are routed on them)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "hp": {
+   "name": "High Plains",
+   "short": "HP",
+   "bounds": "High Plains Zone: South Dakota west of a line from the North Dakota line south on US 83 to US 14 (at Blunt); south on the Blunt-Canning Road to SD 34; east and south on SD 34 to SD 50 at Lee’s Corner; south on SD 50 to I-90; east on I-90 to SD 50; south on SD 50 to SD 44; west on SD 44 across the Platte-Winner Bridge to SD 47; south on SD 47 to US 18; east on US 18 to SD 47; south on SD 47 to the Nebraska line (GFP).",
+   "note": "Ducks Oct 10 – Jan 14."
+  },
+  "ln": {
+   "name": "Low Plains North",
+   "short": "LP-N",
+   "bounds": "Low Plains – North Zone: east of the High Plains boundary and north of a line from the junction of US 83 and US 212 east on US 212 to the Minnesota line (GFP).",
+   "note": "Ducks Sept 26 – Dec 8."
+  },
+  "lm": {
+   "name": "Low Plains Middle",
+   "short": "LP-M",
+   "bounds": "Low Plains – Middle Zone: east of the High Plains boundary, south of the US 83 / US 212 line and north of the South zone line: SD 47 at the Nebraska line north to SD 44; east on SD 44 to SD 50; south on SD 50 to the Geddes Highway (CFAS 6198) at Geddes; east to US 281; south on US 281 to SD 50; east on SD 50 to I-29; south on I-29 to the Iowa line (GFP).",
+   "note": "Ducks Sept 26 – Dec 8."
+  },
+  "ls": {
+   "name": "Low Plains South",
+   "short": "LP-S",
+   "bounds": "Low Plains – South Zone: within a line from the junction of SD 47 and the Nebraska border north on SD 47 to SD 44; east on SD 44 to SD 50; south on SD 50 to the Geddes Highway (CFAS 6198) at Geddes; east to US 281; south on US 281 to SD 50; east on SD 50 to I-29; south on I-29 to the Iowa line (GFP).",
+   "note": "Ducks Oct 24 – Jan 5."
+  }
+ },
+ "seasonsNote": "Duck dates differ by zone. Goose dates differ by goose unit (Unit 1 Oct 1 – Dec 16; Unit 2 Nov 2 – Feb 14), which is NOT mapped: the dark-goose row shows only the days both units are open (Nov 2 – Dec 16). The goose units are listed by county in the Rules tab.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "hp": [
+     [
+      "2026-10-10",
+      "2027-01-14"
+     ]
+    ],
+    "ln": [
+     [
+      "2026-09-26",
+      "2026-12-08"
+     ]
+    ],
+    "lm": [
+     [
+      "2026-09-26",
+      "2026-12-08"
+     ]
+    ],
+    "ls": [
+     [
+      "2026-10-24",
+      "2027-01-05"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canadasept",
+   "label": "Early fall Canada geese (separate licence)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ]
+   ],
+   "note": "Counties open to nonresident hunting; Unit 1 daily limit 8."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese and brant — regular (days both units are open)",
+   "statewide": [
+    [
+     "2026-11-02",
+     "2026-12-16"
+    ]
+   ],
+   "note": "Unit 1 Oct 1 – Dec 16 (daily 8); Unit 2 Nov 2 – Feb 14 (daily 4)."
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-12-08"
+    ]
+   ]
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese — fall",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2027-01-08"
+    ]
+   ],
+   "note": "Snow, blue, Ross’s and other geese except Canada, brant and white-fronted."
+  },
+  {
+   "sp": "youth",
+   "label": "Mentor / youth waterfowl days (nonresident licence)",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-13"
+    ]
+   ],
+   "note": "The date GFP prints for its nonresident mentor/youth licence; the resident youth waterfowl dates were not read."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Traditional limit: 6 with no more than 5 mallards (2 hens), 1 scaup, 3 wood ducks, 2 redheads, 3 pintails, 2 canvasbacks, plus 2 bonus blue-winged teal in the first 9 days. Three-Duck option: 3 ducks of any species or sex (possession 9). Hunters choose when buying the Migratory Bird Certification. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "(in the 6)",
+   "poss": "",
+   "detail": ""
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "8",
+   "poss": "24",
+   "detail": "Unit 1, September 1–30."
+  },
+  {
+   "sp": "canada",
+   "daily": "8 / 4",
+   "poss": "24 / 12",
+   "detail": "Unit 1 daily 8; Unit 2 daily 4; possession three times the daily limit."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read."
+  },
+  {
+   "sp": "snow",
+   "daily": "50",
+   "poss": "Unlimited",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Resident youth rules not read."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5",
+   "note": "no more than 2 hens (traditional limit)"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Bonus blue-winged teal",
+   "lim": "2",
+   "note": "first 9 days of the season only, in addition to the 6"
+  },
+  {
+   "n": "Three-Duck option",
+   "lim": "3",
+   "note": "any species or sex instead of the traditional 6; possession 9"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full traditional bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset (GFP)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Approved non-toxic shot is required: steel, bismuth-tin, tungsten-polymer, tungsten-matrix and approved tungsten alloys. Coated lead does not qualify."
+  },
+  {
+   "g": "Special",
+   "t": "Goose Unit 1",
+   "d": "Counties Aurora, Beadle, Brookings, Brown, Butte, Campbell, Clark, Codington, Corson, Davison, Day, Deuel, Douglas, Edmunds, Faulk, Grant, Haakon, Hamlin, Hand, Hanson, Harding, Hutchinson, Jackson, Jerauld, Jones, Kingsbury, Lake, McCook, McPherson, Marshall, Meade, Mellette, Moody, Miner, Oglala Lakota, Roberts, Sanborn, Spink, Todd, Turner, Walworth and Ziebach; plus parts of Dewey, Potter, Sully, Hyde, Buffalo, Brule, Charles Mix, Bon Homme, Yankton, Clay, Perkins, Lincoln and Minnehaha counties as GFP words them (full road wording on gfp.sd.gov/goose). Unit 2 is everything else. Not mapped."
+  },
+  {
+   "g": "Special",
+   "t": "Antelope Island, Lake Sharpe",
+   "d": "South of Pierre: no waterfowl decoys or hunting blinds may be left in the area between sunset and 5 a.m., and no decoys may be left unattended between 5 a.m. and sunset (GFP). Not drawn."
+  },
+  {
+   "g": "Special",
+   "t": "Spring light goose conservation order",
+   "d": "GFP issues one each spring (light geese reach the eastern third in late February and early March): unlimited daily and possession. Dates not read."
+  },
+  {
+   "g": "Special",
+   "t": "Nonresident units",
+   "d": "Nonresident waterfowl licences are limited and drawn by lottery (units 00A, 00B, 00V, 00X, 00Y, 00Z); one before Nov 1 per hunter. 00B is valid up to two 5-day periods."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Small game licence (residents)",
+   "who": "Residents",
+   "d": "Combination, small game, youth small game, mentored youth small game or 1-day small game licence."
+  },
+  {
+   "t": "South Dakota Migratory Bird Certification",
+   "who": "Residents and nonresidents",
+   "d": "Required in addition; bought on or after July 1 for the 2026 season; the duck-limit option (Traditional or Three-Duck) is chosen here."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Valid July 1, 2026 – June 30, 2027; electronic stamps count."
+  },
+  {
+   "t": "Nonresident waterfowl licence",
+   "who": "Nonresidents",
+   "d": "Lottery; 3-day $106, 10-day or season-long $145, mentor/youth $5, early fall Canada goose $51 (fees on GFP’s 2026 sheet)."
+  }
+ ],
+ "geometryNote": "Geometry: the four duck-zone lines are routed on OpenStreetMap’s numbered routes along the roads in GFP’s wording (the Blunt-Canning Road and the Geddes Highway, county roads OSM’s route pull lacks, are straight segments), split against the Census TIGER outline; GFP managed lands; USGS NHD (water; streams from NHDPlus HR) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER; OpenStreetMap (roads). Goose units, boat ramps and refuge closures are not mapped. No tides."
+}

@@ -1,0 +1,495 @@
+{
+ "state": "CA",
+ "stateName": "California",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "CDFW — Waterfowl hunting, 2026-2027 regulations (seasons and bag limits by zone)",
+   "url": "https://wildlife.ca.gov/hunting/waterfowl"
+  },
+  {
+   "label": "CDFW — Waterfowl Zone Map",
+   "url": "https://wildlife.ca.gov/Portals/0/Images/Regulations/WaterfowlZones.png"
+  },
+  {
+   "label": "USFWS — Final 2025-26 Frameworks, Pacific Flyway area descriptions (California zone wording)",
+   "url": "https://www.federalregister.gov/documents/2025/08/18/2025-15703"
+  },
+  {
+   "label": "CDFW — Public Access Lands (BIOS ds3077)",
+   "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds3077_fpu/FeatureServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes, named zone-line roads, the Santa Maria River, boat ramps",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, bays, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "ne": {
+   "name": "Northeastern Zone",
+   "short": "Northeastern",
+   "bounds": "East and north of I-5 (Oregon line to Weed, via Walters Lane, Easy Street and Old Highway 99 near Yreka), Highway 89, the Greenville / Indian Valley roads, Highway 70 and Highway 395 to the Nevada line.",
+   "note": "Ducks Oct 3 – Jan 13. Canada geese Oct 3 – Jan 10; white and white-fronted Oct 3 – Nov 29 and Jan 1–13, late Feb 5 – Mar 10. Klamath Basin SMA: white and white-fronted to Jan 15."
+  },
+  "bos": {
+   "name": "Balance of State Zone",
+   "short": "Balance of State",
+   "bounds": "The rest of California outside the Northeastern, Southern San Joaquin Valley, Southern and Colorado River zones.",
+   "note": "Ducks Oct 24 – Jan 31. Geese Oct 24 – Jan 31 (large Canada early Oct 3–5; late Feb 20–21 Canada, Feb 20–24 white and white-fronted). North Coast SMA (Del Norte, Humboldt): Canada geese Oct 3 – Dec 19 and Feb 12 – Mar 10."
+  },
+  "ssjv": {
+   "name": "Southern San Joaquin Valley Zone",
+   "short": "S. San Joaquin",
+   "bounds": "All of Kings and Tulare counties and Kern County north of the Southern Zone.",
+   "note": "Ducks and geese Oct 24 – Jan 31."
+  },
+  "so": {
+   "name": "Southern California Zone",
+   "short": "Southern",
+   "bounds": "South and east of the Santa Maria River, Highways 101/166, 166 and 99, I-5 to Tejon Pass, the Tehachapi crest to Walker Pass, Highways 178, 395, 58, I-15 and 127 to the Nevada line (excluding the Colorado River Zone).",
+   "note": "Ducks and geese Oct 24 – Jan 31. Imperial County SMA white geese to Feb 21 (set dates)."
+  },
+  "cr": {
+   "name": "Colorado River Zone",
+   "short": "Colorado River",
+   "bounds": "San Bernardino, Riverside and Imperial counties east of Highway 95, the Rice / Aqueduct Road, Highway 62, Desert Center–Rice Road, I-10, Wiley Well and Milpitas Wash roads, Blythe–Ogilby Road, Ogilby Road, I-8 and Highway 186 to Mexico.",
+   "note": "Ducks and geese Oct 23 – Jan 31."
+  }
+ },
+ "seasonsNote": "Five zones. Special management areas (North Coast, Klamath Basin, Sacramento Valley, Imperial County, Humboldt Bay South Spit, Morro Bay, Martis Creek Lake) change goose dates or limits inside them — see the notes.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "bos": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ]
+    ],
+    "ssjv": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ]
+    ],
+    "so": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-10-03",
+      "2027-01-13"
+     ]
+    ],
+    "cr": [
+     [
+      "2026-10-23",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "scaup",
+   "label": "Scaup",
+   "z": {
+    "bos": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "ssjv": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "so": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "cr": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-17",
+      "2027-01-13"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "coot",
+   "label": "Coots and moorhens",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canadasept",
+   "label": "Large Canada geese — early",
+   "z": {
+    "bos": [
+     [
+      "2026-10-03",
+      "2026-10-05"
+     ]
+    ]
+   },
+   "note": "Balance of State Zone only."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada and other dark geese",
+   "z": {
+    "ne": [
+     [
+      "2026-10-03",
+      "2027-01-10"
+     ]
+    ],
+    "bos": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ],
+     [
+      "2027-02-20",
+      "2027-02-21"
+     ]
+    ],
+    "ssjv": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ]
+    ],
+    "so": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ]
+    ],
+    "cr": [
+     [
+      "2026-10-23",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Large Canada geese closed in the late seasons. North Coast SMA (Del Norte, Humboldt): all Canada geese Oct 3 – Dec 19 and Feb 12 – Mar 10, 10 a day (1 large). Klamath Basin SMA: Canada geese Oct 3 – Jan 10."
+  },
+  {
+   "sp": "snow",
+   "label": "White and white-fronted geese",
+   "z": {
+    "ne": [
+     [
+      "2026-10-03",
+      "2026-11-29"
+     ],
+     [
+      "2027-01-01",
+      "2027-01-13"
+     ],
+     [
+      "2027-02-05",
+      "2027-03-10"
+     ]
+    ],
+    "bos": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ],
+     [
+      "2027-02-20",
+      "2027-02-24"
+     ]
+    ],
+    "ssjv": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ]
+    ],
+    "so": [
+     [
+      "2026-10-24",
+      "2027-01-31"
+     ]
+    ],
+    "cr": [
+     [
+      "2026-10-23",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Klamath Basin SMA: Oct 3 – Jan 15. Sacramento Valley SMA: white-fronted geese only through Dec 21 (3 a day). Imperial County SMA white geese: Nov 4 – Jan 31, Feb 1–5, 8–12 and 16–21 (20 a day)."
+  },
+  {
+   "sp": "brant",
+   "label": "Black brant",
+   "z": {
+    "bos": [
+     [
+      "2026-11-30",
+      "2026-12-15"
+     ]
+    ]
+   },
+   "note": "Northern Brant Area (Del Norte and Humboldt) Nov 29 – Dec 14; Balance of State Brant Area Nov 30 – Dec 15. Humboldt Bay South Spit (west side) closed to all hunting during brant season; Morro Bay open in designated areas from the brant opener."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "bos": [
+     [
+      "2027-02-13",
+      "2027-02-14"
+     ]
+    ],
+    "ssjv": [
+     [
+      "2027-02-13",
+      "2027-02-14"
+     ]
+    ],
+    "so": [
+     [
+      "2027-02-13",
+      "2027-02-14"
+     ]
+    ],
+    "cr": [
+     [
+      "2027-02-13",
+      "2027-02-14"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-09-19",
+      "2026-09-20"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / active military days",
+   "z": {
+    "ne": [
+     [
+      "2027-01-16",
+      "2027-01-17"
+     ]
+    ],
+    "bos": [
+     [
+      "2027-02-06",
+      "2027-02-07"
+     ]
+    ],
+    "ssjv": [
+     [
+      "2027-02-06",
+      "2027-02-07"
+     ]
+    ],
+    "so": [
+     [
+      "2027-02-06",
+      "2027-02-07"
+     ]
+    ]
+   },
+   "note": "Ducks only in the Northeastern and Balance of State zones."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "7",
+   "poss": "21",
+   "detail": "Seven ducks, inside which the limits below apply. Possession three times the daily bag."
+  },
+  {
+   "sp": "scaup",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Inside the 7."
+  },
+  {
+   "sp": "coot",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Coots and moorhens."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "10",
+   "poss": "30",
+   "detail": "Inside the dark goose limit."
+  },
+  {
+   "sp": "canada",
+   "daily": "10 / 3 / 4",
+   "poss": "×3",
+   "detail": "Dark geese: Northeastern 10 (≤6 white-fronted, ≤3 large Canada); Balance of State and S. San Joaquin 10 (≤6 white-fronted; Sacramento Valley SMA ≤3 white-fronted); Southern 3; Colorado River 4."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": "White geese 20 in every zone (total goose bag 30, or 23 Southern, 24 Colorado River)."
+  },
+  {
+   "sp": "brant",
+   "daily": "2",
+   "poss": "6",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "7",
+   "note": "no more than 2 females (or Mexican ducks in the Colorado River Zone)"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "2",
+   "note": "during the scaup season"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "7",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset (CDFW tables)."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot",
+   "d": "Nonlead shot is required for all hunting in California; shotguns limited to 3 shells for waterfowl."
+  },
+  {
+   "g": "Special",
+   "t": "State wildlife areas",
+   "d": "Most Type A and B areas run by reservation drawing and set hunt days; check CDFW before you go. Not drawn: Humboldt Bay South Spit (west side, closed during brant season), Morro Bay (designated areas), Martis Creek Lake (closed until Nov 16)."
+  },
+  {
+   "g": "Special",
+   "t": "Goose special management areas",
+   "d": "North Coast (Del Norte, Humboldt), Klamath Basin, Sacramento Valley and Imperial County SMAs change goose dates and limits — see the goose notes. Their road-described outlines are not drawn."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans days",
+   "d": "Youth: Sept 19–20 Northeastern; Feb 13–14 elsewhere. Veterans / military: Jan 16–17 Northeastern (ducks only); Feb 6–7 Balance of State (ducks only), S. San Joaquin and Southern."
+  }
+ ],
+ "licences": [
+  {
+   "t": "California hunting licence",
+   "who": "Hunters",
+   "d": "Resident, non-resident or junior."
+  },
+  {
+   "t": "California Duck Validation",
+   "who": "Waterfowl hunters (not junior licence holders)",
+   "d": ""
+  },
+  {
+   "t": "HIP validation",
+   "who": "Every migratory bird hunter",
+   "d": "No cost."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Not sold at CDFW offices."
+  },
+  {
+   "t": "Type A / B season pass or entry permit",
+   "who": "State-operated hunting areas",
+   "d": "Reservation drawings for many areas."
+  }
+ ],
+ "geometryNote": "Geometry: zone lines routed on the roads and the Santa Maria River named in the zone wording (OpenStreetMap), Census TIGER county lines for the Southern San Joaquin Valley Zone, and an approximation of the Tehachapi crest; split against the Census TIGER outline; CDFW public access lands; OSM boat ramps; USGS NHD and GNIS; USFWS (refuge units; NWI marsh); NOAA tides."
+}

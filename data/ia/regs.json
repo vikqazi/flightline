@@ -1,0 +1,533 @@
+{
+ "state": "IA",
+ "stateName": "Iowa",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "Iowa DNR — Migratory Game Bird Hunting (seasons, zones, map book, closed areas)",
+   "url": "https://www.iowadnr.gov/things-do/hunting-trapping/types-hunting-trapping/migratory-game-bird-hunting"
+  },
+  {
+   "label": "Iowa DNR — 2026-27 Iowa Hunting, Trapping & Migratory Game Bird Regulations (printed booklet: seasons p. 10, zones p. 21, refuges p. 19, closed areas p. 23, fees p. 4 and 13)",
+   "url": "https://www.iowadnr.gov/media/1700/download?inline"
+  },
+  {
+   "label": "Iowa Administrative Code 571-91 — Migratory Game Bird Hunting (season-date formulas, bags, closed areas)",
+   "url": "https://www.legis.iowa.gov/docs/iac/chapter/02-18-2026.571.91.pdf"
+  },
+  {
+   "label": "Iowa DNR — Waterfowl Hunting Map Book (zones, metro goose areas, closed areas; Nov 2023, referenced by the IAC)",
+   "url": "https://www.iowadnr.gov/media/1707/download?inline"
+  },
+  {
+   "label": "Iowa DNR — Developing Waterfowl Hunting Season Regulations: 2026-2030",
+   "url": "https://www.iowadnr.gov/media/9031/download?inline"
+  },
+  {
+   "label": "Iowa DNR — Public Areas (Boundaries / Public_Lands): public land open to hunting and refuge outlines",
+   "url": "https://programs.iowadnr.gov/geospatial/rest/services/Boundaries/Public_Lands/MapServer/0"
+  },
+  {
+   "label": "Iowa DNR — Public Hunting Areas (Hunting Atlas): the waterfowl flag",
+   "url": "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/9"
+  },
+  {
+   "label": "Iowa DNR — Fishing Amenities and Recreation Amenities: boat ramps and paddling accesses",
+   "url": "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/fishing/MapServer/3"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (the zone lines run on I-29, US-20 and IA-92)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh of 5 acres and up, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North Zone: the part of Iowa north of a line that begins on the South Dakota-Iowa border at Interstate 29 and runs southeast along I-29 to State Highway 20 (at Sioux City), then east along U.S./State Highway 20 to the Iowa-Illinois border (the Mississippi River at Dubuque). Applies to ducks and geese, fall 2026 through spring 2030.",
+   "note": "Ducks Oct 3–9, Oct 17 – Dec 8. Geese Sept 26 – Oct 11, Oct 17 – Dec 8, Dec 12 – Jan 9. Youth Sept 26–27."
+  },
+  "c": {
+   "name": "Central Zone",
+   "short": "Central",
+   "bounds": "Central Zone: the remainder of the state, between the North Zone line (I-29 and Highway 20) and the South Zone line (State Highway 92). It includes the Missouri River bottoms west of I-29 north of Council Bluffs.",
+   "note": "Ducks Oct 10–16, Oct 24 – Dec 15. Geese Oct 3–18, Oct 24 – Dec 15, Dec 19 – Jan 16. Youth Oct 3–4."
+  },
+  "s": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "South Zone: the part of Iowa south of State Highway 92, from the Missouri River at Council Bluffs east to the Iowa-Illinois border (the Mississippi River at Muscatine). The booklet words it as \"west of Interstate 29 and south of State Highway 92 east to the Iowa-Illinois border\"; the map note says \"South Zone includes all areas west of I-29 and south of Highway 92\". IA-92 begins at the river west of I-29, so the zone is everything south of the highway.",
+   "note": "Ducks Oct 17–23, Oct 31 – Dec 22. Geese Oct 10–25, Oct 31 – Dec 22, Dec 26 – Jan 23. Youth Oct 10–11."
+  }
+ },
+ "seasonsNote": "Iowa has three zones for ducks and geese (North, Central, South) with the same boundaries for both, set for fall 2026 through spring 2030. The duck season is two segments of 7 days and about 53 days; the goose season is three segments. Youth waterfowl days, the early teal season, rails, snipe, woodcock and dove are statewide. The September metro Canada goose seasons apply only in three metro areas (Des Moines, Cedar Rapids–Iowa City, Waterloo–Cedar Falls), whose maps are not drawn here. Canada goose hunting is closed in posted parts of 12 counties (maps not drawn here). The DNR booklet is not a legal document: check the Iowa DNR before you hunt.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n": [
+     [
+      "2026-10-03",
+      "2026-10-09"
+     ],
+     [
+      "2026-10-17",
+      "2026-12-08"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-10",
+      "2026-10-16"
+     ],
+     [
+      "2026-10-24",
+      "2026-12-15"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-17",
+      "2026-10-23"
+     ],
+     [
+      "2026-10-31",
+      "2026-12-22"
+     ]
+    ]
+   },
+   "note": "Shooting hours: one-half hour before sunrise to sunset. Scaup: 1 a day for the first 15 days of the season, 2 a day after (the 2-bird limit begins Oct 19 North, Oct 26 Central, Nov 2 South)."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck",
+   "note": "Same dates as the duck zone you are hunting."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-13"
+    ]
+   ],
+   "note": "Blue-winged, green-winged and cinnamon teal only. Shooting hours sunrise to sunset."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — metro seasons",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-20"
+    ]
+   ],
+   "note": "Only in the designated Des Moines, Cedar Rapids–Iowa City and Waterloo–Cedar Falls areas (DNR maps; not drawn here). 5 Canada geese a day."
+  },
+  {
+   "sp": "canada",
+   "label": "Geese — dark and light",
+   "z": {
+    "n": [
+     [
+      "2026-09-26",
+      "2026-10-11"
+     ],
+     [
+      "2026-10-17",
+      "2026-12-08"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-09"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-03",
+      "2026-10-18"
+     ],
+     [
+      "2026-10-24",
+      "2026-12-15"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-16"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-10",
+      "2026-10-25"
+     ],
+     [
+      "2026-10-31",
+      "2026-12-22"
+     ],
+     [
+      "2026-12-26",
+      "2027-01-23"
+     ]
+    ]
+   },
+   "note": "Canada geese: no more than 2 a day in the first segment, 3 a day from the second segment on. Canada goose hunting is closed in posted parts of 12 counties (Emmet, Clay, Palo Alto, Winnebago, Worth, Guthrie, Adams, Monona, Woodbury, Jackson, Bremer and Union, per the DNR map-book chapter 4). Light-goose conservation order Jan 24 – May 1, 2027."
+  },
+  {
+   "sp": "snow",
+   "label": "White geese — snow, blue, Ross’s",
+   "sameAs": "canada",
+   "note": "Same dates as the goose season in each zone, then the statewide conservation order Jan 24 – May 1, 2027 (no bag or possession limit; electronic callers and unplugged shotguns allowed; hours to one-half hour after sunset)."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "sameAs": "canada",
+   "note": "Counts in the dark-goose limit of 5."
+  },
+  {
+   "sp": "whitefront",
+   "label": "Greater white-fronted geese",
+   "sameAs": "canada",
+   "note": "Counts in the dark-goose limit of 5."
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (Virginia and sora)",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-11-13"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-11-30"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning and Eurasian collared dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "Woodcock",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-11-16"
+    ]
+   ],
+   "note": "Shooting hours sunrise to sunset."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "n": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-03",
+      "2026-10-04"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-10",
+      "2026-10-11"
+     ]
+    ]
+   },
+   "note": "Resident hunters 15 and younger with an adult 18+ who holds a hunting licence and has paid the habitat and migratory game bird fees. The youth needs no licence, duck stamp or fees. Only the youth hunts ducks, geese, mergansers and coots; the adult may hunt other game in season with a federal duck stamp."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks including no more than 4 mallards (2 hens), 3 wood ducks, 3 pintails, 2 redheads, 2 black ducks and 2 canvasbacks. Scaup: 1 a day for the first 15 days, 2 a day for the remaining 45 days. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "September teal season: 6 a day."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Metro Canada goose seasons: 5 Canada geese a day, in the designated areas only."
+  },
+  {
+   "sp": "canada",
+   "daily": "2–3",
+   "poss": "6–9",
+   "detail": "Dark geese (Canada, white-fronted, brant and any goose that is not a light goose): 5 a day, including no more than 2 Canada geese in the first segment and no more than 3 from the second segment on. Possession is three times the daily limit."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "None",
+   "detail": "White and blue-phase snow geese and Ross’s geese: 20 a day, no possession limit."
+  },
+  {
+   "sp": "brant",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Part of the dark-goose limit of 5."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Part of the dark-goose limit of 5."
+  },
+  {
+   "sp": "sora",
+   "daily": "12",
+   "poss": "36",
+   "detail": "Sora and Virginia rails."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same daily and possession limits as the regular seasons."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 a day for the first 15 days of the season, 2 a day after (the 2-bird limit begins Oct 19 North, Oct 26 Central, Nov 2 South)."
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag (teal and ring-necks have no separate limit)"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for all migratory game birds except woodcock and the September teal season (sunrise to sunset). The light-goose conservation order runs one-half hour before sunrise to one-half hour after sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Guns and methods",
+   "d": "No trap, snare, net, crossbow, rifle, pistol, swivel, punt, battery or machine gun, fish hook, poison, drug or explosive, and no shotgun larger than 10 gauge. A shotgun that holds more than three shells must be plugged with a one-piece filler (the conservation order for light geese allows unplugged guns). No sinkbox or low floating device. No taking from a motor vehicle or aircraft (paraplegics and persons missing one or both legs may shoot from a stationary motor-driven land conveyance). No taking from a motorboat or sailboat unless the motor is shut off or sails furled and progress has ceased. No driving, rallying or stirring up birds with a motor-driven conveyance or aircraft. No live decoys."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "No person may take ducks, geese (including brant), rails, snipe or coots while possessing shot other than approved non-toxic shot. Federal waterfowl production areas and the state areas listed on p. 20 of the regulations also require non-toxic shot for upland game and turkey."
+  },
+  {
+   "g": "Gear",
+   "t": "Electronic calls",
+   "d": "No recorded or electrically amplified bird calls or imitations of bird calls, except during the light-goose conservation order for snow and Ross’s geese."
+  },
+  {
+   "g": "Gear",
+   "t": "Baiting",
+   "d": "No taking by the aid of baiting or on or over a baited area where you know or reasonably should know the area is or has been baited. An area stays baited for ten days after all salt, grain or other feed is removed. Standing or flooded standing crops, natural vegetation and normal agricultural practices are legal."
+  },
+  {
+   "g": "Special",
+   "t": "Blinds and decoys on game management areas",
+   "d": "Blinds on a game management area are first come, first served; portable blinds are prohibited from one hour after sunset until midnight. Decoys are prohibited from one hour after sunset until midnight and may not be left unattended more than 30 minutes between midnight and one-half hour after sunset. No boat may be anchored away from shore and left unattended unless attached to a legal buoy."
+  },
+  {
+   "g": "Special",
+   "t": "Mississippi River pools 14–18",
+   "d": "Hunters wishing to build a stationary blind on Pool 14 downstream of Upper Mississippi River NWR river mile 502 (near Princeton), and on Pools 15, 16, 17 and 18, must register the blind with the DNR (registration is held in August, for a five-year period, $100). The registration number must be posted at the blind entrance; blinds must be at least 4 by 8 feet and no larger than 500 square feet, made of biodegradable material, and the registrant must occupy it by the opening of shooting time. Decoys may stay out the whole season but must be removed within three days after it closes. These pools are not outlined on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Wildlife and waterfowl refuges",
+   "d": "Wildlife refuges (12 listed areas, e.g. South Twin Lake, Ventura Marsh, Ingham Lake, Five Island Lake, Polk City Refuge) are closed to all hunting where posted. Waterfowl refuges (26 listed areas, e.g. Lake Icaria, Sweet Marsh, Big Marsh, Rathbun, Red Rock, Green Island, Snyder Bend Lake) are closed to duck and goose hunting at all times where posted; non-waterfowl hunting reopens after the final day of the duck season. Some waterfowl refuges also lie in zones closed to Canada goose hunting. The map outlines the whole wildlife area; the posted refuge is only a part of it."
+  },
+  {
+   "g": "Special",
+   "t": "Areas closed to waterfowl hunting",
+   "d": "The whole state is open except: Allamakee County within 150 feet of the Army Road from New Albin to the boat ramp; Fremont County the east road adjacent to Forney Lake; Harrison County three miles of U.S. Highway 30 adjacent to DeSoto NWR; Kossuth County road rights of way adjacent to Union Slough NWR; Louisa County marked county roads near Port Louisa NWR; Tama County posted dikes at Otter Creek WMA; Union County portions of Summit Lake. Drawn on the map as approximate outlines of the named places."
+  },
+  {
+   "g": "Special",
+   "t": "Canada goose closed areas",
+   "d": "Canada goose hunting is closed in posted portions of 12 counties (Emmet, Clay, Palo Alto, Winnebago, Worth, Guthrie, Adams, Monona, Woodbury, Jackson, Bremer, Union; maps on the DNR waterfowl page and from local conservation officers; not drawn here). Landowners and tenants who own or farm at least eight acres inside a closed area may hunt Canada geese on that land under a permit (IAC 571-91.5)."
+  },
+  {
+   "g": "Special",
+   "t": "Metro Canada goose areas",
+   "d": "Des Moines, Cedar Rapids–Iowa City and Waterloo–Cedar Falls have a nine-day September season (Sept 12–20, 2026), 5 Canada geese a day. The areas are described by roads in the DNR Waterfowl Hunting Map Book; they are not drawn here."
+  },
+  {
+   "g": "Special",
+   "t": "National wildlife refuges",
+   "d": "Parts of the federal refuges in Iowa are closed to hunting, and others limit the species, dates or methods: contact the refuge. The refuge layer on the map comes from the USFWS hunt-unit data."
+  },
+  {
+   "g": "Special",
+   "t": "Sunday",
+   "d": "The 2026-27 regulations list no Sunday restriction on waterfowl hunting."
+  },
+  {
+   "g": "Special",
+   "t": "Restricted areas",
+   "d": "Posted \"restricted areas\" inside wildlife management areas are closed to all trespass except DNR and law-enforcement personnel."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a head or wing on",
+   "d": "The head or one fully feathered wing must stay attached to every migratory game bird (except doves) while it is being transported from the place taken to your home or a preservation facility. Birds left with another person must be tagged with your signature, address, the number of birds by species and the date killed. You must make a reasonable effort to retrieve a downed bird; do not leave it. Wounded birds reduced to possession must be killed at once and count in the bag."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Iowa hunting licence",
+   "who": "Hunters 16 and older (youth 15 and younger hunting under supervision need none)",
+   "d": "Resident $23.00. Nonresident (18+) $137.00; nonresident 16–17 $33.50; nonresident 5-day (18+) $80.50."
+  },
+  {
+   "t": "Wildlife habitat fee",
+   "who": "Residents 16–64 and all nonresidents 16+ who need a hunting licence",
+   "d": "$15.50. Resident hunting and habitat combination $36.50."
+  },
+  {
+   "t": "Iowa migratory game bird fee",
+   "who": "Everyone 16 and older hunting geese, brant, ducks, snipe, rail, woodcock, gallinule or coot",
+   "d": "$12.50, resident or nonresident, even if a hunting licence is not required."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "$31.00. The E-Stamp is valid for the whole season; the physical stamp is mailed. Not required for the light-goose conservation order."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every licensed migratory game bird hunter",
+   "d": "Free, through the Go Outdoors Iowa app or gooutdoorsiowa.com; youth who need no licence need not register."
+  }
+ ],
+ "geometryNote": "Geometry: the North / Central line is routed on OpenStreetMap along Interstate 29 (South Dakota line to the I-129 / US-20 interchange at Sioux City) and U.S. Highway 20 east to the Mississippi at Dubuque; the Central / South line is routed along State Highway 92 from the Missouri River at Council Bluffs to the Mississippi at Muscatine: the roads the booklet names. The booklet’s wording of the South Zone is garbled; it was read with the map-book note. Refuge outlines are whole DNR areas, not the posted parts. The Canada-goose closed areas, metro goose zones and Mississippi pool blind rules are not drawn. See the Issues notes."
+}

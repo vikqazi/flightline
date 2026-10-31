@@ -1,0 +1,675 @@
+{
+ "state": "NE",
+ "stateName": "Nebraska",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "NGPC — Hunting seasons (waterfowl seasons and daily bag limits)",
+   "url": "https://outdoornebraska.gov/hunt/hunting-seasons/"
+  },
+  {
+   "label": "NGPC — Waterfowl",
+   "url": "https://outdoornebraska.gov/hunt/game/waterfowl/"
+  },
+  {
+   "label": "NGPC — Waterfowl zones (duck and coot, dark goose, teal, light goose): official layers",
+   "url": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/duck_updataes/FeatureServer/0"
+  },
+  {
+   "label": "NGPC — Hunting permits and stamps",
+   "url": "https://outdoornebraska.gov/permits/hunting-permits/"
+  },
+  {
+   "label": "NGPC — Hunting guides (Small Game and Waterfowl Guide)",
+   "url": "https://outdoornebraska.gov/guides-maps/hunting-guides/"
+  },
+  {
+   "label": "NGPC Public Access Atlas layers — state, federal and partner lands, game refuges, Open Fields and Waters 2026–27, boating sites",
+   "url": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "z3p": {
+   "name": "Zone 3 · Platte River",
+   "short": "Z3-P",
+   "bounds": "NGPC’s official waterfowl zone map: duck zone Zone 3 and the Platte River dark goose unit. Boundary wording is in NGPC’s Waterfowl Guide (not read); the map line follows NGPC’s zone layers.",
+   "note": "Ducks Oct 24 – Jan 5, Jan 6–27. Dark geese Oct 28 – Feb 9."
+  },
+  "z1p": {
+   "name": "Zone 1 · Platte River",
+   "short": "Z1-P",
+   "bounds": "NGPC’s official waterfowl zone map: duck zone Zone 1 and the Platte River dark goose unit. Boundary wording is in NGPC’s Waterfowl Guide (not read); the map line follows NGPC’s zone layers.",
+   "note": "Ducks Oct 24 – Dec 6, Dec 19 – Jan 17. Dark geese Oct 28 – Feb 9."
+  },
+  "l2p": {
+   "name": "Low Plains Zone 2 · Platte River",
+   "short": "Z2L-P",
+   "bounds": "NGPC’s official waterfowl zone map: duck zone Low Plains Zone 2 and the Platte River dark goose unit. Boundary wording is in NGPC’s Waterfowl Guide (not read); the map line follows NGPC’s zone layers.",
+   "note": "Ducks Oct 3 – Dec 15. Dark geese Oct 28 – Feb 9."
+  },
+  "h2p": {
+   "name": "High Plains Zone 2 · Platte River",
+   "short": "Z2H-P",
+   "bounds": "NGPC’s official waterfowl zone map: duck zone High Plains Zone 2 and the Platte River dark goose unit. Boundary wording is in NGPC’s Waterfowl Guide (not read); the map line follows NGPC’s zone layers.",
+   "note": "Ducks Oct 3 – Dec 15, Jan 6–27. Dark geese Oct 28 – Feb 9."
+  },
+  "h2n": {
+   "name": "High Plains Zone 2 · North Central",
+   "short": "Z2H-N",
+   "bounds": "NGPC’s official waterfowl zone map: duck zone High Plains Zone 2 and the North Central dark goose unit. Boundary wording is in NGPC’s Waterfowl Guide (not read); the map line follows NGPC’s zone layers.",
+   "note": "Ducks Oct 3 – Dec 15, Jan 6–27. Dark geese Oct 3 – Jan 15."
+  },
+  "l2n": {
+   "name": "Low Plains Zone 2 · North Central",
+   "short": "Z2L-N",
+   "bounds": "NGPC’s official waterfowl zone map: duck zone Low Plains Zone 2 and the North Central dark goose unit. Boundary wording is in NGPC’s Waterfowl Guide (not read); the map line follows NGPC’s zone layers.",
+   "note": "Ducks Oct 3 – Dec 15. Dark geese Oct 3 – Jan 15."
+  },
+  "l2b": {
+   "name": "Low Plains Zone 2 · Niobrara",
+   "short": "Z2L-B",
+   "bounds": "NGPC’s official waterfowl zone map: duck zone Low Plains Zone 2 and the Niobrara dark goose unit. Boundary wording is in NGPC’s Waterfowl Guide (not read); the map line follows NGPC’s zone layers.",
+   "note": "Ducks Oct 3 – Dec 15. Dark geese Oct 28 – Feb 9."
+  },
+  "h2b": {
+   "name": "High Plains Zone 2 · Niobrara",
+   "short": "Z2H-B",
+   "bounds": "NGPC’s official waterfowl zone map: duck zone High Plains Zone 2 and the Niobrara dark goose unit. Boundary wording is in NGPC’s Waterfowl Guide (not read); the map line follows NGPC’s zone layers.",
+   "note": "Ducks Oct 3 – Dec 15, Jan 6–27. Dark geese Oct 28 – Feb 9."
+  }
+ },
+ "seasonsNote": "Each map zone is a duck zone (Zone 1, Low Plains Zone 2, High Plains Zone 2, Zone 3) and a dark goose unit (North Central, Platte River, Niobrara). White-fronted and light geese, teal, and the light goose conservation order (East, West and Rainwater Basin zones) are statewide or by their own zones listed in the notes.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "z3p": [
+     [
+      "2026-10-24",
+      "2027-01-05"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-27"
+     ]
+    ],
+    "z1p": [
+     [
+      "2026-10-24",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-17"
+     ]
+    ],
+    "l2p": [
+     [
+      "2026-10-03",
+      "2026-12-15"
+     ]
+    ],
+    "h2p": [
+     [
+      "2026-10-03",
+      "2026-12-15"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-27"
+     ]
+    ],
+    "h2n": [
+     [
+      "2026-10-03",
+      "2026-12-15"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-27"
+     ]
+    ],
+    "l2n": [
+     [
+      "2026-10-03",
+      "2026-12-15"
+     ]
+    ],
+    "l2b": [
+     [
+      "2026-10-03",
+      "2026-12-15"
+     ]
+    ],
+    "h2b": [
+     [
+      "2026-10-03",
+      "2026-12-15"
+     ],
+     [
+      "2027-01-06",
+      "2027-01-27"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-13"
+    ]
+   ],
+   "note": "Low Plains and High Plains, same dates."
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese (Canada, brant and other geese except white-fronted and light)",
+   "z": {
+    "z3p": [
+     [
+      "2026-10-28",
+      "2027-02-09"
+     ]
+    ],
+    "z1p": [
+     [
+      "2026-10-28",
+      "2027-02-09"
+     ]
+    ],
+    "l2p": [
+     [
+      "2026-10-28",
+      "2027-02-09"
+     ]
+    ],
+    "h2p": [
+     [
+      "2026-10-28",
+      "2027-02-09"
+     ]
+    ],
+    "h2n": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "l2n": [
+     [
+      "2026-10-03",
+      "2027-01-15"
+     ]
+    ],
+    "l2b": [
+     [
+      "2026-10-28",
+      "2027-02-09"
+     ]
+    ],
+    "h2b": [
+     [
+      "2026-10-28",
+      "2027-02-09"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2026-12-27"
+    ],
+    [
+     "2027-01-25",
+     "2027-02-09"
+    ]
+   ],
+   "note": "Daily bag 2."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-12-30"
+    ],
+    [
+     "2027-01-25",
+     "2027-02-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snowlate",
+   "label": "Light goose conservation order",
+   "statewide": [
+    [
+     "2027-02-10",
+     "2027-04-05"
+    ]
+   ],
+   "note": "East zone Feb 10 – Apr 15; West and Rainwater Basin zones Feb 10 – Apr 5. No bag or possession limit; see the Waterfowl Guide for special rules."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-11-16"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (Virginia and sora)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Doves (mourning, white-winged, Eurasian collared)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-30"
+    ]
+   ]
+  },
+  {
+   "sp": "falconry",
+   "label": "Extended falconry",
+   "z": {
+    "z3p": [],
+    "z1p": [
+     [
+      "2027-02-25",
+      "2027-03-10"
+     ]
+    ],
+    "l2p": [
+     [
+      "2027-02-25",
+      "2027-03-10"
+     ]
+    ],
+    "h2p": [],
+    "h2n": [],
+    "l2n": [
+     [
+      "2027-02-25",
+      "2027-03-10"
+     ]
+    ],
+    "l2b": [
+     [
+      "2027-02-25",
+      "2027-03-10"
+     ]
+    ],
+    "h2b": []
+   },
+   "note": "Zone 1 and Low Plains Zone 2 Feb 25 – Mar 10; High Plains parts of Zones 2 and 3 concurrent with the High Plains duck dates."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "z3p": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "z1p": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "l2p": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "h2p": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "h2n": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "l2n": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "l2b": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "h2b": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Veteran and active-duty military waterfowl days",
+   "z": {
+    "z3p": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "z1p": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "l2p": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "h2p": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "h2n": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "l2n": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "l2b": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "h2b": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ]
+   }
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Tier I: six ducks (mergansers included) with sex and species limits — no more than 5 mallards (2 hens), 3 wood ducks, 3 pintails, 2 redheads, 2 canvasbacks, 1 scaup. Tier II: three ducks of any species and sex. Possession three times the daily bag."
+  },
+  {
+   "sp": "merganser",
+   "daily": "(in the 6)",
+   "poss": "",
+   "detail": "Mergansers count in the duck limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Coot bag limit not read; check the Waterfowl Guide."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Blue, green-winged and cinnamon teal in aggregate."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Dark geese."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "2",
+   "poss": "6",
+   "detail": ""
+  },
+  {
+   "sp": "snow",
+   "daily": "50",
+   "poss": "None",
+   "detail": ""
+  },
+  {
+   "sp": "snowlate",
+   "daily": "None",
+   "poss": "None",
+   "detail": "Conservation order: no daily bag or possession limit."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check the Small Game and Waterfowl Guide."
+  },
+  {
+   "sp": "snipe",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check the guide."
+  },
+  {
+   "sp": "sora",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check the guide."
+  },
+  {
+   "sp": "dove",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check the guide."
+  },
+  {
+   "sp": "falconry",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check the guide."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Tier I six ducks (restrictions) or Tier II three ducks. Qualifications on NGPC’s youth page."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same limits as the regular duck season."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5",
+   "note": "no more than 2 hens (Tier I)"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Tier II",
+   "lim": "3",
+   "note": "three ducks of any species and sex instead of the Tier I six"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full Tier I bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "30 minutes before sunrise to sunset (NGPC zone layers)."
+  },
+  {
+   "g": "Special",
+   "t": "Two-tier duck bag",
+   "d": "Hunters choose Tier I (six ducks with restrictions) or Tier II (three ducks, any species and sex) when they buy their permit."
+  },
+  {
+   "g": "Special",
+   "t": "Game and waterfowl refuges",
+   "d": "Nebraska’s game refuges are closed to hunting; Lake Babcock, Enders Reservoir and Wanamaker are waterfowl or all-hunting closures, and part of Kiowa WMA is closed to all access from Oct 1 until the dark goose season ends. They are the red areas on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Clear Creek WMA special hunting area",
+   "d": "A 300-acre area with 10 pit blinds, open to waterfowl hunting from the Monday before Thanksgiving to the end of dark goose season; check in at the station and hunt only from the blinds (NGPC waterfowl page). Not drawn."
+  },
+  {
+   "g": "Special",
+   "t": "Light goose conservation order",
+   "d": "East zone Feb 10 – Apr 15, West and Rainwater Basin zones Feb 10 – Apr 5, 2027; no daily or possession limit; special regulations in the Waterfowl Guide."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veteran days",
+   "d": "Zone 1 and Zone 3 Oct 17–18; Zone 2 Sept 26–27, 2026."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Nebraska hunt (small game) permit",
+   "who": "Hunters of small game, webless migratory birds and waterfowl",
+   "d": "Valid only with the stamps below."
+  },
+  {
+   "t": "Nebraska Habitat Stamp",
+   "who": "All small-game hunters, with select exemptions",
+   "d": "Price not read."
+  },
+  {
+   "t": "Nebraska Waterfowl Stamp",
+   "who": "Waterfowl hunters",
+   "d": "A second stamp required in addition to the Habitat Stamp; price not read."
+  },
+  {
+   "t": "Federal duck stamp and HIP",
+   "who": "Waterfowl hunters",
+   "d": "Federal rules; not read from NGPC’s pages."
+  }
+ ],
+ "geometryNote": "Geometry: zones from NGPC’s official duck-and-coot and dark-goose layers (polygons digitised separately, so shared edges are matched within 60 m), split against the Census TIGER outline; NGPC state, federal and partner lands, game refuges, public boating sites and 2026–27 Open Fields and Waters tracts; USGS NHD (water; streams from NHDPlus HR) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER; OpenStreetMap (roads). No tides."
+}
