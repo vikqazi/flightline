@@ -1,0 +1,419 @@
+{
+ "state": "ND",
+ "stateName": "North Dakota",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "NDGF — 2026-27 Upland Game, Migratory Game Birds and Furbearer Guide (units, dates, limits, licences, rest areas)",
+   "url": "https://gf.nd.gov/gnf/regulations/docs/combination/Combo-Hunting-Trapping-Guide26.pdf"
+  },
+  {
+   "label": "NDGF — 2026-27 season dates (all rows \"Finalized\")",
+   "url": "https://gf.nd.gov/hunting/season-dates"
+  },
+  {
+   "label": "NDGF — Light geese",
+   "url": "https://gf.nd.gov/hunting/light-geese"
+  },
+  {
+   "label": "NDGF — Wildlife Management Areas, PLOTS Guide, Goose Units, Waterfowl Rest Areas, boat ramps (ND GIS Hub services)",
+   "url": "https://ndgishub.nd.gov/arcgis/rest/services/Applications/GNF_PLOTSGuide/MapServer"
+  },
+  {
+   "label": "NDGF — PLOTS lands (ND GIS Hub open data)",
+   "url": "https://services1.arcgis.com/GOcSXpzwBHyk2nog/ArcGIS/rest/services/NDGISHUB_PLOTS_Lands/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (the zone line is routed on them)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions, military installations",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "hp": {
+   "name": "High Plains",
+   "short": "HP",
+   "bounds": "High Plains Unit: the part of North Dakota west of this line: beginning at the South Dakota border, north on US 83 and I-94 to ND 41; north on ND 41 to ND 53; west on ND 53 to US 83; north on US 83 to US 2; west on US 2 to the Williams County line; then north and west along the Williams and Divide county lines to the Canadian border (NDGF guide p. 14).",
+   "note": "Ducks Sept 26 – Dec 6 and Dec 12 – Jan 3 (nonresidents from Oct 5)."
+  },
+  "lp": {
+   "name": "Low Plains",
+   "short": "LP",
+   "bounds": "Low Plains Unit: the part of North Dakota east of the High Plains Unit line (NDGF guide p. 14).",
+   "note": "Ducks Sept 26 – Dec 6 (nonresidents from Oct 5)."
+  }
+ },
+ "seasonsNote": "Dates shown are the RESIDENT dates. Nonresidents may not start until Oct 5 for ducks, coots, mergansers, geese and swans (NDGF guide p. 4, 11, 13). The Canada goose zones follow the duck units: the Western Goose Zone is the High Plains Unit and the Eastern Goose Zone is the Low Plains Unit, except the Missouri River Canada Goose Zone (drawn as a special-rules area), where the regular Canada goose season runs to Jan 1 and the limit is 5. Sandhill crane Units 1 and 2 (split on US 281) are not mapped.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "hp": [
+     [
+      "2026-09-26",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-03"
+     ]
+    ],
+    "lp": [
+     [
+      "2026-09-26",
+      "2026-12-06"
+     ]
+    ]
+   },
+   "note": "Resident dates; nonresidents open Oct 5. Bonus blue-winged teal Sept 26 – Oct 4."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canadasept",
+   "label": "Early Canada geese (August management take / early September)",
+   "z": {
+    "hp": [
+     [
+      "2026-08-15",
+      "2026-09-15"
+     ]
+    ],
+    "lp": [
+     [
+      "2026-08-15",
+      "2026-09-22"
+     ]
+    ]
+   },
+   "note": "Western Zone Aug 15 – Sept 15; Eastern Zone Aug 15 – Sept 22; the Missouri River Zone closes Sept 7. Separate early Canada goose licence."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "hp": [
+     [
+      "2026-09-26",
+      "2026-12-24"
+     ]
+    ],
+    "lp": [
+     [
+      "2026-09-26",
+      "2026-12-19"
+     ]
+    ]
+   },
+   "note": "Resident dates; nonresidents open Oct 5. Western Zone to Dec 24, Eastern Zone to Dec 19; the Missouri River Zone (inside the High Plains) runs to Jan 1."
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-12-06"
+    ]
+   ],
+   "note": "Resident dates; nonresidents open Oct 5."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese — fall",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2027-01-03"
+    ]
+   ],
+   "note": "Snow, blue and Ross’s geese. Resident dates; nonresidents open Oct 5."
+  },
+  {
+   "sp": "swan",
+   "label": "Tundra swan (permit only)",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2027-01-03"
+    ]
+   ],
+   "note": "Tag by lottery (application deadline was Aug 19); one tag per hunter."
+  },
+  {
+   "sp": "crane",
+   "label": "Sandhill crane",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-11-15"
+    ]
+   ],
+   "note": "Unit 1 (west of US 281) daily 3; Unit 2 (east of US 281) daily 2. Not mapped."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days and veterans / active-military days",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-20"
+    ]
+   ],
+   "note": "Hunters 15 or younger with an adult 18+ (who may not hunt); or resident veterans and active-duty personnel. Statewide, residents and nonresident youth."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Daily 6 (mergansers included): no more than 5 mallards of which only 2 may be hens, 3 pintails, 3 wood ducks, 2 redheads, 2 canvasbacks and 1 scaup. An additional 2 blue-winged teal (possession 6) may be taken Sept 26 – Oct 4 only. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "(in the 6)",
+   "poss": "",
+   "detail": ""
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Shooting hours 30 minutes before sunrise to sunset."
+  },
+  {
+   "sp": "canada",
+   "daily": "8 (5 Missouri River)",
+   "poss": "24 (15 Missouri River)",
+   "detail": "Daily 8 in the Western and Eastern zones, 5 in the Missouri River Zone. A hunter may take 8 a day in all, no more than 5 from the Missouri River Zone; possession 24, no more than 15 from the Missouri River Zone."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snow",
+   "daily": "50",
+   "poss": "No limit",
+   "detail": ""
+  },
+  {
+   "sp": "swan",
+   "daily": "1 (tag)",
+   "poss": "1",
+   "detail": "It is not legal to possess a swan unless it is tagged."
+  },
+  {
+   "sp": "crane",
+   "daily": "3 / 2",
+   "poss": "9 / 6",
+   "detail": "Unit 1 daily 3, possession 9; Unit 2 daily 2, possession 6. Up to 3 in a day if all are from Unit 1, or no more than 2 from Unit 2."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "The regular daily duck and goose limits and species restrictions apply, except no bonus blue-winged teal."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Bonus blue-winged teal",
+   "lim": "2",
+   "note": "Sept 26 – Oct 4 only, in addition to the 6 (possession 6)"
+  },
+  {
+   "n": "Other ducks and mergansers",
+   "lim": "6",
+   "note": "up to the full daily bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "Ducks, mergansers, coots, swans: 30 minutes before sunrise to sunset. Geese and sandhill cranes in the regular seasons: 30 minutes before sunrise to 2 p.m., except 30 minutes before sunrise to sunset on Saturdays and Wednesdays from Sept 26 through Nov 28 and all day from Nov 29 (cranes: Saturdays and Wednesdays through the end of the season). Early Canada goose season: 30 minutes before sunrise to sunset (NDGF guide p. 10-14)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Only federally approved non-toxic shot may be possessed or used while hunting ducks, geese, sandhill cranes, tundra swans, mergansers, snipe and coots, statewide. Non-toxic shot is required for all shotgun hunting (except turkey and big game) on all U.S. Fish and Wildlife Service lands, including refuges and waterfowl production areas (p. 38)."
+  },
+  {
+   "g": "Gear",
+   "t": "Guns, calls and boats",
+   "d": "Shotguns from .410 to 10 gauge, plugged to three shells. No pistols. No electronic or recorded calls for migratory birds (p. 38, 42). Birds may be taken from a floating craft except a sink box, but a motorized craft must be at rest with the motor off. Motorboats are legal for going to and from hunting areas (p. 39)."
+  },
+  {
+   "g": "Special",
+   "t": "Waterfowl rest areas (Sept 26 – Jan 3)",
+   "d": "Missouri River rest area (McLean, Mercer and Oliver counties, from the mouth of Turtle Creek south of Washburn north to Garrison Dam): closed to goose hunting only. Sheyenne Lake rest area (Sheridan County, 15 miles north and 4 miles west of Goodrich): closed to all waterfowl hunting and fishing (p. 17). Both are drawn."
+  },
+  {
+   "g": "Special",
+   "t": "Missouri River Canada Goose Zone",
+   "d": "Daily limit 5 (possession 15) and a regular season that closes Jan 1. The zone runs from ND 6 at the South Dakota line north to I-94, west to ND 49, north to ND 200, west, north on ND 8 to the Mercer / McLean county line, east along the county line and the south shore of Lake Sakakawea (including Mallard Island) to US 83, south to ND 200, east to ND 41, south to US 83, south to I-94, east to US 83 and south on US 83 to the South Dakota line (p. 11). Drawn from NDGF’s own Goose Units layer (it follows those roads), not routed here."
+  },
+  {
+   "g": "Special",
+   "t": "Nelson Lake (Oliver County)",
+   "d": "Open to waterfowl hunting only along the north shoreline in the N 1/2 of section 32 and the northwest part of the lake in sections 29 and 30. All other parts are closed. No open-water hunting from a boat; all hunting from shore (p. 42). The outline drawn is the whole lake: approximate."
+  },
+  {
+   "g": "Special",
+   "t": "Air bases",
+   "d": "The Minot and Grand Forks air bases are closed to hunting (p. 42). Drawn as the Census installation outlines: approximate."
+  },
+  {
+   "g": "Special",
+   "t": "Refuges and posted WMAs",
+   "d": "Wildlife management areas so posted, refuges, sanctuaries, national parks and historic sites are closed to hunting; federal refuge managers may open parts. Game that falls into a state refuge may be retrieved if you leave your firearm outside; not into a federal refuge without a designated retrieving zone (p. 42-43). Posted WMA closures are not in any public data and are not drawn."
+  },
+  {
+   "g": "Special",
+   "t": "Nonresidents on WMAs and PLOTS",
+   "d": "Nonresidents may not hunt any game on NDGF wildlife management areas or on Conservation PLOTS land from Oct 10 through Oct 16 (N.D.C.C. 20.1-08-04.9), except PLOTS land they own (p. 42). PLOTS are private lands open to walking access only: no motor vehicles without the landowner’s permission, yellow triangular signs mark the boundary (p. 39)."
+  },
+  {
+   "g": "Special",
+   "t": "Nonresident waterfowl zones",
+   "d": "A nonresident waterfowl licence covers up to 14 days in two different zones for two 7-day periods (or any two zones for the same 7 days). Six zones: Northwest, North-Central, Northeast, Southwest, South-Central and Southeast, split on US 83, US 281, ND 200, ND 37, ND 1804, US 2 and ND 18 / 32 (p. 16-17). NDGF publishes the zones as a layer; they are not drawn here."
+  },
+  {
+   "g": "Special",
+   "t": "Spring light goose conservation order",
+   "d": "A statewide spring order ran Feb 21 – May 10, 2026 (the federal duck stamp was not required for it). The 2027 dates were not yet published (NDGF light-geese page)."
+  },
+  {
+   "g": "Special",
+   "t": "Sandhill crane units",
+   "d": "Unit 1 is west of US 281 and Unit 2 is east of US 281 (limits differ). Know your crane species: endangered whooping cranes occasionally fly with sandhills (p. 11-12). Not mapped."
+  },
+  {
+   "g": "Transport",
+   "t": "Federal rules",
+   "d": "The guide’s summary of federal regulations (baiting, possession, tagging, transport of birds) applies; read pages 43-44 of the guide."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Fishing, Hunting, Furbearer Certificate",
+   "who": "Residents ($2) and nonresidents ($5)",
+   "d": "Prerequisite for all hunting licences (nonresidents except the spring light goose and early Canada goose licences)."
+  },
+  {
+   "t": "General Game and Habitat License",
+   "who": "Residents and nonresidents",
+   "d": "$20, once a year; prerequisite for all hunting licences except furbearer."
+  },
+  {
+   "t": "Small game licence (residents, 16+)",
+   "who": "Residents",
+   "d": "$20; covers geese, ducks, mergansers, coots, swans and sandhill cranes (a combination licence, $62, includes it)."
+  },
+  {
+   "t": "Nonresident waterfowl licence",
+   "who": "Nonresidents",
+   "d": "$153; zone-restricted: up to 14 days in two different zones for two 7-day periods. Only one per year. Under 16 pay resident prices."
+  },
+  {
+   "t": "Early Canada goose licence",
+   "who": "Residents ($10), nonresidents ($50)",
+   "d": "Required of all hunters for the early (August / September) Canada goose season; ages 16+ also need the federal stamp from Sept 1 and, for residents, the small game licence."
+  },
+  {
+   "t": "Sandhill crane permit",
+   "who": "Residents ($10), nonresidents ($30)",
+   "d": "A small game or waterfowl licence is also required."
+  },
+  {
+   "t": "Swan tag",
+   "who": "Residents ($10), nonresidents ($50)",
+   "d": "By lottery; other required licences must be bought first."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Hunters 16+",
+   "d": "$25; required from Sept 1 for ducks, geese, swans, mergansers and coots (not for the spring light goose order); an e-stamp is valid for the stamp year."
+  },
+  {
+   "t": "ND Waterfowl Habitat Restoration Stamp",
+   "who": "All waterfowl hunters",
+   "d": "$5; an electronic stamp is required to hunt waterfowl."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Everyone",
+   "d": "Free; a new number each year for each state where you hunt migratory birds."
+  }
+ ],
+ "geometryNote": "Geometry: the High Plains / Low Plains line is routed on OpenStreetMap’s numbered routes (US 83 and I-94, ND 41, ND 53, US 83, US 2) and the Census TIGER county lines (Williams, Divide and Burke) along the wording in NDGF’s 2026-27 guide; it matches NDGF’s own Goose Units layer to within about 1 km on a grid test (3 of 161,408 points differ, all along US 2). NDGF Wildlife Management Areas, PLOTS, Waterfowl Production Areas, Waterfowl Rest Areas, boat ramps and goose units; Census TIGER (state parks and forests, trust, grassland, BLM, Corps and Reclamation lands via the NDGF PLOTS Guide service); USGS NHD (water; streams from NHDPlus HR) and GNIS; USFWS (refuge units; NWI marsh); OpenStreetMap (roads). Sandhill crane units and nonresident zones are not mapped. No tides."
+}

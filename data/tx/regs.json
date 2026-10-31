@@ -1,0 +1,563 @@
+{
+ "state": "TX",
+ "stateName": "Texas",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "TPWD Outdoor Annual — Duck, 2026-2027 Seasons & Regulations",
+   "url": "https://tpwd.texas.gov/regulations/outdoor-annual/regs/animals/duck"
+  },
+  {
+   "label": "TPWD Outdoor Annual — Goose, 2026-2027 Seasons & Regulations",
+   "url": "https://tpwd.texas.gov/regulations/outdoor-annual/regs/animals/goose"
+  },
+  {
+   "label": "TPWD Outdoor Annual — Teal; Rails, Gallinules and Moorhens; Wilson’s Snipe (2026-2027)",
+   "url": "https://tpwd.texas.gov/regulations/outdoor-annual/regs/animals/blue-winged-green-winged-and-cinnamon-teal"
+  },
+  {
+   "label": "TPWD GIS — wildlife management areas, public hunting lands, public boat ramps",
+   "url": "https://services1.arcgis.com/1mtXwieMId59thmg/arcgis/rest/services"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — lakes, marshes, rivers, bays, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "hp": {
+   "name": "High Plains Mallard Management Unit",
+   "short": "HPMMU",
+   "bounds": "West of a line from the International Toll Bridge at Del Rio, north along US 277 to Abilene, SH 351 and SH 6 to Albany, US 283 to Vernon, east along US 183 to Oklahoma. Western goose zone.",
+   "note": "Ducks Oct 24–25 and Oct 30 – Jan 31. Geese (Western zone) Nov 7 – Feb 7."
+  },
+  "nw": {
+   "name": "North Zone — Western goose zone",
+   "short": "North / West",
+   "bounds": "North duck zone, west of the goose line (I-35 and 35W from Laredo to Fort Worth, US 81 / 287 to Bowie, US 81 to Oklahoma).",
+   "note": "Ducks Nov 14–29 and Dec 5 – Jan 31. Geese Nov 7 – Feb 7."
+  },
+  "ne": {
+   "name": "North Zone — Eastern goose zone",
+   "short": "North / East",
+   "bounds": "North duck zone, east of the goose line.",
+   "note": "Ducks Nov 14–29 and Dec 5 – Jan 31. Dark geese Nov 7 – Jan 31, light geese to Feb 19; early Canada geese Sept 12–27."
+  },
+  "sw": {
+   "name": "South Zone — Western goose zone",
+   "short": "South / West",
+   "bounds": "South of US 90 (Del Rio to San Antonio) and I-10 (San Antonio to Louisiana), west of I-35.",
+   "note": "Ducks Nov 7–29 and Dec 12 – Jan 31. Geese Nov 7 – Feb 7."
+  },
+  "se": {
+   "name": "South Zone — Eastern goose zone",
+   "short": "South / East",
+   "bounds": "South duck zone, east of I-35 (includes the coast).",
+   "note": "Ducks Nov 7–29 and Dec 12 – Jan 31. Dark geese Nov 7 – Jan 31, light geese to Feb 19; early Canada geese Sept 12–27."
+  }
+ },
+ "seasonsNote": "Duck zones: High Plains Mallard Management Unit, North and South. Goose zones: Western and Eastern. Dusky ducks (mottled, Mexican, black and hybrids) are closed the first five days of each zone’s season.",
+ "seasons": [
+  {
+   "sp": "teal",
+   "label": "September teal",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ]
+   ]
+  },
+  {
+   "sp": "duck",
+   "label": "Ducks and mergansers",
+   "z": {
+    "hp": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ],
+     [
+      "2026-10-30",
+      "2027-01-31"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-11-14",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-05",
+      "2027-01-31"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-11-14",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-05",
+      "2027-01-31"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-11-07",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ],
+    "se": [
+     [
+      "2026-11-07",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "dusky",
+   "label": "“Dusky” ducks (mottled, Mexican, black)",
+   "z": {
+    "hp": [
+     [
+      "2026-10-31",
+      "2027-01-31"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-11-19",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-05",
+      "2027-01-31"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-11-19",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-05",
+      "2027-01-31"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-11-12",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ],
+    "se": [
+     [
+      "2026-11-12",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Closed the first five days of each zone’s season; legal on youth and veterans days."
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canadasept",
+   "label": "Early Canada geese",
+   "z": {
+    "hp": [],
+    "nw": [],
+    "ne": [
+     [
+      "2026-09-12",
+      "2026-09-27"
+     ]
+    ],
+    "sw": [],
+    "se": [
+     [
+      "2026-09-12",
+      "2026-09-27"
+     ]
+    ]
+   },
+   "note": "Eastern goose zone only."
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese (Canada, white-fronted)",
+   "z": {
+    "hp": [
+     [
+      "2026-11-07",
+      "2027-02-07"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-11-07",
+      "2027-02-07"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-11-07",
+      "2027-02-07"
+     ]
+    ],
+    "se": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese (snow, blue, Ross’s)",
+   "z": {
+    "hp": [
+     [
+      "2026-11-07",
+      "2027-02-07"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-11-07",
+      "2027-02-07"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-11-07",
+      "2027-02-19"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-11-07",
+      "2027-02-07"
+     ]
+    ],
+    "se": [
+     [
+      "2026-11-07",
+      "2027-02-19"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2027-02-21"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Rails, gallinules and moorhens",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ],
+    [
+     "2026-11-07",
+     "2027-01-06"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth-only days",
+   "z": {
+    "hp": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-10-31",
+      "2026-11-01"
+     ]
+    ],
+    "se": [
+     [
+      "2026-10-31",
+      "2026-11-01"
+     ]
+    ]
+   },
+   "note": "16 and under with an adult 18+. Geese legal on youth days."
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans and active military days",
+   "z": {
+    "hp": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "nw": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "ne": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-10-31",
+      "2026-11-01"
+     ]
+    ],
+    "se": [
+     [
+      "2026-10-31",
+      "2026-11-01"
+     ]
+    ]
+   }
+  }
+ ],
+ "bags": [
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Blue-winged, green-winged and cinnamon teal."
+  },
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks including mergansers, inside which the limits below apply."
+  },
+  {
+   "sp": "dusky",
+   "daily": "1",
+   "poss": "3",
+   "detail": "Inside the 6."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Eastern zone: no more than 2 white-fronted geese."
+  },
+  {
+   "sp": "snow",
+   "daily": "5",
+   "poss": "15",
+   "detail": "As printed on TPWD’s goose page for both zones."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "15 / 25",
+   "poss": "45 / 75",
+   "detail": "King and clapper rails 15; sora and Virginia rails 25; gallinules and moorhens 15."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "“Dusky” duck",
+   "lim": "1",
+   "note": "mottled, Mexican, black and hybrids; closed the first five days"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot",
+   "d": "Federal rules: nontoxic shot for waterfowl and coots; shotguns limited to 3 shells."
+  },
+  {
+   "g": "Special",
+   "t": "Public hunting lands",
+   "d": "TPWD wildlife management areas and public hunting lands need the Annual Public Hunting Permit and have their own dates and rules."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans days",
+   "d": "Same dates for both: HPMMU Oct 17–18, North Nov 7–8, South Oct 31 – Nov 1."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Texas hunting licence",
+   "who": "Every hunter",
+   "d": ""
+  },
+  {
+   "t": "Migratory Game Bird Endorsement",
+   "who": "Migratory bird hunters",
+   "d": "Waterfowl, coot, rail, gallinule, snipe, dove, crane, woodcock."
+  },
+  {
+   "t": "HIP certification",
+   "who": "Migratory bird hunters",
+   "d": "At licence purchase."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": ""
+  },
+  {
+   "t": "Annual Public Hunting Permit",
+   "who": "TPWD public hunting lands",
+   "d": ""
+  }
+ ],
+ "geometryNote": "Geometry: duck and goose zone lines routed on the roads in TPWD’s zone wording (OpenStreetMap), split against the Census TIGER outline and welded to Louisiana, Arkansas and Oklahoma; TPWD wildlife management areas and public hunting lands; TPWD public boat ramps; USGS NHD and GNIS; USFWS (refuge units; NWI marsh); NOAA tides."
+}
