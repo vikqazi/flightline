@@ -1,0 +1,490 @@
+{
+ "state": "GA",
+ "stateName": "Georgia",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "Georgia WRD — Migratory Birds 2026–2027 Species, Dates & Limits (eRegulations)",
+   "url": "https://www.eregulations.com/georgia/hunting/migratory-birds-seasons"
+  },
+  {
+   "label": "Georgia WRD — Hunting Licenses",
+   "url": "https://www.eregulations.com/georgia/hunting/hunting-licenses"
+  },
+  {
+   "label": "Georgia WRD — WMA regulations (A–C, D–H, I–P, Q–S, T–Z) and Federal Area regulations",
+   "url": "https://www.eregulations.com/georgia/hunting/wma-regulations-a-c"
+  },
+  {
+   "label": "Georgia Board of Natural Resources — proposed 2026–2027 migratory bird seasons, Rule 391-4-2 (April 2026)",
+   "url": "https://gadnr.org/sites/default/files/dnr/pdf/Board/TAB%20E%20-%20WILDLIFE%20RESOURCES%20-%20ITEM%20A.pdf"
+  },
+  {
+   "label": "Georgia WRD GIS — WMA boundaries, designated waterfowl refuges, water access points",
+   "url": "https://services6.arcgis.com/9QlSLDqa0P1cHLhu/arcgis/rest/services"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "ga": {
+   "name": "Georgia (statewide)",
+   "short": "Statewide",
+   "bounds": "Every Georgia migratory bird season is statewide.",
+   "note": "One zone. WMAs, refuges and some lakes add their own days, hours and distances."
+  }
+ },
+ "seasonsNote": "Every season is statewide. Many WMAs allow waterfowl only on listed days, often ending at noon (amber on the map).",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Sea ducks included; harlequin closed."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-20"
+    ]
+   ]
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-27"
+    ]
+   ],
+   "note": "No snow or white-fronted geese in September."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-10-10",
+     "2026-10-25"
+    ],
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ]
+   ],
+   "note": "White-fronted geese from Oct 10, with Canada geese."
+  },
+  {
+   "sp": "snow",
+   "label": "Snow and white-fronted geese",
+   "statewide": [
+    [
+     "2026-10-10",
+     "2026-10-25"
+    ],
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-12-05",
+     "2027-01-18"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-11-15",
+     "2027-02-28"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-11",
+     "2026-09-14"
+    ],
+    [
+     "2026-09-26",
+     "2026-11-30"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "King and clapper rails (marsh hens)",
+   "statewide": [
+    [
+     "2026-09-11",
+     "2026-09-14"
+    ],
+    [
+     "2026-09-26",
+     "2026-11-30"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning doves",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-11"
+    ],
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-19",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2026-11-15"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / military waterfowl days",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2026-11-15"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit (federal rule)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "In addition to the other ducks."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters, 3 eiders (1 hen) or 3 long-tailed ducks."
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada and white-fronted geese combined."
+  },
+  {
+   "sp": "snow",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Snow geese 5; white-fronted geese count with Canada geese."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "15",
+   "poss": "45",
+   "detail": "King and clapper rails."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Waterfowl and geese at the regular limits."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "As youth days."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "2",
+   "note": "no more than 1 hen"
+  },
+  {
+   "n": "Black duck or mottled duck",
+   "lim": "1",
+   "note": "one of either"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Fulvous whistling-duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 eiders (1 hen), 3 long-tailed ducks"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for all migratory birds. Many WMAs end waterfowl hunting at noon (see each amber area)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "10-gauge or smaller with federally approved non-toxic shot of size F or smaller. No lead shot in possession while hunting waterfowl."
+  },
+  {
+   "g": "Gear",
+   "t": "Plugged shotguns",
+   "d": "No more than 3 shells in the magazine and chamber combined for migratory birds."
+  },
+  {
+   "g": "Special",
+   "t": "Lakes Allatoona and Lanier",
+   "d": "No hunting within 600 feet of a dock, house, structure, bridge, road, boat ramp, marina or open recreation area. Contact the Game Management Region office for open dates and rules. Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Lake Walter F. George",
+   "d": "No hunting within 600 feet of a dock, house, structure, bridge, road, boat ramp, marina or open recreation area on the Georgia side. Waterfowl hunting from land only in the designated “Hunting Areas”. A Corps of Engineers permit is required everywhere on the lake except Eufaula NWR. Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "North Georgia Power lakes",
+   "d": "Lakes Burton, Seed, Rabun, Tallulah Falls, Tugalo and Yonah are open for ducks and geese; no hunting within 300 feet of any dock, house, boat ramp, marina or open recreation area without permission. Contact Region 2 (770-535-5700) for dates. Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Blackshear, Oconee, Seminole, Sinclair, Oliver",
+   "d": "No hunting within 300 feet of a dock, house, structure, bridge, road, boat ramp, marina or open recreation area (Lake Oliver south of Standing Boy Creek). Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "WMA waterfowl days",
+   "d": "Each WMA lists its own waterfowl days and hours; many are Wednesdays and Saturdays only, end at noon, or are quota hunts. WMAs whose rules differ from the state seasons are amber, with their wording. WRD-designated waterfowl refuges are red."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, active-duty military and veterans days",
+   "d": "Nov 14–15, 2026. Youth under 16 with an adult 18+ who may not hunt. Veterans and active-duty military with their usual licences."
+  },
+  {
+   "g": "Transport",
+   "t": "Birds taken by someone else",
+   "d": "Anyone holding another hunter’s birds needs, in writing, that hunter’s signature, address, number of birds by species and dates taken. Report banded birds at reportband.gov."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Georgia hunting licence",
+   "who": "Hunters 16+",
+   "d": "Resident or non-resident, from GoOutdoorsGeorgia.com."
+  },
+  {
+   "t": "GA Waterfowl & Migratory Bird License",
+   "who": "Migratory bird hunters 16+",
+   "d": "Required for doves, ducks, geese, woodcock, snipe, coots, rails and gallinules. Free with Sportsman’s, Youth Sportsman’s, disability, honorary and lifetime licences, and for resident landowners on their own land."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Electronic stamp valid July 1 – June 30; landowners included."
+  }
+ ],
+ "geometryNote": "Geometry: Georgia WRD WMA boundaries, designated waterfowl refuges and water access points; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); NOAA CO-OPS (tides); Census TIGER (state outline, county subdivisions, borders); OpenStreetMap (roads). One statewide zone."
+}
