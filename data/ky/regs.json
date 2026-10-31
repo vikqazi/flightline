@@ -1,0 +1,447 @@
+{
+ "state": "KY",
+ "stateName": "Kentucky",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "KDFWR — Kentucky Hunting Guide for Migratory Birds and Waterfowl, Sept 2026 – March 2027 (PDF)",
+   "url": "https://fw.ky.gov/Hunt/Documents/waterfowlguide.pdf"
+  },
+  {
+   "label": "KDFWR — Waterfowl hunting",
+   "url": "https://fw.ky.gov/Hunt/Pages/Waterfowl-Hunting.aspx"
+  },
+  {
+   "label": "KDFWR GIS — public hunting areas, restricted areas (waterfowl refuges), boat access sites",
+   "url": "https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services"
+  },
+  {
+   "label": "OpenStreetMap — KY 358, U.S. 60 (Ballard Zone), the Cave Run Lake closure roads and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines (goose zones), Wickliffe city limits, county subdivisions and borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "w": {
+   "name": "Western Zone",
+   "short": "West",
+   "bounds": "Western Zone (September Canada geese): Allen, Adair, Ballard, Barren, Breckinridge, Butler, Caldwell, Calloway, Carlisle, Christian, Crittenden, Cumberland, Daviess, Edmonson, Fulton, Graves, Grayson, Green, Hancock, Hardin, Hart, Henderson, Hickman, Hopkins, LaRue, Livingston, Logan, Lyon, McCracken, McLean, Marion, Marshall, Meade, Metcalfe, Monroe, Muhlenberg, Nelson, Ohio, Simpson, Taylor, Todd, Trigg, Union, Warren, Washington and Webster counties.",
+   "note": "Ducks and late geese statewide. September Canada geese Sept 1–15."
+  },
+  "wb": {
+   "name": "Western Zone · Ballard Zone",
+   "short": "West · Ballard",
+   "bounds": "Western Zone (September Canada geese): Allen, Adair, Ballard, Barren, Breckinridge, Butler, Caldwell, Calloway, Carlisle, Christian, Crittenden, Cumberland, Daviess, Edmonson, Fulton, Graves, Grayson, Green, Hancock, Hardin, Hart, Henderson, Hickman, Hopkins, LaRue, Livingston, Logan, Lyon, McCracken, McLean, Marion, Marshall, Meade, Metcalfe, Monroe, Muhlenberg, Nelson, Ohio, Simpson, Taylor, Todd, Trigg, Union, Warren, Washington and Webster counties. Ballard Zone: from the north-west city limits of Wickliffe to the middle of the Mississippi River, north along the Mississippi to the low-water mark of the Ohio River on the Illinois shore, to the Ballard–McCracken county line, south along the county line to KY 358, south along KY 358 to U.S. 60 at LaCenter, then south-west along U.S. 60 to the north-east city limits of Wickliffe.",
+   "note": "Ducks and late geese statewide. September Canada geese Sept 1–15 on private land only (public land closed). Blinds 100 yards apart and 50 yards from a property line."
+  },
+  "e": {
+   "name": "Eastern Zone",
+   "short": "East",
+   "bounds": "Eastern Zone (September Canada geese): all other counties.",
+   "note": "Ducks and late geese statewide. September Canada geese Sept 16–30."
+  }
+ },
+ "seasonsNote": "Ducks and late-season geese are statewide. Only the September Canada goose season has zones (Western / Eastern); the Ballard Zone and Cave Run Lake have their own rules.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-11-26",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-07",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal and wood ducks — September",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-23"
+    ]
+   ],
+   "note": "No more than 2 wood ducks."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "z": {
+    "w": [
+     [
+      "2026-09-01",
+      "2026-09-15"
+     ]
+    ],
+    "wb": [
+     [
+      "2026-09-01",
+      "2026-09-15"
+     ]
+    ],
+    "e": [
+     [
+      "2026-09-16",
+      "2026-09-30"
+     ]
+    ]
+   },
+   "note": "Closed on Cave Run Lake, on public land in the Ballard Zone, and on West Kentucky WMA."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-11-26",
+     "2027-02-15"
+    ]
+   ],
+   "note": "Canada, cackling and white-fronted geese and brant."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-11-26",
+     "2027-02-15"
+    ]
+   ],
+   "note": "Snow and Ross’s geese. Conservation Order Feb 16 – Mar 31, 2027 with a free permit (no limit, unplugged guns, electronic calls, to ½ hour after sunset)."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-24",
+     "2026-11-13"
+    ],
+    [
+     "2026-11-16",
+     "2026-12-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-09-16",
+     "2026-10-25"
+    ],
+    [
+     "2026-11-26",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ],
+   "note": "King rails are protected."
+  },
+  {
+   "sp": "gallinule",
+   "label": "Common and purple gallinules",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning and white-winged doves",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-26"
+    ],
+    [
+     "2026-11-26",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-19",
+     "2027-01-10"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-21"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-13"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / active-duty military waterfowl days",
+   "statewide": [
+    [
+     "2026-11-22",
+     "2026-11-22"
+    ],
+    [
+     "2027-02-14",
+     "2027-02-14"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession triple the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "No more than 2 wood ducks (6 in possession)."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Combined: no more than 3 Canada geese, 2 white-fronted geese and 1 brant."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": "Snow and Ross’s geese."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails, singly or combined."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Singly or combined."
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular limits; scaup 2. Adults may not hunt on the November youth day; in February they may hunt geese."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular limits."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 Nov 26–29 and Dec 7–17; 2 from Dec 18"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset (WMAs the same unless their listing says otherwise)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "USFWS-approved non-toxic shot no larger than T, in shells no longer than 3.5 inches, for all waterfowl and sandhill cranes. No lead shot in possession while hunting waterfowl."
+  },
+  {
+   "g": "Special",
+   "t": "Ballard Zone",
+   "d": "All blinds (boats included) at least 100 yards apart and 50 yards from any property line; no more than one uncased or loaded shotgun per hunter in a blind. Public land in the zone is closed for the September Canada goose season. The 1-day Ballard waterfowl permit is $15.86."
+  },
+  {
+   "g": "Special",
+   "t": "Cave Run Lake goose closure",
+   "d": "No goose hunting on Daniel Boone National Forest land and water inside KY 801, KY 1274, KY 36, KY 211, U.S. 60 and KY 826 (most of Cave Run Lake). Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Closed to migratory bird hunting",
+   "d": "The main block of Robinson Forest WMA; Grayson Lake WMA within ¾ mile of the dam, the Deer Creek Branch, the Camp Webb shores and the state park; Yatesville Lake’s Greenbrier Creek Branch north of its mouth, islands included; Land Between The Lakes Sept 30 – Nov 30."
+  },
+  {
+   "g": "Special",
+   "t": "WMA waterfowl rules",
+   "d": "No permanent blinds unless permitted; decoys and temporary blinds out at the end of each day; parties of 4 or fewer; recreation areas and access points closed to waterfowl hunting; no shooting within 100 yards of a residence. KDFWR waterfowl refuges are red on the map. Season-long blind drawings at Barkley, Barren River, Doug Travis and Green River lakes."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans / military days",
+   "d": "Youth (under 16, with an adult): Nov 21, 2026 and Feb 13, 2027. Veterans and active-duty military: Nov 22, 2026 and Feb 14, 2027."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on (except doves), and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Kentucky hunting licence",
+   "who": "Hunters 16+",
+   "d": "Annual $28.54 resident, $169.12 non-resident (or a Sportsman’s licence). Youth 12–15 annual $6.34 / $10.57."
+  },
+  {
+   "t": "Kentucky Migratory Bird / Waterfowl Permit",
+   "who": "Migratory bird hunters 16+",
+   "d": "$15.86 (included in Sportsman’s licences)."
+  },
+  {
+   "t": "HIP survey",
+   "who": "Every migratory bird hunter",
+   "d": "Online at fw.ky.gov before hunting; write the confirmation number on your licence or permit."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "E-stamp sold at fw.ky.gov; sign a physical stamp."
+  }
+ ],
+ "geometryNote": "Geometry: the September Canada goose line on Census TIGER county lines; the Ballard Zone on the Ballard–McCracken county line, OpenStreetMap’s KY 358 and U.S. 60, and the Census Wickliffe city limits (north side, then due west into the Mississippi); KDFWR public hunting areas, waterfowl refuges and boat access sites; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER (outline, county subdivisions, borders). No tides."
+}
