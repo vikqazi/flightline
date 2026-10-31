@@ -1,0 +1,525 @@
+{
+ "state": "IL",
+ "stateName": "Illinois",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "Illinois DNR / Hunt Illinois — Waterfowl (2026–27 season dates, limits, zone descriptions, special rules)",
+   "url": "https://huntillinois.org/waterfowl/"
+  },
+  {
+   "label": "Illinois DNR — 2026–2030 waterfowl zone map (image)",
+   "url": "https://v3-wp.huntillinois.org/wp-content/uploads/2026/07/2026-2030WaterfowlZoneLines.png"
+  },
+  {
+   "label": "Illinois DNR — 2026–2030 waterfowl seasons, zones and dates (PDF)",
+   "url": "https://ngrrec-hunt-illinois-wordpress-images.s3.amazonaws.com/wp-content/uploads/2025/10/20142741/2026-2030WaterfowlSeasonsZonesDates.pdf"
+  },
+  {
+   "label": "Illinois DNR news release, 23 Dec 2025 — South Zone dates revised for 2026–2030",
+   "url": "https://www.illinois.gov/content/dam/soi/en/web/illinois/iisnewsattachments/32043-122325-10232025-south-zone-waterfowl-update.-12-23-25-ng.pdf.pdf"
+  },
+  {
+   "label": "IDNR — site boundaries and Public Hunting Areas Report (public land)",
+   "url": "https://services.arcgis.com/b9DHj1BjfdLLFv11/arcgis/rest/services/IPHAR_shp/FeatureServer/0"
+  },
+  {
+   "label": "IDNR — federally funded boat access sites (partial list of ramps)",
+   "url": "https://gis.prairie.illinois.edu/arcgis/rest/services/OMLP/FedAid_and_LandUse/FeatureServer/20"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes and local roads (the zone lines run on them)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North Duck Zone: that portion of the state north of a line extending west from the Indiana border along Peotone-Beecher Road to Illinois Route 50, south along Illinois Route 50 to Wilmington-Peotone Road, west along Wilmington-Peotone Road to Illinois Route 53, north along Illinois Route 53 to New River Road, northwest along New River Road to Interstate 55, south along I-55 to Pine Bluff-Lorenzo Road, west along Pine Bluff-Lorenzo Road to Illinois Route 47, north along Illinois Route 47 to I-80, west along I-80 to I-39, south along I-39 to Illinois Route 18, west along Illinois Route 18 to Illinois Route 29, south along Illinois Route 29 to Illinois Route 17, west along Illinois Route 17 to the Mississippi River, and due south across the Mississippi River to the Iowa border. North Goose Zone: the same, except the line runs west from the Indiana border along I-80 to I-39 (so the strip between the duck line and I-80 in Will and Grundy counties is North Duck Zone but Central Goose Zone: the amber area on the map).",
+   "note": "Ducks Oct 24–25, Oct 31 – Dec 27. Canada and light geese Oct 24–25, Oct 31 – Jan 26 (in the amber strip: Central Zone goose dates)."
+  },
+  "c": {
+   "name": "Central Zone",
+   "short": "Central",
+   "bounds": "Central Duck Zone: that portion of the state south of the North Duck Zone line to a line extending west from the Indiana border along I-70 to Illinois Route 4, south along Illinois Route 4 to Illinois Route 161, west along Illinois Route 161 to Illinois Route 158, south and west along Illinois Route 158 to Illinois Route 159, south along Illinois Route 159 to Illinois Route 3, south along Illinois Route 3 to St. Leo’s Road, south along St. Leo’s Road to Modoc Road, west along Modoc Road to Modoc Ferry Road, southwest along Modoc Ferry Road to Levee Road, southeast along Levee Road to County Route 12 (Modoc Ferry entrance Road), south along County Route 12 to the Modoc Ferry route and southwest on the Modoc Ferry route across the Mississippi River to the Missouri border. Central Goose Zone: south of the North Goose Zone line and north of the same line.",
+   "note": "Ducks Oct 31 – Dec 13, Dec 19 – Jan 3. Canada and light geese Oct 31 – Dec 13, Dec 19 – Jan 31."
+  },
+  "s": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "South Duck Zone: the remainder of the state. South Goose Zone: same zones as for ducks.",
+   "note": "Ducks Nov 14 – Dec 6, Dec 19 – Jan 24. Canada and light geese Nov 14 – Jan 31."
+  }
+ },
+ "seasonsNote": "Illinois has three duck zones (North, Central, South; the old South-Central zone was merged into the South Zone for 2026–2030) and goose zones that follow them, except a strip of Will and Grundy counties that is North Duck but Central Goose (amber on the map). Early teal, rails and the September Canada goose season are statewide; the South Zone’s September Canada goose limit is lower. The South Zone youth days are two single days.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ],
+     [
+      "2026-10-31",
+      "2026-12-27"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-31",
+      "2026-12-13"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-03"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-14",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-24"
+     ]
+    ]
+   },
+   "note": "Hours ½ hour before sunrise to sunset."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-13"
+    ]
+   ],
+   "note": "Sunrise to sunset. Blue-winged, green-winged and cinnamon teal are the only legal ducks."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-15"
+    ]
+   ],
+   "note": "North and Central 5 a day; South Zone 2 a day."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "n": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ],
+     [
+      "2026-10-31",
+      "2027-01-26"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-31",
+      "2026-12-13"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-31"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-14",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Goose zones follow the duck zones except the amber strip in Will and Grundy counties (North Duck, Central Goose)."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "sameAs": "canada",
+   "note": "Snow, blue and Ross’s geese: the same regular-season dates as Canada geese. No separate early season is listed."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "sameAs": "canada"
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "z": {
+    "n": [
+     [
+      "2026-10-31",
+      "2027-01-26"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-31",
+      "2026-12-13"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-31"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-14",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "snowlate",
+   "label": "Light goose Conservation Order",
+   "z": {
+    "n": [
+     [
+      "2027-01-27",
+      "2027-04-30"
+     ]
+    ],
+    "c": [
+     [
+      "2027-02-01",
+      "2027-04-30"
+     ]
+    ],
+    "s": [
+     [
+      "2027-02-01",
+      "2027-04-30"
+     ]
+    ]
+   },
+   "note": "No daily or possession limit; unplugged shotguns and electronic calls allowed; ½ hour before sunrise to ½ hour after sunset; federal duck stamp not required (Illinois duck stamp and hunting licence are)."
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (sora and Virginia)",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-11-13"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "z": {
+    "n": [
+     [
+      "2026-09-05",
+      "2026-12-22"
+     ]
+    ],
+    "c": [
+     [
+      "2026-09-05",
+      "2026-12-20"
+     ]
+    ],
+    "s": [
+     [
+      "2026-09-05",
+      "2026-12-20"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "n": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-07",
+      "2026-11-07"
+     ],
+     [
+      "2027-01-30",
+      "2027-01-30"
+     ]
+    ]
+   },
+   "note": "South Zone: Nov 7 and Jan 30 (the page’s South table row reads “7 Nov 2026 – 30 Jan 2027”; its youth section and the dates PDF give the two single days)."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession is three times the daily limit by species and sex."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Not part of the duck limit; no more than 2 hooded mergansers (6 in possession)."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "All teal species combined."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "South Zone: 2 a day (15 in possession)."
+  },
+  {
+   "sp": "canada",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "Unlimited",
+   "detail": "Snow, blue and Ross’s geese."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": "Same dates as light geese."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "2",
+   "poss": "6",
+   "detail": ""
+  },
+  {
+   "sp": "snowlate",
+   "daily": "No limit",
+   "poss": "No limit",
+   "detail": "Conservation Order light geese."
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails combined."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same limits as the regular duck, goose and coot seasons."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "North: 2 a day Oct 24 – Nov 12, then 1 a day to Dec 27. Central: 1 a day Oct 31 – Nov 14, then 2 a day (Nov 15 – Dec 13 and Dec 19 – Jan 3). South: 2 a day Nov 14–28, then 1 a day Nov 29 – Jan 24."
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "Ducks, mergansers and coots: ½ hour before sunrise to sunset. Early teal: sunrise to sunset. Conservation Order light geese: ½ hour before sunrise to ½ hour after sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Shotguns",
+   "d": "No shotgun larger than 10 gauge; barrel at least 18 inches and overall length at least 26 inches. No shotgun that holds more than 3 shells (magazine and chamber together) unless plugged with a one-piece filler that cannot be removed without dismantling the gun (not required during the Conservation Order)."
+  },
+  {
+   "g": "Gear",
+   "t": "Muzzleloaders and archery",
+   "d": "A muzzleloading rifle firing non-toxic shot may be used for all legal waterfowl except teal. Archery follows the deer and turkey section rules."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Non-toxic shot is required for waterfowl; IDNR points to Tom Roster’s lethality table for the legal types. Some sites add shot and equipment rules: check the Hunting Site Directory."
+  },
+  {
+   "g": "Gear",
+   "t": "Decoys",
+   "d": "Spinning-wing decoys are allowed. (Electronic calls are allowed only in the Conservation Order.)"
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on each bird while carrying it from the field to its final destination. Use a Waterfowl Gift Tag when giving birds to another person."
+  },
+  {
+   "g": "Special",
+   "t": "Zones: the Will and Grundy strip",
+   "d": "Geese follow the same zones as ducks except a strip of Will and Grundy counties between the North Duck line and I-80, which is North Duck Zone but Central Goose Zone (amber on the map)."
+  },
+  {
+   "g": "Special",
+   "t": "Public duck and goose permits (free)",
+   "d": "Public sites that need a permit use lotteries: first Aug 16–31 (residents only), second Sep 1–15, third Sep 16–28, then first-come first-served from 8 am Oct 1 until quotas run out or 72 hours before the hunt. Limit of 5 permits in total."
+  },
+  {
+   "g": "Special",
+   "t": "Blind sites",
+   "d": "IDNR holds in-person blind drawings in summer at several sites (hunter 16+, present at the drawing, with a current or preceding-year regular Illinois licence and migratory waterfowl stamp and photo ID). Blinds at least 4 × 8 ft and no higher than 14 ft above normal pool, within 10 ft of the assigned marker, with a dog hide and a boat hide of at least 18 × 7.5 ft. Details vary by site (Administrative Rule 590)."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth waterfowl days",
+   "d": "North Oct 17–18, Central Oct 24–25, South Nov 7 and Jan 30. Hunter 17 or younger with a licence (or youth/apprentice licence) and HIP, accompanied by an adult 18+ who may not hunt waterfowl or coots. No stamps under 16; a federal duck stamp from 16 up. Special youth hunts need a free Youth Waterfowl Hunting Permit (apply online Sep 1 – Oct 1, ages 10–17)."
+  },
+  {
+   "g": "Special",
+   "t": "Site rules and closures",
+   "d": "The Hunt Illinois waterfowl page lists no statewide closed areas. Individual IDNR sites and federal refuges set their own rules, hours, permits and closures: check the site (Public land and Refuges layers)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Illinois hunting licence",
+   "who": "Residents and non-residents (unless exempt)",
+   "d": "Required for waterfowl. Fees are not listed on the waterfowl page."
+  },
+  {
+   "t": "Illinois Migratory Waterfowl Stamp",
+   "who": "Waterfowl hunters (not for snipe or rails)",
+   "d": "Required for ducks, geese and coots; it appears as a line item on the licence. The price is not stated on the waterfowl page."
+  },
+  {
+   "t": "Federal Migratory Bird (duck) Stamp",
+   "who": "Hunters 16 and older (not for snipe or rails)",
+   "d": "Required for waterfowl, including on youth days from age 16; not required during the Conservation Order."
+  },
+  {
+   "t": "HIP certification",
+   "who": "Every migratory bird hunter",
+   "d": "Required for all migratory bird hunting; youth hunting on property where they reside are exempt from licence and HIP on youth days."
+  }
+ ],
+ "geometryNote": "Geometry: the two duck lines are routed on OpenStreetMap roads exactly as IDNR’s zone text names them (Peotone-Beecher Rd / CH 24, IL 50, Wilmington-Peotone Rd / CH 25, IL 53, New River Rd / CH 44, I-55, Pine Bluff-Lorenzo Rd / CH 29C, IL 47, I-80, I-39, IL 18, IL 29, IL 17; I-70, IL 4, IL 161, IL 158, IL 159, IL 3, St. Leo’s Rd, Modoc Rd, Modoc Ferry Rd, Levee Rd, County Highway 12), with the ends on the Census outline; two short stretches with no OSM road (about 4.8 km of Pine Bluff-Lorenzo Road between I-55 and Pine Bluff Road, and two links of 0.3 and 0.8 km at Modoc) are drawn straight. IDNR’s own GIS zone layer still shows the pre-2026 four-zone layout, so the written text is the source. Public land: IDNR site boundaries for the sites in IDNR’s public hunting areas report (some sites have no boundary and are not drawn). Boat ramps: IDNR federally funded boat access sites (a partial list). USGS NHD (water; streams) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER (outline, county subdivisions, borders). No tides."
+}
