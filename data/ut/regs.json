@@ -1,0 +1,426 @@
+{
+ "state": "UT",
+ "stateName": "Utah",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "Utah DWR — 2026-27 Waterfowl, Upland Game and Turkey Guidebook",
+   "url": "https://wildlife.utah.gov/guidebooks/waterfowl-upland-game-turkey-guidebook.pdf"
+  },
+  {
+   "label": "Utah DWR GIS — Utah Goose Areas and Utah Duck Zones (official boundaries)",
+   "url": "https://services.arcgis.com/ZzrwjTRez6FJiOq4/arcgis/rest/services/Goose_Areas/FeatureServer"
+  },
+  {
+   "label": "Utah Hunt Planner — zone and area boundaries",
+   "url": "https://hunt.utah.gov/"
+  },
+  {
+   "label": "Utah Land Ownership (SITLA) — DWR wildlife management areas",
+   "url": "https://gis.trustlands.utah.gov/mapping/rest/services/Land_Ownership/FeatureServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes, boat ramps",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — lakes, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "Northern",
+   "short": "Northern",
+   "bounds": "Northern duck zone and Northern goose area (DWR boundaries).",
+   "note": "Ducks Oct 3 – Jan 16. Dark and white-fronted geese Oct 3–10 and Oct 26 – Jan 31. Light geese Oct 15 – Dec 22 and Feb 1 – Mar 10."
+  },
+  "wf": {
+   "name": "Wasatch Front goose area",
+   "short": "Wasatch Front",
+   "bounds": "Wasatch Front goose area (DWR boundary), in the Northern duck zone.",
+   "note": "Ducks Oct 3 – Jan 16. Dark and white-fronted geese Oct 3–10 and Nov 10 – Feb 15. Light geese Oct 15 – Dec 22 and Feb 1 – Mar 10."
+  },
+  "eb": {
+   "name": "Eastern Box Elder goose area",
+   "short": "E. Box Elder",
+   "bounds": "Eastern Box Elder goose area around the Bear River refuge and Public Shooting Grounds (DWR boundary), in the Northern duck zone.",
+   "note": "Ducks Oct 3 – Jan 16. Dark and white-fronted geese Oct 3 – Jan 16. Light geese Oct 15 – Dec 22 and Feb 1 – Mar 10."
+  },
+  "s": {
+   "name": "Southern",
+   "short": "Southern",
+   "bounds": "Beaver, Carbon, Emery, Garfield, Grand, Iron, Juab, Kane, Millard, Piute, San Juan, Sanpete, Sevier, Washington and Wayne counties and Tooele County south of I-80 (Southern duck zone and goose area).",
+   "note": "Ducks Oct 10 – Jan 23. Dark and white-fronted geese Oct 10 – Jan 23. Light geese Oct 26 – Dec 15 and Jan 15 – Mar 10."
+  }
+ },
+ "seasonsNote": "Two duck zones (Northern, Southern) and four goose areas. Excludes closed areas and Native American trust lands.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks and mergansers",
+   "z": {
+    "n": [
+     [
+      "2026-10-03",
+      "2027-01-16"
+     ]
+    ],
+    "wf": [
+     [
+      "2026-10-03",
+      "2027-01-16"
+     ]
+    ],
+    "eb": [
+     [
+      "2026-10-03",
+      "2027-01-16"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-10",
+      "2027-01-23"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "scaup",
+   "label": "Scaup",
+   "z": {
+    "n": [
+     [
+      "2026-10-03",
+      "2026-12-27"
+     ]
+    ],
+    "wf": [
+     [
+      "2026-10-03",
+      "2026-12-27"
+     ]
+    ],
+    "eb": [
+     [
+      "2026-10-03",
+      "2026-12-27"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-30",
+      "2027-01-23"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese (Canada, cackling, brant) and white-fronted geese",
+   "z": {
+    "eb": [
+     [
+      "2026-10-03",
+      "2027-01-16"
+     ]
+    ],
+    "n": [
+     [
+      "2026-10-03",
+      "2026-10-10"
+     ],
+     [
+      "2026-10-26",
+      "2027-01-31"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-10",
+      "2027-01-23"
+     ]
+    ],
+    "wf": [
+     [
+      "2026-10-03",
+      "2026-10-10"
+     ],
+     [
+      "2026-11-10",
+      "2027-02-15"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese (snow, blue, Ross’s)",
+   "z": {
+    "n": [
+     [
+      "2026-10-15",
+      "2026-12-22"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "wf": [
+     [
+      "2026-10-15",
+      "2026-12-22"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "eb": [
+     [
+      "2026-10-15",
+      "2026-12-22"
+     ],
+     [
+      "2027-02-01",
+      "2027-03-10"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-26",
+      "2026-12-15"
+     ],
+     [
+      "2027-01-15",
+      "2027-03-10"
+     ]
+    ]
+   },
+   "note": "After the dark goose season ends in each area, light goose hunting closes on Bear River, Fish Springs and Ouray NWRs and the Brown’s Park, Desert Lake, Farmington Bay, Harold S. Crane, Howard Slough, Locomotive Springs, Ogden Bay, Public Shooting Grounds and Salt Creek WMAs. Millard County closed to light geese Feb 15–28."
+  },
+  {
+   "sp": "swan",
+   "label": "Tundra swans (by permit)",
+   "z": {
+    "n": [
+     [
+      "2026-10-03",
+      "2026-12-13"
+     ]
+    ],
+    "wf": [
+     [
+      "2026-10-03",
+      "2026-12-13"
+     ]
+    ],
+    "eb": [
+     [
+      "2026-10-03",
+      "2026-12-13"
+     ]
+    ]
+   },
+   "note": "Permit by drawing; mandatory orientation course; swan area only (Northern zone)."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl hunt",
+   "z": {
+    "n": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ]
+    ],
+    "wf": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ]
+    ],
+    "eb": [
+     [
+      "2026-09-19",
+      "2026-09-19"
+     ]
+    ],
+    "s": [
+     [
+      "2026-09-26",
+      "2026-09-26"
+     ]
+    ]
+   },
+   "note": "Hunters 17 and under on July 31, 2026. Tundra swan youth hunt Sept 19 (Northern, permit)."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "7",
+   "poss": "21",
+   "detail": "Seven ducks and mergansers, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "scaup",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Inside the 7."
+  },
+  {
+   "sp": "coot",
+   "daily": "25",
+   "poss": "75",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5 + 6",
+   "poss": "15 + 18",
+   "detail": "Five dark geese (Canada, cackling, brant) plus six white-fronted geese."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": ""
+  },
+  {
+   "sp": "swan",
+   "daily": "1",
+   "poss": "1 per permit",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "7",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "2",
+   "note": "during the scaup season"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "7",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset (DWR tables)."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot and shells",
+   "d": "Nontoxic shot for waterfowl, coots and snipe. Shotguns limited to 3 shells."
+  },
+  {
+   "g": "Special",
+   "t": "WMA access permit",
+   "d": "From July 1, 2026 a WMA access permit is required on DWR wildlife management areas in Davis, Salt Lake, Utah and Weber counties (H.B. 30) — check DWR."
+  },
+  {
+   "g": "Special",
+   "t": "No-shooting areas",
+   "d": "Rule R657-9-32 no-shooting areas (e.g. near the Antelope Island causeway) are not drawn; see the guidebook."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth hunt",
+   "d": "Sept 19 (Northern zone / EBE, Northern, Wasatch Front goose areas), Sept 26 (Southern)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Utah hunting or combination licence",
+   "who": "Hunters",
+   "d": ""
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter",
+   "d": ""
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": ""
+  },
+  {
+   "t": "Tundra swan permit",
+   "who": "Swan hunters",
+   "d": "Drawing; orientation course each year."
+  }
+ ],
+ "geometryNote": "Geometry: DWR’s official goose-area and duck-zone polygons, split against the Census TIGER outline and welded to Idaho and Nevada; DWR wildlife management areas (Utah land ownership layer); OpenStreetMap boat ramps; USGS NHD and GNIS; USFWS (refuge units; NWI marsh)."
+}

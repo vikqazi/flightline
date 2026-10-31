@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California, Nevada, Minnesota and Idaho: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California, Nevada, Minnesota, Idaho and Utah: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1186,7 +1186,11 @@ var STATES = {
   id: { name: 'Idaho', abbr: 'ID', bounds: [[41.99, -117.24], [49.00, -111.04]],
         zones: ['pan', 'nc', 'sw', 'cam', 'bl', 'mv', 'se', 'e4', 'e1', 'g4'],
         colors: { pan: '#4f9e9a', nc: '#5b7fb8', sw: '#8a9a4e', cam: '#9a8a4e', bl: '#7a8fc4', mv: '#b08a4e', se: '#a0705a', e4: '#8c6fa8', e1: '#6f9a6f', g4: '#c47a7a' },
-        extras: ['closed'], attrib: 'IDFG · USGS NHD' }
+        extras: ['closed'], attrib: 'IDFG · USGS NHD' },
+  ut: { name: 'Utah', abbr: 'UT', bounds: [[36.99, -114.06], [42.00, -109.04]],
+        zones: ['n', 'wf', 'eb', 's'],
+        colors: { n: '#5b7fb8', wf: '#8a9a4e', eb: '#c47a7a', s: '#b08a4e' },
+        extras: [], attrib: 'Utah DWR · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]
