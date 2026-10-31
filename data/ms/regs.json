@@ -1,0 +1,451 @@
+{
+ "state": "MS",
+ "stateName": "Mississippi",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "MDWFP — 2026–2027 Digest of Migratory Game Bird Regulations (PDF)",
+   "url": "https://www.mdwfp.com/sites/default/files/2026-05/Migratory%20Gamebird%20Digest%2026-27_2.pdf"
+  },
+  {
+   "label": "MDWFP — Waterfowl program",
+   "url": "https://www.mdwfp.com/wildlife-hunting/wildlife-species-program/waterfowl-program"
+  },
+  {
+   "label": "USFWS — Mississippi Alluvial Valley state-managed lands (2021; MDWFP publishes no WMA GIS)",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/MAV_state_managed_lands_2021/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — boat ramps (leisure=slipway) and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "ms": {
+   "name": "Mississippi (statewide)",
+   "short": "Statewide",
+   "bounds": "Every Mississippi migratory game bird season is statewide.",
+   "note": "One zone. Public areas may have their own dates, hours and closed areas."
+  }
+ },
+ "seasonsNote": "Every season is statewide. Public waterfowl areas (WMAs, NWRs, Corps lakes) may set different dates, hours and closed areas.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-11-27",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-04",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-09",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — early",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ]
+   ],
+   "note": "All teal species."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ]
+   ],
+   "note": "Roebuck Lake (Leflore County) is closed to Canada goose hunting."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-11-13",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-04",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-09",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Brant and white-fronted geese with the same dates. Roebuck Lake closed to Canada geese."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-11-13",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-04",
+     "2026-12-06"
+    ],
+    [
+     "2026-12-09",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Snow, blue and Ross’s geese. Light Goose Conservation Order (free permit): Oct 1 – Nov 12, Nov 30 – Dec 3, Feb 1–5 and Feb 8 – Mar 31."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-12-18",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2027-02-28"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ],
+    [
+     "2026-11-22",
+     "2026-12-31"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "King and clapper rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ],
+    [
+     "2026-11-22",
+     "2026-12-31"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Common and purple gallinules",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ],
+    [
+     "2026-11-22",
+     "2026-12-31"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning and white-winged doves",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-04"
+    ],
+    [
+     "2026-10-24",
+     "2026-11-22"
+    ],
+    [
+     "2026-12-26",
+     "2027-01-24"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-07"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans and active military waterfowl days",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-07"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit (except opening day)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada geese 5; white-fronted geese 3 (9); brant 1 (3)."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "No limit",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "15",
+   "poss": "45",
+   "detail": "King and clapper rails."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Youth 15 and under with a licensed adult 21+; regular hours and limits."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Veterans and active military; regular hours and limits."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 Nov 27–29, Dec 4–6 and Dec 9–17; 2 from Dec 18"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for all migratory game birds; light geese to 30 minutes after sunset during the Conservation Order."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot and plugged guns",
+   "d": "Federal rules: approved non-toxic shot for waterfowl; shotguns plugged to 3 shells (except the Conservation Order)."
+  },
+  {
+   "g": "Special",
+   "t": "Roebuck Lake",
+   "d": "Roebuck Lake (Leflore County) is closed to Canada goose hunting. Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Public waterfowl areas",
+   "d": "WMAs, national wildlife refuges and Corps lakes may have different dates, hours and closed areas; check each area. State-line waters: reciprocal licence agreements with Arkansas and Louisiana."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veterans and active military days",
+   "d": "Feb 6–7, 2027."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Mississippi hunting licence",
+   "who": "Hunters (unless exempt)",
+   "d": "Resident or non-resident, from MDWFP."
+  },
+  {
+   "t": "Mississippi State Waterfowl Stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Electronic or physical (sign the physical stamp); valid one year from purchase."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every licensed migratory bird hunter",
+   "d": "Free from any licence vendor."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Valid July 1 – June 30; E-stamp accepted."
+  }
+ ],
+ "geometryNote": "Geometry: public land from USFWS’s Mississippi Alluvial Valley state-managed lands (the Delta only — MDWFP publishes no WMA GIS); boat ramps from OpenStreetMap; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); NOAA CO-OPS (tides); Census TIGER (outline, county subdivisions, borders). One statewide zone."
+}

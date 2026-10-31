@@ -1,0 +1,347 @@
+{
+ "state": "AL",
+ "stateName": "Alabama",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "ADCNR — 2026–2027 Alabama Waterfowl Hunting Guide (PDF)",
+   "url": "https://outdooralabama.com/sites/default/files/2026-27%20Waterfowl%20Hunting%20Guide.pdf"
+  },
+  {
+   "label": "ADCNR — Waterfowl seasons and bag limits",
+   "url": "https://outdooralabama.com/seasons-and-bag-limits/waterfowl-season"
+  },
+  {
+   "label": "ADCNR GIS — wildlife management areas (2026–27 maps), special opportunity areas, DCNR boat ramps",
+   "url": "https://conservationgis.alabama.gov/adcnrweb/rest/services"
+  },
+  {
+   "label": "OpenStreetMap — US 90, I-10, US 98, AL 225 and the CSX railroad (Delta zone) and numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams (Mobile River line)",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "al": {
+   "name": "Alabama (statewide)",
+   "short": "Statewide",
+   "bounds": "Every Alabama waterfowl season is statewide. The Mobile-Tensaw Delta Waterfowl Management Zone changes the days and hours only (amber on the map).",
+   "note": "One zone."
+  }
+ },
+ "seasonsNote": "Every season is statewide. In the Mobile-Tensaw Delta zone, ducks, coots, mergansers and geese are closed on Mondays and Tuesdays and shooting ends at 1 p.m. on other days (except the early teal and goose seasons).",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-11-27",
+     "2026-11-28"
+    ],
+    [
+     "2026-12-05",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — special September",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-20"
+    ]
+   ]
+  },
+  {
+   "sp": "canadasept",
+   "label": "Geese — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-04"
+    ]
+   ],
+   "note": "The goose season runs Sept 5 – Oct 4, Oct 17–31, Nov 27–28 and Dec 5 – Jan 31."
+  },
+  {
+   "sp": "canada",
+   "label": "Dark geese — regular",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2026-10-31"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-28"
+    ],
+    [
+     "2026-12-05",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Canada and white-fronted geese and brant."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-10-04"
+    ],
+    [
+     "2026-10-17",
+     "2026-10-31"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-28"
+    ],
+    [
+     "2026-12-05",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Snow, blue and Ross’s geese."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-21"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans and active military waterfowl days",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-21"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit (federal rule)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Dark geese (Canada, white-fronted, brant) in aggregate."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Dark geese (Canada, white-fronted, brant) in aggregate."
+  },
+  {
+   "sp": "snow",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Light geese (snow, blue, Ross’s) in aggregate."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Regular hours, limits, arms and ammunition. Up to 2 youths (under 16) per adult supervisor 21+; one firearm per youth."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Proof of service required."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset, except the Mobile-Tensaw Delta zone (to 1 p.m., Wednesday – Sunday) and Corps of Engineers lands and waters in Pickens, Greene and Sumter counties (hours on the ACOE permit)."
+  },
+  {
+   "g": "Hours",
+   "t": "Mobile-Tensaw Delta Waterfowl Management Zone",
+   "d": "Closed to waterfowl hunting on Mondays and Tuesdays; Wednesday – Sunday shooting from ½ hour before sunrise to 1:00 p.m. (early teal and goose seasons: every day to sunset). Big Bateau Bay and Bay Grass: no gas-powered motors from the second Saturday in November to the second Saturday in February. Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Apalachee Refuge",
+   "d": "No hunting, and no gas-powered motors from the second Saturday in November to the second Saturday in February, inside I-10, the western channel of the Apalachee River (as signed) and US 90. Red on the map (an approximate circle)."
+  },
+  {
+   "g": "Gear",
+   "t": "Legal arms and shot",
+   "d": "Bows, crossbows, or shotguns 10 gauge or smaller plugged to 3 shells, with T-size steel or smaller or other approved non-toxic shot. Possessing lead shot while hunting waterfowl is illegal."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veteran and active military days",
+   "d": "Nov 21, 2026 and Feb 6, 2027."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Alabama hunting licence",
+   "who": "Hunters",
+   "d": "Resident annual all-game $35.30 or small game $23.40; non-resident small game $134.10 (10-day $81.70, 3-day $59.10)."
+  },
+  {
+   "t": "State duck stamp",
+   "who": "Waterfowl hunters",
+   "d": "$12.70."
+  },
+  {
+   "t": "HIP certification",
+   "who": "Every licensed waterfowl hunter",
+   "d": "Free with the licence."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "$30."
+  },
+  {
+   "t": "WMA licence",
+   "who": "Hunting on WMAs",
+   "d": "$23.40."
+  }
+ ],
+ "geometryNote": "Geometry: ADCNR WMAs and special opportunity areas; DCNR boat ramps; the Mobile-Tensaw Delta zone on OpenStreetMap’s US 90, I-10, US 98, AL 225 and the CSX railroad, with USGS NHD’s Mobile River line standing in for the river’s west bank (approximate there); USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); NOAA CO-OPS (tides); Census TIGER (outline, county subdivisions, borders). One statewide zone."
+}

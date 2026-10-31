@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio and Kentucky: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Tennessee, Alabama, Mississippi and Indiana: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1102,7 +1102,23 @@ var STATES = {
   ky: { name: 'Kentucky', abbr: 'KY', bounds: [[36.49, -89.58], [39.15, -81.96]],
         zones: ['w', 'wb', 'e'],
         colors: { w: '#8a9a4e', wb: '#c9893c', e: '#5b7fb8' },
-        extras: ['closed'], attrib: 'KDFWR · USGS NHD' }
+        extras: ['closed'], attrib: 'KDFWR · USGS NHD' },
+  tn: { name: 'Tennessee', abbr: 'TN', bounds: [[34.98, -90.31], [36.68, -81.65]],
+        zones: ['tn'],
+        colors: { tn: '#8a9a4e' },
+        extras: ['closed'], attrib: 'TWRA · USGS NHD' },
+  al: { name: 'Alabama', abbr: 'AL', bounds: [[30.14, -88.48], [35.01, -84.89]],
+        zones: ['al'],
+        colors: { al: '#5b7fb8' },
+        extras: ['closed'], attrib: 'ADCNR · USGS NHD' },
+  ms: { name: 'Mississippi', abbr: 'MS', bounds: [[30.17, -91.66], [35.01, -88.10]],
+        zones: ['ms'],
+        colors: { ms: '#4f9e9a' },
+        extras: ['closed'], attrib: 'MDWFP · USGS NHD' },
+  in: { name: 'Indiana', abbr: 'IN', bounds: [[37.77, -88.10], [41.77, -84.78]],
+        zones: ['n', 'c', 's'],
+        colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
+        extras: ['closed'], attrib: 'Indiana DNR · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]
@@ -3880,12 +3896,23 @@ function wire() {
     S.flyway = fly; store('flyway', fly); flyPanelOpen(true);
   };
   $('#flyPanel').onclick = function (ev) {
-    var t = ev.target.closest && ev.target.closest('[data-fly],[data-state],[data-fly-all]'); if (!t) return;
+    var t = ev.target.closest && ev.target.closest('[data-fly],[data-state],[data-fly-all],[data-fly-none]'); if (!t) return;
     if (t.getAttribute('data-fly')) { S.flyway = t.getAttribute('data-fly'); store('flyway', S.flyway); renderStateBtn(); }
     else if (t.getAttribute('data-state')) toggleShown(t.getAttribute('data-state'));
     else if (t.getAttribute('data-fly-all')) {
       var f = FLYWAYS.filter(function (x) { return x[0] === t.getAttribute('data-fly-all'); })[0];
       if (f) setShown(flyBuilt(f).sort(function (x, y) { return Object.keys(STATES).indexOf(x) - Object.keys(STATES).indexOf(y); }), false, true);
+    }
+    else if (t.getAttribute('data-fly-none')) {
+      var fn = FLYWAYS.filter(function (x) { return x[0] === t.getAttribute('data-fly-none'); })[0]; if (!fn) return;
+      var left = S.shown.filter(function (c) { return fn[2].indexOf(c) < 0; });
+      if (!left.length) {         // the map needs one state: keep the one under the centre, else the first shown
+        var mc = map.getCenter();
+        var here = S.shown.filter(function (c) { var b = STATES[c].bounds;
+          return mc.lat >= b[0][0] && mc.lat <= b[1][0] && mc.lng >= b[0][1] && mc.lng <= b[1][1]; })[0];
+        left = [here || S.shown[0]];
+      }
+      if (left.join() !== S.shown.join()) setShown(left, false, false);
     }
   };
   document.addEventListener('click', function (ev) {      // a tap anywhere else closes the flyway panel
@@ -4257,7 +4284,9 @@ function renderFlyPanel() {
             h('i', null, esc(STATES[c].abbr)) + esc(STATES[c].name));
         }).join('')) +
         h('div', { class: 'row flyacts' },
-          h('button', { class: 'btn ghost', 'data-fly-all': f[0] }, 'Show all ' + built.length) +
+          h('span', { class: 'row', style: 'gap:6px' },
+            h('button', { class: 'btn ghost', 'data-fly-all': f[0] }, 'Show all ' + built.length) +
+            h('button', { class: 'btn ghost', 'data-fly-none': f[0], title: 'Turn off every ' + f[1] + ' state (the map keeps one)' }, 'Hide all')) +
           h('span', { class: 'tiny muted' }, S.shown.length + ' shown'))
       : h('div', { class: 'flysoon' }, '<b>' + esc(f[1]) + ' Flyway: coming soon.</b> States are added one at a time, each bordering one already on the map.')) +
     (built.length && soon.length ? h('div', { class: 'flysoon' }, 'Coming: ' + esc(soon.map(function (c) { return c.toUpperCase(); }).join(' '))) : '');

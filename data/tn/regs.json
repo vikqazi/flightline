@@ -1,0 +1,461 @@
+{
+ "state": "TN",
+ "stateName": "Tennessee",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "TWRA — 2026–27 Duck & Sandhill Crane Seasons and Bag Limits (eRegulations)",
+   "url": "https://www.eregulations.com/tennessee/hunting/duck-sandhill-crane-seasons-bag-limits"
+  },
+  {
+   "label": "TWRA — Goose Seasons and Bag Limits",
+   "url": "https://www.eregulations.com/tennessee/hunting/goose-seasons-bag-limits"
+  },
+  {
+   "label": "TWRA — Migratory Bird Seasons and Bag Limits (special regulations)",
+   "url": "https://www.eregulations.com/tennessee/hunting/migratory-bird-seasons-bag-limits"
+  },
+  {
+   "label": "TWRA — Wildlife Management Area General Regulations (waterfowl on WMAs, tier blinds)",
+   "url": "https://www.eregulations.com/tennessee/hunting/wildlife-management-area-general-regulations"
+  },
+  {
+   "label": "TWRA — License Fees",
+   "url": "https://www.eregulations.com/tennessee/hunting/license-fees"
+  },
+  {
+   "label": "TWRA — South Fork Waterfowl Refuge",
+   "url": "https://www.tn.gov/twra/wildlife-management-areas/west-tennessee-r1/south-fork-waterfowl-refuge.html"
+  },
+  {
+   "label": "TWRA — Horns Bluff Refuge",
+   "url": "https://www.tn.gov/content/tn/twra/wildlife-management-areas/west-tennessee-r1/horns-bluff-refuge.html"
+  },
+  {
+   "label": "TWRA GIS (TN Map) — TWRA lands, boating and fishing access sites",
+   "url": "https://tnmap.tn.gov/arcgis/rest/services/ENVIRONMENTAL/TWRA/MapServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "tn": {
+   "name": "Tennessee (statewide)",
+   "short": "Statewide",
+   "bounds": "Every Tennessee waterfowl season is statewide (the Southeast Crane Zone applies to sandhill cranes only).",
+   "note": "One zone. WMAs and refuges set their own days, hours and draw hunts."
+  }
+ },
+ "seasonsNote": "Every waterfowl season is statewide. WMA waterfowl hunting is by permit, draw, tier blinds or the area’s own days and hours.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-11-28",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-05",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal and wood ducks — September",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-16"
+    ]
+   ],
+   "note": "No more than 2 wood ducks in the 6."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-20"
+    ]
+   ]
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-10-10",
+     "2026-10-22"
+    ],
+    [
+     "2026-11-28",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-05",
+     "2027-02-14"
+    ]
+   ],
+   "note": "White-fronted geese Nov 28–29 and Dec 5 – Feb 14; brant with the Canada goose dates."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-20"
+    ],
+    [
+     "2026-10-10",
+     "2026-10-22"
+    ],
+    [
+     "2026-11-28",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-05",
+     "2027-02-14"
+    ]
+   ],
+   "note": "Blue, snow and Ross’s geese (standard federal rules). Conservation Season Feb 15 – Mar 31, 2027 with a free permit: no limit, unplugged guns, electronic calls, to 30 minutes after sunset."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2026-12-06"
+    ],
+    [
+     "2027-01-10",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-11-14",
+     "2027-02-28"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Virginia and sora rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules and moorhens",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning doves",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-28"
+    ],
+    [
+     "2026-10-10",
+     "2026-11-01"
+    ],
+    [
+     "2026-12-08",
+     "2027-01-15"
+    ]
+   ],
+   "note": "Opens at noon on Sept 1."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-13"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans and active military waterfowl days",
+   "statewide": [
+    [
+     "2027-02-07",
+     "2027-02-07"
+    ],
+    [
+     "2027-02-14",
+     "2027-02-14"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit (1× on opening day, 2× on the second day)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "No more than 2 wood ducks."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Canada geese 3, white-fronted geese 3, brant 1."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "No limit",
+   "detail": "Blue, snow and Ross’s geese."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Virginia and sora rails."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Youths 6–16 with a non-hunting adult 21+; coots, gallinules, ducks, mergansers and geese."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Veterans and active-duty military, National Guard and Reserves."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": "2 in the September season"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 Nov 28–29 and Dec 5–17; 2 from Dec 18"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset (federal rule); some WMAs end earlier (South Fork and Horns Bluff at 3 p.m.)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "No loose shot or shells other than federally approved non-toxic shot while hunting waterfowl, sandhill cranes, coots, gallinules and Virginia and sora rails."
+  },
+  {
+   "g": "Gear",
+   "t": "Plugged shotguns",
+   "d": "No more than 3 shells (except crows, and light geese in the Conservation Season)."
+  },
+  {
+   "g": "Special",
+   "t": "Waterfowl on WMAs",
+   "d": "WMAs marked “WF” need an annual or 1-day Small Game and Waterfowl Permit (Sportsman’s licences exempt). Many WMAs hunt from tier blinds (Tier 1 season-long draw, Tier 2 periodic draw, Tier 4 first come) or by draw; temporary blinds and decoys at least 200 yards from tier blinds. Some WMAs close from two hours after shooting ends until 4 a.m. during the late duck season."
+  },
+  {
+   "g": "Special",
+   "t": "South Fork and Horns Bluff refuges",
+   "d": "Saturdays and Sundays only during the November–February duck season; hunting ends at 3 p.m. (sunset on the last day); closed to other access Nov 15 – Feb 15. Amber on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Near dwellings",
+   "d": "No hunting on public land or water within 100 yards of a visible dwelling without the owner’s permission."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans / military days",
+   "d": "Youth (6–16): Feb 6 and 13, 2027. Veterans and active military: Feb 7 and 14, 2027. WMAs with special closing times are open all day on youth days."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Tennessee hunting licence",
+   "who": "Hunters",
+   "d": "Resident Hunting and Fishing Combination licence, or Sportsman’s; non-resident Annual Hunt – Small Game/Waterfowl $110 (or 7-day $61)."
+  },
+  {
+   "t": "Waterfowl supplemental licence",
+   "who": "Resident waterfowl hunters",
+   "d": "$37 with the combination licence (Sportsman’s and Lifetime exempt)."
+  },
+  {
+   "t": "Tennessee Migratory Bird Permit",
+   "who": "Every migratory bird hunter",
+   "d": "Resident and non-resident; expires June 30."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "$30.50; E-stamp at GoOutdoorsTennessee.com July 1 – Feb 11."
+  }
+ ],
+ "geometryNote": "Geometry: TWRA lands and boating and fishing access sites; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER (outline, county subdivisions, borders); OpenStreetMap (roads). One statewide zone. No tides."
+}

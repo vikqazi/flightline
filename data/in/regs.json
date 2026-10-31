@@ -1,0 +1,528 @@
+{
+ "state": "IN",
+ "stateName": "Indiana",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "Indiana DNR — Waterfowl & Migratory Game Bird Hunting (zones, licences, restrictions, Ohio River)",
+   "url": "https://www.in.gov/dnr/fish-and-wildlife/hunting-and-trapping/waterfowl-and-migratory-game-birds/"
+  },
+  {
+   "label": "Indiana DNR — Migratory Game Bird Seasons and Regulations 2026–27 (dates, bag limits)",
+   "url": "https://www.in.gov/dnr/fish-and-wildlife/hunting-and-trapping/waterfowl-and-migratory-game-birds/migratory-gamebird-seasons-and-regulations/"
+  },
+  {
+   "label": "IndianaMap / Indiana DNR — Properties with Public Hunting (public land); Fishing Access Sites (boat ramps)",
+   "url": "https://gisdata.in.gov/server/rest/services/Hosted/ManagedLandsAll_Live_HUNT/FeatureServer/1"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (the two zone lines run on them)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North Zone: that part of Indiana north of a line from the Illinois border east along State Road 18 to U.S. 31; north along U.S. 31 to U.S. 24; east along U.S. 24 to Huntington; southeast along U.S. 224; south along State Road 5; and east along State Road 124 to the Ohio border.",
+   "note": "Ducks Oct 24 – Dec 13, Dec 19–27. Geese Sept 5–13, Oct 24 – Nov 1, Nov 21 – Feb 14."
+  },
+  "c": {
+   "name": "Central Zone",
+   "short": "Central",
+   "bounds": "Central Zone: that part of Indiana south of the North Zone boundary and north of the South Zone boundary.",
+   "note": "Ducks Oct 31 – Nov 8, Nov 21 – Jan 10. Geese Sept 5–13, Oct 31 – Nov 8, Nov 21 – Feb 14."
+  },
+  "s": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "South Zone: that part of Indiana south of a line from the Illinois border east along I-70; east along National Ave; east along U.S. 150; south along U.S. 41; east along State Road 58; south along State Road 37 to Bedford; and east along U.S. 50 to the Ohio border.",
+   "note": "Ducks Nov 7–8, Nov 28 – Jan 24. Geese Sept 1–13, Nov 7–11, Nov 21 – Feb 14."
+  }
+ },
+ "seasonsNote": "Duck and goose dates differ by zone (North, Central, South). Early teal and white-fronted geese are the same in all three zones; the youth and veteran / military weekends are staggered by zone.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n": [
+     [
+      "2026-10-24",
+      "2026-12-13"
+     ],
+     [
+      "2026-12-19",
+      "2026-12-27"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-31",
+      "2026-11-08"
+     ],
+     [
+      "2026-11-21",
+      "2027-01-10"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-07",
+      "2026-11-08"
+     ],
+     [
+      "2026-11-28",
+      "2027-01-24"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-13"
+    ]
+   ],
+   "note": "Sunrise to sunset. No teal hunting on Kankakee FWA."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese, light geese and brant — early",
+   "z": {
+    "n": [
+     [
+      "2026-09-05",
+      "2026-09-13"
+     ]
+    ],
+    "c": [
+     [
+      "2026-09-05",
+      "2026-09-13"
+     ]
+    ],
+    "s": [
+     [
+      "2026-09-01",
+      "2026-09-13"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese, light geese and brant — regular",
+   "z": {
+    "n": [
+     [
+      "2026-10-24",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-21",
+      "2027-02-14"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-31",
+      "2026-11-08"
+     ],
+     [
+      "2026-11-21",
+      "2027-02-14"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-07",
+      "2026-11-11"
+     ],
+     [
+      "2026-11-21",
+      "2027-02-14"
+     ]
+    ]
+   },
+   "note": "Canada geese, light geese (snow, blue, Ross’s) and brant. White-fronted geese have their own season below."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "sameAs": "canada",
+   "note": "Snow, blue and Ross’s geese: the same dates as Canada geese, including the early season. The 2027 light goose conservation order dates are not yet published."
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2027-02-14"
+    ]
+   ],
+   "note": "All three zones."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-15",
+     "2026-11-28"
+    ]
+   ],
+   "note": "Solid hunter orange outer garment required."
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (sora)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning doves",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-18"
+    ],
+    [
+     "2026-11-01",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-19",
+     "2026-12-31"
+    ]
+   ],
+   "note": "Game bird habitat stamp required."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl weekends",
+   "z": {
+    "n": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-31",
+      "2026-11-01"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Veteran and active-duty military waterfowl days",
+   "z": {
+    "n": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-31",
+      "2026-11-01"
+     ]
+    ]
+   }
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers. Separate from the duck limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Blue-winged and green-winged teal in any combination."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada geese and brant together; light geese 20 (no possession limit)."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada geese and brant together."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "None",
+   "detail": "Snow, blue and Ross’s geese; no possession limit."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "2",
+   "poss": "6",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same limits as the regular season, except one scaup a day."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same limits as the youth days (regular limits; one scaup a day)."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 a day on or before Nov 7 (North), Nov 26 (Central) and Dec 10 (South); 2 a day after those dates"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag (buffleheads, gadwalls, goldeneyes, long-tailed ducks, ring-necked ducks, ruddy ducks, scoters, shovelers, teal, wigeon)"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for ducks, geese and other migratory birds; sunrise to sunset for the September teal season. Hours may differ at some DNR properties."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Approved non-toxic shot only for all waterfowl anywhere in the state; it is illegal to possess any other shell while hunting ducks, geese and coots. Some state fish and wildlife areas add shot restrictions: ask the property."
+  },
+  {
+   "g": "Gear",
+   "t": "Plugged shotguns",
+   "d": "No shotgun that holds more than three shells unless plugged with a one-piece filler; no shotgun larger than 10-gauge."
+  },
+  {
+   "g": "Gear",
+   "t": "Calls and decoys",
+   "d": "No recorded or electronically amplified calls; no live decoys."
+  },
+  {
+   "g": "Gear",
+   "t": "Baiting",
+   "d": "No hunting over bait or a baited area (an area stays baited for 10 days after the bait is removed)."
+  },
+  {
+   "g": "Boats",
+   "t": "Hunting from a boat",
+   "d": "A motorboat may be used only when beached, at anchor, tied to a stationary object, or drifting with no motion but wind, current or oars and paddles. Do not shoot crippled birds from a boat under power. No sink boxes. No driving or chasing birds with a motor or sailboat."
+  },
+  {
+   "g": "Special",
+   "t": "Ohio River",
+   "d": "On the Indiana shore (and its tributaries and embayments) you need an Indiana licence and stamps and may hunt only in Indiana’s season. On the main river alone either state’s licence and stamps work, in the season of the state you are licensed in. On Kentucky’s shore, embayments, tributaries and islands you need a Kentucky licence and Kentucky’s season."
+  },
+  {
+   "g": "Special",
+   "t": "Kankakee FWA: no teal",
+   "d": "No teal hunting on Kankakee Fish & Wildlife Area during the September teal season (amber on the map)."
+  },
+  {
+   "g": "Special",
+   "t": "Reserved hunts and DNR properties",
+   "d": "Reserved waterfowl hunts are held at Goose Pond, LaSalle, Kankakee, Kingsbury, Hovey Lake and Willow Slough FWAs, Monroe Lake and Brookville Reservoir (apply online). Check at area headquarters for open hunting areas and special rules on every fish and wildlife area and reservoir."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veteran / military days",
+   "d": "North Oct 17–18, Central Oct 24–25, South Oct 31 – Nov 1, 2026. Youth must be 17 or younger and accompanied by an adult 18+ who may not hunt waterfowl; a federal duck stamp is required from age 16. Veterans and active-duty military need a licence, the state waterfowl stamp and HIP."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home. Retrieve and keep all birds killed or crippled."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Indiana hunting licence",
+   "who": "Every migratory bird hunter",
+   "d": "Required for ducks, mergansers, coots, geese, doves, woodcock, sora and snipe. Fees are not listed on the DNR waterfowl pages."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter",
+   "d": "Free; register once a season online or by phone and write the validation number on your licence. Needed in each state you hunt."
+  },
+  {
+   "t": "Indiana waterfowl stamp privilege",
+   "who": "Waterfowl hunters 18+",
+   "d": "Required for ducks and geese; sold at GoOutdoorsIN.com or a licence retailer. Youth 17 and under are exempt. Commemorative stamps carry no hunting privilege."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed federal stamp (fws.gov/duckstamps, or 1-800-782-6724). Landowners hunting their own farmland need it too."
+  },
+  {
+   "t": "Game bird habitat stamp",
+   "who": "Mourning dove hunters",
+   "d": "Needed for doves (not for waterfowl)."
+  }
+ ],
+ "geometryNote": "Geometry: the two zone lines are routed on OpenStreetMap’s numbered routes exactly as the DNR text names them (SR 18, U.S. 31, U.S. 24, U.S. 224, SR 5, SR 124; I-70, National Ave, U.S. 150, U.S. 41, SR 58, SR 37, U.S. 50), with the ends on the Census outline; IndianaMap / DNR properties with public hunting and fishing and boating access sites; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER (outline, county subdivisions, borders). No tides."
+}
