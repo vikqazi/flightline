@@ -1,0 +1,334 @@
+{
+ "state": "AR",
+ "stateName": "Arkansas",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "AGFC — Waterfowl Dates, Rules and Regulations (2026–27)",
+   "url": "https://www.agfc.com/hunting/waterfowl/waterfowl-dates-rules-regulations/"
+  },
+  {
+   "label": "AGFC GIS — WMA boundaries, boat and kayak access",
+   "url": "https://services.arcgis.com/5bMc8SlGDYGINZr5/arcgis/rest/services"
+  },
+  {
+   "label": "Arkansas GIS Office — WMA management features (waterfowl rest areas, green tree reservoirs)",
+   "url": "https://gis.arkansas.gov/arcgis/rest/services/FEATURESERVICES/Environment/FeatureServer/20"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "ar": {
+   "name": "Arkansas (statewide)",
+   "short": "Statewide",
+   "bounds": "Every Arkansas waterfowl season is statewide.",
+   "note": "One zone. WMAs end shooting at noon (Nov 21 – Jan 30) and set their own access times."
+  }
+ },
+ "seasonsNote": "Every season is statewide. On WMAs waterfowl shooting ends at noon from Nov 21 to Jan 30 (except where the guidebook says otherwise).",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-10",
+     "2026-12-23"
+    ],
+    [
+     "2026-12-26",
+     "2027-01-31"
+    ]
+   ]
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — special early",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-27"
+    ]
+   ],
+   "note": "Blue-winged, green-winged and cinnamon teal; shooting from sunrise."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-10-15"
+    ]
+   ]
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "statewide": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-10",
+     "2026-12-23"
+    ],
+    [
+     "2026-12-26",
+     "2027-01-31"
+    ]
+   ],
+   "note": "White-fronted geese also Oct 31 – Nov 8."
+  },
+  {
+   "sp": "snow",
+   "label": "Light and white-fronted geese",
+   "statewide": [
+    [
+     "2026-10-31",
+     "2026-11-08"
+    ],
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-10",
+     "2026-12-23"
+    ],
+    [
+     "2026-12-26",
+     "2027-01-31"
+    ]
+   ],
+   "note": "Snow, blue and Ross’s geese (and white-fronted geese). Light Goose Conservation Order Feb 1–5 and Feb 8 – Apr 25, 2027 (no limit)."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl hunt",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-07"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Active-duty military and veterans hunt",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-07"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Canada geese 2; white-fronted geese 2."
+  },
+  {
+   "sp": "snow",
+   "daily": "20 / 2",
+   "poss": "None / 6",
+   "detail": "Light geese 20 (no possession limit); white-fronted geese 2."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Youths 15 and under; mentor 21+ if no hunter education (the mentor may call but not hunt). WMAs open to sunset."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Proof of service required; WMAs open to sunset."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag (teal included)"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "WMA hours",
+   "d": "On WMAs waterfowl shooting runs 30 minutes before sunrise to noon from Nov 21 to Jan 30; to sunset on Jan 31 and Feb 6–7. Hunters must be off water-inundated areas by 1 p.m. (noon on Dave Donaldson Black River and George H. Dunklin Jr. Bayou Meto WMAs) Nov 22 – Jan 30, and by 6:30 p.m. Jan 31 and Feb 7–8."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Federally approved non-toxic shot for ducks, geese and mergansers statewide, and for all migratory birds on many WMAs (Bell Slough, Big Lake, Bayou Meto, Black River, Seven Devils and others)."
+  },
+  {
+   "g": "Special",
+   "t": "WMA rules",
+   "d": "No guiding for pay on WMAs or NWRs. No decoys, dog stands or platforms left overnight. No permanent blinds. No cutting tools or defoliants on Commission-owned WMAs. A free WMA General Use permit for all hunters. AGFC waterfowl rest areas are red on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Boating on WMAs and NWRs",
+   "d": "Single file, no passing, at least 100 feet between boats; hazardous operation carries fines and a WMA ban."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, military and veteran hunts",
+   "d": "Feb 6–7, 2027 (no shot-shell limits on WMAs; hunting to sunset)."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Arkansas hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident, from AGFC."
+  },
+  {
+   "t": "Arkansas waterfowl stamp",
+   "who": "Waterfowl hunters",
+   "d": "Non-resident $50 (DSN); resident price not on the page."
+  },
+  {
+   "t": "Non-resident WMA waterfowl permit",
+   "who": "Non-residents hunting WMAs",
+   "d": "3-day $40 (up to 10) or 30-day $200, valid on open regular-season days."
+  },
+  {
+   "t": "HIP registration and federal duck stamp",
+   "who": "Waterfowl hunters",
+   "d": "HIP for all migratory bird hunters; federal stamp for hunters 16+."
+  }
+ ],
+ "geometryNote": "Geometry: AGFC WMA boundaries and boat and kayak access; Arkansas GIS Office WMA management features (waterfowl rest areas); USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER (outline, county subdivisions, borders); OpenStreetMap (roads). One statewide zone. No tides."
+}

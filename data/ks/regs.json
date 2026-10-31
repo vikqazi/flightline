@@ -1,0 +1,561 @@
+{
+ "state": "KS",
+ "stateName": "Kansas",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "KDWP — Kansas duck zones (road wording, Google Earth layer)",
+   "url": "https://www.ksoutdoors.gov/outdoor-activities/hunting-in-kansas/what-to-hunt/migratory-birds/ducks/kansas-duck-zones"
+  },
+  {
+   "label": "KDWP — Kansas Waterfowl Hunting Zones (official zone polygons, season dates)",
+   "url": "https://services1.arcgis.com/q2CglofYX6ACNEeu/arcgis/rest/services/Waterfowl_Zones/FeatureServer/0"
+  },
+  {
+   "label": "KDWP — When to hunt (2026–27 seasons)",
+   "url": "https://www.ksoutdoors.gov/outdoor-activities/hunting-in-kansas/when-to-hunt"
+  },
+  {
+   "label": "KDWP — Ducks (bag limits, methods)",
+   "url": "https://www.ksoutdoors.gov/outdoor-activities/hunting-in-kansas/what-to-hunt/migratory-birds/ducks"
+  },
+  {
+   "label": "KDWP — Geese",
+   "url": "https://www.ksoutdoors.gov/outdoor-activities/hunting-in-kansas/what-to-hunt/migratory-birds/geese"
+  },
+  {
+   "label": "KDWP — Sandhill crane",
+   "url": "https://www.ksoutdoors.gov/outdoor-activities/hunting-in-kansas/what-to-hunt/migratory-birds/sandhill-crane"
+  },
+  {
+   "label": "KDWP — Migratory birds (licences, stamps, HIP, shooting hours)",
+   "url": "https://www.ksoutdoors.gov/outdoor-activities/hunting-in-kansas/what-to-hunt/migratory-birds"
+  },
+  {
+   "label": "KDWP hunting map — wildlife areas, Corps lands, refuges, WIHA 2026–27, sandhill crane zones",
+   "url": "https://services1.arcgis.com/q2CglofYX6ACNEeu/arcgis/rest/services"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "hp": {
+   "name": "High Plains",
+   "short": "HP",
+   "bounds": "High Plains Zone: all of Kansas west of US-283 — south on US-283 to the Kansas–Oklahoma line, west along that line to the Colorado line, north along the Colorado line to the Nebraska line, east along the Nebraska line to US-283 (KDWP).",
+   "note": "Ducks Oct 10 – Jan 3, Jan 22–31. Youth, veteran and military days Oct 3–4. Teal Sept 19–27. Central Flyway."
+  },
+  "e": {
+   "name": "Low Plains Early",
+   "short": "LP-E",
+   "bounds": "Low Plains Early Zone, north-central Kansas. KDWP describes it by a long run of K, US and county roads: from US-283 at Ness City east on K-96 to US-183 at Rush Center; north on US-183 to US-24 at Stockton; east on US-24 to US-281 at Osborne; north on US-281 to US-36 at Smith Center; east on US-36 to K-199 at Courtland; south on K-199 and Republic County 30th Road to K-148; east on K-148 to Republic County Road 5; south on it to Cloud County North 40th Road and on to K-9; west on K-9 to US-24 at Beloit; west on US-24 to K-181 at Downs; south on K-181 to K-18; west on K-18 to US-281 at Luray; south on US-281 to K-4 at Hoisington; east on K-4 to I-135; south on I-135 to K-61; southwest on K-61 (with the McPherson County 14th Avenue / Arapaho Road jog) to K-96; northwest on K-96 to US-56 at Lyons; west to Great Bend and southwest on US-56 to K-19 Spur at Larned; south to K-19 and east on K-19 to US-281; south on US-281 to US-54 at Pratt; west on US-54 to US-183; north on US-183 to US-56 at Kinsley; southwest on US-56 to Spearville and on (Spearville streets and Ford County Road 126) to US-400; northwest on US-400 to US-283 at Dodge City; the line then follows 113th Road and US-56 / US-283 / US-50 to US-283 and north on US-283 to US-96 at Ness City (full wording on the zone page). The map line follows KDWP’s official zone polygon.",
+   "note": "Ducks Oct 10 – Dec 6, Dec 19 – Jan 3. Youth, veteran and military days Sept 26–27. Teal Sept 12–20."
+  },
+  "l": {
+   "name": "Low Plains Late",
+   "short": "LP-L",
+   "bounds": "Low Plains Late Zone, eastern and south-central Kansas: the part of the Low Plains between US-283 and the Early Zone line above, bounded on the north by the Kansas–Nebraska line, on the east and south by the K-68 – I-35 – Butler County NE 150th Street – US-77 line (Missouri line to Ottawa, southwest on I-35, west on NE 150th Street, south on US-77 to the Oklahoma line), and on the southwest by the Oklahoma line to US-283 and US-283 north to Dodge City (KDWP’s wording; full text on the zone page). The map line follows KDWP’s official zone polygon.",
+   "note": "Ducks Oct 31 – Jan 3, Jan 23–31. Youth, veteran and military days Oct 17–18. Teal Sept 12–20."
+  },
+  "se": {
+   "name": "Low Plains Southeast",
+   "short": "LP-SE",
+   "bounds": "Low Plains Southeast Zone: from the Missouri line west on K-68 to I-35 at Ottawa; southwest on I-35 to Butler County NE 150th Street; west on it to US-77; south on US-77 to the Oklahoma line; east along the Oklahoma line to the Missouri line; north along the Missouri line to K-68 (KDWP).",
+   "note": "Ducks Nov 7 – Jan 3, Jan 16–31. Youth, veteran and military days Oct 24–25. Teal Sept 12–20."
+  }
+ },
+ "seasonsNote": "Duck dates differ by zone (High Plains and the three Low Plains zones); teal differs between the High Plains and the Low Plains. Geese, cranes (two crane zones; east of the Central crane zone closed), snipe, rails, woodcock and doves are statewide.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "hp": [
+     [
+      "2026-10-10",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-22",
+      "2027-01-31"
+     ]
+    ],
+    "e": [
+     [
+      "2026-10-10",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-03"
+     ]
+    ],
+    "l": [
+     [
+      "2026-10-31",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-23",
+      "2027-01-31"
+     ]
+    ],
+    "se": [
+     [
+      "2026-11-07",
+      "2027-01-03"
+     ],
+     [
+      "2027-01-16",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "z": {
+    "hp": [
+     [
+      "2026-09-19",
+      "2026-09-27"
+     ]
+    ],
+    "e": [
+     [
+      "2026-09-12",
+      "2026-09-20"
+     ]
+    ],
+    "l": [
+     [
+      "2026-09-12",
+      "2026-09-20"
+     ]
+    ],
+    "se": [
+     [
+      "2026-09-12",
+      "2026-09-20"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "canada",
+   "label": "Canada and cackling geese (dark geese)",
+   "statewide": [
+    [
+     "2026-10-31",
+     "2026-11-01"
+    ],
+    [
+     "2026-11-04",
+     "2027-02-14"
+    ]
+   ]
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "statewide": [
+    [
+     "2026-10-31",
+     "2027-01-03"
+    ],
+    [
+     "2027-01-23",
+     "2027-02-14"
+    ]
+   ],
+   "note": "Daily bag 2."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "statewide": [
+    [
+     "2026-10-31",
+     "2026-11-01"
+    ],
+    [
+     "2026-11-04",
+     "2027-02-14"
+    ]
+   ],
+   "note": "Snow, blue and Ross’s geese."
+  },
+  {
+   "sp": "snowlate",
+   "label": "Light goose conservation order",
+   "statewide": [
+    [
+     "2027-02-15",
+     "2027-04-30"
+    ]
+   ],
+   "note": "Unlimited daily bag."
+  },
+  {
+   "sp": "crane",
+   "label": "Sandhill cranes",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2027-01-07"
+    ]
+   ],
+   "note": "West crane zone Oct 17 – Dec 13; Central crane zone Nov 11 – Jan 7; east of the Central zone closed. Sunrise to sunset. Federal crane permit validated by KDWP."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-17",
+     "2026-12-01"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (sora and Virginia)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning and white-winged doves",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "falconry",
+   "label": "Extended falconry",
+   "z": {
+    "hp": [],
+    "e": [
+     [
+      "2027-02-24",
+      "2027-03-10"
+     ]
+    ],
+    "l": [
+     [
+      "2027-02-24",
+      "2027-03-10"
+     ]
+    ],
+    "se": [
+     [
+      "2027-02-24",
+      "2027-03-10"
+     ]
+    ]
+   },
+   "note": "Low Plains only (High Plains closed); no more than 3 migratory birds in any combination."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth, veteran and active military waterfowl days",
+   "z": {
+    "hp": [
+     [
+      "2026-10-03",
+      "2026-10-04"
+     ]
+    ],
+    "e": [
+     [
+      "2026-09-26",
+      "2026-09-27"
+     ]
+    ],
+    "l": [
+     [
+      "2026-10-17",
+      "2026-10-18"
+     ]
+    ],
+    "se": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Youth, veteran and active military waterfowl days",
+   "sameAs": "youth"
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks and mergansers in any combination: no more than 5 mallards (2 hens), 3 wood ducks, 3 pintails, 2 redheads, 2 canvasbacks and 1 scaup (KDWP’s ducks page; its When-to-Hunt page says 2 scaup)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "(in the 6)",
+   "poss": "",
+   "detail": "Mergansers count in the duck limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "6",
+   "poss": "",
+   "detail": "Any dark goose except white-fronted; possession limit not stated on the page."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "2",
+   "poss": "",
+   "detail": ""
+  },
+  {
+   "sp": "snow",
+   "daily": "50",
+   "poss": "",
+   "detail": "Regular season."
+  },
+  {
+   "sp": "snowlate",
+   "daily": "Unlimited",
+   "poss": "",
+   "detail": "Conservation order."
+  },
+  {
+   "sp": "crane",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check KDWP’s sandhill crane page."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check KDWP."
+  },
+  {
+   "sp": "snipe",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check KDWP."
+  },
+  {
+   "sp": "sora",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check KDWP."
+  },
+  {
+   "sp": "dove",
+   "daily": "—",
+   "poss": "—",
+   "detail": "Bag limit not read; check KDWP."
+  },
+  {
+   "sp": "falconry",
+   "daily": "3",
+   "poss": "",
+   "detail": "No more than 3 migratory birds in any combination."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Ducks and dark geese. Hunters 17 or younger under an adult 18+ who may not hunt, plus veterans and active military."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "5",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1",
+   "note": "KDWP’s ducks page says 1; its When-to-Hunt page says 2"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "in the 6",
+   "note": "count toward the duck limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours (residents)",
+   "d": "One-half hour before sunrise to sunset for all waterfowl seasons; sandhill cranes sunrise to sunset."
+  },
+  {
+   "g": "Hours",
+   "t": "Nonresident hours",
+   "d": "New for 2026–27: nonresidents hunt waterfowl from one-half hour before sunrise to 11:59 a.m. (not teal or the light goose conservation order), and on KDWP-managed lands must stop before noon and leave by 1:00 p.m. (rule effective Sept 25, 2026)."
+  },
+  {
+   "g": "Gear",
+   "t": "Methods",
+   "d": "Shotguns no larger than 10 gauge holding no more than 3 shells; bow and arrow and falconry allowed. No electronically amplified or recorded calls (electronic decoys that make no bird sounds are legal), no sink boxes, no live decoys, no motorboat or sailboat under way."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Federally approved non-toxic shot is required for waterfowl; some public areas (for example Cheyenne Bottoms and Quivira NWR) also require it for all hunting."
+  },
+  {
+   "g": "Special",
+   "t": "Refuges",
+   "d": "Refuge parts of wildlife areas and Corps lakes are closed on their own dates (many Oct 1 – Jan 31 or Nov 1 – Apr 15); the red and amber areas on the map quote KDWP’s text for each."
+  },
+  {
+   "g": "Special",
+   "t": "Sandhill crane zones",
+   "d": "KDWP maps a West zone, a Central zone and a closed area east of them; hunters must pass the online crane identification test and carry a KDWP-validated federal crane permit."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, veteran and military days",
+   "d": "Two days in each duck zone for ducks and dark geese: hunters 17 or younger under an adult 18+ (who may not hunt), plus veterans and active military with ID."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "One fully feathered wing or the head stays attached while transporting; tag birds left with anyone else."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Kansas hunting licence",
+   "who": "Residents 16–74; all nonresidents",
+   "d": "Not needed for residents 15 and younger or people hunting their own land."
+  },
+  {
+   "t": "Kansas State Waterfowl Stamp",
+   "who": "Hunters who need a licence",
+   "d": "$10; required for ducks, geese and mergansers (not coots, doves, rails, snipe, woodcock or cranes)."
+  },
+  {
+   "t": "HIP stamp",
+   "who": "All migratory bird hunters needing a licence",
+   "d": "$2.50."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "$29; signed across the face."
+  },
+  {
+   "t": "Federal sandhill crane permit",
+   "who": "Crane hunters",
+   "d": "Validated by KDWP ($7.50 validation fee); permits from other states are not valid; online crane identification test required each year."
+  }
+ ],
+ "geometryNote": "Geometry: zones from KDWP’s official Kansas Waterfowl Hunting Zones polygons (the lines follow the roads in KDWP’s zone wording; the polygons are digitised separately, so shared edges are matched within 60 m), split against the Census TIGER outline; KDWP wildlife areas, Corps lands and refuges and 2026–27 WIHA walk-in tracts that list waterfowl or geese; USGS NHD (water; streams from NHDPlus HR) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER; OpenStreetMap (roads). No boat-ramp layer: KDWP publishes none in its hunting map. No tides."
+}

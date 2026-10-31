@@ -1,0 +1,549 @@
+{
+ "state": "NJ",
+ "stateName": "New Jersey",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sundayClosed": true,
+ "sources": [
+  {
+   "label": "NJ Fish & Wildlife — 2026–27 Migratory Bird Regulations (eRegulations)",
+   "url": "https://www.eregulations.com/newjersey/hunting/migratory-bird-regulations"
+  },
+  {
+   "label": "NJDEP GIS — Waterfowl Hunting Zones and closed areas, Special Winter Canada Goose areas, Special Sea Duck Area",
+   "url": "https://mapsdep.nj.gov/arcgis/rest/services/Features/Environmental_admin/MapServer"
+  },
+  {
+   "label": "NJDEP GIS — state open space (WMAs, hunting permitted), public access locations (boat launches)",
+   "url": "https://mapsdep.nj.gov/arcgis/rest/services/Features"
+  },
+  {
+   "label": "NJ Fish & Wildlife — migratory bird hunting zones and closure areas (zone wording; behind a bot check)",
+   "url": "https://dep.nj.gov/njfw/hunting/migratory-bird-hunting-zones-and-closure-areas/"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, bays, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North Zone as mapped by NJDEP (zone wording is in NJ Fish & Wildlife’s waterfowl zones description).",
+   "note": "Ducks Oct 10–17, Nov 14 – Jan 14. Canada geese Nov 21–30, Dec 19 – Jan 30 (3). Youth day Oct 3."
+  },
+  "s": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "South Zone as mapped by NJDEP.",
+   "note": "Ducks Oct 17–24, Nov 21 – Jan 21. Canada geese Nov 21–30, Dec 19 – Jan 30 (3). Youth day Oct 10."
+  },
+  "c": {
+   "name": "Coastal Zone",
+   "short": "Coastal",
+   "bounds": "Coastal Zone as mapped by NJDEP.",
+   "note": "Ducks Nov 21 – Jan 29. Canada geese Nov 21 – Jan 29 (2). Youth day Nov 14."
+  }
+ },
+ "seasonsNote": "Duck, brant and Canada goose dates differ by zone (North, South, Coastal). No migratory game bird hunting on Sundays.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n": [
+     [
+      "2026-10-10",
+      "2026-10-17"
+     ],
+     [
+      "2026-11-14",
+      "2027-01-14"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-17",
+      "2026-10-24"
+     ],
+     [
+      "2026-11-21",
+      "2027-01-21"
+     ]
+    ],
+    "c": [
+     [
+      "2026-11-21",
+      "2027-01-29"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "seaduck",
+   "label": "Sea ducks",
+   "sameAs": "duck",
+   "note": "Scoters, long-tailed ducks and eiders; crippled birds may be shot from a boat under power only in the Special Sea Duck Area."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "z": {
+    "n": [
+     [
+      "2026-11-21",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-07"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-21",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-07"
+     ]
+    ],
+    "c": [
+     [
+      "2026-11-26",
+      "2026-11-28"
+     ],
+     [
+      "2026-12-24",
+      "2027-01-23"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-30"
+    ]
+   ],
+   "note": "Shooting to ½ hour after sunset; up to 7 shells; electronic calls allowed."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "n": [
+     [
+      "2026-11-21",
+      "2026-11-30"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-30"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-21",
+      "2026-11-30"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-30"
+     ]
+    ],
+    "c": [
+     [
+      "2026-11-21",
+      "2027-01-29"
+     ]
+    ]
+   },
+   "note": "Cackling and white-fronted geese count with Canada geese. Special Winter season Feb 1–15 in the two mapped areas (5 a day)."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese — regular",
+   "statewide": [
+    [
+     "2026-11-07",
+     "2027-03-08"
+    ]
+   ],
+   "note": "Snow and Ross’s geese; starts and ends three weeks later than usual. Conservation Order to be determined."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-24",
+     "2026-10-31"
+    ],
+    [
+     "2026-11-03",
+     "2026-12-05"
+    ],
+    [
+     "2026-12-19",
+     "2026-12-31"
+    ]
+   ],
+   "note": "North woodcock zone Oct 24–31 and Nov 3 – Dec 5; South woodcock zone Nov 7 – Dec 5 and Dec 19–31 (woodcock zones differ from waterfowl zones). Sunrise to sunset."
+  },
+  {
+   "sp": "snipe",
+   "label": "Common snipe",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2027-01-07"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ]
+  },
+  {
+   "sp": "kingrail",
+   "label": "Clapper rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ],
+   "note": "King rails closed."
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-20"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "z": {
+    "n": [
+     [
+      "2026-10-03",
+      "2026-10-03"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-10",
+      "2026-10-10"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ],
+    "c": [
+     [
+      "2026-11-14",
+      "2026-11-14"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-06"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / active military days",
+   "statewide": [
+    [
+     "2026-10-31",
+     "2026-10-31"
+    ],
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Common, red-breasted and hooded, in addition to the duck limit."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "seaduck",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Inside the 6: no more than 3 scoters, 3 long-tailed ducks or 3 eiders (1 hen eider)."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "3 / 2",
+   "poss": "9 / 6",
+   "detail": "North and South Zones 3 (up from 2); Coastal Zone 2. Special Winter season 5."
+  },
+  {
+   "sp": "snow",
+   "daily": "25",
+   "poss": "No limit",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails, in aggregate."
+  },
+  {
+   "sp": "kingrail",
+   "daily": "10",
+   "poss": "30",
+   "detail": "Clapper rails."
+  },
+  {
+   "sp": "gallinule",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Ducks, geese, brant, mergansers, coots and gallinules at each zone’s limits, but 2 scaup."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "As youth days."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 until Dec 22 (North), Dec 29 (South), Jan 6 (Coastal); 2 after"
+  },
+  {
+   "n": "Whistling ducks",
+   "lim": "1",
+   "note": "black-bellied or fulvous, in aggregate"
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "4",
+   "note": "no more than 3 scoters, 3 long-tailed ducks, 3 eiders (1 hen)"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "0",
+   "note": "closed"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "teal, bufflehead, gadwall, goldeneye, ring-necked, ruddy, shoveler, wigeon up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Sundays",
+   "d": "Migratory game bird hunting is not permitted on Sundays in New Jersey."
+  },
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset; September Canada geese and the light goose Conservation Order to ½ hour after sunset; woodcock sunrise to sunset."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot and guns",
+   "d": "Non-toxic shot for waterfowl, rails and snipe. No more than 3 shells (7 for September Canada geese and the Conservation Order); electronic calls only in those two."
+  },
+  {
+   "g": "Special",
+   "t": "Closed areas",
+   "d": "No open season for any game birds or animals, waterfowl included: the Shark River (Monmouth) and its shores; the Manasquan River from the inlet to the Route 70 bridge; Herring Island and the part of Barnegat Bay beside it; Parker Creek and Oceanport Creek above the Conrail bridge; the non-tidal parts of Cox Hall Creek WMA; Barnegat Inlet west of the COLREGS line. Red on the map."
+  },
+  {
+   "g": "Special",
+   "t": "Delaware River",
+   "d": "Waterfowl hunting on the Delaware River follows the state boundary and each state’s seasons."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans days",
+   "d": "Youth only: Oct 3 (North), Oct 10 (South), Nov 14 (Coastal). Veterans / active military only: Oct 31. Youth and veterans / military: Feb 6, statewide."
+  },
+  {
+   "g": "Transport",
+   "t": "Edible portions",
+   "d": "It is unlawful to waste the breast meat of migratory game birds. Leave a head or wing on until home (federal rule)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "New Jersey hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident firearm licence, from NJ Fish & Wildlife."
+  },
+  {
+   "t": "NJ Waterfowl Stamp Certification",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed in ink."
+  },
+  {
+   "t": "HIP certification",
+   "who": "Every migratory bird hunter",
+   "d": "Valid Sept 1 – Apr 15."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed in ink."
+  },
+  {
+   "t": "Conservation Order permit",
+   "who": "Light goose Conservation Order",
+   "d": "$2."
+  }
+ ],
+ "geometryNote": "Geometry: zone lines from NJDEP’s official Waterfowl Hunting Zones layer (shared edges, matched within 3 m; the South / Coastal line carried on to the Census line in Delaware Bay), split against the Census TIGER outline; NJDEP closed areas, state open space and public access locations; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); NOAA CO-OPS (tides); Census TIGER (outline, county subdivisions, borders); OpenStreetMap (roads)."
+}

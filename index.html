@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Tennessee, Alabama, Mississippi, Louisiana, Indiana and Illinois: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Tennessee, Alabama, Mississippi, Louisiana, Indiana, Illinois, Arkansas and New Jersey: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1123,14 +1123,26 @@ var STATES = {
         zones: ['n', 'c', 's'],
         colors: { n: '#5b7fb8', c: '#8a9a4e', s: '#c9893c' },
         extras: ['closed'], attrib: 'Illinois DNR · USGS NHD' },
+  ks: { name: 'Kansas', abbr: 'KS', bounds: [[36.99, -102.06], [40.01, -94.58]],
+        zones: ['hp', 'e', 'l', 'se'],
+        colors: { hp: '#c9893c', e: '#5b7fb8', l: '#8a9a4e', se: '#a45b8f' },
+        extras: ['closed'], attrib: 'KDWP · USGS NHD' },
   la: { name: 'Louisiana', abbr: 'LA', bounds: [[28.92, -94.05], [33.02, -88.81]],
         zones: ['w', 'e'],
         colors: { w: '#c9893c', e: '#5b7fb8' },
         extras: ['closed'], attrib: 'LDWF · USGS NHD' },
+  ar: { name: 'Arkansas', abbr: 'AR', bounds: [[33.00, -94.62], [36.50, -89.64]],
+        zones: ['ar'],
+        colors: { ar: '#8a9a4e' },
+        extras: ['closed'], attrib: 'AGFC · USGS NHD' },
   ok: { name: 'Oklahoma', abbr: 'OK', bounds: [[33.62, -103.00], [37.00, -94.43]],
         zones: ['p', 'z'],
         colors: { p: '#c9893c', z: '#5b7fb8' },
-        extras: ['closed'], attrib: 'ODWC · USGS NHD' }
+        extras: ['closed'], attrib: 'ODWC · USGS NHD' },
+  nj: { name: 'New Jersey', abbr: 'NJ', bounds: [[38.93, -75.56], [41.36, -73.89]],
+        zones: ['n', 's', 'c'],
+        colors: { n: '#5b7fb8', s: '#8a9a4e', c: '#4f9e9a' },
+        extras: ['closed'], attrib: 'NJDEP · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]
