@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California, Nevada, Minnesota, Idaho and Utah: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Ohio, Kentucky, Indiana, Illinois, Michigan, Tennessee, Alabama, Mississippi, Louisiana, Arkansas, New Jersey, Wisconsin, Iowa, Washington, Oregon, California, Nevada, Minnesota, Idaho, Utah, Missouri and Arizona: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -105,6 +105,7 @@ button{cursor:pointer;background:none;border:0}
 .flyst.on i{color:var(--accent-ink)}
 .flyacts{justify-content:space-between;margin-top:9px}
 .flysoon{margin-top:9px;font-size:11.5px;color:var(--dim);line-height:1.4}
+.zs.is-pending{color:var(--dim)}
 .flybtns{display:flex;gap:4px;flex:0 0 auto}
 .flyb{display:flex;align-items:center;gap:5px;border:1px solid var(--line2);border-radius:5px;padding:4px 8px;background:var(--surface2);
   font-family:var(--f-data);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
@@ -1190,7 +1191,15 @@ var STATES = {
   ut: { name: 'Utah', abbr: 'UT', bounds: [[36.99, -114.06], [42.00, -109.04]],
         zones: ['n', 'wf', 'eb', 's'],
         colors: { n: '#5b7fb8', wf: '#8a9a4e', eb: '#c47a7a', s: '#b08a4e' },
-        extras: [], attrib: 'Utah DWR · USGS NHD' }
+        extras: [], attrib: 'Utah DWR · USGS NHD' },
+  mo: { name: 'Missouri', abbr: 'MO', bounds: [[35.99, -95.78], [40.62, -89.09]],
+        zones: ['n', 'm', 's'],
+        colors: { n: '#5b7fb8', m: '#8a9a4e', s: '#c9893c' },
+        extras: ['closed'], attrib: 'Missouri Dept. of Conservation · USGS NHD' },
+  az: { name: 'Arizona', abbr: 'AZ', bounds: [[31.33, -114.82], [37.00, -109.04]],
+        zones: ['az'],
+        colors: { az: '#9a8a6a' },
+        extras: [], attrib: 'AZGFD · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]
@@ -1992,7 +2001,8 @@ function drawLabels(V) {
       var nm = zMeta(f.props.ns).short.toUpperCase();
       label(nm, x, y, 12, '700', ZONE_COLOR[f.props.ns]);
       var zopen = openOn('duck', f.props.ns, S.date, f.src);
-      label(zopen ? 'DUCKS OPEN' : 'DUCKS CLOSED', x, y + 13, 9.5, '600', zopen ? css('--open') : css('--closed'));
+      if (rulesPending(f.src)) label('RULES PENDING', x, y + 13, 9.5, '600', css('--dim'));
+      else label(zopen ? 'DUCKS OPEN' : 'DUCKS CLOSED', x, y + 13, 9.5, '600', zopen ? css('--open') : css('--closed'));
     }
   }
   /* town names */
@@ -2200,7 +2210,15 @@ function renderTabs() {
     return h('button', { 'data-panel': p.id, 'aria-pressed': S.panel === p.id }, esc(p.label));
   }).join('');
 }
+function rulesPending(code) { var R = regsOf(code); return !!(R && R.rulesPending); }   // current-year rules not read yet
+function pendingChip(z) {
+  return h('button', { class: 'zchip', 'data-zone': z, 'aria-pressed': S.zone === z },
+    h('div', { class: 'zn' }, '<i class="zsw" style="background:' + ZONE_COLOR[z] + '"></i>' + esc(zMeta(z).name)) +
+    h('div', { class: 'zs is-pending' }, 'Rules pending') +
+    h('div', { class: 'zd' }, 'Dates not confirmed yet'));
+}
 function zoneChip(z) {
+  if (rulesPending(zCode(z))) return pendingChip(z);
   var on = openOn('duck', z, S.date, zCode(z));
   var nc = nextChange('duck', z, S.date, zCode(z));
   var sub = on
@@ -2214,6 +2232,9 @@ function zoneChip(z) {
 function zoneShort(z) { var R = regsOf(zCode(z)), m = R && R.zones && R.zones[zId(z)]; return m ? m.short : zId(z); }
 function stateChip(c) {      // one state, summed up: how many zones are open, a dot per zone, the next change
   var zs = ZONE_IDS.filter(function (z) { return zCode(z) === c; });
+  if (rulesPending(c)) return h('button', { class: 'zchip zstate', 'data-strip-state': c, title: 'Show the ' + STATES[c].name + ' zones' },
+    h('div', { class: 'zn' }, esc(STATES[c].name)) + h('div', { class: 'zs is-pending' }, 'Rules pending') +
+    h('div', { class: 'zd' }, 'Dates not confirmed yet') + h('span', { class: 'zmore', 'aria-hidden': 'true' }, '&rsaquo;'));
   var open = zs.filter(function (z) { return openOn('duck', z, S.date, c); });
   var next = null;
   zs.forEach(function (z) { var nc = nextChange('duck', z, S.date, c); if (nc && (!next || nc.date < next.nc.date)) next = { z: z, nc: nc }; });
@@ -2468,7 +2489,12 @@ function panelSeason() {
     if (ye && ye.z) sps = sps.concat(['youth']);
     ['canadasept', 'vet'].forEach(function (x) { var ex = entry(x, zCode(z)); if (ex && ex.z) sps.push(x); });
     var openSps = sps.filter(function (s) { return openOn(s, z, S.date, zCode(z)); });
-    var on = openOn('duck', z, S.date, zCode(z));
+    var on = openOn('duck', z, S.date, zCode(z)), pend = rulesPending(zCode(z));
+    if (pend) return h('button', { class: 'item', 'data-zone': z },
+      h('div', { class: 'between' },
+        h('span', { class: 't1' }, '<i class="zsw" style="display:inline-block;background:' + ZONE_COLOR[z] + ';margin-right:6px"></i>' + esc(zMeta(z).name)) +
+        h('span', { class: 'pill' }, 'Pending')) +
+      h('div', { class: 't2' }, 'Current-year dates not confirmed yet. Check the state agency before you hunt.'));
     return h('button', { class: 'item', 'data-zone': z },
       h('div', { class: 'between' },
         h('span', { class: 't1' }, '<i class="zsw" style="display:inline-block;background:' + ZONE_COLOR[z] + ';margin-right:6px"></i>' + esc(zMeta(z).name)) +

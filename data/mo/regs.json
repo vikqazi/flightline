@@ -1,0 +1,512 @@
+{
+ "state": "MO",
+ "stateName": "Missouri",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "Missouri Department of Conservation — Migratory Bird and Waterfowl Hunting Digest 2026–2027 (permits pp. 4-6, seasons pp. 12-17, zones p. 15, hunting areas pp. 26-29, Wildlife Code reprint pp. 30-35)",
+   "url": "https://mdc.mo.gov/sites/default/files/2026-06/2026%20MBWHD_508.pdf"
+  },
+  {
+   "label": "Missouri Department of Conservation — Seasons (hunting dates)",
+   "url": "https://mdc.mo.gov/hunting-trapping/seasons"
+  },
+  {
+   "label": "Missouri Department of Conservation — Duck zones (2026–2030 zone text and season formulas)",
+   "url": "https://mdc.mo.gov/hunting-trapping/species/waterfowl/duck-zones"
+  },
+  {
+   "label": "Missouri Department of Conservation — Waterfowl regulations",
+   "url": "https://mdc.mo.gov/hunting-trapping/species/waterfowl/waterfowl-regulations"
+  },
+  {
+   "label": "Wildlife Code of Missouri, 3 CSR 10-7.440 Migratory Game Birds and Waterfowl: Seasons, Limits (amended: filed Feb. 4, 2026, effective Aug. 30, 2026; read on sos.mo.gov, same text as the digest reprint)",
+   "url": "https://www.sos.mo.gov/adrules/csr/current/3csr/3c10-7.pdf"
+  },
+  {
+   "label": "Missouri Department of Conservation GIS (gisblue.mdc.mo.gov): Hunting_Zones \"WaterFowl Zones\", Waterfowl_Drawing \"Refuges\", Conservation Area Boundaries, MRAP Lands, Boat Ramps",
+   "url": "https://gisblue.mdc.mo.gov/arcgis/rest/services"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (the zone lines run on Sandy Slough Rd, Route N, MO-79, MO-47, I-70, US-63, US-24, MO-10, US-69, MO-116, US-59 and MO-74, MO-25, US-62, MO-53, MO-51, US-60, MO-21, MO-72, MO-32, US-65, US-54)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, counties, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh of 1 acre and up, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "North Zone",
+   "short": "North",
+   "bounds": "North Zone: that portion of Missouri north of a line running west from the Illinois border at Lock and Dam 25 to Sandy Slough Road East; west on Sandy Slough Road East to Sandy Slough Road North; west on Sandy Slough Road North to Lincoln County Hwy. N; west on Lincoln County Hwy. N to Mo. Hwy. 79; south on Mo. Hwy. 79 to Mo. Hwy. 47; west on Mo. Hwy. 47 to I-70; west on I-70 to U.S. Hwy. 63; north on U.S. Hwy. 63 to U.S. Hwy. 24; west on U.S. Hwy. 24 to Mo. Hwy. 10; west on Mo. Hwy. 10 to U.S. Hwy. 69; north on U.S. Hwy. 69 to Mo. Hwy. 116; west on Mo. Hwy. 116 to U.S. Hwy. 59; south on U.S. Hwy. 59 to the Kansas border (3 CSR 10-7.440(3)(F)). Ducks, coots and geese.",
+   "note": "Ducks Oct 31 – Dec 29. Geese Nov 11 – Feb 6 (statewide)."
+  },
+  "m": {
+   "name": "Middle Zone",
+   "short": "Middle",
+   "bounds": "Middle Zone: the remainder of Missouri not included in the North or South zones (3 CSR 10-7.440(3)(F)).",
+   "note": "Ducks Nov 7 – Dec 13 and Dec 19 – Jan 10. Geese Nov 11 – Feb 6 (statewide)."
+  },
+  "s": {
+   "name": "South Zone",
+   "short": "South",
+   "bounds": "South Zone: that portion of Missouri south of a line running west from the Illinois border on Mo. Hwy. 74 to Mo. Hwy. 25; south on Mo. Hwy. 25 to U.S. Hwy. 62; west on U.S. Hwy. 62 to Mo. Hwy. 53; north on Mo. Hwy. 53 to Mo. Hwy. 51; north on Mo. Hwy. 51 to U.S. Hwy. 60; west on U.S. Hwy. 60 to Mo. Hwy. 21; north on Mo. Hwy. 21 to Mo. Hwy. 72; west on Mo. Hwy. 72 to Mo. Hwy. 32; west on Mo. Hwy. 32 to U.S. Hwy. 65; north on U.S. Hwy. 65 to U.S. Hwy. 54; west on U.S. Hwy. 54 to the Kansas border (3 CSR 10-7.440(3)(F)). Ducks, coots and geese.",
+   "note": "Ducks Nov 26 – 29 and Dec 7 – Jan 31. Geese Nov 11 – Feb 6 (statewide)."
+  }
+ },
+ "seasonsNote": "Missouri has three zones for ducks and coots (North, Middle, South) with the boundaries set in 3 CSR 10-7.440; the zones were revised slightly for 2026–2030, and the date formulas (a 60-day season in all three) run through 2030. Geese, teal, doves, rails, snipe and woodcock are statewide. Shooting hours are one-half hour before sunrise to sunset (teal season: sunrise to sunset; Light Goose Conservation Order: to one-half hour after sunset). The possession limit is three times the daily limit (light geese: none). On opening day you may not possess more than the daily limit. The head or one fully feathered wing must stay on waterfowl in transport. Missouri has no statewide Sunday restriction in the digest; Little River Conservation Area is hunted Tue, Thu, Sat and Sun only and Marais Temps Clair Fri–Mon only. Schell-Osage Conservation Area is closed to waterfowl hunting in 2026–27 (wetland renovation). No sandhill crane or swan season is listed in the digest.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n": [
+     [
+      "2026-10-31",
+      "2026-12-29"
+     ]
+    ],
+    "m": [
+     [
+      "2026-11-07",
+      "2026-12-13"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-10"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-26",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-07",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Shooting hours: one-half hour before sunrise to sunset. Scaup (greater and lesser combined): 2 a day, then 1 a day for the last 15 days: North Dec 15–29, Middle Dec 27–Jan 10, South Jan 17–31."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck",
+   "note": "Mergansers are part of the six-duck daily limit (no more than 2 hooded mergansers) and follow the duck zone dates."
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck",
+   "note": "Same dates as the duck zone you are hunting. 15 a day, 45 in possession."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-12",
+     "2026-09-20"
+    ]
+   ],
+   "note": "Blue-winged, green-winged and cinnamon teal only, 6 a day combined. Sunrise to sunset. A nine-day season: the 2025 blue-winged teal estimate (4.4 million) was under the 4.7 million threshold for 16 days."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Early Canada goose and brant",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-11"
+    ]
+   ],
+   "note": "Canada geese and brant only, 3 a day combined, 9 in possession. Statewide."
+  },
+  {
+   "sp": "canada",
+   "label": "Geese — Canada, brant, white-fronted, snow, blue, Ross’s",
+   "statewide": [
+    [
+     "2026-11-11",
+     "2027-02-06"
+    ]
+   ],
+   "note": "Statewide, one zone. Canada geese and brant 3 a day combined (9 in possession); white-fronted geese 2 a day (6); light geese 20 a day, no possession limit."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese — snow, blue, Ross’s",
+   "sameAs": "canada",
+   "note": "20 a day, no possession limit."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "sameAs": "canada",
+   "note": "Counted with Canada geese in the 3-a-day combined limit; early season Oct 3–11 as well."
+  },
+  {
+   "sp": "whitefront",
+   "label": "White-fronted geese",
+   "sameAs": "canada",
+   "note": "2 a day, 6 in possession."
+  },
+  {
+   "sp": "snowlate",
+   "label": "Light Goose Conservation Order",
+   "statewide": [
+    [
+     "2027-02-07",
+     "2027-04-30"
+    ]
+   ],
+   "note": "Snow, blue and Ross’s geese only; no daily or possession limit; shotguns holding more than three shells and electronic calls allowed; one-half hour before sunrise to one-half hour after sunset. Only a Conservation Order Permit is needed ($5.50 resident, $54 nonresident); small game permit, migratory bird permit and duck stamp are not required."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days (ducks, coots, geese)",
+   "z": {
+    "n": [
+     [
+      "2026-10-24",
+      "2026-10-25"
+     ]
+    ],
+    "m": [
+     [
+      "2026-10-31",
+      "2026-11-01"
+     ]
+    ],
+    "s": [
+     [
+      "2026-11-21",
+      "2026-11-22"
+     ]
+    ]
+   },
+   "note": "Ages 15 and younger, with an adult 18 or older who may not hunt ducks. No permit needed. Same limits as the regular seasons. One-half hour before sunrise to sunset."
+  },
+  {
+   "sp": "falconry",
+   "label": "Falconry — ducks, mergansers, coots (extra season)",
+   "statewide": [
+    [
+     "2027-02-11",
+     "2027-03-10"
+    ]
+   ],
+   "note": "In addition to the regular seasons in each zone, the teal season (Sept 12–20) and the youth days. Daily limit 3 birds, possession 9, doves included. Doves for falconers: Sept 1 – Dec 16."
+  },
+  {
+   "sp": "sora",
+   "label": "Sora and Virginia rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-12-16"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning, white-winged and Eurasian collared-dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "Woodcock",
+   "statewide": [
+    [
+     "2026-10-18",
+     "2026-12-01"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks including no more than 4 mallards (no more than 2 hens), 3 wood ducks, 3 pintails, 2 redheads, 2 canvasbacks, 2 black ducks, 2 hooded mergansers, 1 mottled duck and 2 scaup (1 scaup in the last 15 days). Possession: 18 including no more than 12 mallards (6 hens), 9 wood ducks, 6 redheads, 6 hooded mergansers, 3 pintails, 3 mottled ducks, 6 canvasbacks, 6 black ducks, 6 scaup (3 in the last 15 days)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Part of the duck limit; no more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Blue-winged, green-winged and cinnamon teal combined."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Canada geese and brant combined."
+  },
+  {
+   "sp": "canada",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Canada geese and brant combined."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "None",
+   "detail": "Snow, blue and Ross’s geese combined; no possession limit."
+  },
+  {
+   "sp": "brant",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Part of the 3-a-day combined Canada goose and brant limit."
+  },
+  {
+   "sp": "whitefront",
+   "daily": "2",
+   "poss": "6",
+   "detail": ""
+  },
+  {
+   "sp": "snowlate",
+   "daily": "None",
+   "poss": "None",
+   "detail": "No daily or possession limit during the Conservation Order."
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same daily and possession limits as the regular duck, goose and coot seasons."
+  },
+  {
+   "sp": "falconry",
+   "daily": "3",
+   "poss": "9",
+   "detail": "Combined for doves, ducks and coots."
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Sora and Virginia rails combined."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": "All dove species combined."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hen mallards"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Hooded merganser",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup (greater and lesser)",
+   "lim": "2 or 1",
+   "note": "2 a day; 1 a day for the last 15 days of the season (North Dec 15–29, Middle Dec 27–Jan 10, South Jan 17–31)."
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag (teal, ring-necked ducks and other species have no separate limit)"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset for ducks, geese, coots, rails, snipe, woodcock and doves; sunrise to sunset in the September teal season; one-half hour before sunrise to one-half hour after sunset during the Light Goose Conservation Order. Conservation areas are open to public use from 4 a.m. to 10 p.m., but hunting is allowed at any hour where it is authorized (3 CSR 10-11.115)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Shells possessed or used while hunting waterfowl and coots anywhere in Missouri must be loaded with shot approved as nontoxic by the U.S. Fish and Wildlife Service (3 CSR 10-7.440(3)(K)). Lead shot is also prohibited for all hunting on 46 named conservation areas (3 CSR 10-11.180(8)), among them Duck Creek, Four Rivers, Fountain Grove, Grand Pass, Eagle Bluffs, Ted Shanks, Ten Mile Pond, Otter Slough and Schell-Osage."
+  },
+  {
+   "g": "Gear",
+   "t": "Guns and methods",
+   "d": "Shotguns of 10 gauge or smaller holding no more than three shells (plugged), except during the Conservation Order. Hunting dogs allowed. Not allowed: rifles and pistols, single-projectile firearms, punt/battery/swivel guns, traps, snares, nets, poisons, live decoys, bait or baited areas, sink boxes and other low-floating concealing devices, motor vehicles and aircraft (paraplegics and people missing a leg may hunt from a stationary vehicle), sighting devices that cast a beam, night vision, infrared and thermal equipment."
+  },
+  {
+   "g": "Gear",
+   "t": "Calls and drones",
+   "d": "Recorded or electronically amplified bird calls are prohibited, but mechanical calls turned on and off by an electronic switch (electronically activated mechanical calls) may be used (3 CSR 10-7.440(3)(L)). During the Conservation Order recorded or amplified calls are allowed for light geese. Drones may not be used to harass, capture, hunt or kill wildlife, or to disturb waterfowl in flight."
+  },
+  {
+   "g": "Gear",
+   "t": "Decoys and blinds on MDC areas",
+   "d": "Decoys and blinds are permitted on conservation areas but must be removed daily and may not be left unattended between 10 p.m. and 4 a.m.; blinds may not be built on site from woody vegetation except willows (3 CSR 10-11.155). Managed areas assign blinds or locations by drawing."
+  },
+  {
+   "g": "Special",
+   "t": "Boats",
+   "d": "A motorboat or sailboat may be used only if the motor is shut off or the sails are furled and the boat’s progress has stopped. Motors over 10 horsepower must run at slow, no-wake speed on conservation areas. Transport firearms unloaded, cased and with the action open."
+  },
+  {
+   "g": "Special",
+   "t": "Managed waterfowl hunting areas",
+   "d": "Thirteen conservation areas run managed hunts: B.K. Leach, Bob Brown, Duck Creek, Eagle Bluffs, Fountain Grove, Four Rivers, Grand Pass, Marais Temps Clair, Nodaway Valley, Otter Slough, Schell-Osage, Ted Shanks and Ten Mile Pond. Half of the locations go to reservation holders (Missouri residents; pre-season application Sept 1–18, then weekly in-season drawings), half to the morning drawing (the “poor line”, residents and nonresidents). Parties up to four, one drawing a day, a Daily Waterfowl Hunting Tag, check out after the hunt. Closed to waterfowl hunting on December 25. Schell-Osage is closed to waterfowl hunting in 2026–27 for wetland renovation; construction may affect Duck Creek."
+  },
+  {
+   "g": "Special",
+   "t": "Waterfowl refuges and hunting-only zones",
+   "d": "Portions of conservation areas designated Waterfowl Refuge are closed to all public use: Oct 15 – Mar 1 at Brown, Coon Island, Eagle Bluffs, Fountain Grove, Four Rivers, Grand Pass, Leach (Kings Lake and Bittern Basin), Marais Temps Clair, Montrose, Nodaway Valley, Perry, Schell-Osage, Settle’s Ford and Shanks; Oct 15 – Mar 31 at Otter Slough and Ten Mile Pond; Oct 15 to the end of the zone’s duck season at Duck Creek (Pool 1 South), Kendzora, Leach (River Slough), Otter Slough (Cypress Lake) and Stockton Lake; Oct 15 to the end of the zone’s Canada goose season at Duck Creek (Pool 1 North, Dark Cypress Swamp), Little River and Truman Reservoir (Grand River Bottoms). “Waterfowl Hunting Only” zones are closed to everything but waterfowl hunting Oct 15 – Feb 15 (Coon Island, Duck Creek, Fountain Grove, Four Rivers, Grand Pass, Montrose, Otter Slough, Schell-Osage) or to the end of the last duck segment (Brown, Eagle Bluffs, Leach, Marais Temps Clair, Nodaway Valley, Otter Slough, Shanks). The refuge outlines are drawn from the MDC’s own Refuges layer; the hunting-only zones are not drawn. The Nodaway River reach beside the Nodaway Valley refuge is closed to all hunting Oct 15 – Mar 1. Melvin Price Pool 26 refuge: no shooting or hunting at any time. Smithville Lake Waterfowl Refuge: closed to all hunting Oct 15 – Jan 31 in posted units (not drawn)."
+  },
+  {
+   "g": "Special",
+   "t": "Closing times and days on MDC areas",
+   "d": "Waterfowl hunting ends at 1 p.m. on designated parts of Amarugia Highlands, Bob Brown, Coon Island, Duck Creek, Eagle Bluffs, Fountain Grove, Grand Pass, King Lake, B.K. Leach, Little River, Lone Jack Lake, Nodaway Valley, Otter Slough, James A. Reed, Pony Express Lake, Schell-Osage, Ted Shanks and Ten Mile Pond, and on Odessa City Lake and Fellows Lake. Little River: Tue, Thu, Sat and Sun only, in designated pools. Marais Temps Clair: Fri–Mon only, until 1 p.m. in duck season. Busch Memorial, Cooley Lake and Reed Memorial: managed hunts only. Little Bean Marsh: designated areas only, during the zone’s duck and Canada goose seasons. Lake Girardeau Conservation Area: no waterfowl hunting. Thomas Hill Reservoir: no waterfowl hunting on the main arm between Highway T and county road 462 (3.5 miles north of Highway T) Oct 15 to the end of the season. Waterfowl hunters must self-register with a Daily Waterfowl Hunting Tag at Columbia Bottom, Coon Island, Fountain Grove (Southside Wetland Complex), Four Rivers Units 3 and 4, Nodaway Valley (Open Zone) and Settle’s Ford."
+  },
+  {
+   "g": "Special",
+   "t": "Sunday",
+   "d": "The 2026–27 digest has no statewide Sunday restriction on waterfowl hunting. Area rules differ: Little River is open Sunday (and Tue, Thu, Sat) only; Marais Temps Clair is open Friday through Monday only."
+  },
+  {
+   "g": "Special",
+   "t": "Falconry",
+   "d": "Ducks, mergansers and coots: statewide Sept 12–20; North Oct 24–25 and Oct 31–Dec 29; Middle Oct 31–Nov 1, Nov 7–Dec 13 and Dec 19–Jan 10; South Nov 21–22, Nov 26–29 and Dec 7–Jan 31; statewide Feb 11 – Mar 10, 2027. Daily limit 3 birds and possession 9, doves included."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "The head or one fully feathered wing must remain attached to waterfowl while being transported from the field to your home or a commercial preservation facility (3 CSR 10-7.440(2)). Birds given to another person or left for processing must be tagged with the hunter’s name, address, date and species. Make a reasonable effort to retrieve every bird; on the opening day of a season you may not possess more than the daily limit."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Small Game Hunting Permit",
+   "who": "Hunters 16 and older (15 and younger need no permit)",
+   "d": "Resident $11.50 (Small Game Hunting and Fishing $22.50); nonresident $108.50; nonresident daily $16. Not needed by resident landowners on their own land, Missouri residents 65 or older, or qualifying disabled veterans. Hunter education (or an Apprentice Hunter Authorization) is required to buy a firearms permit if born on or after Jan. 1, 1967."
+  },
+  {
+   "t": "Migratory Bird Hunting Permit",
+   "who": "All migratory bird hunters 16 and older (new for 2026: separate resident and nonresident permits)",
+   "d": "Resident $8; nonresident $60. Required for ducks, geese, coots, doves, rails, snipe and woodcock."
+  },
+  {
+   "t": "Federal Duck Stamp",
+   "who": "Waterfowl hunters 16 and older",
+   "d": "Electronic stamp (e-Stamp) $32 including a $7 handling fee, valid at once for the whole season; paper stamp $25 at some post offices, signed in ink. Not sold at waterfowl hunting areas."
+  },
+  {
+   "t": "Conservation Order Permit",
+   "who": "Light Goose Conservation Order, Feb 7 – Apr 30, 2027",
+   "d": "Resident $5.50; nonresident $54. The only permit needed during the Conservation Order. Lifetime small-game and Conservation Partner permit holders do not need it."
+  },
+  {
+   "t": "Youth",
+   "who": "15 and younger",
+   "d": "No permits. In the Youth Waterfowl Hunting Days an adult 18 or older must be in immediate presence whether or not the youth has a hunter-education card."
+  },
+  {
+   "t": "Managed hunts",
+   "who": "Reservations: Missouri residents",
+   "d": "Properly licensed Missouri residents may apply online for managed-area reservations (Sept 1–18 pre-season). Residents and nonresidents may take part in the morning drawing or hunt with a reservation holder. ADA blinds may be reserved by nonresidents too."
+  }
+ ],
+ "geometryNote": "Geometry: the North / Middle line and the Middle / South line are routed on OpenStreetMap along the roads 3 CSR 10-7.440 names, in the order it names them. At the east end of the North line OSM has Sandy Slough Road and Route N meeting at Lock and Dam 25: the line follows them to Winfield, where Route N meets MO-79 (the MDC’s own zone layer takes the same road). Ends are clipped to the Census outline. Zone edges at Iowa, Illinois, Kentucky, Tennessee, Arkansas, Oklahoma, Kansas and Nebraska are the shared Census border welded into both states. Refuge outlines come from the MDC Refuges layer; managed-area, wildlife-area and reservation outlines are whole conservation areas (approximate)."
+}

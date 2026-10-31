@@ -1,0 +1,84 @@
+{
+ "state": "AZ",
+ "stateName": "Arizona",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "rulesPending": true,
+ "sources": [
+  {
+   "label": "AZGFD — waterfowl hunting (2026-27 rules not readable: azgfd.com returned 403)",
+   "url": "https://www.azgfd.com/hunting/species/waterfowl/"
+  },
+  {
+   "label": "AZGFD GIS — Arizona Wildlife Areas",
+   "url": "https://services2.arcgis.com/os1CphwIyxBDDUGn/arcgis/rest/services/AGFD_Wildlife_Areas/FeatureServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes, boat ramps",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — lakes, marshes, rivers, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "az": {
+   "name": "Statewide (2026-27 zones unconfirmed)",
+   "short": "Arizona",
+   "bounds": "All of Arizona. AZGFD merged its Mountain and Desert zones into one statewide zone in 2025; the 2026-27 layout could not be confirmed.",
+   "note": "2026-27 season dates not confirmed — AZGFD’s site could not be read. Check azgfd.com before hunting."
+  }
+ },
+ "seasonsNote": "Arizona’s 2026-27 waterfowl seasons could not be read from AZGFD (the site refused automated access), so no dates are shown. Check azgfd.com or the AZGFD regulations booklet.",
+ "seasons": [],
+ "bags": [],
+ "duckSublimits": [],
+ "rules": [
+  {
+   "g": "Special",
+   "t": "Rules pending",
+   "d": "No 2026-27 dates or limits are shown for Arizona yet. The Colorado River (California and Arizona) and refuge rules also apply; see AZGFD and USFWS."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot",
+   "d": "Federal law requires nontoxic shot for waterfowl and coots, and shotguns limited to 3 shells."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Arizona hunting licence",
+   "who": "Hunters",
+   "d": "From AZGFD."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter",
+   "d": "Federal requirement."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Federal requirement."
+  }
+ ],
+ "geometryNote": "Geometry: one statewide piece on the Census TIGER outline, welded to California, Nevada and Utah; AZGFD wildlife areas; OpenStreetMap boat ramps; USGS NHD and GNIS; USFWS (refuge units; NWI marsh)."
+}
