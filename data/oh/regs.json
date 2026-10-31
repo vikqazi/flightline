@@ -1,0 +1,466 @@
+{
+ "state": "OH",
+ "stateName": "Ohio",
+ "season": "2026–27",
+ "updated": "2026-10-30",
+ "sources": [
+  {
+   "label": "ODNR — 2026–27 Ohio Hunting Seasons (PDF)",
+   "url": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/news/2026-27_Hunting_Seasons.pdf"
+  },
+  {
+   "label": "Ohio Administrative Code 1501:31-7-07 — waterfowl zones",
+   "url": "https://codes.ohio.gov/ohio-administrative-code/rule-1501:31-7-07"
+  },
+  {
+   "label": "ODNR GIS — Waterfowl Zones (official zone polygons with 2026–27 dates); ODNR lands",
+   "url": "https://gis.ohiodnr.gov/arcgis/rest/services/DOW_Services/HuntingRegulations_AGOL_3/MapServer"
+  },
+  {
+   "label": "ODNR — Waterfowl hunting (stamps, HIP)",
+   "url": "https://ohiodnr.gov/buy-and-apply/hunting-fishing-boating/hunting-resources/waterfowl-hunting"
+  },
+  {
+   "label": "ODNR Division of Parks and Watercraft — boating facility guide",
+   "url": "https://gis.ohiodnr.gov/arcgis/rest/services/DWC_Services/Watercraft_Motorized_Query/FeatureServer/0"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (and the check of the zone roads)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "a": {
+   "name": "Zone A",
+   "short": "A",
+   "bounds": "Zone A: Auglaize, Defiance, Erie, Fulton, Hardin, Henry, Marion, Mercer, Ottawa, Paulding, Sandusky, Shelby, Van Wert, Williams and Wyandot counties, Lucas County outside zone B, and Lake Erie inside the line 100 yards offshore from the Erie–Lorain county line around Cedar Point and Cedar Point NWR toward Woodtick Peninsula (OAC 1501:31-7-07).",
+   "note": "Ducks Oct 17 – Nov 1, Nov 14 – Dec 27. Geese Oct 17 – Nov 1, Nov 14 – Feb 1."
+  },
+  "b": {
+   "name": "Zone B",
+   "short": "B",
+   "bounds": "Zone B: Allen, Ashtabula, Crawford, Cuyahoga, Geauga, Hancock, Huron, Lake, Lorain, Mahoning, Medina, Morrow, Portage, Putnam, Richland, Seneca, Summit, Trumbull and Wood counties; Lucas County south of US 24 and west of I-75; the parts of Ashland, Wayne, Holmes, Stark and Columbiana counties on the zone B side of the SR 3 – SR 60 – US 30 – SR 3 – SR 226 – SR 514 – SR 754 – SR 39 – SR 241 – US 30 – SR 39 line; and the rest of Lake Erie and its islands.",
+   "note": "Ducks Oct 17–25, Nov 21 – Jan 10. Geese Oct 17–25, Nov 21 – Feb 15."
+  },
+  "c": {
+   "name": "Zone C",
+   "short": "C",
+   "bounds": "Zone C: the rest of the state.",
+   "note": "Ducks Oct 17–25, Dec 12 – Jan 31. Geese Oct 17–25, Nov 21 – Feb 15."
+  }
+ },
+ "seasonsNote": "Duck and goose dates differ by zone (A, B, C; new zones from 2026). September teal, the early goose season and youth / military / veterans days are statewide.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "a": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-14",
+      "2026-12-27"
+     ]
+    ],
+    "b": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-11-21",
+      "2027-01-10"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-12-12",
+      "2027-01-31"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — September",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-13"
+    ]
+   ]
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-05",
+     "2026-09-13"
+    ]
+   ],
+   "note": "Canada and cackling geese only."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "a": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-14",
+      "2027-02-01"
+     ]
+    ],
+    "b": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-11-21",
+      "2027-02-15"
+     ]
+    ],
+    "c": [
+     [
+      "2026-10-17",
+      "2026-10-25"
+     ],
+     [
+      "2026-11-21",
+      "2027-02-15"
+     ]
+    ]
+   },
+   "note": "Canada, cackling and white-fronted geese and brant together."
+  },
+  {
+   "sp": "snow",
+   "label": "Light geese",
+   "sameAs": "canada",
+   "note": "Snow, blue and Ross’s geese."
+  },
+  {
+   "sp": "woodcock",
+   "label": "American woodcock",
+   "statewide": [
+    [
+     "2026-10-16",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-25"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-01"
+    ]
+   ]
+  },
+  {
+   "sp": "sora",
+   "label": "Rails",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Gallinules (moorhens)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning doves",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-08"
+    ],
+    [
+     "2026-12-12",
+     "2027-01-01"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-04"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Active military and veterans waterfowl days",
+   "statewide": [
+    [
+     "2026-10-03",
+     "2026-10-04"
+    ]
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks, inside which the limits below apply. Possession three times the daily limit (federal rule)."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada and cackling geese only."
+  },
+  {
+   "sp": "canada",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Canada, cackling and white-fronted geese combined, with no more than 1 brant."
+  },
+  {
+   "sp": "snow",
+   "daily": "10",
+   "poss": "30",
+   "detail": "Snow, blue and Ross’s geese combined."
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": ""
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same as each species in its regular season."
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same as each species in its regular season."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "American black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Mottled duck",
+   "lim": "1",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "1 for the first 15 days of the duck season, 2 for the last 45: 2 from Nov 1 in zone A, Nov 27 in zone B, Dec 18 in zone C"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "One-half hour before sunrise to sunset (federal rule)."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "Required for ducks, geese, brant and coots (federal rule)."
+  },
+  {
+   "g": "Gear",
+   "t": "Plugged shotguns",
+   "d": "No more than 3 shells in the magazine and chamber combined."
+  },
+  {
+   "g": "Special",
+   "t": "Lake Erie",
+   "d": "The zone A / B line runs 100 yards offshore from the Erie–Lorain county line around Cedar Point, to the Moseley channel range rear light at Sandusky Bay, around Cedar Point NWR and toward Woodtick Peninsula. The islands and open lake are zone B."
+  },
+  {
+   "g": "Special",
+   "t": "Wildlife areas and controlled hunts",
+   "d": "State wildlife areas marked “restricted” on the Public land layer limit hunting (controlled hunts, permits or posted refuges); check each area before hunting."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth, active military and veterans days",
+   "d": "Oct 3–4, 2026, statewide, at each species’ regular limits."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a wing on",
+   "d": "Leave the head or one fully feathered wing on until you get home, and tag birds left with anyone else (federal rules)."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Ohio hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident, from ODNR (HuntFish OH)."
+  },
+  {
+   "t": "HIP certification",
+   "who": "Every migratory bird hunter",
+   "d": "Harvest Information Program certification each year."
+  },
+  {
+   "t": "Ohio Wetlands Habitat Stamp",
+   "who": "Waterfowl hunters 18+",
+   "d": "$15 resident or non-resident; a printed endorsement."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed, or the electronic stamp."
+  }
+ ],
+ "geometryNote": "Geometry: zone lines from ODNR’s official Waterfowl Zones layer (checked against OpenStreetMap: the zone B / C road line is within 60 m of the named roads everywhere, median 8 m), split against the Census TIGER outline; ODNR lands; ODNR Parks and Watercraft boating facilities; USGS NHD (water; streams from the NHD small-scale layer) and GNIS; USFWS (refuge units; NWI marsh); Census TIGER (outline, county subdivisions, borders); OpenStreetMap (roads). No tides: Lake Erie has no NOAA tide predictions."
+}

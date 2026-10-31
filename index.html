@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia and Florida: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
+<meta name="description" content="Flightline: waterfowl hunting map for New Hampshire, Massachusetts, Maine, Rhode Island, Vermont, New York, Connecticut, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida and Ohio: 2026-27 zones, season dates and bag limits, water, boat ramps, refuge hunt units and closed areas.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%86%3C/text%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1094,7 +1094,11 @@ var STATES = {
   fl: { name: 'Florida', abbr: 'FL', bounds: [[24.39, -87.64], [31.0, -79.97]],
         zones: ['fl'],
         colors: { fl: '#4f9e9a' },
-        extras: ['closed'], attrib: 'FWC · USGS NHD' }
+        extras: ['closed'], attrib: 'FWC · USGS NHD' },
+  oh: { name: 'Ohio', abbr: 'OH', bounds: [[38.40, -84.82], [42.33, -80.52]],
+        zones: ['a', 'b', 'c'],
+        colors: { a: '#c9893c', b: '#5b7fb8', c: '#8a9a4e' },
+        extras: ['closed'], attrib: 'ODNR · USGS NHD' }
 };
 /* the four administrative flyways (USFWS). MT, WY, CO and NM are split between Central and Pacific */
 var FLYWAYS = [               // west to east, the order the header shows them: [id, name, states, short name]
