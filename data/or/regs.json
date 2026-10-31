@@ -1,0 +1,597 @@
+{
+ "state": "OR",
+ "stateName": "Oregon",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sundayClosed": false,
+ "sources": [
+  {
+   "label": "ODFW — 2026-27 Oregon Game Bird Hunting Regulations",
+   "url": "https://www.eregulations.com/assets/docs/guides/26ORGB_LR_2026-07-08-181026_easr.pdf"
+  },
+  {
+   "label": "ODFW — Northwest Permit Goose Season (eRegulations)",
+   "url": "https://www.eregulations.com/oregon/hunting/game-bird/northwest-permit-goose-season"
+  },
+  {
+   "label": "USFWS — Final 2025-26 Frameworks, Pacific Flyway area descriptions (duck zone and goose zone county lists)",
+   "url": "https://www.federalregister.gov/documents/2025/08/18/2025-15703"
+  },
+  {
+   "label": "ODFW GIS — wildlife areas; Access and Habitat safety and restricted (no hunting) areas",
+   "url": "https://nrimp.dfw.state.or.us/arcgis/rest/services/ORHAM"
+  },
+  {
+   "label": "Oregon State Marine Board — boating access sites",
+   "url": "https://services.arcgis.com/uUvqNMGPm7axC2dD/arcgis/rest/services/Boating_Access_Sites_OA/FeatureServer"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline, county lines and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, bays, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  },
+  {
+   "label": "NOAA CO-OPS — tide predictions",
+   "url": "https://tidesandcurrents.noaa.gov/"
+  }
+ ],
+ "zones": {
+  "nw": {
+   "name": "Northwest Permit Zone",
+   "short": "NW Permit",
+   "bounds": "Benton, Clackamas, Clatsop, Columbia, Lane, Lincoln, Linn, Marion, Multnomah, Polk, Tillamook, Washington and Yamhill counties. Duck Zone 1.",
+   "note": "Ducks Oct 17 – Nov 1 and Nov 5 – Jan 31. Canada geese by Northwest Goose Permit: Oct 24 – Nov 1, Nov 21 – Jan 8, Jan 30 – Feb 14 (2 a day); dusky Canada geese closed; fixed goose shooting hours."
+  },
+  "sw": {
+   "name": "Southwest Zone",
+   "short": "Southwest",
+   "bounds": "Coos, Curry and Douglas counties east of Hwy 101, and Josephine and Jackson counties. Duck Zone 1.",
+   "note": "Ducks Oct 17 – Nov 1 and Nov 5 – Jan 31. Geese Oct 17 – Nov 1 and Nov 10 – Jan 31."
+  },
+  "sc": {
+   "name": "South Coast Zone",
+   "short": "South Coast",
+   "bounds": "Coos, Curry and Douglas counties west of Hwy 101. Duck Zone 1.",
+   "note": "Ducks Oct 17 – Nov 1 and Nov 5 – Jan 31. Geese Oct 3 – Dec 6, Dec 19 – Jan 7 and Feb 20 – Mar 10 (6 Canada a day). No September Canada goose season."
+  },
+  "mc": {
+   "name": "Mid-Columbia Zone",
+   "short": "Mid-Columbia",
+   "bounds": "Gilliam, Hood River, Morrow, Sherman, Umatilla and Wasco counties. Duck Zone 1.",
+   "note": "Ducks Oct 17 – Nov 1 and Nov 5 – Jan 31. Canada geese Oct 17 – Nov 1 and Nov 10 – Jan 31; white-fronted and white geese also Feb 6–28."
+  },
+  "hd": {
+   "name": "High Desert and Blue Mountains Zone",
+   "short": "High Desert / Blue Mtn",
+   "bounds": "Baker, Crook, Deschutes, Grant, Harney, Jefferson, Klamath, Lake, Malheur, Union, Wallowa and Wheeler counties (the rest of Oregon). Duck Zone 2.",
+   "note": "Ducks Oct 10 – Nov 29 and Dec 3 – Jan 24. Canada geese Oct 10 – Nov 29 and Dec 15 – Jan 31; white-fronted and white geese Oct 10 – Nov 29 and Jan 16 – Mar 10."
+  }
+ },
+ "seasonsNote": "Duck Zone 1 is the Northwest Permit, Southwest, South Coast and Mid-Columbia goose zones; duck Zone 2 is the High Desert and Blue Mountains goose zone. Goose dates differ in each of the five goose zones.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks (including mergansers)",
+   "z": {
+    "nw": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-05",
+      "2027-01-31"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-05",
+      "2027-01-31"
+     ]
+    ],
+    "sc": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-05",
+      "2027-01-31"
+     ]
+    ],
+    "mc": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-05",
+      "2027-01-31"
+     ]
+    ],
+    "hd": [
+     [
+      "2026-10-10",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-03",
+      "2027-01-24"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "scaup",
+   "label": "Scaup",
+   "z": {
+    "nw": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "sc": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "mc": [
+     [
+      "2026-11-07",
+      "2027-01-31"
+     ]
+    ],
+    "hd": [
+     [
+      "2026-10-10",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-03",
+      "2027-01-06"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "z": {
+    "nw": [
+     [
+      "2026-11-07",
+      "2027-02-21"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-11-07",
+      "2027-02-21"
+     ]
+    ],
+    "sc": [
+     [
+      "2026-11-07",
+      "2027-02-21"
+     ]
+    ],
+    "mc": [
+     [
+      "2026-11-07",
+      "2027-02-21"
+     ]
+    ],
+    "hd": [
+     [
+      "2026-10-10",
+      "2027-01-24"
+     ]
+    ]
+   }
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — September",
+   "z": {
+    "nw": [
+     [
+      "2026-09-12",
+      "2026-09-20"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-09-12",
+      "2026-09-16"
+     ]
+    ],
+    "mc": [
+     [
+      "2026-09-12",
+      "2026-09-16"
+     ]
+    ],
+    "hd": [
+     [
+      "2026-09-12",
+      "2026-09-16"
+     ]
+    ],
+    "sc": []
+   },
+   "note": "No Northwest Goose Permit needed in September. South Coast Zone closed."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "nw": [
+     [
+      "2026-10-24",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-21",
+      "2027-01-08"
+     ],
+     [
+      "2027-01-30",
+      "2027-02-14"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-10",
+      "2027-01-31"
+     ]
+    ],
+    "sc": [
+     [
+      "2026-10-03",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-07"
+     ],
+     [
+      "2027-02-20",
+      "2027-03-10"
+     ]
+    ],
+    "hd": [
+     [
+      "2026-10-10",
+      "2026-11-29"
+     ],
+     [
+      "2026-12-15",
+      "2027-01-31"
+     ]
+    ],
+    "mc": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-10",
+      "2027-01-31"
+     ]
+    ]
+   },
+   "note": "Canada geese include cackling geese. Northwest Permit Zone: Northwest Goose Permit required, dusky Canada geese closed, Fern Ridge and E. E. Wilson WAs and most of Sauvie Island WA closed to geese (Sauvie Island Eastside, Westside and Oak Island units: white geese only, on WA hunt days)."
+  },
+  {
+   "sp": "snow",
+   "label": "White-fronted and white geese",
+   "z": {
+    "nw": [
+     [
+      "2026-10-24",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-11",
+      "2027-02-14"
+     ]
+    ],
+    "sw": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-10",
+      "2027-01-31"
+     ]
+    ],
+    "sc": [
+     [
+      "2026-10-03",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-07"
+     ],
+     [
+      "2027-02-20",
+      "2027-03-10"
+     ]
+    ],
+    "hd": [
+     [
+      "2026-10-10",
+      "2026-11-29"
+     ],
+     [
+      "2027-01-16",
+      "2027-03-10"
+     ]
+    ],
+    "mc": [
+     [
+      "2026-10-17",
+      "2026-11-01"
+     ],
+     [
+      "2026-11-10",
+      "2027-01-14"
+     ],
+     [
+      "2027-02-06",
+      "2027-02-28"
+     ]
+    ]
+   },
+   "note": "Feb 1 – Mar 10: goose hunting closed on the Miller Island Unit of Klamath WA, Summer Lake WA, Ladd Marsh WA and all Klamath NWR Complex units (except the Feb 6 veterans hunt)."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "statewide": [
+    [
+     "2026-11-28",
+     "2026-12-13"
+    ]
+   ],
+   "note": "Brant permit required."
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl days",
+   "statewide": [
+    [
+     "2026-09-26",
+     "2026-09-27"
+    ]
+   ]
+  },
+  {
+   "sp": "vet",
+   "label": "Veterans / active military day",
+   "statewide": [
+    [
+     "2027-02-06",
+     "2027-02-06"
+    ]
+   ],
+   "note": "Ducks, coots and geese at the regular limits. Northwest Permit Zone goose hours 7:20 a.m. – 5:33 p.m."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "7",
+   "poss": "21",
+   "detail": "Seven ducks including mergansers, inside which the limits below apply. Possession three times the daily limit."
+  },
+  {
+   "sp": "scaup",
+   "daily": "2",
+   "poss": "6",
+   "detail": "Inside the 7, while scaup are open."
+  },
+  {
+   "sp": "coot",
+   "daily": "25",
+   "poss": "75",
+   "detail": ""
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": ""
+  },
+  {
+   "sp": "canada",
+   "daily": "4",
+   "poss": "12",
+   "detail": "Northwest Permit Zone 2 (6); South Coast 6 (18); Southwest, Mid-Columbia and High Desert / Blue Mountains 4 (12)."
+  },
+  {
+   "sp": "snow",
+   "daily": "6 + 20",
+   "poss": "18 + 60",
+   "detail": "Six white-fronted and 20 white geese a day. Lake County only: 1 white-fronted a day (3 possession)."
+  },
+  {
+   "sp": "brant",
+   "daily": "2",
+   "poss": "6",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  },
+  {
+   "sp": "vet",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": ""
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "7",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "2",
+   "note": "during the scaup season"
+  },
+  {
+   "n": "Harlequin duck",
+   "lim": "1",
+   "note": "sea duck permit"
+  },
+  {
+   "n": "Sea ducks",
+   "lim": "7",
+   "note": "harlequin, scoters, long-tailed and eider; sea duck permit required"
+  },
+  {
+   "n": "Mergansers",
+   "lim": "7",
+   "note": "count in the duck bag"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "7",
+   "note": "up to the full bag"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "ODFW’s shooting-hours table (page 8). Northwest Permit Zone geese during the permit season: fixed hours by date (page 18), e.g. 7:43 a.m. – 6:09 p.m. Oct 24–31."
+  },
+  {
+   "g": "Gear",
+   "t": "Shot",
+   "d": "Federally approved nontoxic shot when hunting waterfowl and snipe. Shotguns limited to 3 shells."
+  },
+  {
+   "g": "Special",
+   "t": "Northwest Permit Zone",
+   "d": "Northwest Goose Permit and goose identification test required for the regular season; dusky Canada geese closed (taking one voids the permit); geese must stay fully feathered in the field and in transit."
+  },
+  {
+   "g": "Special",
+   "t": "No-hunting areas",
+   "d": "Red: ODFW Access and Habitat safety areas (access, no hunting) and restricted areas (no access, no hunting). Not drawn: state refuges such as the Columbia River and John Day River refuges (see ODFW regulations, pages 34–42)."
+  },
+  {
+   "g": "Special",
+   "t": "February goose closures",
+   "d": "Feb 1 – Mar 10: no goose hunting on the Miller Island Unit (Klamath WA), Summer Lake WA, Ladd Marsh WA and the Klamath NWR Complex, except the Feb 6 veterans hunt."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth and veterans days",
+   "d": "Youth waterfowl Sept 26–27 statewide. Veterans and active military Feb 6 statewide."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Oregon hunting licence",
+   "who": "Hunters",
+   "d": "Resident or non-resident, from ODFW."
+  },
+  {
+   "t": "Oregon Waterfowl Validation",
+   "who": "Waterfowl hunters 18+",
+   "d": "Non-residents: nonresident game bird validation."
+  },
+  {
+   "t": "HIP validation",
+   "who": "Every migratory bird hunter",
+   "d": "Free; valid July 1 – June 30."
+  },
+  {
+   "t": "Federal duck stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "Signed in ink."
+  },
+  {
+   "t": "Northwest Goose Permit",
+   "who": "Northwest Permit Zone regular goose season",
+   "d": "After passing the goose identification test."
+  },
+  {
+   "t": "Brant and sea duck permits",
+   "who": "Brant and sea duck hunters",
+   "d": "Free, from ODFW."
+  }
+ ],
+ "geometryNote": "Geometry: zone lines follow Census TIGER county lines and US 101 through Douglas, Coos and Curry counties (OpenStreetMap; OSM has a short break at the Rogue River bridge, joined straight), split against the Census TIGER outline and welded to Washington along the shared Census border; ODFW wildlife areas and no-hunting areas, Oregon State Marine Board boating access; USGS NHD and GNIS; USFWS (refuge units; NWI marsh); NOAA tides."
+}

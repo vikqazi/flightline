@@ -1,0 +1,496 @@
+{
+ "state": "WI",
+ "stateName": "Wisconsin",
+ "season": "2026–27",
+ "updated": "2026-10-31",
+ "sources": [
+  {
+   "label": "Wisconsin DNR — Waterfowl Hunting (2026 season dates, licences and stamps, youth hunt, zone maps)",
+   "url": "https://dnr.wisconsin.gov/topic/hunt/waterfowl.html"
+  },
+  {
+   "label": "Wisconsin DNR — Hunting Regulations, Fall 2026–Spring 2027 (Migratory Game Birds: dates, bags, methods; zones; open water; fees; DNR-managed lands)",
+   "url": "https://dnr.wisconsin.gov/topic/Hunt/regulations/OnlineHuntingRegulations"
+  },
+  {
+   "label": "Wisconsin DNR — Duck Hunting Zones (county lists and map)",
+   "url": "https://widnr.widen.net/s/df7p9gshjk/open_water_zone_description"
+  },
+  {
+   "label": "Wisconsin DNR — Goose Hunting Zones (county lists and map, Mississippi River Subzone)",
+   "url": "https://widnr.widen.net/s/vctlplg2s7/canada_goose_hunting_zones"
+  },
+  {
+   "label": "Wisconsin DNR — 2026–2030 Migratory Game Bird Hunting Season Public Input Summary (the structure was proposed; adoption not stated)",
+   "url": "https://widnr.widen.net/s/tkbmfmzmnc/2026-2030-waterfowl-season-public-input-summary"
+  },
+  {
+   "label": "Wisconsin Admin. Code NR 10.32 (zone diagram only, no road text)",
+   "url": "https://docs.legis.wisconsin.gov/document/administrativecode/NR%2010.32"
+  },
+  {
+   "label": "Wisconsin DNR — Managed Lands: DNR Owned (property) with its public-access field (public land and closed areas)",
+   "url": "https://dnrmaps.wi.gov/arcgis/rest/services/LF_DML/LF_DNR_MGD_PROP_WTM_Ext/MapServer/2"
+  },
+  {
+   "label": "Wisconsin DNR — County Forests (public land)",
+   "url": "https://dnrmaps.wi.gov/arcgis/rest/services/LF_DML/LF_DNR_PUBLIC_LAND_WTM_Ext/MapServer/0"
+  },
+  {
+   "label": "Wisconsin DNR — Public Boat Access Sites (boat landings)",
+   "url": "https://dnrmaps.wi.gov/arcgis2/rest/services/PR_Recreation/PR_Boat_Access_Shore_Fishing_WTM_Ext/MapServer/2"
+  },
+  {
+   "label": "OpenStreetMap — numbered routes (the zone line runs on US-10 and US-41) and the BNSF main line (goose subzone)",
+   "url": "https://www.openstreetmap.org/copyright"
+  },
+  {
+   "label": "U.S. Census Bureau TIGER — state outline (with the Great Lakes waters), counties, county subdivisions and shared borders",
+   "url": "https://tigerweb.geo.census.gov/"
+  },
+  {
+   "label": "USGS Geographic Names (GNIS)",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  {
+   "label": "USGS National Hydrography Dataset — ponds, marshes, rivers, lakes, streams",
+   "url": "https://www.usgs.gov/national-hydrography"
+  },
+  {
+   "label": "USFWS — National Wildlife Refuge hunt units",
+   "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/ArcGIS/rest/services/FWS_National_Hunt_Units_2025-2026/FeatureServer/0"
+  },
+  {
+   "label": "USFWS National Wetlands Inventory — marsh of 5 acres and up, for the habitat surface",
+   "url": "https://www.fws.gov/program/national-wetlands-inventory"
+  }
+ ],
+ "zones": {
+  "n": {
+   "name": "Northern Zone",
+   "short": "Northern",
+   "bounds": "Northern Zone: the part of Wisconsin north of a line that begins at the Mississippi River at Prescott (Pierce Co.) and follows U.S. Highway 10 east (Ellsworth, Durand, Osseo, Neillsville, Marshfield, Stevens Point, Waupaca) to the Fox Cities (the US-10 / I-41 interchange at Neenah), then U.S. Highway 41 north through Appleton and Green Bay. The DNR text says the northern and southern zones \"are divided by U.S. Highways 10 and 41\"; its county lists put the line through Pierce, Pepin, Buffalo, Trempealeau, Jackson, Clark, Wood, Portage, Waupaca, Outagamie, Brown, Winnebago and Calumet counties. North of Green Bay the line is drawn here along the Brown / Oconto county line, and in the bay along the Oconto / Door and Marinette / Door county lines (an approximation: the DNR draws an Open Water Zone there). Lake Superior is Northern.",
+   "note": "Ducks Sept 26 – Nov 24. Geese Sept 16 – Dec 16."
+  },
+  "s": {
+   "name": "Southern Zone",
+   "short": "Southern",
+   "bounds": "Southern Zone: the rest of Wisconsin, south and east of the same line: Door, Kewaunee, Manitowoc, Sheboygan and every county south of US-10, and the Lake Michigan waters off them. The same line divides the Canada goose zones.",
+   "note": "Ducks Oct 3–11, Oct 17 – Dec 6. Geese Sept 16 – Oct 11, Oct 17 – Dec 6, Dec 19 – Jan 2 (Mississippi River subzone: Oct 3–11, Oct 17 – Jan 5)."
+  }
+ },
+ "seasonsNote": "Wisconsin has a Northern and a Southern zone for ducks and geese, divided by U.S. Highways 10 and 41. The Mississippi River goose subzone (west of the BNSF tracks, amber on the map) has its own goose dates. Early teal, early Canada geese, the youth weekend, rails, snipe, gallinules, dove and woodcock are statewide. The DNR also publishes an Open Water Duck Zone for Lake Michigan and Green Bay beyond 500 ft from shore; that rule is not adopted, so it is not shown. The 2026–2030 structure was proposed and its adoption is not stated on the DNR pages read: check the DNR before you hunt.",
+ "seasons": [
+  {
+   "sp": "duck",
+   "label": "Ducks",
+   "z": {
+    "n": [
+     [
+      "2026-09-26",
+      "2026-11-24"
+     ]
+    ],
+    "s": [
+     [
+      "2026-10-03",
+      "2026-10-11"
+     ],
+     [
+      "2026-10-17",
+      "2026-12-06"
+     ]
+    ]
+   },
+   "note": "Hours: see the DNR 2026 Northern and Southern migratory bird shooting-hours tables (add the zone minutes from the DNR zone map; not read here). Scaup: Northern 2 a day Sept 26 – Nov 9, then 1 a day Nov 10–24; Southern 1 a day Oct 3–11 and Oct 17–22, then 2 a day Oct 23 – Dec 6."
+  },
+  {
+   "sp": "merganser",
+   "label": "Mergansers",
+   "sameAs": "duck"
+  },
+  {
+   "sp": "coot",
+   "label": "Coots",
+   "sameAs": "duck",
+   "note": "Same dates as the duck zone you are hunting."
+  },
+  {
+   "sp": "teal",
+   "label": "Teal — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-09"
+    ]
+   ],
+   "note": "Blue-winged and green-winged teal. Early teal has its own shooting hours: sunrise to sunset."
+  },
+  {
+   "sp": "canadasept",
+   "label": "Canada geese — early",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-09-15"
+    ]
+   ],
+   "note": "Needs the early Canada goose permit. 5 Canada geese a day."
+  },
+  {
+   "sp": "canada",
+   "label": "Canada geese — regular",
+   "z": {
+    "n": [
+     [
+      "2026-09-16",
+      "2026-12-16"
+     ]
+    ],
+    "s": [
+     [
+      "2026-09-16",
+      "2026-10-11"
+     ],
+     [
+      "2026-10-17",
+      "2026-12-06"
+     ],
+     [
+      "2026-12-19",
+      "2027-01-02"
+     ]
+    ]
+   },
+   "note": "Needs the regular Canada goose permit. The Mississippi River subzone (west of the BNSF tracks, amber on the map) is open Oct 3–11 and Oct 17 – Jan 5, 2027, 3 a day."
+  },
+  {
+   "sp": "snow",
+   "label": "White geese — snow, blue, Ross’s",
+   "sameAs": "canada",
+   "note": "Same dates as the regular goose season in each zone."
+  },
+  {
+   "sp": "brant",
+   "label": "Brant",
+   "sameAs": "canada",
+   "note": "Part of the regular goose season; 1 a day."
+  },
+  {
+   "sp": "whitefront",
+   "label": "Greater white-fronted geese",
+   "sameAs": "canada",
+   "note": "Part of the regular goose season; 1 a day."
+  },
+  {
+   "sp": "sora",
+   "label": "Rails (Virginia and sora)",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "snipe",
+   "label": "Wilson’s snipe",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "gallinule",
+   "label": "Common gallinules",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-09"
+    ]
+   ]
+  },
+  {
+   "sp": "dove",
+   "label": "Mourning dove",
+   "statewide": [
+    [
+     "2026-09-01",
+     "2026-11-29"
+    ]
+   ]
+  },
+  {
+   "sp": "woodcock",
+   "label": "Woodcock",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-11-02"
+    ]
+   ]
+  },
+  {
+   "sp": "youth",
+   "label": "Youth waterfowl hunt",
+   "statewide": [
+    [
+     "2026-09-19",
+     "2026-09-20"
+    ]
+   ],
+   "note": "Hunters 15 and younger with an adult mentor 18+. Licences and stamps are waived (HIP registration required); regular bag limits, hours and blind and shot rules apply."
+  }
+ ],
+ "bags": [
+  {
+   "sp": "duck",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Six ducks including no more than 4 mallards (2 hens), 3 wood ducks, 2 black ducks, 3 pintails, 2 canvasbacks, 2 redheads and the scaup limit; other species, such as teal and ring-necks, count toward the 6. Possession is three times the daily limit."
+  },
+  {
+   "sp": "merganser",
+   "daily": "5",
+   "poss": "15",
+   "detail": "No more than 2 hooded mergansers."
+  },
+  {
+   "sp": "coot",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "teal",
+   "daily": "6",
+   "poss": "18",
+   "detail": "Part of the duck limit."
+  },
+  {
+   "sp": "canadasept",
+   "daily": "5",
+   "poss": "15",
+   "detail": "Early season: 5 Canada geese (and 20 white geese)."
+  },
+  {
+   "sp": "canada",
+   "daily": "3",
+   "poss": "9",
+   "detail": "3 Canada geese a day; in the Southern zone holiday segment (Dec 19 – Jan 2) 5 a day."
+  },
+  {
+   "sp": "snow",
+   "daily": "20",
+   "poss": "60",
+   "detail": "Snow, blue and Ross’s geese in any combination."
+  },
+  {
+   "sp": "brant",
+   "daily": "1",
+   "poss": "3",
+   "detail": ""
+  },
+  {
+   "sp": "whitefront",
+   "daily": "1",
+   "poss": "3",
+   "detail": "Greater white-fronted goose."
+  },
+  {
+   "sp": "sora",
+   "daily": "25",
+   "poss": "75",
+   "detail": "Virginia and sora rails."
+  },
+  {
+   "sp": "snipe",
+   "daily": "8",
+   "poss": "24",
+   "detail": ""
+  },
+  {
+   "sp": "gallinule",
+   "daily": "15",
+   "poss": "45",
+   "detail": "Common gallinule."
+  },
+  {
+   "sp": "dove",
+   "daily": "15",
+   "poss": "45",
+   "detail": ""
+  },
+  {
+   "sp": "woodcock",
+   "daily": "3",
+   "poss": "9",
+   "detail": ""
+  },
+  {
+   "sp": "youth",
+   "daily": "Regular",
+   "poss": "Regular",
+   "detail": "Same as the regular duck season; geese at the goose limits."
+  }
+ ],
+ "duckSublimits": [
+  {
+   "n": "Mallard",
+   "lim": "4",
+   "note": "no more than 2 hens"
+  },
+  {
+   "n": "Wood duck",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Northern pintail",
+   "lim": "3",
+   "note": ""
+  },
+  {
+   "n": "Black duck",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Redhead",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Canvasback",
+   "lim": "2",
+   "note": ""
+  },
+  {
+   "n": "Scaup",
+   "lim": "1 or 2",
+   "note": "Northern: 2 a day Sept 26 – Nov 9, then 1 a day Nov 10–24. Southern: 1 a day Oct 3–11 and Oct 17–22, then 2 a day Oct 23 – Dec 6."
+  },
+  {
+   "n": "Mergansers",
+   "lim": "5",
+   "note": "their own limit; no more than 2 hooded"
+  },
+  {
+   "n": "Coots",
+   "lim": "15",
+   "note": "their own limit"
+  },
+  {
+   "n": "Other ducks",
+   "lim": "6",
+   "note": "up to the full bag (teal and ring-necks have no separate limit)"
+  }
+ ],
+ "rules": [
+  {
+   "g": "Hours",
+   "t": "Shooting hours",
+   "d": "Normal shooting hours apply. Legal hours come from the DNR’s 2026 Northern and Southern migratory bird shooting-hours tables (add the minutes shown for your zone on the DNR hours map); early teal is sunrise to sunset. Those tables are PDFs that were not read for this map: check them. It is illegal to shoot before or after the listed hours."
+  },
+  {
+   "g": "Gear",
+   "t": "Guns",
+   "d": "A shotgun fired from the shoulder, a bow and arrow, a crossbow, or falconry. No shotgun larger than 10 gauge, and none that holds more than 3 shells (chamber and magazine) unless plugged with a one-piece filler. No rifles, handguns, swivel or punt guns, traps, snares or nets."
+  },
+  {
+   "g": "Gear",
+   "t": "Non-toxic shot",
+   "d": "No lead or other toxic shot for ducks, geese, brant, snipe, rails, coots and common gallinules. Only non-toxic sizes BB, BBB, T, F or smaller are legal. National wildlife refuges and federal waterfowl production areas allow only non-toxic shot for all migratory and upland game birds."
+  },
+  {
+   "g": "Gear",
+   "t": "Decoys and calls",
+   "d": "No decoys beyond 200 feet from your cover, none placed in the water more than 1 hour before waterfowl shooting hours, none left in the water more than 20 minutes after hours, none left unattended (decoys may be left on dry land), and no live decoys. No electronic bird calls and no recordings or imitations of bird calls while hunting waterfowl."
+  },
+  {
+   "g": "Gear",
+   "t": "Blinds",
+   "d": "On state property you may not set a waterfowl blind more than 7 days before the season or leave it more than 7 days after it. A blind left on state property must carry your name, address and DNR customer ID in letters at least 1 square inch. Waterfowl blinds on DNR lands do not need to be removed daily. No hunting from a sink box."
+  },
+  {
+   "g": "Gear",
+   "t": "Boats and vehicles",
+   "d": "No hunting or shooting from a moving boat other than one propelled by paddle, oars or pole; motorboats and sailboats must have the motor off or sail furled and all progress stopped before you load or shoot. No hunting from a pier, dam, dock, breakwater or similar structure (Class A disabled permit holders excepted). No taking birds from any vehicle other than a boat (paraplegics and persons missing a leg excepted). No driving or rallying birds with aircraft, drones or boats."
+  },
+  {
+   "g": "Special",
+   "t": "Open-water restrictions",
+   "d": "It is illegal to hunt waterfowl in open water from or with the aid of any blind, boat, canoe, raft or similar device except: Lake Pepin and the Grant County portions of the Mississippi River — no minimum distance from shore, blind anchored and removed daily; all other Mississippi River areas — within 100 ft of shore, anchored, removed daily; Big Green Lake, the Great Lakes and Green Bay — at least 500 ft from shore, removed daily (need not be anchored); and these lakes, at least 500 ft from shore, anchored, removed daily: Beaver Dam Lake (not Rakes and Trestle Works bays), Castle Rock Lake (south of the railroad bridge and Cty. G), Fence Lake, Grindstone Lake, Lake Puckaway (west of the west end of the dredge bank), Lake Winnebago, Lake Wisconsin (north of the railroad bridge), Lake Wissota (south of Cty. S and north of Cty. X), North Twin Lake, Petenwell Flowage (north of State Hwy. 21 and south of State Hwy. 73), Shawano Lake and Trout Lake. You may hunt in open water if any part of the boat or blind is within 3 ft of any shoreline or island, or within 3 ft of natural rooted vegetation (stumps and trees count) that conceals at least half of the hunter and boat or blind, or if you stand on the bottom without a blind. Disabled permit holders (Class A or B) may hunt only far enough from emergent vegetation to keep the minimum depth for the boat. The lakes outlined amber on the map are the ones named in this rule; where only part of a lake is covered the whole lake is outlined and marked approximate."
+  },
+  {
+   "g": "Special",
+   "t": "Mississippi River goose subzone",
+   "d": "The Mississippi River goose zone is the part of Wisconsin west of the Burlington Northern Santa Fe railroad tracks to the state line, from Grant County north to Pierce County. Canada geese Oct 3–11 and Oct 17 – Jan 5, 2027, 3 a day. The amber area on the map follows the BNSF main line as OpenStreetMap shows it: approximate. Ducks there follow the Northern or Southern zone."
+  },
+  {
+   "g": "Special",
+   "t": "Green Bay PFAS advisory",
+   "d": "The DNR reminds hunters on Green Bay that a PFAS consumption advisory is in place for harvested mallards and wood ducks; the Department of Health Services advice varies by reach (for example, mallards from lower Green Bay below Longtail Point: do not eat). Check the DNR consumption advisories before eating birds taken in Green Bay, the lower Fox River, and the Sheboygan and Milwaukee harbors."
+  },
+  {
+   "g": "Special",
+   "t": "DNR-managed lands",
+   "d": "Hunting is allowed on DNR lands open to hunting; it is illegal to hunt or possess an uncased firearm in an area closed to hunting. Within the exterior boundary of DNR-posted state land in Brown, Columbia, Dane, Dodge, Fond du Lac, Jefferson, Juneau, Kenosha, La Crosse, Manitowoc, Milwaukee, Outagamie, Ozaukee, Racine, Rock, Sauk, Sheboygan, Walworth, Washington, Waukesha and Winnebago counties, and on state recreation areas, natural areas and railroad-grade trails, no firearm may be discharged except while hunting in season. No camping on state land except designated campgrounds without a permit. State park properties: check each park’s hunting map; no hunting within 100 yards of picnic areas, campgrounds, beaches, buildings and designated trails; property access for hunting runs 6 a.m. (or 1 hour before shooting hours) to 11 p.m."
+  },
+  {
+   "g": "Special",
+   "t": "Federal lands",
+   "d": "National wildlife refuges, waterfowl production areas, national forests and National Park Service areas have extra rules: contact the property. The refuge layer comes from the USFWS hunt-unit data."
+  },
+  {
+   "g": "Special",
+   "t": "Sunday and other restrictions",
+   "d": "The online regulations (Fall 2026–Spring 2027) list no Sunday waterfowl restriction. Hunters must not hunt within 50 feet of a roadway’s center or shoot from or across a highway. The DNR says Wisconsin offers public hunting on all legally accessible bodies of water."
+  },
+  {
+   "g": "Special",
+   "t": "Baiting",
+   "d": "It is illegal to hunt waterfowl, coots or mourning dove over bait, or in an area where bait has been placed in the last 10 days after complete removal, if you know or should know of it. Hunting over crops planted and harvested in the normal agricultural way is legal."
+  },
+  {
+   "g": "Youth",
+   "t": "Youth waterfowl hunt",
+   "d": "Sept 19–20, 2026, for hunters 15 and younger with an adult mentor 18 or older (one youth per adult, or two if one is 12–15 with hunter education). HIP registration is required; licences and stamps are waived. The mentor may take geese only when the goose season is open and with a Canada goose permit."
+  },
+  {
+   "g": "Transport",
+   "t": "Keep a head or wing on",
+   "d": "The head or one fully feathered wing must stay attached to every migratory game bird in the field and while transporting it to your permanent home. Birds left with another person must be tagged with your signature, address, the number of birds by species and the dates killed. A hunter must make every reasonable effort to retrieve downed or crippled birds; crippled birds count in the bag until retrieved."
+  }
+ ],
+ "licences": [
+  {
+   "t": "Small game hunting licence",
+   "who": "Everyone hunting waterfowl (not needed on the youth weekend for those 15 and younger)",
+   "d": "Resident $18, non-resident $90 (a 5-day non-resident licence is $60). Junior (12–17) $9 resident; senior (65+) $9 resident."
+  },
+  {
+   "t": "State waterfowl stamp",
+   "who": "Waterfowl hunters 16+ (not for coots, rails, gallinules, dove or woodcock)",
+   "d": "$12, resident or non-resident."
+  },
+  {
+   "t": "Federal migratory bird (duck) stamp",
+   "who": "Waterfowl hunters 16+",
+   "d": "$28.50 through Go Wild (a digital E-Stamp certification must be carried), or the physical stamp from a post office, signed."
+  },
+  {
+   "t": "Canada goose permit",
+   "who": "Anyone hunting Canada geese",
+   "d": "Early goose permit $3 and regular goose permit $3, resident or non-resident."
+  },
+  {
+   "t": "HIP registration",
+   "who": "Every migratory bird hunter (ducks, geese, rails, snipe, woodcock, dove, coot, gallinule, mergansers)",
+   "d": "Free; register when you buy your licence."
+  }
+ ],
+ "geometryNote": "Geometry: the Northern / Southern line is routed on OpenStreetMap along U.S. Highway 10 (Prescott to the I-41 interchange at Neenah) and U.S. Highway 41 (north through Appleton and Green Bay to the Brown / Oconto county line), the roads the DNR names; the DNR gives county lists and a picture map, not a road description, and NR 10.32 is a diagram. From the Brown / Oconto county line the line follows Census county lines out into Green Bay. The Mississippi River goose subzone follows the OpenStreetMap BNSF main line. Neither the Open Water duck zone nor county-level goose management is drawn. See the Issues notes."
+}
